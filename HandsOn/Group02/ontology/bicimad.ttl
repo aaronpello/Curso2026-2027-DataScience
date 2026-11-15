@@ -1,0 +1,183 @@
+@prefix bme:     <http://www.bicimadexplorer.es/ontology/bicimad#> .
+@prefix owl:     <http://www.w3.org/2002/07/owl#> .
+@prefix rdf:     <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix rdfs:    <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix xsd:     <http://www.w3.org/2001/XMLSchema#> .
+@prefix dcterms: <http://purl.org/dc/terms/> .
+
+#################################################################
+#    Ontology
+#################################################################
+
+<http://www.bicimadexplorer.es/ontology/bicimad>
+    rdf:type owl:Ontology ;
+    rdfs:label "BiciMAD Explorer ontology"@en ;
+    rdfs:comment "Lightweight ontology describing the stations of BiciMAD, the public bicycle-sharing service of Madrid."@en ;
+    dcterms:license <https://creativecommons.org/licenses/by/4.0/> ;
+    owl:versionInfo "0.1" .
+
+#################################################################
+#    Classes
+#################################################################
+
+bme:Station
+    rdf:type owl:Class ;
+    rdfs:label "Station"@en ;
+    rdfs:comment "A BiciMAD docking station where public bicycles can be picked up and returned. One per row of the CSV, identified by the column 'number'."@en .
+
+bme:Address
+    rdf:type owl:Class ;
+    rdfs:label "Address"@en ;
+    rdfs:comment "Postal address of a station (CSV column 'Address'). Used to link stations with street datasets of Madrid."@en .
+
+bme:Location
+    rdf:type owl:Class ;
+    rdfs:label "Location"@en ;
+    rdfs:comment "Geographic point in WGS84 where a station is placed (CSV columns 'POINT_X' and 'POINT_Y'). Used to link stations with geographic datasets."@en .
+
+bme:District
+    rdf:type owl:Class ;
+    rdfs:label "District"@en ;
+    rdfs:comment "Administrative district of Madrid where a station is located. Not in the CSV: obtained from the coordinates and used to link with external district data."@en .
+
+bme:StationStatus
+    rdf:type owl:Class ;
+    rdfs:label "Station status"@en ;
+    rdfs:comment "Operational status of a station (CSV column 'State'): in service, not in service, maintenance, end of life or planned."@en .
+
+bme:OccupancyLevel
+    rdf:type owl:Class ;
+    rdfs:label "Occupancy level"@en ;
+    rdfs:comment "Occupancy level of a station (CSV column 'Ligth'): 0 low, 1 medium, 2 high, 3 not operational."@en .
+
+# No individual can belong to two of these classes at the same time.
+[ rdf:type owl:AllDisjointClasses ;
+  owl:members ( bme:Station bme:Address bme:Location bme:District bme:StationStatus bme:OccupancyLevel )
+] .
+
+#################################################################
+#    Object properties
+#################################################################
+
+bme:hasAddress
+    rdf:type owl:ObjectProperty , owl:FunctionalProperty ;
+    rdfs:label "has address"@en ;
+    rdfs:comment "Links a station with its address (CSV column 'Address')."@en ;
+    rdfs:domain bme:Station ;
+    rdfs:range bme:Address .
+
+bme:hasLocation
+    rdf:type owl:ObjectProperty , owl:FunctionalProperty ;
+    rdfs:label "has location"@en ;
+    rdfs:comment "Links a station with its geographic point (CSV columns 'POINT_X' and 'POINT_Y')."@en ;
+    rdfs:domain bme:Station ;
+    rdfs:range bme:Location .
+
+bme:hasStatus
+    rdf:type owl:ObjectProperty , owl:FunctionalProperty ;
+    rdfs:label "has status"@en ;
+    rdfs:comment "Links a station with its operational status (CSV column 'State')."@en ;
+    rdfs:domain bme:Station ;
+    rdfs:range bme:StationStatus .
+
+bme:hasOccupancyLevel
+    rdf:type owl:ObjectProperty , owl:FunctionalProperty ;
+    rdfs:label "has occupancy level"@en ;
+    rdfs:comment "Links a station with its occupancy level (CSV column 'Ligth')."@en ;
+    rdfs:domain bme:Station ;
+    rdfs:range bme:OccupancyLevel .
+
+bme:locatedInDistrict
+    rdf:type owl:ObjectProperty ;
+    rdfs:label "located in district"@en ;
+    rdfs:comment "Links a location with the district of Madrid that contains it."@en ;
+    rdfs:domain bme:Location ;
+    rdfs:range bme:District .
+
+#################################################################
+#    Datatype properties
+#################################################################
+
+bme:objectId
+    rdf:type owl:DatatypeProperty , owl:FunctionalProperty ;
+    rdfs:label "object id"@en ;
+    rdfs:comment "Identifier of the record in the source file (CSV column 'OBJECTID')."@en ;
+    rdfs:domain bme:Station ;
+    rdfs:range xsd:integer .
+
+bme:stationNumber
+    rdf:type owl:DatatypeProperty , owl:FunctionalProperty ;
+    rdfs:label "station number"@en ;
+    rdfs:comment "Identification number of the station (CSV column 'number'). Stored as text because some values are alphanumeric, e.g. '25A' or '508-old'."@en ;
+    rdfs:domain bme:Station ;
+    rdfs:range xsd:string .
+
+bme:stationName
+    rdf:type owl:DatatypeProperty ;
+    rdfs:label "station name"@en ;
+    rdfs:comment "Name of the station (CSV column 'Name')."@en ;
+    rdfs:domain bme:Station ;
+    rdfs:range xsd:string .
+
+bme:totalDocks
+    rdf:type owl:DatatypeProperty , owl:FunctionalProperty ;
+    rdfs:label "total docks"@en ;
+    rdfs:comment "Total number of bicycle docking spaces (CSV column 'TotalBases'). Values from 0 to 43."@en ;
+    rdfs:domain bme:Station ;
+    rdfs:range xsd:nonNegativeInteger .
+
+bme:isActive
+    rdf:type owl:DatatypeProperty , owl:FunctionalProperty ;
+    rdfs:label "is active"@en ;
+    rdfs:comment "Whether the station is activated (CSV column 'Activate': 1 = true, 0 = false)."@en ;
+    rdfs:domain bme:Station ;
+    rdfs:range xsd:boolean .
+
+bme:isUnavailable
+    rdf:type owl:DatatypeProperty , owl:FunctionalProperty ;
+    rdfs:label "is unavailable"@en ;
+    rdfs:comment "Whether the station is unavailable (CSV column 'NoAvailable': 1 = true, 0 = false)."@en ;
+    rdfs:domain bme:Station ;
+    rdfs:range xsd:boolean .
+
+bme:streetAddress
+    rdf:type owl:DatatypeProperty ;
+    rdfs:label "street address"@en ;
+    rdfs:comment "Text of the address of the station (CSV column 'Address')."@en ;
+    rdfs:domain bme:Address ;
+    rdfs:range xsd:string .
+
+bme:longitude
+    rdf:type owl:DatatypeProperty , owl:FunctionalProperty ;
+    rdfs:label "longitude"@en ;
+    rdfs:comment "Geographical X coordinate, WGS84 longitude in decimal degrees (CSV column 'POINT_X')."@en ;
+    rdfs:domain bme:Location ;
+    rdfs:range xsd:decimal .
+
+bme:latitude
+    rdf:type owl:DatatypeProperty , owl:FunctionalProperty ;
+    rdfs:label "latitude"@en ;
+    rdfs:comment "Geographical Y coordinate, WGS84 latitude in decimal degrees (CSV column 'POINT_Y')."@en ;
+    rdfs:domain bme:Location ;
+    rdfs:range xsd:decimal .
+
+bme:districtName
+    rdf:type owl:DatatypeProperty ;
+    rdfs:label "district name"@en ;
+    rdfs:comment "Name of the district."@en ;
+    rdfs:domain bme:District ;
+    rdfs:range xsd:string .
+
+bme:statusCode
+    rdf:type owl:DatatypeProperty , owl:FunctionalProperty ;
+    rdfs:label "status code"@en ;
+    rdfs:comment "Value of the CSV column 'State': IN_SERVICE, NOT_IN_SERVICE, END_OF_LIFE or PLANNED."@en ;
+    rdfs:domain bme:StationStatus ;
+    rdfs:range xsd:string .
+
+bme:occupancyCode
+    rdf:type owl:DatatypeProperty , owl:FunctionalProperty ;
+    rdfs:label "occupancy code"@en ;
+    rdfs:comment "Value of the CSV column 'Ligth' (0 to 3)."@en ;
+    rdfs:domain bme:OccupancyLevel ;
+    rdfs:range xsd:nonNegativeInteger .

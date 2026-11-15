@@ -1,0 +1,21 @@
+{
+  "@context" : "https://www.schema.org/",
+  "@id": "http://www.granada.org/api/recursos/Granada",
+  "@type": "City",
+  "cityname": "Granada",
+  "population": 233532,
+  "country": 
+  {
+    "@id": "http://www.granada.org/api/recursos/España",
+    "@type": "Country",
+    "name": "España"
+  },
+  "universities": [
+    {
+      "@id": "http://www.granada.org/api/recursos/universidades/UGR",
+      "@type": "University",
+      "name": "Universidad de Granada",
+      "acronym": "UGR"
+    }
+  ]
+}

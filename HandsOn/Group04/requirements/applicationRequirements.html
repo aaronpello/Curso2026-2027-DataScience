@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Requisitos de la aplicación - Group04</title>
+<style>
+  body { font-family: Arial, sans-serif; line-height: 1.6; max-width: 900px; margin: 30px auto; padding: 0 20px; color: #333; }
+  h1 { color: #0056b3; border-bottom: 2px solid #0056b3; padding-bottom: 10px; }
+  h2 { color: #0056b3; margin-top: 30px; }
+  h3 { color: #444; margin-top: 20px; }
+  table { border-collapse: collapse; width: 100%; margin: 20px 0; font-size: 14px; }
+  th, td { border: 1px solid #ddd; padding: 10px; text-align: left; vertical-align: top; }
+  th { background-color: #f4f4f4; }
+  img { max-width: 100%; height: auto; border: 1px solid #ddd; border-radius: 6px; }
+  figcaption { font-size: 13px; color: #666; margin-top: 6px; }
+  .note { background: #fff8e1; border-left: 4px solid #d39e00; padding: 10px 15px; margin: 20px 0; }
+</style>
+</head>
+<body>
+
+<h1>Requisitos de la aplicación: AireBarrio València</h1>
+<p><strong>Grupo:</strong> Group04 &nbsp;|&nbsp; <strong>Hands-on 1</strong> – Selección de datasets y requisitos de la aplicación</p>
+
+<h2>1. La idea</h2>
+<p>
+  Nuestra aplicación se llama <strong>AireBarrio València</strong> y sirve para que cualquier persona pueda ver
+  qué tal está el aire en su barrio. Lo que pasa hoy es que los datos de contaminación existen, pero están en
+  archivos con nombres de estaciones y códigos que casi nadie entiende, y la gente normalmente no sabe en qué
+  estación le «toca» su casa. Nosotros queremos que alguien pueda elegir su distrito, ver un resultado claro
+  (<em>buena</em>, <em>regular</em> o <em>mala</em>) y, si le interesa, mirar el detalle de cada contaminante.
+</p>
+<p>
+  Para conseguirlo usamos los dos datasets que ya seleccionamos en el documento de requisitos de los datasets:
+  el de calidad del aire (D1), que nos da las mediciones, y el de distritos (D2), que nos da los barrios.
+  Juntándolos podemos pasar de «la estación X ha medido tal valor» a «en el distrito Y el aire estuvo así».
+</p>
+
+<h2>2. ¿Para quién es?</h2>
+<table>
+  <thead>
+    <tr><th>Tipo de usuario</th><th>Qué quiere hacer</th></tr>
+  </thead>
+  <tbody>
+    <tr><td><strong>Vecinos y vecinas</strong></td><td>Saber de forma rápida cómo estaba el aire en su barrio, sin tener que entender tablas técnicas.</td></tr>
+    <tr><td><strong>Personas que hacen deporte al aire libre</strong></td><td>Mirar a qué horas hubo menos contaminación para decidir cuándo salir a correr o a pasear en bici.</td></tr>
+    <tr><td><strong>Familias y personas sensibles</strong> (asma, mayores, niños)</td><td>Comparar su distrito con otros y tener una idea de qué zonas suelen tener peor aire.</td></tr>
+    <tr><td><strong>Estudiantes o periodistas</strong></td><td>Consultar los datos de forma sencilla y comparar zonas de la ciudad para un trabajo o una noticia.</td></tr>
+  </tbody>
+</table>
+
+<h2>3. Datos que usa la aplicación</h2>
+<table>
+  <thead>
+    <tr><th>Dataset</th><th>Para qué lo usamos</th></tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><strong>D1 – Calidad del aire de València (2021–2022)</strong></td>
+      <td>Valores horarios de contaminantes (como NO2, O3 o PM10) por estación. Es la base de todo lo que se muestra: el resultado del día, las barras de cada contaminante y la gráfica por horas.</td>
+    </tr>
+    <tr>
+      <td><strong>D2 – Distritos de València</strong></td>
+      <td>Nombres y formas (geometría) de los distritos. Con esto dibujamos el mapa y asignamos cada estación al distrito donde está.</td>
+    </tr>
+  </tbody>
+</table>
+<p>
+  Cómo los combinamos: primero localizamos cada estación en el mapa y vemos dentro de qué distrito cae. A partir de ahí,
+  las mediciones de esa estación se atribuyen a ese distrito. Si un distrito tiene varias estaciones, se puede hacer una media;
+  si no tiene ninguna, la app usará la estación más cercana y lo avisará al usuario (así no damos la impresión de que
+  se ha medido en su calle cuando no es verdad).
+</p>
+<div class="note">
+  <strong>Importante:</strong> D1 cubre solo 2021 y 2022, así que la versión que planteamos es una app de <em>consulta histórica</em>
+  (por eso hay selector de fecha), no de aire «en tiempo real». Si el proyecto siguiera adelante, el siguiente paso natural sería
+  conectar la app con datos más recientes del mismo portal.
+</div>
+
+<h2>4. Requisitos funcionales</h2>
+<table>
+  <thead>
+    <tr><th>Id</th><th>Requisito</th><th>Pantalla</th></tr>
+  </thead>
+  <tbody>
+    <tr><td>RF1</td><td>El usuario puede elegir un distrito de València en una lista desplegable.</td><td>Inicio</td></tr>
+    <tr><td>RF2</td><td>El usuario puede elegir una fecha dentro del periodo cubierto por los datos (2021–2022).</td><td>Inicio</td></tr>
+    <tr><td>RF3</td><td>La app muestra un resultado general del día para ese distrito (buena, regular o mala) con un color fácil de entender.</td><td>Inicio</td></tr>
+    <tr><td>RF4</td><td>La app indica qué estación se ha usado para calcular el resultado.</td><td>Inicio</td></tr>
+    <tr><td>RF5</td><td>La app muestra el valor de cada contaminante principal (por ejemplo NO2, O3 y PM10) con una barra de color.</td><td>Inicio</td></tr>
+    <tr><td>RF6</td><td>La app muestra una gráfica de cómo ha evolucionado un contaminante a lo largo de las horas del día.</td><td>Evolución horas</td></tr>
+    <tr><td>RF7</td><td>La app muestra un mapa de los distritos coloreados según su calidad del aire, con las estaciones marcadas.</td><td>Mapa</td></tr>
+    <tr><td>RF8</td><td>Al tocar un distrito en el mapa, la app lleva al usuario a la información de ese distrito.</td><td>Mapa</td></tr>
+    <tr><td>RF9</td><td>El usuario puede comparar dos o más distritos para una misma fecha.</td><td>Futura (no incluida en el boceto)</td></tr>
+    <tr><td>RF10</td><td>Si faltan datos (estación sin medición, hora vacía, contaminante que no se mide), la app lo dice claramente en vez de enseñar un cero o dejarlo en blanco.</td><td>Todas</td></tr>
+    <tr><td>RF11</td><td>La app muestra siempre la fuente de los datos (Ajuntament de València, CC BY 4.0).</td><td>Todas</td></tr>
+  </tbody>
+</table>
+  
+<h2>4.1 Mock-up de la interfaz</h2>
+<figure>
+  <img src="bocetoapp.jpeg" alt="Boceto de las pantallas de AireBarrio València">
+  <figcaption>Boceto de las pantallas Inicio y Mapa de distritos.</figcaption>
+</figure>
+<p><strong>Inicio:</strong> el usuario elige distrito y día; la app muestra el resultado general (buena, regular o mala) y una barra por contaminante (NO2, O3, PM10).</p>
+<p><strong>Mapa de distritos:</strong> mapa de València con los distritos, las estaciones marcadas y una leyenda de colores.</p>
+<p><strong>Evolución horas:</strong> pestaña de la barra de navegación para ver la evolución de un contaminante a lo largo del día (pantalla pendiente de dibujar).</p>
+
+
+<h2>5. Limitaciones y cosas que tendremos que tener en cuenta</h2>
+<p>
+  En el documento de los datasets vimos que los datos no son perfectos, y eso afecta directamente a la app:
+</p>
+<ul>
+  <li><strong>Huecos en los datos:</strong> hay estaciones que no miden todos los contaminantes o que no tienen datos de algunos periodos. La app tendrá que mostrar «sin datos» en esos casos.</li>
+  <li><strong>Fechas mal puestas:</strong> en algunas filas el día y el mes parecen estar cambiados y las horas no siempre tienen el mismo formato. Habrá que limpiar y unificar las fechas antes de usarlas, porque si no la selección por fecha daría resultados incorrectos.</li>
+  <li><strong>Unidades poco claras:</strong> la documentación no deja claras las unidades de algunas columnas, así que antes de enseñar valores en la app tenemos que confirmarlas para no poner unidades equivocadas.</li>
+  <li><strong>Cómo se define «buena», «regular» y «mala»:</strong> todavía tenemos que decidir los límites exactos. La idea es basarnos en los umbrales de algún índice oficial de calidad del aire y explicarlo dentro de la app, para que el resultado no parezca algo inventado por nosotros.</li>
+  <li><strong>Estaciones y distritos:</strong> no hay una estación en cada distrito, así que algunos resultados serán una aproximación y la app tiene que decirlo.</li>
+</ul>
+
+<h2>6. Conclusión</h2>
+<p>
+  AireBarrio València aprovecha los dos datasets elegidos para convertir datos técnicos en información que cualquiera puede entender:
+  los distritos (D2) ponen el «dónde» y la calidad del aire (D1) pone el «cómo está». Tenemos claro qué pantallas queremos, qué debe hacer
+  la app y qué problemas de los datos habrá que resolver antes de construirla.
+</p>
+
+<h2>7. Licencias</h2>
+<p>
+  Fuente de los datos: © Ajuntament de València, <a href="https://opendata.vlci.valencia.es/">portal de datos abiertos (VLCi)</a>, bajo licencia
+  <a href="http://creativecommons.org/licenses/by/4.0/deed.es">CC BY 4.0</a>.
+</p>
+
+</body>
+</html>

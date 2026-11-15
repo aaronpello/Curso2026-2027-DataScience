@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Group03 - Dataset requirements (Hands-on 1)</title>
+<style>
+  body { font-family: Arial, Helvetica, sans-serif; max-width: 980px; margin: 2rem auto; padding: 0 1rem; line-height: 1.5; color: #222; }
+  h1 { border-bottom: 2px solid #444; padding-bottom: .3rem; }
+  h2 { margin-top: 2rem; border-bottom: 1px solid #ccc; padding-bottom: .2rem; }
+  table { border-collapse: collapse; width: 100%; margin: 1rem 0; }
+  th, td { border: 1px solid #bbb; padding: .5rem .7rem; text-align: left; vertical-align: top; }
+  th { background: #f0f0f0; }
+  .ok { color: #1a7f37; font-weight: bold; }
+  .partial { color: #9a6700; font-weight: bold; }
+  code { background: #f4f4f4; padding: 0 .25rem; }
+</style>
+</head>
+<body>
+
+<h1>Group03 &ndash; Dataset requirements (Hands-on Assignment 1)</h1>
+
+<h2>1. Selected datasets</h2>
+<p>We select two datasets of the same publisher and portal. Dataset A describes the stations; dataset B contains the hourly measurements taken by those stations.</p>
+<h3>Dataset A &ndash; Stations</h3>
+<table>
+  <tr><th>Title</th><td>Calidad del aire. Estaciones de control (Air quality. Monitoring stations)</td></tr>
+  <tr><th>Publisher</th><td>Ayuntamiento de Madrid &ndash; Direcci&oacute;n General de Sostenibilidad y Control Ambiental</td></tr>
+  <tr><th>Portal</th><td><a href="https://datos.madrid.es/">Madrid City Council open data portal (datos.madrid.es)</a></td></tr>
+  <tr><th>File</th><td><code>csv/212629-0-estaciones-control-aire-csv.csv</code></td></tr>
+  <tr><th>Description</th><td>The air quality surveillance network is made up of 24 automatic remote stations. The dataset describes each station: identifier, address, coordinates, altitude, station type and the pollutants it measures.</td></tr>
+  <tr><th>Portal metadata</th><td>Category: Environment (<em>Medio ambiente</em>). First published: 9 April 2015. Last updated: 11 June 2026. Available as XLS, CSV, PDF and GEO.</td></tr>
+</table>
+
+<h3>Dataset B &ndash; Hourly measurements</h3>
+<table>
+  <tr><th>Title</th><td>Calidad del aire. Datos horarios (Air quality. Hourly data)</td></tr>
+  <tr><th>Publisher</th><td>Ayuntamiento de Madrid &ndash; Direcci&oacute;n General de Sostenibilidad y Control Ambiental</td></tr>
+  <tr><th>Portal</th><td><a href="https://datos.madrid.es/">Madrid City Council open data portal (datos.madrid.es)</a></td></tr>
+  <tr><th>File</th><td><code>csv/201200-1-calidad-aire-horario-csv.csv</code></td></tr>
+  <tr><th>Description</th><td>One row per station, magnitude and day, with 24 pairs of columns (<code>H01</code>&hellip;<code>H24</code> value, <code>V01</code>&hellip;<code>V24</code> flag) for the hours of the day. The file we use has 80,258 rows and 56 columns, <code>;</code> as separator, UTF-8 with BOM. It covers from 1 January 2025 to 30 September 2026 (the period offered by the portal in this resource). It has 23 stations and 11 magnitude codes.</td></tr>
+  <tr><th>Fields</th><td><code>PROVINCIA</code>, <code>MUNICIPIO</code>, <code>ESTACION</code>, <code>MAGNITUD</code>, <code>PUNTO_MUESTREO</code>, <code>ANO</code>, <code>MES</code>, <code>DIA</code>, <code>H01</code>&hellip;<code>H24</code>, <code>V01</code>&hellip;<code>V24</code></td></tr>
+</table>
+
+<h2>2. Requirements check</h2>
+<table>
+  <tr><th>Req.</th><th>Description</th><th>Status</th><th>Discussion</th></tr>
+  <tr>
+    <td>R1</td><td>Data are in one of the smart city domains</td><td class="ok">Satisfied</td>
+    <td>The portal classifies the dataset under <em>Environment</em>. It describes the fixed automatic stations of the municipal air quality network, so environmental monitoring of a city is the domain. The course material does not list the selected domains explicitly, so we justify the domain here.</td>
+  </tr>
+  <tr>
+    <td>R2</td><td>Data available as a CSV file</td><td class="ok">Satisfied</td>
+    <td>Both datasets are CSV files. A: 24 rows (one per station) and 25 columns. B: 80,258 rows and 56 columns. Both use <code>;</code> as separator and UTF-8 with BOM. The portal also offers other formats for dataset A (XLS, PDF and GEO).</td>
+  </tr>
+  <tr>
+    <td>R3</td><td>Data have an open license so they can be published</td><td class="ok">Satisfied</td>
+    <td>The resource page of dataset A states the license <strong>Creative Commons Attribution 4.0 International (CC BY 4.0)</strong>; the resource page of dataset B also showed CC BY 4.0. It allows sharing and adapting the data, also for publication, as long as the source (Ayuntamiento de Madrid) is attributed.</td>
+  </tr>
+  <tr>
+    <td>R4</td><td>Data can be easily linked with generic real-world entities</td><td class="ok">Satisfied</td>
+    <td>Every station has a street address, a street name and class, altitude and its position in decimal degrees (<code>LONGITUD</code>, <code>LATITUD</code>) and in ETRS89 projected coordinates. The station code starts with <code>28079</code>, which matches the INE code of the municipality of Madrid (to be checked when linking). See section 3.</td>
+  </tr>
+  <tr>
+    <td>R5</td><td>Documentation exists for the data (optional)</td><td class="partial">Partially satisfied</td>
+    <td>The portal gives a textual description of the network and of the station types (urban background, urban traffic, suburban). We have not found a formal data dictionary for the 25 columns. Most names are self-descriptive, but the meaning of the pollutant flags and the coordinate formats is not documented.</td>
+  </tr>
+  <tr>
+    <td>R6</td><td>Data can come from multiple data sources (optional)</td><td class="partial">Partially satisfied</td>
+    <td>We use two datasets, stations (A) and hourly measurements (B), and we checked that they can be joined: the code <code>28</code> + <code>079</code> + <code>ESTACION</code> (padded to 3 digits) equals <code>CODIGO</code> of dataset A for the 23 stations that appear in B. Both come from the same publisher and portal, so the variety of sources is limited. Wikidata, DBpedia and GeoNames entities, used for linking, will add external sources in later assignments.</td>
+  </tr>
+</table>
+
+<h2>3. Linkable entities</h2>
+
+<p>Within dataset B, the entities that can also be linked to external datasets are the <strong>magnitudes</strong> (<code>MAGNITUD</code> codes, to the pollutants of Wikidata) and the <strong>dates</strong> (<code>ANO</code>, <code>MES</code>, <code>DIA</code>, to a time ontology). The meaning of each magnitude code must be confirmed with the portal documentation before linking.</p>
+
+<h3>Entities in the selected dataset that can be linked with entities in other datasets</h3>
+<ul>
+  <li><strong>Stations</strong> (<code>CODIGO</code>, <code>ESTACION</code>): can be linked by coordinates to geographic datasets such as OpenStreetMap or GeoNames, and by name to Wikidata items of the places where they are located (for example Plaza de Espa&ntilde;a, Parque del Retiro, Casa de Campo, Plaza Castilla).</li>
+  <li><strong>Streets</strong> (<code>VIA_CLASE</code>, <code>VIA_NOMBRE</code>, <code>COD_VIA</code>): can be linked with the street directory of the municipality.</li>
+  <li><strong>Municipality of Madrid</strong> (code prefix <code>28079</code>): can be linked with Wikidata, DBpedia and GeoNames.</li>
+  <li><strong>Pollutants</strong> (NO2, SO2, CO, PM10, PM2.5, O3, BTX): can be linked with Wikidata items for each chemical or particle type.</li>
+  <li><strong>Station types</strong> (<code>UT</code>, <code>UF</code>, <code>S</code>): can be mapped to a controlled vocabulary of station classification (traffic, background, suburban).</li>
+</ul>
+
+<h3>Entities in other datasets that can be linked with entities in the selected dataset</h3>
+<ul>
+  <li><strong>Hourly air quality measurements (dataset B)</strong>, which identify the station by <code>ESTACION</code>. Checked: 28079 + <code>ESTACION</code> (3 digits) matches <code>CODIGO</code> of dataset A for all 23 stations present in B (station 55, Urb. Embajada, has no hourly rows). The field <code>PUNTO_MUESTREO</code> (for example <code>28079011_12_8</code>) also starts with the station code.</li>
+  <li><strong>Wikidata, DBpedia and GeoNames</strong> entities for Madrid and for the places where the stations are located.</li>
+  <li><strong>Other city datasets with coordinates</strong> (for example green areas and trees) can be related to the stations by proximity. This is not verified yet.</li>
+</ul>
+
+<h2>4. Licenses of the selected datasets</h2>
+<table>
+  <tr><th>Dataset</th><th>License</th><th>Condition</th></tr>
+  <tr><td>A &ndash; Calidad del aire. Estaciones de control</td><td>CC BY 4.0</td><td>Attribution: Ayuntamiento de Madrid</td></tr>
+  <tr><td>B &ndash; Calidad del aire. Datos horarios</td><td>CC BY 4.0 (as shown on the resource page)</td><td>Attribution: Ayuntamiento de Madrid</td></tr>
+</table>
+
+<h2>5. Data quality notes</h2>
+<ul>
+  <li>Coordinates appear in three formats: degrees-minutes-seconds (with two different quoting styles, for example in Parque del Retiro and Juan Carlos I), projected ETRS89 with a decimal comma, and decimal degrees. We will use the decimal degrees to generate RDF.</li>
+  <li>The pollutant columns (<code>NO2</code>, <code>SO2</code>, <code>CO</code>, <code>PM10</code>, <code>PM2_5</code>, <code>O3</code>, <code>BTX</code>) contain <code>X</code> or are empty, instead of boolean values.</li>
+  <li>Some street fields are empty: the station Juan Carlos I has no street class, particle or name (and its street code is <code>1111</code>); Plaza El&iacute;ptica has no street particle.</li>
+  <li>Dataset B is in wide format (24 value columns and 24 flag columns per row), so it must be reshaped to one observation per hour before generating RDF.</li>
+  <li>Each hourly value has a flag. In the first hour column (<code>V01</code>) the flags are <code>V</code> (79,374 rows) and <code>N</code> (884 rows). The meaning of the flags (presumably valid / not valid) must be confirmed with the portal documentation; until then we do not interpret them.</li>
+  <li>Station 55 (Urb. Embajada) appears in dataset A but has no rows in dataset B.</li>
+  <li>The address field mixes free text and street intersections, so it should not be used as the only key for linking.</li>
+</ul>
+
+</body>
+</html>

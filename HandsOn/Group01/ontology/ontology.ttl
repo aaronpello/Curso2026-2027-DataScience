@@ -1,0 +1,58 @@
+@prefix base: <http://madridservices.linkeddata.es/ontology/services#> .
+@prefix mod: <https://w3id.org/mod#> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix prop: <http://madridservices.linkeddata.es/ontology/properties#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix schema1: <http://schema.org/> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+
+prop:address a owl:DatatypeProperty ;
+    rdfs:label "address" ;
+    rdfs:domain <http://madridservices.linkeddata.es/ontology/services#Service> ;
+    rdfs:range xsd:string .
+
+prop:latitude a owl:DatatypeProperty ;
+    rdfs:label "latitude" ;
+    rdfs:domain <http://madridservices.linkeddata.es/ontology/services#Service> ;
+    rdfs:range xsd:float .
+
+prop:locatedIn a owl:ObjectProperty ;
+    rdfs:label "located in" ;
+    rdfs:domain <http://madridservices.linkeddata.es/ontology/services#Service> ;
+    rdfs:range schema1:City .
+
+prop:longitude a owl:DatatypeProperty ;
+    rdfs:label "longitude" ;
+    rdfs:domain <http://madridservices.linkeddata.es/ontology/services#Service> ;
+    rdfs:range xsd:float .
+
+prop:name a owl:DatatypeProperty ;
+    rdfs:label "name" ;
+    rdfs:domain <http://madridservices.linkeddata.es/ontology/services#Service> ;
+    rdfs:range xsd:string .
+
+base: a owl:Ontology ;
+    mod:createdWith <https://chowlk.linkeddata.es/> .
+
+<http://madridservices.linkeddata.es/ontology/services#DrinkingFountain> a owl:Class ;
+    rdfs:label "Drinking Fountain" ;
+    rdfs:subClassOf <http://madridservices.linkeddata.es/ontology/services#Service> .
+
+<http://madridservices.linkeddata.es/ontology/services#Library> a owl:Class ;
+    rdfs:label "Library" ;
+    rdfs:subClassOf <http://madridservices.linkeddata.es/ontology/services#Service> .
+
+<http://madridservices.linkeddata.es/ontology/services#PublicToilet> a owl:Class ;
+    rdfs:label "Public Toilet" ;
+    rdfs:subClassOf <http://madridservices.linkeddata.es/ontology/services#Service> .
+
+<http://madridservices.linkeddata.es/ontology/services#SportsCenter> a owl:Class ;
+    rdfs:label "Sports Center" ;
+    rdfs:subClassOf <http://madridservices.linkeddata.es/ontology/services#Service> .
+
+schema1:City a owl:Class ;
+    rdfs:label "City" .
+
+<http://madridservices.linkeddata.es/ontology/services#Service> a owl:Class ;
+    rdfs:label "Service" .
+

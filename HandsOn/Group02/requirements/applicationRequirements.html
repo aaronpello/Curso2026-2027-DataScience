@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>BiciMAD Explorer - Application Requirements</title>
+</head>
+<body>
+
+    <h1>Application Requirements - BiciMAD Explorer</h1>
+
+    <h2>Application Description</h2>
+
+    <p>
+        Our idea is to create a web application called BiciMAD Explorer.
+        The application will help users find BiciMAD stations
+        around Madrid and see information about them.
+    </p>
+
+    <p>
+        We want to make it easier for people to find bicycle
+        stations and encourage the use of public bicycles.
+    </p>
+
+    <h2>Target Users</h2>
+
+    <p>
+        The application is designed for people living in Madrid,
+        students, tourists and anyone who wants to use BiciMAD.
+    </p>
+
+    <h2>Main Features</h2>
+
+    <h3>Map of Stations</h3>
+
+    <p>
+        The application will show a map of Madrid with the
+        location of the BiciMAD stations.
+        Users will be able to click on a station to see
+        more information.
+    </p>
+
+    <h3>Station Information</h3>
+
+    <p>
+        Each station will have a small information page
+        showing its name, address, capacity and status.
+    </p>
+
+    <h3>Search</h3>
+
+    <p>
+        Users will be able to search for a station
+        by its name, number or address.
+    </p>
+
+    <h3>Filters</h3>
+
+    <p>
+        Users will also be able to filter stations
+        depending on their status.
+        For example, they could choose to see only
+        stations that are in service.
+    </p>
+
+    <h2>Application Mock-ups</h2>
+
+    <p>
+        These are two simple examples of how we would
+        like the application to look.
+    </p>
+
+    <h3>Mock-up 1: Main Screen</h3>
+
+    <div style="border: 1px solid black; padding: 15px; width: 450px;">
+
+        <h3>BiciMAD Explorer</h3>
+
+        <p>Search station:</p>
+        <input type="text" placeholder="Station name or number">
+
+        <p>Filter by status:</p>
+        <select>
+            <option>All stations</option>
+            <option>In service</option>
+            <option>Out of service</option>
+        </select>
+
+        <div style="border: 1px solid gray; height: 180px;
+                    margin-top: 15px; text-align: center;">
+
+            <p>Map of Madrid</p>
+            <p>Station 1 - Station 2 - Station 3</p>
+            <p>(BiciMAD station locations)</p>
+
+        </div>
+
+    </div>
+
+    <p>
+        On the main screen, users can search for stations,
+        use filters and see their locations on a map.
+    </p>
+
+    <h3>Mock-up 2: Station Information</h3>
+
+    <div style="border: 1px solid black; padding: 15px; width: 350px;">
+
+        <h3>Station Information</h3>
+
+        <p><strong>Name:</strong> Example Station</p>
+        <p><strong>Number:</strong> 001</p>
+        <p><strong>Address:</strong> Example Street, Madrid</p>
+        <p><strong>Capacity:</strong> 25</p>
+        <p><strong>Status:</strong> In service</p>
+
+        <button>Back to map</button>
+
+    </div>
+
+    <p>
+        When a user selects a station, they will see
+        its main information. The values in this
+        example are not from a real station.
+    </p>
+
+    <h2>Data Used</h2>
+
+    <p>
+        The application will use the BiciMAD dataset
+        from the Madrid Open Data Portal.
+        We will mainly use these fields:
+    </p>
+
+    <ul>
+        <li>Name: station name.</li>
+        <li>number: station number.</li>
+        <li>Address: station address.</li>
+        <li>TotalBases: station capacity.</li>
+        <li>State: station status.</li>
+        <li>POINT_X and POINT_Y: station coordinates.</li>
+    </ul>
+
+    <p>
+        The CSV does not provide live information about
+        the number of bicycles available at each station,
+        so we will not include that feature.
+    </p>
+
+    <h2>Conclusion</h2>
+
+    <p>
+        With BiciMAD Explorer, we want to create a simple
+        application that helps people find bicycle stations
+        in Madrid and check their main information.
+    </p>
+
+</body>
+</html>
+

@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <title>Análisis del Dataset y Licencias - Hands-on 2</title>
+</head>
+<body>
+    <h1>Análisis de la fuente de datos y licencias</h1>
+    
+    <h2>1. Análisis del Dataset (Datos y Estructura)</h2>
+    <p>El conjunto de datos seleccionado corresponde al inventario oficial de <strong>estaciones de recarga de vehículos eléctricos en la ciudad de Madrid</strong>, obtenido del Portal de Datos Abiertos del Ayuntamiento de Madrid. A continuación se detallan las características principales extraídas del análisis técnico del archivo CSV:</p>
+    
+    <ul>
+        <li><strong>Volumen de datos:</strong> El dataset contiene un total de <strong>122 registros (estaciones de recarga)</strong> distribuidos por toda la geografía municipal.</li>
+        <li><strong>Estructura y columnas:</strong> El archivo está compuesto por 12 columnas que definen la ubicación administrativa y espacial, el equipamiento y el operador:
+            <ul>
+                <li><code>COD_DIS</code> y <code>DISTRITO</code>: Código y nombre del distrito municipal de Madrid (ej. Arganzuela, Salamanca, Villa de Vallecas, etc.).</li>
+                <li><code>COD_BAR</code> y <code>BARRIO</code>: Código y nombre del barrio correspondiente.</li>
+                <li><code>UBICACIÓN</code> y <code>EMPLAZAMIE</code>: Dirección postal o descripción física del emplazamiento (ej. vía pública, aparcamientos).</li>
+                <li><code>Nº_EQUIPO</code> y <code>CARACTERÍ</code>: Especificaciones técnicas del equipo de carga, potencia y tipos de conectores disponibles (ej. postes de 50 kW con conectores CC y AC).</li>
+                <li><code>OPERADOR</code>: Entidad gestora o comercializadora del servicio de recarga (destacando operadores principales como Iberdrola, TotalEnergies, Repsol, Endesa, Wenea, etc.).</li>
+                <li><code>POINT_X</code> y <code>POINT_Y</code>: Coordenadas espaciales georreferenciadas (proyección cartográfica UTM / ETRS89) que permiten su enlazabilidad directa con entidades geoespaciales reales.</li>
+            </ul>
+        </li>
+        <li><strong>Rangos de valores y distribución:</strong> 
+            <ul>
+                <li>Los datos cubren un total de <strong>21 distritos</strong> de Madrid, siendo los distritos con mayor número de puntos Villa de Vallecas (13) y Salamanca (12).</li>
+                <li>Existen más de 20 operadores diferentes operando la infraestructura de recarga en la ciudad.</li>
+                <li>Las coordenadas geográficas se sitúan en los rangos habituales de la Comunidad de Madrid (coordenadas X aproximadas entre 430,000 y 450,000; coordenadas Y aproximadas entre 4,460,000 y 4,485,000).</li>
+            </ul>
+        </li>
+    </ul>
+
+    <h2>2. Análisis de la Licencia del Dataset</h2>
+    <ul>
+        <li><strong>Editor autorizado y Rightsholder:</strong> El editor y titular de los derechos de la fuente original es el <strong>Ayuntamiento de Madrid</strong> (a través de su Portal de Datos Abiertos).</li>
+        <li><strong>Licencia actual:</strong> El conjunto de datos se distribuye bajo una licencia abierta de reutilización de información del sector público (habitualmente <em>Creative Commons Atribución 4.0 Internacional (CC BY 4.0)</em> o la Licencia de Datos Abiertos del Ayuntamiento de Madrid), la cual permite la copia, distribución, adaptación y explotación comercial y no comercial.</li>
+        <li><strong>Licencia propuesta para los datos generados:</strong> Para los datos enriquecidos en formato Linked Data (RDF/Turtle) que vamos a generar en esta práctica, se propone aplicar la misma licencia abierta <strong>CC BY 4.0</strong>, garantizando la compatibilidad legal con la fuente original y fomentando la interoperabilidad en el dominio de las Smart Cities.</li>
+    </ul>
+   
+    
+    <h2>3. Estrategia de Nombrado de Recursos</h2>
+    <h3>3.1. Dominio Base</h3>
+    <p>Se establece un dominio base orientado al proyecto del grupo:</p>
+    <p><code><http://madrid-recarga.linkeddata.es/group06/></code></p>
+
+    <h3>3.2. Patrones de URIs</h3>
+    <ul>
+        <li><strong>Ontología:</strong> 
+            <br><code><http://madrid-recarga.linkeddata.es/group06/ontology#></code>
+            <br><em>Ejemplo de clase:</em> <code><http://madrid-recarga.linkeddata.es/group06/ontology#PuntoRecarga></code>
+        </li>
+        <li><strong>Instancias:</strong> 
+            <br><code>http://madrid-recarga.linkeddata.es/group06/resource/{tipo}/{id}</code>
+            <br><em>Ejemplo de instancia:</em> <code><http://madrid-recarga.linkeddata.es/group06/resource/PuntoRecarga/1></code>
+        </li>
+    </ul>
+
+    <h3>3.3. Negociación de Contenido</h3>
+    <p>El servidor web implementará mecanismos de negociación de contenido HTTP mediante las cabeceras <code>Accept</code>, dirigiendo a los usuarios hacia representaciones visuales en <strong>HTML</strong> y suministrando a los agentes software o aplicaciones semánticas formatos estructurados en RDF como <strong>Turtle</strong>.</p>
+    </ul>
+    
+</body>
+</html>

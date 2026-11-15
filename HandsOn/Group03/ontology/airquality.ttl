@@ -1,0 +1,152 @@
+@prefix aq:   <http://airquality.group03.example.org/ontology/airquality#> .
+@prefix owl:  <http://www.w3.org/2002/07/owl#> .
+@prefix rdf:  <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix xsd:  <http://www.w3.org/2001/XMLSchema#> .
+@prefix dct:  <http://purl.org/dc/terms/> .
+
+# ---------------------------------------------------------------------------
+# Ontology header
+# ---------------------------------------------------------------------------
+<http://airquality.group03.example.org/ontology/airquality> a owl:Ontology ;
+    dct:title "Madrid air quality ontology"@en ;
+    rdfs:comment "Lightweight ontology to represent the air quality monitoring stations of the city of Madrid and their hourly measurements."@en ;
+    dct:license <http://creativecommons.org/licenses/by/4.0/> ;
+    owl:versionInfo "0.1" .
+
+# ---------------------------------------------------------------------------
+# Classes
+# ---------------------------------------------------------------------------
+aq:Station a owl:Class ;
+    rdfs:label "Station"@en ;
+    rdfs:comment "Automatic station of the air quality monitoring network."@en .
+
+aq:StationType a owl:Class ;
+    rdfs:label "Station type"@en ;
+    rdfs:comment "Classification of a station according to its surroundings (for example urban traffic, urban background or suburban)."@en .
+
+aq:Pollutant a owl:Class ;
+    rdfs:label "Pollutant"@en ;
+    rdfs:comment "Pollutant or magnitude measured by the stations. Individuals of this class are intended to be linked to external entities, for example Wikidata items."@en .
+
+aq:Municipality a owl:Class ;
+    rdfs:label "Municipality"@en ;
+    rdfs:comment "Municipality where a station is located. Individuals of this class are intended to be linked to external entities, for example Wikidata, DBpedia or GeoNames."@en .
+
+aq:Measurement a owl:Class ;
+    rdfs:label "Measurement"@en ;
+    rdfs:comment "Hourly value of a pollutant measured by a station on a given day."@en .
+
+# ---------------------------------------------------------------------------
+# Object properties (value is a resource)
+# ---------------------------------------------------------------------------
+aq:hasStationType a owl:ObjectProperty ;
+    rdfs:label "has station type"@en ;
+    rdfs:comment "Type of a station."@en ;
+    rdfs:domain aq:Station ;
+    rdfs:range aq:StationType .
+
+aq:locatedInMunicipality a owl:ObjectProperty ;
+    rdfs:label "located in municipality"@en ;
+    rdfs:comment "Municipality where a station is located."@en ;
+    rdfs:domain aq:Station ;
+    rdfs:range aq:Municipality .
+
+aq:measuresPollutant a owl:ObjectProperty ;
+    rdfs:label "measures pollutant"@en ;
+    rdfs:comment "Pollutant that a station is equipped to measure."@en ;
+    rdfs:domain aq:Station ;
+    rdfs:range aq:Pollutant .
+
+aq:measuredAtStation a owl:ObjectProperty ;
+    rdfs:label "measured at station"@en ;
+    rdfs:comment "Station that took a measurement."@en ;
+    rdfs:domain aq:Measurement ;
+    rdfs:range aq:Station .
+
+aq:ofPollutant a owl:ObjectProperty ;
+    rdfs:label "of pollutant"@en ;
+    rdfs:comment "Pollutant that a measurement refers to."@en ;
+    rdfs:domain aq:Measurement ;
+    rdfs:range aq:Pollutant .
+
+# ---------------------------------------------------------------------------
+# Datatype properties (value is a literal)
+# ---------------------------------------------------------------------------
+aq:hasStationCode a owl:DatatypeProperty ;
+    rdfs:label "has station code"@en ;
+    rdfs:comment "Code of the station, for example 28079004."@en ;
+    rdfs:domain aq:Station ;
+    rdfs:range xsd:string .
+
+aq:hasAddress a owl:DatatypeProperty ;
+    rdfs:label "has address"@en ;
+    rdfs:comment "Address of the station as free text."@en ;
+    rdfs:domain aq:Station ;
+    rdfs:range xsd:string .
+
+aq:hasAltitude a owl:DatatypeProperty ;
+    rdfs:label "has altitude"@en ;
+    rdfs:comment "Altitude of the station above sea level, in metres."@en ;
+    rdfs:domain aq:Station ;
+    rdfs:range xsd:integer .
+
+aq:hasStartDate a owl:DatatypeProperty ;
+    rdfs:label "has start date"@en ;
+    rdfs:comment "Date on which the station started operating."@en ;
+    rdfs:domain aq:Station ;
+    rdfs:range xsd:date .
+
+aq:hasLatitude a owl:DatatypeProperty ;
+    rdfs:label "has latitude"@en ;
+    rdfs:comment "Latitude of the station in decimal degrees."@en ;
+    rdfs:domain aq:Station ;
+    rdfs:range xsd:decimal .
+
+aq:hasLongitude a owl:DatatypeProperty ;
+    rdfs:label "has longitude"@en ;
+    rdfs:comment "Longitude of the station in decimal degrees."@en ;
+    rdfs:domain aq:Station ;
+    rdfs:range xsd:decimal .
+
+aq:hasTypeCode a owl:DatatypeProperty ;
+    rdfs:label "has type code"@en ;
+    rdfs:comment "Code of a station type, for example UT, UF or S."@en ;
+    rdfs:domain aq:StationType ;
+    rdfs:range xsd:string .
+
+aq:hasMagnitudeCode a owl:DatatypeProperty ;
+    rdfs:label "has magnitude code"@en ;
+    rdfs:comment "Numeric code used for the pollutant in the hourly measurements dataset."@en ;
+    rdfs:domain aq:Pollutant ;
+    rdfs:range xsd:integer .
+
+aq:hasMunicipalityCode a owl:DatatypeProperty ;
+    rdfs:label "has municipality code"@en ;
+    rdfs:comment "Code of the municipality, built from the province code and the municipality code of the data, for example 28079."@en ;
+    rdfs:domain aq:Municipality ;
+    rdfs:range xsd:string .
+
+aq:hasValue a owl:DatatypeProperty ;
+    rdfs:label "has value"@en ;
+    rdfs:comment "Measured value. The unit is not stated in the source data."@en ;
+    rdfs:domain aq:Measurement ;
+    rdfs:range xsd:decimal .
+
+aq:hasDate a owl:DatatypeProperty ;
+    rdfs:label "has date"@en ;
+    rdfs:comment "Day on which the measurement was taken."@en ;
+    rdfs:domain aq:Measurement ;
+    rdfs:range xsd:date .
+
+aq:hasHour a owl:DatatypeProperty ;
+    rdfs:label "has hour"@en ;
+    rdfs:comment "Hour column of the source data, from 1 to 24."@en ;
+    rdfs:domain aq:Measurement ;
+    rdfs:range xsd:integer .
+
+aq:hasValidityFlag a owl:DatatypeProperty ;
+    rdfs:label "has validity flag"@en ;
+    rdfs:comment "Flag of the source data for the value (V, N or M). Its meaning is not documented in the files we use."@en ;
+    rdfs:domain aq:Measurement ;
+    rdfs:range xsd:string .

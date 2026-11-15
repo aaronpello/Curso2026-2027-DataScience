@@ -1,0 +1,17 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="760" viewBox="0 0 1200 760" role="img"><style>text{font-family:Arial,sans-serif;fill:#19372c}.small{font-size:15px;fill:#53665b}.title{font-size:24px;font-weight:bold}.white{fill:white}.label{font-size:17px}.button{font-size:16px;font-weight:bold;fill:white}</style><rect width="1200" height="760" fill="#f7f7f1"/>
+<rect x="0" y="0" width="1200" height="80" fill="#19372c"/><text x="34" y="48" class="title white">Paseo Verde Madrid</text><text x="855" y="46" class="white">Explorar</text><text x="990" y="46" class="white">Sobre los datos</text>
+<text x="34" y="128" class="title">Un paseo empieza por encontrar un lugar.</text><text x="34" y="160" class="small">Parques y áreas caninas de los inventarios municipales.</text>
+<rect x="34" y="192" width="350" height="510" rx="12" fill="white" stroke="#d7e1d6"/>
+<text x="56" y="225" class="label">Buscar por nombre</text><rect x="56" y="237" width="306" height="44" rx="6" fill="#f7f7f1" stroke="#c3d0c1"/><text x="70" y="265" class="small">Roma</text>
+<text x="56" y="317" class="label">Distrito</text><rect x="56" y="330" width="306" height="44" rx="6" fill="#f7f7f1" stroke="#c3d0c1"/><text x="70" y="358" class="small">Retiro</text><text x="335" y="358">⌄</text>
+<text x="56" y="408" class="label">Tipo de lugar</text><rect x="56" y="423" width="15" height="15" fill="#226b4e"/><text x="82" y="438" class="small">Parques y jardines</text><rect x="56" y="451" width="15" height="15" fill="#be7334"/><text x="82" y="466" class="small">Áreas caninas</text>
+<rect x="56" y="495" width="306" height="44" rx="6" fill="#226b4e"/><text x="166" y="524" class="button">Buscar</text>
+<text x="56" y="574" class="small">Resultado ilustrativo</text><text x="56" y="605" class="label" font-weight="bold">Parque Roma</text><text x="56" y="632" class="small">Retiro · Estrella</text><text x="56" y="661" class="small">Consultar ficha →</text>
+<rect x="407" y="192" width="759" height="510" rx="12" fill="#e6ecdf" stroke="#d7e1d6"/>
+<path d="M430 290 L1140 640 M430 610 L1110 235 M600 211 L720 685 M980 210 L820 690" stroke="#fff" stroke-width="29" fill="none"/>
+<path d="M430 290 L1140 640 M430 610 L1110 235 M600 211 L720 685 M980 210 L820 690" stroke="#cad2c3" stroke-width="2" fill="none"/>
+<rect x="666" y="339" width="250" height="200" rx="70" fill="#bfd6b8"/><circle cx="777" cy="410" r="22" fill="#226b4e"/><text x="770" y="417" class="white" font-weight="bold">P</text><rect x="895" y="514" width="36" height="36" rx="7" fill="#be7334"/><text x="905" y="539" class="white" font-weight="bold">C</text>
+<rect x="690" y="448" width="187" height="49" rx="7" fill="white" stroke="#c3d0c1"/><text x="718" y="478" class="label">Parque Roma</text>
+<rect x="430" y="213" width="361" height="32" rx="5" fill="white"/><text x="442" y="235" class="small">ESQUEMA · NO ES CARTOGRAFÍA REAL</text>
+<rect x="427" y="646" width="385" height="36" rx="5" fill="white"/><text x="442" y="670" class="small">P: parque · C: área canina</text>
+<text x="34" y="737" class="small">Boceto de búsqueda y listado · La proximidad se calculará con coordenadas, sin inferir pertenencia al parque.</text></svg>

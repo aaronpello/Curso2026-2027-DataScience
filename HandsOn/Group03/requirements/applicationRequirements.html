@@ -1,0 +1,279 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Group03 - Application requirements (Hands-on 1)</title>
+<style>
+  body { font-family: Arial, Helvetica, sans-serif; max-width: 1000px; margin: 2rem auto; padding: 0 1rem; line-height: 1.5; color: #222; }
+  h1 { border-bottom: 2px solid #444; padding-bottom: .3rem; }
+  h2 { margin-top: 2rem; border-bottom: 1px solid #ccc; padding-bottom: .2rem; }
+  table { border-collapse: collapse; width: 100%; margin: 1rem 0; }
+  th, td { border: 1px solid #bbb; padding: .5rem .7rem; text-align: left; vertical-align: top; }
+  th { background: #f0f0f0; }
+  code { background: #f4f4f4; padding: 0 .25rem; }
+  .note { background: #fff8e1; border-left: 4px solid #f0b400; padding: .5rem .8rem; margin: 1rem 0; }
+
+  /* Mock-up styles */
+  .mock { border: 2px solid #444; border-radius: 6px; margin: 1rem 0 .3rem; background: #fff; overflow: hidden; }
+  .mock-title { background: #2f4f6f; color: #fff; padding: .5rem .8rem; font-weight: bold; }
+  .mock-body { display: flex; min-height: 330px; }
+  .side { width: 230px; background: #eef2f6; padding: .8rem; border-right: 1px solid #bbb; font-size: .9rem; }
+  .side h4 { margin: .6rem 0 .3rem; }
+  .side label { display: block; margin: .15rem 0; }
+  .side input[type=text] { width: 100%; box-sizing: border-box; padding: .3rem; }
+  .map { flex: 1; position: relative; background: #dfe9d6; background-image: linear-gradient(#cfdcc4 1px, transparent 1px), linear-gradient(90deg, #cfdcc4 1px, transparent 1px); background-size: 40px 40px; }
+  .pin { position: absolute; width: 16px; height: 16px; border-radius: 50%; border: 2px solid #fff; box-shadow: 0 0 0 1px #333; }
+  .pin.ut { background: #d33; }
+  .pin.uf { background: #2a6fdb; }
+  .pin.s  { background: #2a9d3f; }
+  .pin-label { position: absolute; font-size: .75rem; background: rgba(255,255,255,.85); padding: 0 .2rem; border-radius: 3px; }
+  .legend { position: absolute; left: .6rem; bottom: .6rem; background: rgba(255,255,255,.9); padding: .4rem .6rem; font-size: .8rem; border: 1px solid #999; }
+  .legend span { display: inline-block; width: 10px; height: 10px; border-radius: 50%; margin-right: .3rem; }
+  .popup { position: absolute; left: 150px; top: 120px; width: 270px; background: #fff; border: 2px solid #333; border-radius: 6px; padding: .6rem .8rem; font-size: .85rem; box-shadow: 3px 3px 0 rgba(0,0,0,.2); }
+  .popup h4 { margin: 0 0 .4rem; }
+  .popup .btn { display: inline-block; margin-top: .4rem; padding: .15rem .5rem; border: 1px solid #333; border-radius: 3px; background: #eee; font-size: .8rem; }
+  .foot { background: #f0f0f0; border-top: 1px solid #bbb; padding: .4rem .8rem; font-size: .8rem; }
+  .caption { font-size: .9rem; color: #555; margin-bottom: 1.5rem; }
+  .detail { flex: 1; padding: 1rem 1.2rem; }
+  .detail table { width: auto; min-width: 60%; }
+  .chip { display: inline-block; border: 1px solid #555; border-radius: 12px; padding: 0 .5rem; margin-right: .3rem; font-size: .8rem; background: #fafafa; }
+  .tabs { display: flex; gap: 0; border-bottom: 1px solid #bbb; background: #eef2f6; }
+  .tab { padding: .4rem .9rem; border-right: 1px solid #bbb; font-size: .9rem; }
+  .tab.active { background: #fff; font-weight: bold; }
+</style>
+</head>
+<body>
+
+<h1>Group03 &ndash; Application requirements (Hands-on Assignment 1)</h1>
+
+<h2>1. Application overview</h2>
+<p>
+  <strong>Madrid Air Quality Stations Explorer</strong> is a web application that lets users explore the 24 stations of the air quality
+  surveillance network of the city of Madrid. Users can see where each station is, which type of station it is, and which pollutants
+  it measures, and they can filter and search the stations. They can also consult the hourly levels measured by each station.
+</p>
+<p>
+  The application is built on top of the dataset selected in <a href="datasetRequirements.html">datasetRequirements.html</a>
+  (stations and hourly measurements, <em>Calidad del aire</em>, Ayuntamiento de Madrid, CC BY 4.0). In later assignments the data will be transformed
+  into RDF, linked with other datasets and published, and the application will query that RDF data.
+</p>
+
+<h2>2. Users</h2>
+<table>
+  <tr><th>User</th><th>Need</th></tr>
+  <tr><td>Citizen</td><td>Find the stations closest to the place where they live or work and know what each station measures.</td></tr>
+  <tr><td>Student or researcher</td><td>Compare station types and pollutants, and obtain structured data about the network.</td></tr>
+  <tr><td>City technician</td><td>Check at a glance which stations measure each pollutant and where the network has gaps.</td></tr>
+</table>
+
+<h2>3. Functional requirements</h2>
+<table>
+  <tr><th>ID</th><th>Requirement</th><th>Data used</th></tr>
+  <tr><td>FR1</td><td>Show the 24 stations as markers on a map of Madrid.</td><td><code>LATITUD</code>, <code>LONGITUD</code></td></tr>
+  <tr><td>FR2</td><td>Filter stations by type: urban traffic, urban background, suburban.</td><td><code>COD_TIPO</code>, <code>NOM_TIPO</code></td></tr>
+  <tr><td>FR3</td><td>Filter stations by measured pollutant: NO2, SO2, CO, PM10, PM2.5, O3, BTX.</td><td><code>NO2</code>, <code>SO2</code>, <code>CO</code>, <code>PM10</code>, <code>PM2_5</code>, <code>O3</code>, <code>BTX</code></td></tr>
+  <tr><td>FR4</td><td>Show a station detail page or panel with name, code, address, altitude, type, measured pollutants and start date.</td><td><code>CODIGO</code>, <code>ESTACION</code>, <code>DIRECCION</code>, <code>ALTITUD</code>, <code>NOM_TIPO</code>, <code>Fecha alta</code></td></tr>
+  <tr><td>FR5</td><td>Search a station by name or address.</td><td><code>ESTACION</code>, <code>DIRECCION</code></td></tr>
+  <tr><td>FR6</td><td>Offer a list view of the stations, sortable by name, type and altitude.</td><td><code>ESTACION</code>, <code>NOM_TIPO</code>, <code>ALTITUD</code></td></tr>
+  <tr><td>FR7</td><td>Show links to external descriptions of the station place and of the municipality of Madrid (for example Wikidata and DBpedia). This requirement depends on the linking assignments.</td><td>Links generated in later assignments</td></tr>
+  <tr><td>FR9</td><td>Show the hourly values of a station for a selected day and magnitude, as a table and a line chart over 24 hours.</td><td><code>ESTACION</code>, <code>MAGNITUD</code>, <code>ANO</code>, <code>MES</code>, <code>DIA</code>, <code>H01</code>&hellip;<code>H24</code></td></tr>
+  <tr><td>FR10</td><td>Show on the map the latest available value of the selected magnitude for each station, coloured by level.</td><td>Dataset B joined with dataset A by station code</td></tr>
+  <tr><td>FR11</td><td>Do not use hourly values flagged as not valid, and tell the user when a value is missing. The flag meaning must be confirmed first.</td><td><code>V01</code>&hellip;<code>V24</code></td></tr>
+  <tr><td>FR8</td><td>Show the data source and license on every screen: Ayuntamiento de Madrid, CC BY 4.0.</td><td>Dataset metadata</td></tr>
+</table>
+
+<h2>4. Non-functional requirements</h2>
+<ul>
+  <li><strong>Licensing:</strong> the attribution required by CC BY 4.0 must be visible (FR8).</li>
+  <li><strong>Usability:</strong> the filters must be usable without technical knowledge, and the map and filters must work on desktop and on mobile screens.</li>
+  <li><strong>Performance:</strong> with only 24 stations, filtering and searching should feel instantaneous. Dataset B is large (80,258 rows), so hourly queries must be restricted by station, magnitude and date.</li>
+  <li><strong>Data access:</strong> in later assignments the application will read the data from an RDF dataset through SPARQL queries instead of from the CSV file.</li>
+  <li><strong>Data quality:</strong> stations with empty street fields (for example Juan Carlos I) must be displayed without errors.</li>
+</ul>
+
+<h2>5. Questions the application must answer</h2>
+<p>These questions can be answered from the selected datasets and will be used later as SPARQL queries.</p>
+<ol>
+  <li>Which stations measure PM2.5?</li>
+  <li>Which stations are urban traffic stations?</li>
+  <li>Which stations are located above 700 metres?</li>
+  <li>Which pollutants does a given station measure?</li>
+  <li>Which stations started operating after 2009?</li>
+  <li>What were the hourly values of a given magnitude at a given station on a given day?</li>
+  <li>What is the average daily value of a magnitude at each station in a given month?</li>
+  <li>Which station recorded the highest value of a magnitude on a given day?</li>
+</ol>
+
+<h2>6. User interface description</h2>
+<p>
+  The application has three views. The <strong>map view</strong> is the main screen: a filter panel on the left (search box, station type, pollutants)
+  and the map on the right, with one coloured marker per station (red for urban traffic, blue for urban background, green for suburban) and a legend.
+  Pressing a marker opens a small <strong>station card</strong> with the main data and a button to open the full detail. The <strong>list view</strong> shows
+  the same stations in a table that can be sorted. In the station detail, an <strong>hourly levels</strong> panel lets the user choose a day and a magnitude and see the 24 hourly values. A footer with the data source and the license is always visible.
+</p>
+
+<h2>7. Mock-ups</h2>
+<div class="note">The mock-ups are schematic: marker positions are not to scale, and the station data comes from the stations CSV file. The measurement values in Mock-up 5 are illustrative, not real data.</div>
+
+<h3>Mock-up 1 &ndash; Map view with filters</h3>
+<div class="mock">
+  <div class="mock-title">Madrid Air Quality Stations Explorer</div>
+  <div class="tabs"><div class="tab active">Map</div><div class="tab">List</div></div>
+  <div class="mock-body">
+    <div class="side">
+      <strong>Search</strong>
+      <input type="text" value="" placeholder="Station name or address">
+      <h4>Station type</h4>
+      <label><input type="checkbox" checked> Urban traffic</label>
+      <label><input type="checkbox" checked> Urban background</label>
+      <label><input type="checkbox" checked> Suburban</label>
+      <h4>Pollutant measured</h4>
+      <label><input type="checkbox"> NO2</label>
+      <label><input type="checkbox"> SO2</label>
+      <label><input type="checkbox"> CO</label>
+      <label><input type="checkbox"> PM10</label>
+      <label><input type="checkbox"> PM2.5</label>
+      <label><input type="checkbox"> O3</label>
+      <label><input type="checkbox"> BTX</label>
+      <p><em>24 stations shown</em></p>
+    </div>
+    <div class="map">
+      <div class="pin ut" style="left:38%; top:48%;"></div><div class="pin-label" style="left:41%; top:47%;">Plaza de Espa&ntilde;a</div>
+      <div class="pin ut" style="left:55%; top:44%;"></div>
+      <div class="pin ut" style="left:50%; top:28%;"></div>
+      <div class="pin uf" style="left:58%; top:52%;"></div><div class="pin-label" style="left:61%; top:51%;">Parque del Retiro</div>
+      <div class="pin uf" style="left:44%; top:78%;"></div>
+      <div class="pin uf" style="left:76%; top:22%;"></div>
+      <div class="pin s"  style="left:28%; top:50%;"></div><div class="pin-label" style="left:12%; top:56%;">Casa de Campo</div>
+      <div class="pin s"  style="left:22%; top:10%;"></div>
+      <div class="pin s"  style="left:80%; top:40%;"></div>
+      <div class="legend">
+        <div><span style="background:#d33"></span>Urban traffic</div>
+        <div><span style="background:#2a6fdb"></span>Urban background</div>
+        <div><span style="background:#2a9d3f"></span>Suburban</div>
+      </div>
+    </div>
+  </div>
+  <div class="foot">Source: Ayuntamiento de Madrid &ndash; License CC BY 4.0</div>
+</div>
+<p class="caption">Main screen. The filters on the left update the markers on the map (FR1, FR2, FR3, FR5, FR8).</p>
+
+<h3>Mock-up 2 &ndash; Station card on the map</h3>
+<div class="mock">
+  <div class="mock-title">Madrid Air Quality Stations Explorer</div>
+  <div class="tabs"><div class="tab active">Map</div><div class="tab">List</div></div>
+  <div class="mock-body">
+    <div class="side">
+      <strong>Search</strong>
+      <input type="text" value="Plaza de Espa&ntilde;a">
+      <h4>Station type</h4>
+      <label><input type="checkbox" checked> Urban traffic</label>
+      <label><input type="checkbox" checked> Urban background</label>
+      <label><input type="checkbox" checked> Suburban</label>
+      <p><em>1 station shown</em></p>
+    </div>
+    <div class="map">
+      <div class="pin ut" style="left:38%; top:48%;"></div>
+      <div class="popup" style="left:41%; top:20%;">
+        <h4>Plaza de Espa&ntilde;a</h4>
+        <div>Code: 28079004</div>
+        <div>Address: Plaza de Espa&ntilde;a</div>
+        <div>Type: Urban traffic</div>
+        <div>Pollutants: NO2, SO2, CO</div>
+        <span class="btn">View detail</span>
+      </div>
+    </div>
+  </div>
+  <div class="foot">Source: Ayuntamiento de Madrid &ndash; License CC BY 4.0</div>
+</div>
+<p class="caption">Pressing a marker, or finding it with the search box, opens a card with the main data of the station (FR4, FR5).</p>
+
+<h3>Mock-up 3 &ndash; Station detail</h3>
+<div class="mock">
+  <div class="mock-title">Madrid Air Quality Stations Explorer &ndash; Station detail</div>
+  <div class="tabs"><div class="tab">Map</div><div class="tab">List</div><div class="tab active">Detail</div></div>
+  <div class="detail">
+    <h3>Plaza de Espa&ntilde;a</h3>
+    <table>
+      <tr><th>Code</th><td>28079004</td></tr>
+      <tr><th>Address</th><td>Plaza de Espa&ntilde;a</td></tr>
+      <tr><th>Altitude</th><td>637 m</td></tr>
+      <tr><th>Type</th><td>Urban traffic</td></tr>
+      <tr><th>Start date</th><td>01/12/1998</td></tr>
+      <tr><th>Pollutants measured</th><td><span class="chip">NO2</span><span class="chip">SO2</span><span class="chip">CO</span></td></tr>
+      <tr><th>Coordinates</th><td>40.4238823, -3.7122567</td></tr>
+      <tr><th>External links</th><td><em>Wikidata &middot; DBpedia (available after the linking assignments)</em></td></tr>
+    </table>
+    <span class="chip">&larr; Back to map</span>
+  </div>
+  <div class="foot">Source: Ayuntamiento de Madrid &ndash; License CC BY 4.0</div>
+</div>
+<p class="caption">Full information of one station (FR4, FR7, FR8).</p>
+
+<h3>Mock-up 4 &ndash; List view</h3>
+<div class="mock">
+  <div class="mock-title">Madrid Air Quality Stations Explorer &ndash; List</div>
+  <div class="tabs"><div class="tab">Map</div><div class="tab active">List</div></div>
+  <div class="detail">
+    <table>
+      <tr><th>Station &#9650;</th><th>Type</th><th>Altitude (m)</th><th>Pollutants</th></tr>
+      <tr><td>El Pardo</td><td>Suburban</td><td>611</td><td>NO2, O3</td></tr>
+      <tr><td>Escuelas Aguirre</td><td>Urban traffic</td><td>672</td><td>NO2, SO2, CO, PM10, PM2.5, O3, BTX</td></tr>
+      <tr><td>Parque del Retiro</td><td>Urban background</td><td>658</td><td>NO2, O3</td></tr>
+      <tr><td>Plaza de Espa&ntilde;a</td><td>Urban traffic</td><td>637</td><td>NO2, SO2, CO</td></tr>
+      <tr><td colspan="4"><em>... 20 more stations</em></td></tr>
+    </table>
+  </div>
+  <div class="foot">Source: Ayuntamiento de Madrid &ndash; License CC BY 4.0</div>
+</div>
+<p class="caption">Sortable table with the same filters as the map (FR2, FR3, FR6, FR8).</p>
+
+<h3>Mock-up 5 &ndash; Hourly levels of a station</h3>
+<div class="mock">
+  <div class="mock-title">Madrid Air Quality Stations Explorer &ndash; Hourly levels</div>
+  <div class="tabs"><div class="tab">Map</div><div class="tab">List</div><div class="tab active">Detail</div></div>
+  <div class="detail">
+    <h3>Plaza de Espa&ntilde;a (28079004)</h3>
+    <p>Day: <span class="chip">2026-09-30 &#9660;</span> Magnitude: <span class="chip">select &#9660;</span></p>
+    <table>
+      <tr><th>Hour</th><th>01</th><th>02</th><th>03</th><th>&hellip;</th><th>24</th></tr>
+      <tr><th>Value (illustrative)</th><td>xx</td><td>xx</td><td>xx</td><td>&hellip;</td><td>xx</td></tr>
+      <tr><th>Flag</th><td>V</td><td>V</td><td>N</td><td>&hellip;</td><td>V</td></tr>
+    </table>
+    <div style="border:1px dashed #777; height:90px; display:flex; align-items:center; justify-content:center; color:#777;">Line chart: value by hour (not-valid hours not drawn)</div>
+    <span class="chip">&larr; Back to station detail</span>
+  </div>
+  <div class="foot">Source: Ayuntamiento de Madrid &ndash; License CC BY 4.0</div>
+</div>
+<p class="caption">Hourly values of one station, day and magnitude (FR9, FR11, FR8).</p>
+
+<h3>Mock-up 6 &ndash; Map coloured by latest level</h3>
+<div class="mock">
+  <div class="mock-title">Madrid Air Quality Stations Explorer</div>
+  <div class="tabs"><div class="tab active">Map</div><div class="tab">List</div></div>
+  <div class="mock-body">
+    <div class="side">
+      <strong>Show on map</strong>
+      <label><input type="radio" name="m" checked> Station type</label>
+      <label><input type="radio" name="m"> Latest level of: <em>magnitude &#9660;</em></label>
+      <p><em>Date and hour of the latest value shown here.</em></p>
+    </div>
+    <div class="map">
+      <div class="pin" style="left:38%; top:48%; background:#e8a400;"></div>
+      <div class="pin" style="left:58%; top:52%; background:#2a9d3f;"></div>
+      <div class="pin" style="left:50%; top:28%; background:#d33;"></div>
+      <div class="pin" style="left:28%; top:50%; background:#2a9d3f;"></div>
+      <div class="legend">
+        <div><span style="background:#2a9d3f"></span>Low</div>
+        <div><span style="background:#e8a400"></span>Medium</div>
+        <div><span style="background:#d33"></span>High</div>
+      </div>
+    </div>
+  </div>
+  <div class="foot">Source: Ayuntamiento de Madrid &ndash; License CC BY 4.0</div>
+</div>
+<p class="caption">Markers coloured by the latest value of the selected magnitude; the thresholds of each level will be defined when the magnitudes are confirmed (FR10).</p>
+
+</body>
+</html>

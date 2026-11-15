@@ -1,0 +1,22 @@
+{
+  "@context": "https://schema.org",
+  "@id":"http://example.org/resource/Salamanca",
+  "@type": "City",
+  "city":"Salamanca",
+  "country":"Spain",
+  "population": "146.110",
+  "universities": [
+    {
+      "@id":"http://example.org/resource/Salamanca/USAL",
+      "@type": "University",
+      "name": "Universidad de Salamanca",
+      "acronym":"USAL"
+    },
+    {
+      "@id":"http://example.org/resource/Salamanca/UPSA",
+      "@type": "University",
+      "name": "Universidad Pontificia de Salamanca",
+      "acronym":"UPSA"    
+    }
+  ]
+}

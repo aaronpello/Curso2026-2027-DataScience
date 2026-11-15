@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Requisitos de los datasets - Group04</title>
+<style>
+  body { font-family: Arial, sans-serif; line-height: 1.6; max-width: 900px; margin: 30px auto; padding: 0 20px; color: #333; }
+  h1 { color: #0056b3; border-bottom: 2px solid #0056b3; padding-bottom: 10px; }
+  h2 { color: #0056b3; margin-top: 30px; }
+  h3 { color: #444; margin-top: 20px; }
+  table { border-collapse: collapse; width: 100%; margin: 20px 0; font-size: 14px; }
+  th, td { border: 1px solid #ddd; padding: 10px; text-align: left; }
+  th { background-color: #f4f4f4; }
+  .ok { color: #28a745; font-weight: bold; }
+  .partial { color: #d39e00; font-weight: bold; }
+</style>
+</head>
+<body>
+
+<h1>Requisitos de los datasets: calidad del aire y distritos de València</h1>
+<p><strong>Grupo:</strong> Group04 &nbsp;|&nbsp; <strong>Hands-on 1</strong> – Selección de datasets y requisitos de la aplicación</p>
+
+<h2>1. Datasets seleccionados</h2>
+<p>
+  Para este primer trabajo hemos elegido dos datasets del portal de datos abiertos del Ajuntament de València
+  (<a href="https://opendata.vlci.valencia.es/">opendata.vlci.valencia.es</a>). Hemos cogido el de la calidad del aire y el de los distritos de la ciudad. Nuestra idea es usar los dos para poder crear una aplicación que le diga a la gente qué tal está el aire en su barrio.
+</p>
+
+<table>
+  <thead>
+    <tr><th>Id</th><th>Dataset</th><th>Publicador</th><th>Formato</th><th>Licencia</th><th>Fuente</th></tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>D1</td>
+      <td><strong>Datos horarios de calidad del aire de València (2021–2022)</strong><br>Valores de contaminantes y meteorología medidos en las estaciones de la ciudad.</td>
+      <td>Ajuntament de València</td>
+      <td>CSV</td>
+      <td>Creative Commons Atribución 4.0 (CC BY 4.0)</td>
+      <td><a href="https://opendata.vlci.valencia.es/">Portal de datos abiertos (Calidad del aire)</a></td>
+    </tr>
+    <tr>
+      <td>D2</td>
+      <td><strong>Distritos de València</strong><br>Distritos administrativos de la ciudad, incluyendo nombre, código y geometría.</td>
+      <td>Ajuntament de València</td>
+      <td>CSV (también en GeoJSON, SHP, etc.)</td>
+      <td>Creative Commons Atribución 4.0 (CC BY 4.0)</td>
+      <td><a href="https://opendata.vlci.valencia.es/es/dataset/districtes-distritos/resource/5fa9ea6e-5fee-4773-b8ad-8be5b96dee97">Recurso CSV de Distritos</a></td>
+    </tr>
+  </tbody>
+</table>
+
+<h2>2. Evaluación de los requisitos</h2>
+
+<table>
+  <thead>
+    <tr><th>Requisito</th><th>Estado</th><th>Resumen</th></tr>
+  </thead>
+  <tbody>
+    <tr><td>R1. Dominio smart city</td><td class="ok">Se cumple</td><td>Medio ambiente (aire) y administración urbana (distritos).</td></tr>
+    <tr><td>R2. Disponible en CSV</td><td class="ok">Se cumple</td><td>Los dos se pueden descargar en este formato.</td></tr>
+    <tr><td>R3. Licencia abierta</td><td class="ok">Se cumple</td><td>Los dos tienen licencia CC BY 4.0.</td></tr>
+    <tr><td>R4. Enlazable con entidades reales</td><td class="ok">Se cumple</td><td>Se pueden enlazar mediante estaciones, distritos y contaminantes.</td></tr>
+    <tr><td>R5. Documentación (opcional)</td><td class="partial">Se cumple parcialmente</td><td>Hay información básica, pero faltan detalles técnicos.</td></tr>
+    <tr><td>R6. Varias fuentes (opcional)</td><td class="partial">Se cumple parcialmente</td><td>Son dos datasets del mismo ayuntamiento.</td></tr>
+  </tbody>
+</table>
+
+<h3>2.1 R1 – Dominio smart city</h3>
+<p>
+  Elegimos el dataset del aire (D1) porque la contaminación es un tema clave en las ciudades y afecta a la salud de la gente. El archivo del aire no nos permitía saber a qué barrio pertenecen las mediciones, ya que solo dice la estación. Por eso, hemos utilizado el de los distritos (D2, que nos da el mapa de la ciudad) para saber en qué zona está cada estación.
+</p>
+<p><span class="ok">Se cumple.</span></p>
+
+<h3>2.2 R2 – Formato CSV</h3>
+<p>
+  Hemos comprobado que ambos datasets se pueden descargar en formato CSV. Los hemos descargado 
+  y los hemos guardado en la carpeta csv del repositorio de GitHub.
+</p>
+<p><span class="ok">Se cumple.</span></p>
+
+<h3>2.3 R3 – Licencia abierta</h3>
+<p>
+  En las fichas de los dos datasets en el portal pone que tienen licencia <em>Creative Commons Atribución 4.0 (CC BY 4.0)</em>. 
+  Esto significa que podemos usar los datos, transformarlos y publicarlos sin problema, siempre que pongamos que los datos son del Ajuntament de València.
+</p>
+<p><span class="ok">Se cumple.</span></p>
+
+<h3>2.4 R4 – Enlazable con entidades del mundo real</h3>
+<p>Para que nuestra aplicación sea útil, los datos tienen que poder enlazarse. </p>
+<ul>
+  <li><strong>Distritos (D2):</strong> Tienen los nombres y las formas de los barrios. Los podemos enlazar con la información de los distritos de València que hay en Wikidata.</li>
+  <li><strong>Estaciones (D1):</strong> El archivo del aire nos dice en qué estación se ha medido, pero no sabemos de qué barrio se trata, solo sabemos el nombre de la estación. Con esta información, podemos buscar la ubicación de la estación y ver a qué distrito (D2) pertenece. 
+  </li>
+  <li><strong>Contaminantes (D1):</strong> Los gases (como el NO2 o el O3) son sustancias químicas conocidas, así que se pueden enlazar con bases de datos de química o Wikidata.</li>
+</ul>
+<p><strong>En sentido inverso</strong>, las entidades de otros datasets que se pueden enlazar con las nuestras son: los distritos de València en Wikidata (con los distritos de D2) y las sustancias químicas en Wikidata (con los contaminantes de D1).</p>
+<p><span class="ok">Se cumple.</span></p>
+
+<h3>2.5 R5 – Documentación (opcional)</h3>
+<p>
+  Los datos solo vienen con una explicación básica en el portal. Por ejemplo, en el archivo del aire no nos dicen 
+  en qué unidades se están midiendo los gases o el viento. Hemos tenido que deducir qué era cada columna por el nombre. 
+  Por eso consideramos que este requisito solo se cumple a medias.
+</p>
+<p><span class="partial">Se cumple parcialmente.</span></p>
+
+<h3>2.6 R6 – Varias fuentes (opcional)</h3>
+<p>
+  Hemos usado datos de dos departamentos diferentes del Ayuntamiento (Medio Ambiente y Urbanismo). Son datos distintos y 
+  se complementan, pero proceden del mismo sitio web, por lo que no son fuentes totalmente independientes.
+</p>
+<p><span class="partial">Se cumple parcialmente.</span></p>
+
+<h2>3. Observaciones sobre los datos (Calidad)</h2>
+<p>Cuando vimos los archivos CSV, nos dimos cuenta de varias cosas:</p>
+<ul>
+  <li><strong>Muchos huecos vacíos:</strong> Hay columnas que casi no tienen datos, como las de algunos metales o gases.</li>
+  <li><strong>Fechas raras:</strong> En el archivo del aire, algunas fechas parecen estar mal puestas (el día y el mes están cambiados en bastantes filas). Además, las horas no siempre están escritas igual.</li>
+  <li><strong>Estaciones incompletas:</strong> No todas las estaciones miden los mismos gases. Algunas son solo meteorológicas y otras no tienen datos del primer año.</li>
+</ul>
+<p>
+  A pesar de estas observaciones, los datos sirven perfectamente.
+</p>
+
+<h2>4. Conclusión</h2>
+<p>
+  En conclusión, los datasets que hemos elegido cumplen los cuatro requisitos obligatorios (R1-R4) y los opcionales se cumplen 
+  parcialmente.
+</p>
+
+<h2>5. Atribución</h2>
+<p>
+  Fuente de los datos: © Ajuntament de València, <a href="https://opendata.vlci.valencia.es/">portal de datos abiertos (VLCi)</a>, bajo licencia
+  <a href="http://creativecommons.org/licenses/by/4.0/deed.es">CC BY 4.0</a>.
+</p>
+
+</body>
+</html>

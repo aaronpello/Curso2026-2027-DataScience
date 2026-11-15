@@ -1,0 +1,212 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Análisis de datos y estrategia de nombres - Group04</title>
+  <style>
+    body { font-family: Arial, sans-serif; line-height: 1.55; max-width: 1000px; margin: 28px auto; padding: 0 18px; color: #292929; }
+    h1, h2 { color: #174a7e; }
+    h1 { border-bottom: 2px solid #174a7e; padding-bottom: 8px; }
+    h2 { margin-top: 30px; }
+    h3 { margin-top: 22px; color: #333; }
+    table { width: 100%; border-collapse: collapse; margin: 14px 0 20px; font-size: 14px; }
+    th, td { border: 1px solid #c9cfd5; padding: 7px 8px; text-align: left; vertical-align: top; }
+    th { background: #eef3f8; }
+    code { background: transparent; padding: 0; overflow-wrap: anywhere; }
+    .nota { background: #fff8e6; border-left: 4px solid #d5a12a; padding: 10px 14px; }
+    .small { font-size: 13px; color: #505050; }
+    .scroll { overflow-x: auto; }
+    .num { text-align: right; white-space: nowrap; }
+  </style>
+</head>
+<body>
+
+<h1>Análisis de los datos y estrategia de nombres</h1>
+<p><strong>Group04 – Hands-on assignment 2</strong></p>
+<p>El proyecto se llama <strong>AireBarrio València</strong>. La idea es combinar mediciones de calidad del aire con los distritos de València para consultar cómo estaba el aire en cada zona. En este documento revisamos los dos ficheros, las licencias y una propuesta de nombres para los recursos RDF.</p>
+
+<h2>1. Fuentes de datos</h2>
+<div class="scroll">
+<table>
+  <thead><tr><th>Dataset</th><th>Qué contiene</th><th>Publicador en el portal</th><th>Formato revisado</th><th>Licencia indicada</th></tr></thead>
+  <tbody>
+    <tr>
+      <td><a href="https://opendata.vlci.valencia.es/es/dataset/rvvcca_d_horarios_2021-2022">Datos por horas de calidad del aire 2021–2022</a></td>
+      <td>Registros por estación, fecha y hora, con contaminantes y variables meteorológicas.</td>
+      <td>Ajuntament de València. La ficha identifica como fuente de las mediciones a la Red Valenciana de Vigilancia y Control de la Contaminación Atmosférica.</td>
+      <td>CSV, 201.480 filas y 31 columnas en el archivo analizado.</td>
+      <td><a href="https://creativecommons.org/licenses/by/4.0/deed.es">CC BY 4.0</a></td>
+    </tr>
+    <tr>
+      <td><a href="https://opendata.vlci.valencia.es/es/dataset/districtes-distritos">Distritos de València</a></td>
+      <td>Nombre y código de distrito, superficie, geometría WKT y coordenadas X/Y.</td>
+      <td>Ajuntament de València. La ficha cita como fuente el Geoportal de València, área de Urbanismo e Infraestructuras.</td>
+      <td>CSV, 22 filas y 7 columnas en el archivo del Group04.</td>
+      <td><a href="https://creativecommons.org/licenses/by/4.0/deed.es">CC BY 4.0</a></td>
+    </tr>
+  </tbody>
+</table>
+</div>
+<p>El archivo de calidad del aire que hemos analizado es <code>csv/contaminacion.csv</code>. Para los distritos hemos usado <code>csv/distritos.csv</code> del repositorio del grupo. Las cifras de este documento corresponden a esas copias concretas, no a un servicio en tiempo real.</p>
+
+<h2>2. Análisis de los datos y del esquema</h2>
+<h3>2.1. Calidad del aire</h3>
+<p>El CSV de calidad del aire ocupa unos 22,1 MiB. Tiene 201.480 registros y 31 columnas. Dos columnas son identificadores (<code>_id</code> e <code>Id</code>) y las dos tienen valores únicos; también aparece la fecha, el día de la semana, el día del mes, la hora y el nombre de la estación. El resto son medidas numéricas o campos de gestión del registro.</p>
+<p>La fecha normalizada, comprobando <code>Fecha</code>, <code>Dia del mes</code> y <code>Dia de la semana</code>, va del 1 de enero de 2021 al 31 de diciembre de 2022. Hay 96.360 registros de 2021 y 105.120 de 2022. En el fichero aparecen 12 nombres de estación. Once tienen registros para los dos años; <em>Valencia Olivereta</em> solo aparece en 2022 (8.760 registros).</p>
+<p>Hay una diferencia con el resumen de la ficha web: allí se enumeran 10 estaciones y 30 campos, mientras que en el CSV analizado hay 12 nombres de estación y 31 columnas. La columna extra parece ser <code>_id</code>, y algunos nombres del fichero no coinciden literalmente con la lista breve del portal.</p>
+
+<h4>Esquema de las columnas</h4>
+<div class="scroll">
+<table>
+  <thead><tr><th>Columna</th><th>Tipo observado</th><th>Contenido</th></tr></thead>
+  <tbody>
+    <tr><td><code>_id</code></td><td>entero</td><td>Del 1 al 201.480, sin repetidos ni huecos.</td></tr>
+    <tr><td><code>Id</code></td><td>entero</td><td>Del 1 al 201.480, sin repetidos, pero en distinto orden que <code>_id</code>.</td></tr>
+    <tr><td><code>Fecha</code></td><td>fecha <code>AAAA-MM-DD</code></td><td>Del 2021-01-01 al 2022-12-31 tal como viene; en 72.864 filas el día y el mes están intercambiados (ver más abajo).</td></tr>
+    <tr><td><code>Dia de la semana</code></td><td>texto</td><td>De Lunes a Domingo.</td></tr>
+    <tr><td><code>Dia del mes</code></td><td>entero</td><td>Del 1 al 31.</td></tr>
+    <tr><td><code>Hora</code></td><td>texto</td><td>Hora en punto, de 0 a 23, con un formato distinto en 2021 y en 2022 (ver más abajo).</td></tr>
+    <tr><td><code>Estacion</code></td><td>texto</td><td>12 nombres distintos.</td></tr>
+    <tr><td>De <code>PM1</code> a <code>Velocidad maxima del viento</code> (22 columnas)</td><td>numérico</td><td>Contaminantes, ruido y meteorología. Son enteros salvo <code>CO</code>, <code>C7H8</code>, <code>C6H6</code>, <code>C8H10</code>, <code>Temperatura</code>, <code>Precipitacion</code> y las dos columnas de velocidad del viento, que llevan un decimal. Pueden estar vacías (ver la tabla de rangos).</td></tr>
+    <tr><td><code>Fecha creacion</code></td><td>fecha <code>AAAA-MM-DD</code></td><td>Un único valor en todo el fichero: 2023-02-15.</td></tr>
+    <tr><td><code>Fecha baja</code></td><td>sin valores</td><td>Vacía en todos los registros, así que no se puede saber qué formato tendría.</td></tr>
+  </tbody>
+</table>
+</div>
+
+<h4>Campos de fecha y hora</h4>
+<p>La columna <code>Fecha</code> no está escrita siempre con el mismo orden. Al comparar la fecha con <code>Dia del mes</code>, 121.992 filas encajan con el formato <code>AAAA-MM-DD</code>, 72.864 con <code>AAAA-DD-MM</code> y en 6.624 el día y el mes son el mismo número, así que el texto por sí solo no permite distinguir el orden. Por ello, lo tendremos que normalizar en un futuro. La hora también cambia de formato: en 2021 lleva segundos (<code>14:00:00</code>), en 2022 no (<code>14:00</code>) y, en los dos años, las horas de una cifra no llevan cero inicial (<code>4:00</code>). Los minutos son siempre 00 y las horas van de 0 a 23, así que se podra normalizar sin problema.</p>
+
+<h4>Rangos y valores vacíos de las medidas</h4>
+<p>La siguiente tabla resume las 22 columnas de medición, con los nombres de la cabecera del CSV (sin tildes). El mínimo y el máximo son los valores numéricos que aparecen en el fichero, sin transformar. La ficha consultada no da unidades para todas las columnas, así que no debemos asignarlas por nuestra cuenta.</p>
+<div class="scroll">
+<table>
+  <thead><tr><th>Campo</th><th class="num">Valores presentes</th><th class="num">Vacíos</th><th class="num">Vacíos (%)</th><th>Rango observado</th></tr></thead>
+  <tbody>
+    <tr><td>PM1</td><td class="num">16.752</td><td class="num">184.728</td><td class="num">91,69%</td><td>1–107</td></tr>
+    <tr><td>PM2.5</td><td class="num">120.669</td><td class="num">80.811</td><td class="num">40,11%</td><td>0–309</td></tr>
+    <tr><td>PM10</td><td class="num">120.664</td><td class="num">80.816</td><td class="num">40,11%</td><td>1–460</td></tr>
+    <tr><td>NO</td><td class="num">156.713</td><td class="num">44.767</td><td class="num">22,22%</td><td>1–438</td></tr>
+    <tr><td>NO2</td><td class="num">156.710</td><td class="num">44.770</td><td class="num">22,22%</td><td>1–169</td></tr>
+    <tr><td>NOx</td><td class="num">156.712</td><td class="num">44.768</td><td class="num">22,22%</td><td>2–798</td></tr>
+    <tr><td>O3</td><td class="num">128.199</td><td class="num">73.281</td><td class="num">36,37%</td><td>1–169</td></tr>
+    <tr><td>SO2</td><td class="num">130.716</td><td class="num">70.764</td><td class="num">35,12%</td><td>1–167</td></tr>
+    <tr><td>CO</td><td class="num">75.659</td><td class="num">125.821</td><td class="num">62,45%</td><td>0,1–9</td></tr>
+    <tr><td>Velocidad del viento</td><td class="num">131.348</td><td class="num">70.132</td><td class="num">34,81%</td><td>0–21,8</td></tr>
+    <tr><td>Direccion del viento</td><td class="num">132.243</td><td class="num">69.237</td><td class="num">34,36%</td><td>0–360</td></tr>
+    <tr><td>NH3</td><td class="num">16.684</td><td class="num">184.796</td><td class="num">91,72%</td><td>1–51</td></tr>
+    <tr><td>C7H8</td><td class="num">15.818</td><td class="num">185.662</td><td class="num">92,15%</td><td>0,1–119,1</td></tr>
+    <tr><td>C6H6</td><td class="num">15.897</td><td class="num">185.583</td><td class="num">92,11%</td><td>0,2–27,1</td></tr>
+    <tr><td>Ruido</td><td class="num">15.087</td><td class="num">186.393</td><td class="num">92,51%</td><td>35–250</td></tr>
+    <tr><td>C8H10</td><td class="num">15.888</td><td class="num">185.592</td><td class="num">92,11%</td><td>0,1–177,6</td></tr>
+    <tr><td>Temperatura</td><td class="num">122.722</td><td class="num">78.758</td><td class="num">39,09%</td><td>0,7–201</td></tr>
+    <tr><td>Humedad relativa</td><td class="num">114.569</td><td class="num">86.911</td><td class="num">43,14%</td><td>11–100</td></tr>
+    <tr><td>Presion</td><td class="num">123.452</td><td class="num">78.028</td><td class="num">38,73%</td><td>342–1.037</td></tr>
+    <tr><td>Radiacion</td><td class="num">121.520</td><td class="num">79.960</td><td class="num">39,69%</td><td>0–1.129</td></tr>
+    <tr><td>Precipitacion</td><td class="num">123.949</td><td class="num">77.531</td><td class="num">38,48%</td><td>0–317</td></tr>
+    <tr><td>Velocidad maxima del viento</td><td class="num">123.101</td><td class="num">78.379</td><td class="num">38,90%</td><td>0,1–31,1</td></tr>
+  </tbody>
+</table>
+</div>
+<p>Entre las medidas, las que más huecos tienen son <code>Ruido</code>, <code>PM1</code>, <code>NH3</code> y los compuestos orgánicos <code>C7H8</code>, <code>C6H6</code> y <code>C8H10</code>, con más del 91% de valores vacíos. Además, <code>Fecha baja</code> está vacía en los 201.480 registros y 6.016 registros (3,0%) no traen ninguna de las 22 medidas; 4.709 de ellos son de <em>Puerto llit antic Turia</em> en 2021.</p>
+<p>También hay valores muy sospechosos que conviene revisar antes de hacer cálculos. Los extremos de temperatura (201), presión (342) y precipitación (317) corresponden a pocas horas de la mañana del 27 de septiembre de 2022, entre las 8:00 y las 10:00, y en esas mismas horas aparecen otras presiones de 674, 846 y 848 y una precipitación de 312, repartidas entre <em>Puerto llit antic Turia</em>, <em>Nazaret Meteo</em> y <em>Conselleria Meteo</em>. El máximo de ruido, 250, se repite en 59 registros de <em>Pista Silla</em> entre el 23 y el 26 de abril de 2021, mientras que la mediana de la columna es 62.</p>
+
+<h4>Estaciones y variables</h4>
+<p>No todas las estaciones miden lo mismo. NO, NO2 y NOx tienen datos en 10 de las 12 estaciones; PM2.5, PM10, O3 y SO2, en 8; CO, en 5; y PM1, NH3, C7H8, C6H6, C8H10 y Ruido, en una sola estación cada uno (<em>Moli del Sol</em> para PM1, <em>Bulevard Sud</em> para NH3 y <em>Pista Silla</em> para el resto). Las dos estaciones <em>Meteo</em> solo miden meteorología. <em>Valencia Olivereta</em>, que solo tiene registros de 2022, mide únicamente PM2.5, PM10 y óxidos de nitrógeno (NO, NO2 y NOx), sin meteorología.</p>
+<div class="scroll">
+<table>
+  <thead><tr><th>Estación</th><th>Años con registros</th><th>Contaminantes y ruido con datos</th><th>Temperatura con valor (% de filas, 2021 / 2022)</th></tr></thead>
+  <tbody>
+    <tr><td>Avda. Francia</td><td>2021 y 2022</td><td>PM2.5, PM10, NO, NO2, NOx, O3, SO2, CO</td><td class="num">99% / 0%</td></tr>
+    <tr><td>Bulevard Sud</td><td>2021 y 2022</td><td>NO, NO2, NOx, O3, SO2, NH3</td><td class="num">99% / 0%</td></tr>
+    <tr><td>Conselleria Meteo</td><td>2021 y 2022</td><td>ninguno (solo meteorología)</td><td class="num">99% / 97%</td></tr>
+    <tr><td>Moli del Sol</td><td>2021 y 2022</td><td>PM1, PM2.5, PM10, NO, NO2, NOx, O3, SO2, CO</td><td class="num">99% / 0%</td></tr>
+    <tr><td>Nazaret Meteo</td><td>2021 y 2022</td><td>ninguno (solo meteorología)</td><td class="num">98% / 97%</td></tr>
+    <tr><td>Pista Silla</td><td>2021 y 2022</td><td>PM2.5, PM10, NO, NO2, NOx, O3, SO2, CO, C7H8, C6H6, C8H10, Ruido</td><td class="num">99% / 0%</td></tr>
+    <tr><td>Politecnico</td><td>2021 y 2022</td><td>PM2.5, PM10, NO, NO2, NOx, O3, SO2</td><td class="num">99% / 0%</td></tr>
+    <tr><td>Puerto Moll Trans. Ponent</td><td>2021 y 2022</td><td>PM2.5, PM10, NO, NO2, NOx, O3, SO2, CO</td><td class="num">82% / 97%</td></tr>
+    <tr><td>Puerto llit antic Turia</td><td>2021 y 2022</td><td>PM2.5, PM10, NO, NO2, NOx, O3, SO2, CO</td><td class="num">43% / 99%</td></tr>
+    <tr><td>Valencia Centro</td><td>2021 y 2022</td><td>PM2.5, PM10, NO, NO2, NOx</td><td class="num">99% / 0%</td></tr>
+    <tr><td>Valencia Olivereta</td><td>solo 2022</td><td>PM2.5, PM10, NO, NO2, NOx</td><td class="num">– / 0%</td></tr>
+    <tr><td>Viveros</td><td>2021 y 2022</td><td>NO, NO2, NOx, O3, SO2</td><td class="num">99% / 0%</td></tr>
+  </tbody>
+</table>
+</div>
+<p>Los huecos de meteorología no son aleatorios. Siete estaciones (Avda. Francia, Bulevard Sud, Moli del Sol, Pista Silla, Politecnico, Valencia Centro y Viveros) tienen casi siempre temperatura, humedad, presión, radiación y precipitación en 2021 y ninguna en 2022; de las siete, solo Avda. Francia conserva el viento en 2022. Por eso, en 2022 esas variables solo vienen de cuatro estaciones: Conselleria Meteo, Nazaret Meteo, Puerto Moll Trans. Ponent y Puerto llit antic Turia. Esto limita cualquier análisis que combine contaminantes y meteorología en 2022.</p>
+
+<h3>2.2. Distritos de València</h3>
+<p>El CSV de distritos tiene 22 filas y 7 columnas: <code>_id</code>, <code>nombre</code>, <code>coddistrit</code>, <code>gis.gis.DISTRITOS.area</code>, <code>WKT</code>, <code>COORD_X</code> y <code>COORD_Y</code>. <code>_id</code> y <code>coddistrit</code> son enteros, <code>nombre</code> es texto en mayúsculas, <code>gis.gis.DISTRITOS.area</code>, <code>COORD_X</code> y <code>COORD_Y</code> son numéricas con decimales y <code>WKT</code> es texto con una geometría <code>POLYGON</code>.</p>
+<div class="scroll">
+<table>
+  <thead><tr><th>Qué se ha revisado</th><th>Resultado</th></tr></thead>
+  <tbody>
+    <tr><td>Identificadores</td><td><code>_id</code> va del 1 al 22. Hay 19 códigos de distrito diferentes, del 1 al 19.</td></tr>
+    <tr><td>Nombres</td><td>Hay 19 nombres distintos. «POBLATS DEL NORD» aparece en cuatro filas.</td></tr>
+    <tr><td>Código 17</td><td>Aparece en cuatro filas; no debemos tratar cada fila automáticamente como un distrito diferente.</td></tr>
+    <tr><td>Área del distrito</td><td>El portal indica que <code>gis.gis.DISTRITOS.area</code> es la superficie geométrica calculada del distrito y que está expresada en metros cuadrados. Solo 7 de las 22 filas tienen valor; faltan 15 (68,18%). Los valores disponibles van de 2.984.760 a 23.674.732,5. Para comprobarlos, calculamos el área de los polígonos WKT suponiendo que las coordenadas X/Y están en metros. En 6 de las 7 filas, el valor del CSV es unas 10 veces mayor que el calculado. Por ejemplo, en Ciutat Vella aparecen 16.898.516,25 m² frente a 1.689.839,5 m². En Jesús, en cambio, casi coinciden: 2.984.760 frente a 2.984.723,4. Esto hace pensar que la diferencia está en los valores de esas seis filas y no en un error de escala igual para todas las geometrías. Aun así, antes de darlo por seguro tenemos que confirmar el sistema de referencia de los datos. Por ahora, no usaremos esos valores de área para hacer cálculos.</td></tr>
+    <tr><td>WKT</td><td>Las 22 filas tienen geometría. El fichero usa polígonos WKT; el código 17 tiene varias filas asociadas.</td></tr>
+    <tr><td>Coordenadas X</td><td>Van de 722.031,23 a 731.691,66.</td></tr>
+    <tr><td>Coordenadas Y</td><td>Van de 4.359.625,38 a 4.382.264,84.</td></tr>
+  </tbody>
+</table>
+</div>
+<p>Las coordenadas X/Y tienen valores propios de un sistema proyectado, no de longitud y latitud en grados. La ficha consultada no especifica en esta descripción el sistema de referencia que usa el CSV, así que hay que confirmarlo antes de dibujar las geometrías en un mapa. Para relacionar las mediciones con los distritos, también tendremos que obtener o comprobar la ubicación de cada estación.</p>
+
+<h2>3. Publicador, titularidad y licencia</h2>
+<p>En las dos fichas, el publicador que aparece es el <strong>Ajuntament de València</strong>. La ficha de calidad del aire indica que la fuente de las mediciones es la <strong>Red Valenciana de Vigilancia y Control de la Contaminación Atmosférica</strong>. La ficha de distritos remite al Geoportal de València y a la información de Urbanismo e Infraestructuras.</p>
+<p>La RVVCCA es una red de la Generalitat Valenciana: su web oficial (<a href="https://rvvcca.pica.gva.es/es/node/152">rvvcca.pica.gva.es</a>) es de la Generalitat, que además publica por su cuenta en su <a href="https://dadesobertes.gva.es/es/dataset/med-cont-atmos-mh-2021">portal de datos abiertos</a> mediciones horarias de esta red (por ejemplo, las de 2021) con licencia «Creative Commons Attribution». Es decir, el Ajuntament publica en VLCi datos cuya fuente es otra administración. Por eso distinguimos tres papeles: <strong>publicador</strong> (Ajuntament de València), <strong>fuente de las mediciones</strong> (RVVCCA, Generalitat Valenciana) y <strong>titular de los derechos</strong>.</p>
+<p>Ambas fichas muestran la licencia <a href="https://creativecommons.org/licenses/by/4.0/deed.es">Creative Commons Atribución 4.0 Internacional (CC BY 4.0)</a>. La <a href="https://www.valencia.es/web/gobierno-abierto/cas/datos-abiertos/reutilizacion/politica-de-uso-datos-abiertos/politica-de-uso">política de uso</a> de datos abiertos del Ajuntament confirma que, salvo indicación en contrario, sus conjuntos se publican con esa licencia. En la información consultada (fichas y política de uso) no se declara expresamente quién es el titular de los derechos de los datos. Por eso indicamos quién publica los conjuntos, qué licencia declaran y de dónde proceden las mediciones, pero no damos por confirmado un titular. Para no atribuir mal, citaremos al Ajuntament como publicador y a la RVVCCA (Generalitat Valenciana) como fuente de las mediciones de calidad del aire.</p>
+<h3>Licencia que proponemos para el conjunto generado</h3>
+<p>Proponemos publicar el dataset RDF bajo <strong>CC BY 4.0</strong>, igual que las dos fuentes. Es coherente con la política de uso del Ajuntament, que permite la reutilización, también comercial, y las obras derivadas siempre que se identifiquen las modificaciones, y que prohíbe desvirtuar el sentido de la información o sugerir que el Ajuntament participa, patrocina o apoya el resultado. Al publicarlo pondremos la fórmula de atribución que pide la política, los enlaces a los conjuntos originales y a su licencia, la fecha de obtención de los datos (o de su última actualización) y el aviso de que los datos se han transformado y modelado como RDF por Group04. Si más adelante se añaden fuentes externas, habrá que revisar que sus licencias sean compatibles.</p>
+<blockquote>
+  Fuente de los datos: Ajuntament de València – Dades Obertes. Fecha de obtención: 26/10/2026 (calidad del aire y distritos). Para las mediciones de calidad del aire, fuente indicada: Red Valenciana de Vigilancia y Control de la Contaminación Atmosférica (Generalitat Valenciana). Licencia original de ambos conjuntos: CC BY 4.0. Datos modificados: transformación a RDF, normalización de fechas y horas y modelado por Group04, proyecto AireBarrio València. El Ajuntament de València no participa ni respalda este conjunto. Licencia propuesta para el conjunto generado: CC BY 4.0.
+</blockquote>
+
+<h2>4. Estrategia para nombrar los recursos</h2>
+<p>Siguiendo los apuntes, primero elegimos el dominio, después las rutas y por último los patrones que tendrán las clases, las propiedades y los individuos. Para la ontología usaremos <strong>hash URIs</strong> (con <code>#</code>) y para los individuos usaremos <strong>slash URIs</strong> (con rutas). Esta separación sigue el ejemplo de las diapositivas 37–38. Como el dataset tiene más de 200.000 filas, usamos slash URIs para los individuos (la diapositiva 36 los recomienda para datos grandes o modulares), de modo que cada recurso se pueda pedir por separado.</p>
+<p><strong>Dominio y rutas propuestos:</strong></p>
+<div class="scroll">
+<table>
+  <thead><tr><th>Elemento</th><th>Propuesta</th></tr></thead>
+  <tbody>
+    <tr><td>Dominio</td><td><code>http://smartcity.linkeddata.es/</code></td></tr>
+    <tr><td>Ruta base del proyecto</td><td><code>/valencia-air-quality/</code></td></tr>
+    <tr><td>Ruta de la ontología</td><td><code>http://smartcity.linkeddata.es/valencia-air-quality/ontology/</code></td></tr>
+    <tr><td>Ruta de los individuos</td><td><code>http://smartcity.linkeddata.es/valencia-air-quality/resource/</code></td></tr>
+  </tbody>
+</table>
+</div>
+<p class="nota">Hemos elegido una ruta relacionada con la calidad del aire en València, siguiendo el estilo del ejemplo de los apuntes. El dominio <code>smartcity.linkeddata.es</code> se usa aquí como propuesta para la práctica; el grupo no lo controla ni puede asegurar que las URIs estén disponibles en Internet.</p>
+<div class="scroll">
+<table>
+  <thead><tr><th>Qué se identifica</th><th>Patrón propuesto</th><th>Ejemplo</th></tr></thead>
+  <tbody>
+    <tr><td>Documento de la ontología</td><td><code>/ontology/{nombreOntologia}</code></td><td><code>http://smartcity.linkeddata.es/valencia-air-quality/ontology/AireBarrio</code></td></tr>
+    <tr><td>Clases</td><td><code>/ontology/{nombreOntologia}#{NombreClase}</code></td><td><code>.../ontology/AireBarrio#District</code>, <code>...#MonitoringStation</code>, <code>...#AirQualityObservation</code>, <code>...#Pollutant</code></td></tr>
+    <tr><td>Propiedades</td><td><code>/ontology/{nombreOntologia}#{nombrePropiedad}</code></td><td><code>...#hasStation</code>, <code>...#belongsToDistrict</code>, <code>...#observationTime</code>, <code>...#no2Value</code></td></tr>
+    <tr><td>Individuos de distrito</td><td><code>/resource/District/{codigoDistrito}</code></td><td><code>.../resource/District/17</code></td></tr>
+    <tr><td>Geometrías de distrito</td><td><code>/resource/DistrictGeometry/{idRegistroCSV}</code></td><td><code>.../resource/DistrictGeometry/4</code></td></tr>
+    <tr><td>Individuos de estación</td><td><code>/resource/MonitoringStation/{nombreNormalizado}</code></td><td><code>.../resource/MonitoringStation/viveros</code></td></tr>
+    <tr><td>Observaciones por estación y hora</td><td><code>/resource/AirQualityObservation/{estacion}/{fecha-hora-normalizada}</code></td><td><code>.../resource/AirQualityObservation/viveros/2021-07-03T14-00</code></td></tr>
+    <tr><td>Individuos de contaminante</td><td><code>/resource/Pollutant/{codigo}</code></td><td><code>.../resource/Pollutant/NO2</code></td></tr>
+  </tbody>
+</table>
+</div>
+<p>Los nombres de clase empiezan por mayúscula y los de propiedad por minúscula, como recomienda la checklist. Las propiedades tienen sus propias URIs dentro del espacio de nombres de la ontología; no dependen de la URI de una clase. Los individuos de clases diferentes usan rutas diferentes. Para las observaciones, la fecha incluida en el URI debe ser la fecha ya normalizada, no el texto tal como aparece en el CSV.</p>
+<p>En el CSV de distritos, el código 17 aparece en cuatro filas. Por eso separamos el recurso que representa al distrito (<code>District/17</code>) de los registros de geometría (<code>DistrictGeometry/{idRegistro}</code>). Así no confundimos las cuatro filas geométricas con cuatro distritos distintos. En este patrón, <code>idRegistroCSV</code> corresponde al valor de <code>_id</code> del CSV. Sirve para distinguir las filas del fichero que hemos utilizado. Como ese número identifica una fila, no garantiza que la URI siga apuntando a la misma geometría si el portal cambia el orden o vuelve a generar el fichero. Para esta práctica lo usamos porque es el identificador que tenemos disponible y dejamos clara esa limitación.La clase <code>District</code> es la que usaremos para enlazar con otras entidades: cada distrito se podrá vincular, por ejemplo, con su elemento de Wikidata mediante <code>owl:sameAs</code>.</p>
+<h3>Negociación de contenido</h3>
+<p>La idea es que las URIs de los recursos se puedan abrir desde la web. Cuando se publique el servicio, una petición HTTP a un individuo (por ejemplo, <code>.../resource/District/17</code>) responderá con una redirección <code>303 See Other</code> hacia una representación elegida según la cabecera <code>Accept</code>, como en el ejemplo de la diapositiva 35: <code>text/html</code> hacia la versión HTML (<code>.../resource/District/17.html</code>), <code>text/turtle</code> hacia la versión Turtle (<code>.../resource/District/17.ttl</code>) y <code>application/rdf+xml</code> hacia la versión RDF/XML (<code>.../resource/District/17.rdf</code>). Los términos de la ontología llevan <code>#</code>, así que una petición a <code>.../ontology/AireBarrio</code> devuelve el documento completo de la ontología (HTML o Turtle, también según <code>Accept</code>) y el fragmento (<code>#District</code>) lo resuelve el cliente. Esto necesita configurar el servidor o el servicio de publicación; escribir las URIs en un archivo no activa por sí solo la negociación de contenido.</p>
+
+<h2>5. Fuentes</h2>
+<ul>
+  <li><a href="https://opendata.vlci.valencia.es/es/dataset/rvvcca_d_horarios_2021-2022">Portal VLCi: Datos por horas de calidad del aire 2021–2022</a> y <a href="https://opendata.vlci.valencia.es/dataset/rvvcca_d_horarios_2021-2022/resource/19b5a1a7-5888-4d3e-b69b-3c1436d64e6e">ficha del recurso CSV</a>.</li>
+  <li><a href="https://opendata.vlci.valencia.es/es/dataset/districtes-distritos">Portal VLCi: Distritos de València</a>.</li>
+  <li><a href="https://creativecommons.org/licenses/by/4.0/deed.es">Licencia Creative Commons Atribución 4.0 Internacional (CC BY 4.0)</a>.</li>
+  <li>Apuntes de clase: F. Radulovic, M. Poveda-Villalón y R. García-Castro, <em>Methodological guidelines for the generation of Linked Data</em> (Ontology Engineering Group, UPM; CC BY-NC-SA 4.0), diapositivas 34–38: hash URIs, slash URIs y redirección 303, elección de dominio, ruta y patrones.</li>
+  <li><a href="https://www.valencia.es/web/gobierno-abierto/cas/datos-abiertos/reutilizacion/politica-de-uso-datos-abiertos/politica-de-uso">Política de uso de los datos abiertos del Ajuntament de València</a>.</li>
+  <li><a href="https://rvvcca.pica.gva.es/es/node/152">Red Valenciana de Vigilancia y Control de la Contaminación Atmosférica (Generalitat Valenciana)</a> y sus <a href="https://dadesobertes.gva.es/es/dataset/med-cont-atmos-mh-2021">mediciones por horas de 2021 en el portal de datos abiertos de la Generalitat</a>.</li>
+</ul>
+
+</body>
+</html>

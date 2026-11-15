@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<title>Requisitos de la aplicación - AirMove Madrid</title>
+<style>
+  body { font-family: Arial, sans-serif; margin: 2rem; }
+  table, th, td { border: 1px solid black; border-collapse: collapse; padding: 5px; }
+  .mock { border: 1px solid black; padding: 10px; margin: 10px 0; max-width: 600px; }
+</style>
+</head>
+<body>
+<h1>Requisitos de la aplicación: AirMove Madrid</h1>
+<p><strong>Grupo:</strong> Group07.</p>
+
+<h2>1. Objetivo</h2>
+<p><strong>AirMove Madrid</strong> es una aplicación web que muestra, sobre un mapa de Madrid, la calidad del aire de las estaciones de la ciudad junto con el tráfico de su zona. Ayuda a los ciudadanos y a los gestores municipales a ver dónde y cuándo coinciden mucho tráfico y mucha contaminación.</p>
+
+<h2>2. Usuarios</h2>
+<table>
+  <tr><th>Usuario</th><th>Necesidades</th></tr>
+  <tr><td>Ciudadano</td><td>Ver cómo está el aire cerca de su casa, colegio o trabajo en un día y hora concretos y a qué horas suele ser peor.</td></tr>
+  <tr><td>Ciclista o corredor</td><td>Elegir la mejor hora y la zona para hacer deporte.</td></tr>
+  <tr><td>Gestor municipal o analista</td><td>Ver qué distritos y horas tienen más tráfico y contaminación, para planificar medidas.</td></tr>
+</table>
+
+<h2>3. Requisitos funcionales</h2>
+<table>
+  <tr><th>ID</th><th>Requisito</th></tr>
+  <tr><td>FR1</td><td>Mostrar las estaciones de calidad del aire en un mapa, coloreadas según el valor del contaminante en la fecha y hora elegidas.</td></tr>
+  <tr><td>FR2</td><td>Mostrar el detalle de una estación: nombre, distrito y evolución del contaminante durante el día.</td></tr>
+  <tr><td>FR3</td><td>Mostrar, para la estación elegida, la intensidad de tráfico de los puntos de medida situados a menos de 2 km junto con el contaminante a lo largo del día, en un mismo gráfico.</td></tr>
+  <tr><td>FR4</td><td>Mostrar un ranking de distritos por nivel medio de contaminante e intensidad media de tráfico.</td></tr>
+  <tr><td>FR5</td><td>Marcar los valores de calidad del aire que los datos originales señalan como no válidos (indicador de validez de D1) y excluirlos de los gráficos.</td></tr>
+  <tr><td>FR6</td><td>Indicar la fuente y la licencia (CC BY 4.0).</td></tr>
+</table>
+
+<h2>4. Requisitos no funcionales</h2>
+<ul>
+  <li>La aplicación funciona en el navegador de un ordenador y de un móvil.</li>
+  <li>Los datos se consultan desde el RDF publicado por el grupo (SPARQL), no desde los CSV originales.</li>
+</ul>
+
+<h2>5. Preguntas de ejemplo que responde la aplicación</h2>
+<ol>
+  <li>¿Qué estaciones registraron el nivel de NO2 más alto en una fecha y hora elegidas?</li>
+  <li>¿Cómo cambia la intensidad de tráfico cerca de una estación a lo largo del día en comparación con su PM10?</li>
+  <li>¿Qué distritos tienen a la vez mucho tráfico y mucha contaminación entre semana?</li>
+</ol>
+
+<h2>6. Limitaciones de los datos</h2>
+<ul>
+  <li>Los datos de tráfico cubren solo una muestra de septiembre de 2026 y 70 puntos de medida, por lo que la comparación con el aire solo vale para ese mes.</li>
+  <li>No todas las estaciones tienen puntos de tráfico cerca.</li>
+  <li>La estación 55 (Urb. Embajada) no tiene datos horarios en nuestro fichero, y no todas las estaciones miden todos los contaminantes.</li>
+  <li>Los valores no válidos solo se pueden excluir en los datos de calidad del aire, no en los de tráfico.</li>
+  <li>El distrito de las estaciones de calidad del aire no figura en los datos originales y en los puntos de tráfico solo aparece como número. Asignamos a mano el distrito de cada estación y el nombre.</li>
+</ul>
+
+<h2>7. Bocetos de interfaz</h2>
+
+<h3>Pantalla 1. Mapa de estaciones</h3>
+<div class="mock">
+  <p>AirMove Madrid</p>
+  <p>Contaminante: [NO2 ▾] &nbsp; Fecha: [15/09/2026 ▾] &nbsp; Hora: [08:00 ▾]</p>
+  <p>[ Mapa de Madrid con las estaciones: 🟢 🟡 🔴 ]</p>
+  <p>Al pulsar una estación se abre su detalle.</p>
+  <p>Fuente: Ayuntamiento de Madrid, CC BY 4.0</p>
+</div>
+  
+<h3>Pantalla 2. Detalle de estación</h3>
+<div class="mock">
+  <p>← Volver | Estación: (nombre) | Distrito: (nombre)</p>
+  <p>[ Gráfico: contaminante (NO2) y tráfico de los puntos cercanos a lo largo del día ]</p>
+  <p>Valores no válidos excluidos: 2</p>
+  <p>Fuente: Ayuntamiento de Madrid, CC BY 4.0</p>
+</div>
+
+<h3>Pantalla 3. Ranking de distritos</h3>
+<div class="mock">
+  <p>Contaminante: [PM10 ▾] &nbsp; Días: [Laborables ▾]</p>
+  <table>
+    <tr><th>#</th><th>Distrito</th><th>Contaminante medio</th><th>Tráfico medio</th></tr>
+    <tr><td>1</td><td>(distrito A)</td><td>...</td><td>...</td></tr>
+    <tr><td>2</td><td>(distrito B)</td><td>...</td><td>...</td></tr>
+  </table>
+  <p>Fuente: Ayuntamiento de Madrid, CC BY 4.0</p>
+</div>
+</body>
+</html>

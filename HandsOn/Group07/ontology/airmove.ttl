@@ -1,0 +1,209 @@
+@prefix am:    <https://w3id.org/airmove-madrid/ontology/AirMove#> .
+@prefix owl:   <http://www.w3.org/2002/07/owl#> .
+@prefix rdfs:  <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix xsd:   <http://www.w3.org/2001/XMLSchema#> .
+@prefix dct:   <http://purl.org/dc/terms/> .
+
+#################################################################
+#    Ontology metadata
+#################################################################
+
+<https://w3id.org/airmove-madrid/ontology/AirMove> a owl:Ontology ;
+    dct:title "AirMove Madrid ontology"@en ;
+    dct:description "Ontology for air quality stations, traffic measurement points and their observations in Madrid."@en ;
+    dct:creator "Group07" ;
+    dct:created "2026-11-05"^^xsd:date ;
+    dct:license <http://purl.org/NET/rdflicense/cc-by4.0> ;
+    owl:versionInfo "0.1" .
+
+#################################################################
+#    Classes
+#################################################################
+
+am:MeasurementPoint a owl:Class ;
+    rdfs:label "Measurement point"@en ;
+    rdfs:comment "Place where something is measured. Superclass of air quality stations and traffic measurement points."@en .
+
+am:AirQualityStation a owl:Class ;
+    rdfs:subClassOf am:MeasurementPoint ;
+    rdfs:label "Air quality station"@en ;
+    rdfs:comment "Station of the municipal air quality network."@en .
+
+am:TrafficMeasurementPoint a owl:Class ;
+    rdfs:subClassOf am:MeasurementPoint ;
+    rdfs:label "Traffic measurement point"@en ;
+    rdfs:comment "Point of the municipal road traffic sensor network."@en .
+
+am:Pollutant a owl:Class ;
+    rdfs:label "Pollutant"@en ;
+    rdfs:comment "Magnitude measured by the air quality stations (for example NO2 or PM10)."@en .
+
+am:District a owl:Class ;
+    rdfs:label "District"@en ;
+    rdfs:comment "Administrative district of Madrid."@en .
+
+am:Observation a owl:Class ;
+    rdfs:label "Observation"@en ;
+    rdfs:comment "Value or values obtained by a measurement point at a given instant."@en .
+
+am:AirQualityObservation a owl:Class ;
+    rdfs:subClassOf am:Observation ;
+    rdfs:label "Air quality observation"@en ;
+    rdfs:comment "Hourly value of one pollutant at one air quality station."@en .
+
+am:TrafficObservation a owl:Class ;
+    rdfs:subClassOf am:Observation ;
+    rdfs:label "Traffic observation"@en ;
+    rdfs:comment "Measurement of one traffic point for a 15-minute period."@en .
+
+#################################################################
+#    Object properties
+#################################################################
+
+am:locatedInDistrict a owl:ObjectProperty ;
+    rdfs:domain am:MeasurementPoint ;
+    rdfs:range am:District ;
+    rdfs:label "located in district"@en ;
+    rdfs:comment "District where the measurement point is located."@en .
+
+am:nearTrafficPoint a owl:ObjectProperty ;
+    rdfs:domain am:AirQualityStation ;
+    rdfs:range am:TrafficMeasurementPoint ;
+    rdfs:label "near traffic point"@en ;
+    rdfs:comment "Traffic measurement point located within 2 km of the air quality station."@en .
+
+am:observedAtStation a owl:ObjectProperty ;
+    rdfs:domain am:AirQualityObservation ;
+    rdfs:range am:AirQualityStation ;
+    rdfs:label "observed at station"@en ;
+    rdfs:comment "Air quality station that made the observation."@en .
+
+am:measuredPollutant a owl:ObjectProperty ;
+    rdfs:domain am:AirQualityObservation ;
+    rdfs:range am:Pollutant ;
+    rdfs:label "measured pollutant"@en ;
+    rdfs:comment "Pollutant whose concentration is given by the observation."@en .
+
+am:observedAtPoint a owl:ObjectProperty ;
+    rdfs:domain am:TrafficObservation ;
+    rdfs:range am:TrafficMeasurementPoint ;
+    rdfs:label "observed at point"@en ;
+    rdfs:comment "Traffic measurement point that made the observation."@en .
+
+#################################################################
+#    Datatype properties
+#################################################################
+
+am:hasName a owl:DatatypeProperty ;
+    rdfs:domain am:MeasurementPoint ;
+    rdfs:range xsd:string ;
+    rdfs:label "has name"@en ;
+    rdfs:comment "Name of the measurement point."@en .
+
+am:latitude a owl:DatatypeProperty ;
+    rdfs:domain am:MeasurementPoint ;
+    rdfs:range xsd:decimal ;
+    rdfs:label "latitude"@en ;
+    rdfs:comment "Latitude in decimal degrees."@en .
+
+am:longitude a owl:DatatypeProperty ;
+    rdfs:domain am:MeasurementPoint ;
+    rdfs:range xsd:decimal ;
+    rdfs:label "longitude"@en ;
+    rdfs:comment "Longitude in decimal degrees."@en .
+
+am:stationCode a owl:DatatypeProperty ;
+    rdfs:domain am:AirQualityStation ;
+    rdfs:range xsd:integer ;
+    rdfs:label "station code"@en ;
+    rdfs:comment "Short code of the station in the source data."@en .
+
+am:address a owl:DatatypeProperty ;
+    rdfs:domain am:AirQualityStation ;
+    rdfs:range xsd:string ;
+    rdfs:label "address"@en ;
+    rdfs:comment "Postal address of the air quality station."@en .
+
+am:stationType a owl:DatatypeProperty ;
+    rdfs:domain am:AirQualityStation ;
+    rdfs:range xsd:string ;
+    rdfs:label "station type"@en ;
+    rdfs:comment "Urban background, urban traffic or suburban."@en .
+
+am:trafficPointId a owl:DatatypeProperty ;
+    rdfs:domain am:TrafficMeasurementPoint ;
+    rdfs:range xsd:integer ;
+    rdfs:label "traffic point identifier"@en ;
+    rdfs:comment "Identifier of the point in the source data."@en .
+
+am:pollutantCode a owl:DatatypeProperty ;
+    rdfs:domain am:Pollutant ;
+    rdfs:range xsd:integer ;
+    rdfs:label "pollutant code"@en ;
+    rdfs:comment "Magnitude code of the pollutant in the source data."@en .
+
+am:pollutantSymbol a owl:DatatypeProperty ;
+    rdfs:domain am:Pollutant ;
+    rdfs:range xsd:string ;
+    rdfs:label "pollutant symbol"@en ;
+    rdfs:comment "Chemical symbol or short name of the pollutant."@en .
+
+am:districtCode a owl:DatatypeProperty ;
+    rdfs:domain am:District ;
+    rdfs:range xsd:integer ;
+    rdfs:label "district code"@en ;
+    rdfs:comment "Numeric code of the district (1 to 21) used in the source data."@en .
+
+am:districtName a owl:DatatypeProperty ;
+    rdfs:domain am:District ;
+    rdfs:range xsd:string ;
+    rdfs:label "district name"@en ;
+    rdfs:comment "Name of the district."@en .
+
+am:observationDateTime a owl:DatatypeProperty ;
+    rdfs:domain am:Observation ;
+    rdfs:range xsd:dateTime ;
+    rdfs:label "observation date and time"@en ;
+    rdfs:comment "Date and time of the observation."@en .
+
+am:value a owl:DatatypeProperty ;
+    rdfs:domain am:AirQualityObservation ;
+    rdfs:range xsd:decimal ;
+    rdfs:label "value"@en ;
+    rdfs:comment "Measured concentration of the pollutant."@en .
+
+am:isValid a owl:DatatypeProperty ;
+    rdfs:domain am:AirQualityObservation ;
+    rdfs:range xsd:boolean ;
+    rdfs:label "is valid"@en ;
+    rdfs:comment "True if the source data flags the value as valid, false if it is flagged as not valid."@en .
+
+am:intensity a owl:DatatypeProperty ;
+    rdfs:domain am:TrafficObservation ;
+    rdfs:range xsd:integer ;
+    rdfs:label "intensity"@en ;
+    rdfs:comment "Traffic intensity in vehicles per hour, computed over the 15-minute period."@en .
+
+am:occupancy a owl:DatatypeProperty ;
+    rdfs:domain am:TrafficObservation ;
+    rdfs:range xsd:integer ;
+    rdfs:label "occupancy"@en ;
+    rdfs:comment "Occupancy of the road in the period, as a percentage (0 to 100)."@en .
+
+am:load a owl:DatatypeProperty ;
+    rdfs:domain am:TrafficObservation ;
+    rdfs:range xsd:integer ;
+    rdfs:label "load"@en ;
+    rdfs:comment "Load of the road in the period, as a percentage (0 to 100)."@en .
+
+am:averageSpeed a owl:DatatypeProperty ;
+    rdfs:domain am:TrafficObservation ;
+    rdfs:range xsd:integer ;
+    rdfs:label "average speed"@en ;
+    rdfs:comment "Average speed of the vehicles. It is 0 where it is not measured."@en .
+
+am:integrationPeriod a owl:DatatypeProperty ;
+    rdfs:domain am:TrafficObservation ;
+    rdfs:range xsd:integer ;
+    rdfs:label "integration period"@en ;
+    rdfs:comment "Number of samples (1 to 15) used to compute the 15-minute value."@en .

@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Análisis de datos - MadridServices</title>
+</head>
+<body>
+
+    <h1>Análisis de datos y nombres de recursos</h1>
+
+    <h2>1. Análisis de los datos</h2>
+
+    <p>Hemos analizado cuatro archivos CSV obtenidos de los portales de datos abiertos de Madrid.</p>
+
+    <p>Los archivos CSV utilizados son los siguientes:</p>
+
+    <ul>
+        <li>Fuentes de agua potable:
+            <a href="https://datos.madrid.es/dataset/300051-0-fuentes">Enlace al CSV</a>
+        </li>
+        <li>Aseos públicos:
+            <a href="https://datos.madrid.es/dataset/300103-0-aseos-publicos-operativos">Enlace al CSV</a>
+        </li>
+        <li>Bibliotecas públicas:
+            <a href="https://datos.madrid.es/dataset/201747-0-bibliobuses-bibliotecas">Enlace al CSV</a>
+        </li>
+        <li>Polideportivos:
+            <a href="https://datos.madrid.es/dataset/200186-0-polideportivos">Enlace al CSV</a>
+        </li>
+    </ul>
+
+    <p>Los archivos comparten datos similares que podemos relacionar entre sí:</p>
+
+    <ul>
+        <li>Un identificador único o número de registro para cada elemento.</li>
+        <li>El nombre o la descripción del servicio.</li>
+        <li>La dirección donde se encuentra (calle, número, barrio, etc).</li>
+        <li>Las coordenadas geográficas (latitud y longitud) para situarlos en un mapa.</li>
+    </ul>
+
+    <h2>2. Licencia de los datos</h2>
+
+    <p>El dataset generado utilizará la licencia Creative Commons Attribution 4.0 International (CC BY 4.0), siempre que las condiciones de las licencias de los conjuntos de datos originales lo permitan.</p>
+
+    <p>Esta licencia permite utilizar, modificar y compartir los datos, siempre que se reconozca la autoría y se indique la procedencia de la información original.</p>
+
+    <h2>3. Estrategia para nombrar los recursos (URIs)</h2>
+
+    <p>Para identificar de forma única cada elemento de nuestra aplicación web, utilizaremos direcciones web (URIs) siguiendo una estructura clara y organizada.</p>
+
+    <p>Dirección base de la aplicación:
+    http://madridservices.linkeddata.es/</p>
+
+    <h3>3.1. Clases de la ontología</h3>
+
+    <p>Las clases se identificarán utilizando la siguiente ruta:</p>
+
+    <ul>
+        <li>Servicio (Clase padre):
+        http://madridservices.linkeddata.es/ontology/services#Service</li>
+
+        <li>Fuentes:
+        http://madridservices.linkeddata.es/ontology/services#DrinkingFountain</li>
+
+        <li>Aseos:
+        http://madridservices.linkeddata.es/ontology/services#PublicToilet</li>
+
+        <li>Bibliotecas:
+        http://madridservices.linkeddata.es/ontology/services#Library</li>
+
+        <li>Polideportivos:
+        http://madridservices.linkeddata.es/ontology/services#SportsCenter</li>
+    </ul>
+
+    <h3>3.2. Propiedades de la ontología</h3>
+
+    <p>Las propiedades utilizarán una ruta independiente de la utilizada para las clases:</p>
+
+    <ul>
+        <li>Ubicación (enlace a ciudad):
+        http://madridservices.linkeddata.es/ontology/properties#locatedIn</li>
+
+        <li>Nombre:
+        http://madridservices.linkeddata.es/ontology/properties#name</li>
+
+        <li>Dirección:
+        http://madridservices.linkeddata.es/ontology/properties#address</li>
+
+        <li>Latitud:
+        http://madridservices.linkeddata.es/ontology/properties#latitude</li>
+
+        <li>Longitud:
+        http://madridservices.linkeddata.es/ontology/properties#longitude</li>
+
+    </ul>
+
+    <h3>3.3. Individuos de la ontología</h3>
+
+    <p>Para identificar cada lugar o servicio concreto utilizaremos su número de ID. Cada tipo de individuo tendrá una ruta diferente según su clase:</p>
+
+    <ul>
+        <li>Ejemplo de una fuente:
+        http://madridservices.linkeddata.es/resource/DrinkingFountain/10040803</li>
+
+        <li>Ejemplo de un aseo:
+        http://madridservices.linkeddata.es/resource/PublicToilet/020035ASW</li>
+
+        <li>Ejemplo de una biblioteca:
+        http://madridservices.linkeddata.es/resource/Library/1774</li>
+
+        <li>Ejemplo de un polideportivo:
+        http://madridservices.linkeddata.es/resource/SportsCenter/4696</li>
+    </ul>
+
+    <p>De esta manera, las clases, las propiedades y los individuos tendrán rutas diferenciadas. Además, los individuos de distintas clases utilizarán rutas específicas para evitar confusiones y garantizar su identificación única.</p>
+
+</body>
+</html>

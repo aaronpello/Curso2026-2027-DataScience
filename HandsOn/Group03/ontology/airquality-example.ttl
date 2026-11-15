@@ -1,0 +1,65 @@
+@prefix aq:          <http://airquality.group03.example.org/ontology/airquality#> .
+@prefix station:     <http://airquality.group03.example.org/resource/Station/> .
+@prefix stationtype: <http://airquality.group03.example.org/resource/StationType/> .
+@prefix pollutant:   <http://airquality.group03.example.org/resource/Pollutant/> .
+@prefix municipality: <http://airquality.group03.example.org/resource/Municipality/> .
+@prefix measurement: <http://airquality.group03.example.org/resource/Measurement/> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix xsd:  <http://www.w3.org/2001/XMLSchema#> .
+
+# Sample data taken from the stations CSV (station 28079004) and from the
+# hourly CSV (station 4, magnitude 6, 30 September 2026, hours 1 to 3).
+
+station:28079004 a aq:Station ;
+    rdfs:label "Plaza de España" ;
+    aq:hasStationCode "28079004" ;
+    aq:hasAddress "Plaza de España" ;
+    aq:hasAltitude 637 ;
+    aq:hasStartDate "1998-12-01"^^xsd:date ;
+    aq:hasLatitude 40.4238823 ;
+    aq:hasLongitude -3.7122567 ;
+    aq:hasStationType stationtype:UT ;
+    aq:locatedInMunicipality municipality:28079 ;
+    aq:measuresPollutant pollutant:NO2, pollutant:SO2, pollutant:CO .
+
+stationtype:UT a aq:StationType ;
+    rdfs:label "Urban traffic" ;
+    aq:hasTypeCode "UT" .
+
+municipality:28079 a aq:Municipality ;
+    rdfs:label "Madrid" ;
+    aq:hasMunicipalityCode "28079" .
+
+pollutant:NO2 a aq:Pollutant ;
+    rdfs:label "NO2" .
+
+pollutant:SO2 a aq:Pollutant ;
+    rdfs:label "SO2" .
+
+pollutant:CO a aq:Pollutant ;
+    rdfs:label "CO" ;
+    aq:hasMagnitudeCode 6 .
+
+measurement:28079004-6-2026-09-30-H01 a aq:Measurement ;
+    aq:measuredAtStation station:28079004 ;
+    aq:ofPollutant pollutant:CO ;
+    aq:hasDate "2026-09-30"^^xsd:date ;
+    aq:hasHour 1 ;
+    aq:hasValue 0.2 ;
+    aq:hasValidityFlag "V" .
+
+measurement:28079004-6-2026-09-30-H02 a aq:Measurement ;
+    aq:measuredAtStation station:28079004 ;
+    aq:ofPollutant pollutant:CO ;
+    aq:hasDate "2026-09-30"^^xsd:date ;
+    aq:hasHour 2 ;
+    aq:hasValue 0.3 ;
+    aq:hasValidityFlag "V" .
+
+measurement:28079004-6-2026-09-30-H03 a aq:Measurement ;
+    aq:measuredAtStation station:28079004 ;
+    aq:ofPollutant pollutant:CO ;
+    aq:hasDate "2026-09-30"^^xsd:date ;
+    aq:hasHour 3 ;
+    aq:hasValue 0.3 ;
+    aq:hasValidityFlag "V" .

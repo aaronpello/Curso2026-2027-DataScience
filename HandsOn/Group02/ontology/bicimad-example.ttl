@@ -1,0 +1,77 @@
+
+@prefix bme: <http://www.bicimadexplorer.es/ontology/bicimad#> .
+@prefix station: <http://www.bicimadexplorer.es/resource/station/> .
+@prefix address: <http://www.bicimadexplorer.es/resource/address/> .
+@prefix location: <http://www.bicimadexplorer.es/resource/location/> .
+@prefix status: <http://www.bicimadexplorer.es/resource/status/> .
+@prefix occupancy: <http://www.bicimadexplorer.es/resource/occupancy/> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+
+
+# Estacion 1 - Metro Callao
+
+station:2 a bme:Station ;
+    bme:objectId 1 ;
+    bme:stationNumber "2" ;
+    bme:stationName "2 - Metro Callao" ;
+    bme:totalDocks 27 ;
+    bme:isActive true ;
+    bme:isUnavailable false ;
+    bme:hasAddress address:2 ;
+    bme:hasLocation location:2 ;
+    bme:hasStatus status:IN_SERVICE .
+
+address:2 a bme:Address ;
+    bme:streetAddress "Calle Miguel Moya nº 1," .
+
+location:2 a bme:Location ;
+    bme:longitude "-3.70569"^^xsd:decimal ;
+    bme:latitude "40.4204"^^xsd:decimal .
+
+
+# Estacion 2 - Plaza Conde Suchil
+
+station:3 a bme:Station ;
+    bme:objectId 2 ;
+    bme:stationNumber "3" ;
+    bme:stationName "3 - Plaza Conde Suchil" ;
+    bme:totalDocks 19 ;
+    bme:isActive true ;
+    bme:isUnavailable false ;
+    bme:hasAddress address:3 ;
+    bme:hasLocation location:3 ;
+    bme:hasStatus status:IN_SERVICE .
+
+address:3 a bme:Address ;
+    bme:streetAddress "Plaza Conde Surchill, 4 ," .
+
+location:3 a bme:Location ;
+    bme:longitude "-3.7072537"^^xsd:decimal ;
+    bme:latitude "40.4303223"^^xsd:decimal .
+
+
+# Estacion 3 - Malasana
+
+station:4 a bme:Station ;
+    bme:objectId 3 ;
+    bme:stationNumber "4" ;
+    bme:stationName "4 - Malasaña" ;
+    bme:totalDocks 27 ;
+    bme:isActive true ;
+    bme:isUnavailable false ;
+    bme:hasAddress address:4 ;
+    bme:hasLocation location:4 ;
+    bme:hasStatus status:IN_SERVICE .
+
+address:4 a bme:Address ;
+    bme:streetAddress "Calle Manuela Malasaña nº 3," .
+
+location:4 a bme:Location ;
+    bme:longitude "-3.7025"^^xsd:decimal ;
+    bme:latitude "40.4286259"^^xsd:decimal .
+
+
+# Station status instances
+
+status:IN_SERVICE a bme:StationStatus ;
+    bme:statusCode "IN_SERVICE" .

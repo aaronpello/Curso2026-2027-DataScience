@@ -1,0 +1,88 @@
+# Ejemplo de instanciación de la Ontología 
+@prefix ab:  <http://smartcity.linkeddata.es/valencia-air-quality/ontology/AireBarrio#> .
+@prefix st:  <http://smartcity.linkeddata.es/valencia-air-quality/resource/MonitoringStation/> .
+@prefix dis: <http://smartcity.linkeddata.es/valencia-air-quality/resource/District/> .
+@prefix geo: <http://smartcity.linkeddata.es/valencia-air-quality/resource/DistrictGeometry/> .
+@prefix pol: <http://smartcity.linkeddata.es/valencia-air-quality/resource/Pollutant/> .
+@prefix ovi: <http://smartcity.linkeddata.es/valencia-air-quality/resource/AirQualityObservation/viveros/> .
+@prefix oov: <http://smartcity.linkeddata.es/valencia-air-quality/resource/AirQualityObservation/valencia-olivereta/> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+
+# Estaciones
+st:viveros  a  ab:MonitoringStation ;
+    ab:stationName  "Viveros"^^xsd:string ;
+    ab:belongsToDistrict  dis:6 ;
+    ab:measuresPollutant  pol:NO2 , pol:O3 .
+
+st:valencia-olivereta  a  ab:MonitoringStation ;
+    ab:stationName  "Valencia Olivereta"^^xsd:string ;
+    ab:belongsToDistrict  dis:7 ;
+    ab:measuresPollutant  pol:NO2 .
+
+# Distritos y geometría
+dis:6  a  ab:District ;
+    ab:districtCode  6 ;
+    ab:districtName  "EL PLA DEL REAL"^^xsd:string ;
+    ab:area  "16927128.75"^^xsd:double ;
+    ab:hasGeometry  geo:3 .
+
+dis:7  a  ab:District ;
+    ab:districtCode  7 ;
+    ab:districtName  "L'OLIVERETA"^^xsd:string .
+
+geo:3  a  ab:DistrictGeometry ;
+    ab:geometryWKT  "POLYGON ((726852.8440026041 4373902.582897191, 726740.9070026041 4373943.082897191, 726722.0310026048 4373888.582897191, 726653.5940026037 4373690.584897194, 726433.5910026033 4373055.088897195, 726365.4030026032 4373025.089897195, 726315.5900026029 4372958.089897197, 726570.0880026033 4372592.090897199, 726703.524002603 4372385.591897199, 726771.8360026028 4372279.591897202, 726830.2110026028 4372190.092897201, 726896.4600026024 4372076.592897202, 726954.8960026022 4371946.592897202, 727019.2090026021 4371805.593897204, 727103.7080026018 4371611.594897205, 727121.7442026017 4371532.832397204, 727232.2080026018 4371567.093897205, 727288.3950026018 4371611.093897206, 727359.2090026024 4371816.591897203, 727381.8960026023 4371882.591897203, 727404.8340026025 4371949.090897203, 727474.0577026027 4372151.194697202, 727491.7262026035 4372197.897197198, 727539.3223026034 4372333.199697199, 727573.7110026034 4372440.087897198, 727670.837002604 4372722.085897196, 727727.2130026044 4372886.084897195, 727616.2750026042 4372923.084897196, 727696.0890026039 4373167.0828971965, 727528.3400026041 4373224.083897196, 727511.027002604 4373172.583897196, 727445.0289026045 4373217.416297193, 727333.2647026044 4373320.291297195, 727260.6798026043 4373386.641997195, 727104.3773026041 4373529.585197192, 726957.1234026043 4373659.5611971915, 726938.5886026046 4373674.971697192, 726808.640602604 4373783.81939719, 726852.8440026041 4373902.582897191))"^^xsd:string .
+
+# Contaminantes
+pol:NO2  a  ab:Pollutant ;
+    ab:pollutantCode  "NO2"^^xsd:string .
+
+pol:O3  a  ab:Pollutant ;
+    ab:pollutantCode  "O3"^^xsd:string .
+
+# Observaciones
+
+# Viveros, 2021-07-03T14:00:00
+ovi:2021-07-03T14-00  a  ab:AirQualityObservation ;
+    ab:hasStation  st:viveros ;
+    ab:observationTime  "2021-07-03T14:00:00"^^xsd:dateTime ;
+    ab:noValue  "4"^^xsd:float ;
+    ab:no2Value  "9"^^xsd:float ;
+    ab:noxValue  "15"^^xsd:float ;
+    ab:o3Value  "94"^^xsd:float ;
+    ab:so2Value  "3"^^xsd:float ;
+    ab:windSpeed  "1.1"^^xsd:float ;
+    ab:windDirection  "135"^^xsd:float ;
+    ab:temperature  "27.0"^^xsd:float ;
+    ab:humidity  "87"^^xsd:float ;
+    ab:pressure  "1000"^^xsd:float ;
+    ab:radiation  "857"^^xsd:float ;
+    ab:precipitation  "0.0"^^xsd:float ;
+    ab:maxWindSpeed  "5.4"^^xsd:float .
+
+# Viveros, 2021-07-04T18:00:00
+ovi:2021-07-04T18-00  a  ab:AirQualityObservation ;
+    ab:hasStation  st:viveros ;
+    ab:observationTime  "2021-07-04T18:00:00"^^xsd:dateTime ;
+    ab:noValue  "2"^^xsd:float ;
+    ab:no2Value  "7"^^xsd:float ;
+    ab:noxValue  "10"^^xsd:float ;
+    ab:so2Value  "3"^^xsd:float ;
+    ab:windSpeed  "5.2"^^xsd:float ;
+    ab:windDirection  "47"^^xsd:float ;
+    ab:temperature  "27.0"^^xsd:float ;
+    ab:humidity  "96"^^xsd:float ;
+    ab:pressure  "998"^^xsd:float ;
+    ab:radiation  "304"^^xsd:float ;
+    ab:precipitation  "0.0"^^xsd:float ;
+    ab:maxWindSpeed  "13.2"^^xsd:float .
+
+# Valencia Olivereta, 2022-05-10T04:00:00
+oov:2022-05-10T04-00  a  ab:AirQualityObservation ;
+    ab:hasStation  st:valencia-olivereta ;
+    ab:observationTime  "2022-05-10T04:00:00"^^xsd:dateTime ;
+    ab:noValue  "2"^^xsd:float ;
+    ab:no2Value  "30"^^xsd:float ;
+    ab:noxValue  "33"^^xsd:float ;
+    ab:pm25Value  "11"^^xsd:float ;
+    ab:pm10Value  "20"^^xsd:float .

@@ -1,0 +1,197 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>BiciMAD Dataset Analysis</title>
+</head>
+<body>
+
+    <h1>BiciMAD Dataset Analysis</h1>
+
+    <h2>1. Introduction</h2>
+
+    <p>This dataset contains information about BiciMAD stations in Madrid.
+    Within this dataset, we can find different types of information related to the operation of BiciMAD in Madrid,
+    such as station locations, coordinates, and whether the stations are available or unavailable.
+    The dataset was obtained from the Madrid City Council Open Data Portal.</p>
+
+    <h2>2. Dataset Structure</h2>
+
+    <p>The dataset contains 631 records and 12 columns.
+    Each row represents a BiciMAD station. Each column contains a characteristic of the station,
+    such as its name, address, or capacity.</p>
+
+    <table>
+        <tr>
+            <th>Column</th>
+            <th>Description</th>
+            <th>Data Type</th>
+        </tr>
+        <tr>
+            <td>OBJECTID</td>
+            <td>Identifier of each record</td>
+            <td>Integer</td>
+        </tr>
+        <tr>
+            <td>Activate</td>
+            <td>Indicates if the station is activated</td>
+            <td>Integer</td>
+        </tr>
+        <tr>
+            <td>Address</td>
+            <td>Address of the BiciMAD station</td>
+            <td>String</td>
+        </tr>
+        <tr>
+            <td>PosicionSTR</td>
+            <td>Geographical position of the station in text format</td>
+            <td>String</td>
+        </tr>
+        <tr>
+            <td>Ligth</td>
+            <td>Numeric indicator related to the station</td>
+            <td>Integer</td>
+        </tr>
+        <tr>
+            <td>Name</td>
+            <td>Name of the BiciMAD station</td>
+            <td>String</td>
+        </tr>
+        <tr>
+            <td>NoAvailable</td>
+            <td>Indicates if the station is unavailable</td>
+            <td>Integer</td>
+        </tr>
+        <tr>
+            <td>number</td>
+            <td>Identification number of the station</td>
+            <td>Integer</td>
+        </tr>
+        <tr>
+            <td>TotalBases</td>
+            <td>Total number of bicycle docking spaces</td>
+            <td>Integer</td>
+        </tr>
+        <tr>
+            <td>State</td>
+            <td>State recorded for the station</td>
+            <td>String</td>
+        </tr>
+        <tr>
+            <td>POINT_X</td>
+            <td>Geographical X coordinate of the station</td>
+            <td>Decimal</td>
+        </tr>
+        <tr>
+            <td>POINT_Y</td>
+            <td>Geographical Y coordinate of the station</td>
+            <td>Decimal</td>
+        </tr>
+    </table>
+
+    <h2>3. Data Analysis</h2>
+
+    <h3>3.1. Station Capacity</h3>
+
+    <p>The 'TotalBases' column indicates how many docking points each station has.
+    According to the data, the minimum capacity is 0, the maximum is 43,
+    the mean is 23.68, and the most frequent value (mode) is 23.
+    There are 2 stations with a capacity of 0.
+    The number of docking points varies from one station to another.</p>
+
+    <h3>3.2. Station Status</h3>
+
+    <p>The 'State' column indicates the status of each BiciMAD station.
+    Regarding the stations, we can state that 626 are in service (99.2%),
+    3 are not in service, one has reached the end of its useful life,
+    and another one is planned.</p>
+
+    <h3>3.3. Other Indicators</h3>
+
+    <p>The 'Activate' and 'NoAvailable' columns provide additional information about the stations.
+    Regarding the 'Activate' column, 629 stations have a value of 1, while only 2 have a value of 0.
+    In the 'NoAvailable' column, 626 stations have a value of 0 and 5 have a value of 1.
+    Therefore, most stations have 'Activate' set to 1 and 'NoAvailable' set to 0.</p>
+
+    <h3>3.4. Data Quality</h3>
+
+    <p>Regarding the quality of the dataset, it contains 631 records and 12 columns.
+    According to our analysis, there are no missing values or completely duplicated records.
+    However, we found 2 stations with a capacity of 0, which could be interesting to review.</p>
+
+    <h2>4. Licensing Analysis</h2>
+
+    <p>The Madrid City Council makes the data available to the public.
+    The data is licensed under the Creative Commons Attribution 4.0 International (CC BY 4.0) license.
+    This license permits the reuse, sharing, and modification of the data.
+    However, we must acknowledge the original source and its license when using the data.</p>
+
+    <p>The dataset has been published by the Madrid City Council,
+    while the entity responsible for the dataset is the Municipal Transport
+    Company of Madrid (Empresa Municipal de Transportes, S.A.).
+    The rights holder is not explicitly identified in the dataset information.</p>
+
+    <p>For the RDF dataset that we are going to create, we propose
+    using the same CC BY 4.0 license. This allows us to share and
+    reuse the transformed data while giving credit to the original source.</p>
+
+    <p>License:
+    <a href="https://creativecommons.org/licenses/by/4.0/legalcode.es">
+    Creative Commons Attribution 4.0 International
+    </a></p>
+
+    <h2>5. URI Naming Strategy</h2>
+
+    <h3>5.1. Domain and URI Structure</h3>
+
+    <p>For our BiciMAD project, we have chosen
+    http://www.bicimadexplorer.es/ as the base for our URIs.
+    We will use /ontology/bicimad# to identify the classes
+    and properties of our ontology, while /resource/station/
+    followed by the station number will be used to identify
+    each BiciMAD station.
+    This allows us to organize the resources in a clear
+    and consistent way.</p>
+
+    <p>This domain is proposed for our project.
+    The URIs are not currently published on a server.</p>
+
+    <h3>5.2. Naming Conventions</h3>
+
+    <p>We will use some naming conventions to keep our URIs organized and consistent.
+    Class names will start with a capital letter, such as Station, while property names
+    will start with a lowercase letter, such as name, address or totalBases.
+    Each station will be identified using its station number.
+    We will also avoid spaces and special characters in our URI identifiers.</p>
+
+    <h3>5.3. URI Forms</h3>
+
+    <p>We will use hash URIs for the classes and properties
+    of our ontology, and slash URIs for the stations.
+    For example:</p>
+
+    <ul>
+        <li>Class:
+        http://www.bicimadexplorer.es/ontology/bicimad#Station
+        </li>
+        <li>Property:
+        http://www.bicimadexplorer.es/ontology/bicimad#name
+        </li>
+        <li>Station:
+        http://www.bicimadexplorer.es/resource/station/001
+        </li>
+    </ul>
+
+    <h3>5.4. Content Negotiation</h3>
+
+    <p>We propose using content negotiation to provide different representations
+    of our resources. When a user accesses a URI, the server could offer an HTML
+    page or RDF data in Turtle format, depending on the format the user requests.
+    This approach allows both people and applications to access the data
+    in a format that fits their needs.</p>
+
+</body>
+</html>
+
+

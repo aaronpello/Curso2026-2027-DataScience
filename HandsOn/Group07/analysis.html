@@ -1,0 +1,229 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<title>Análisis de los datos, licencias y nombrado de recursos - AirMove Madrid</title>
+<style>
+  body { font-family: Arial, sans-serif; margin: 2rem; }
+  table, th, td { border: 1px solid black; border-collapse: collapse; padding: 5px; }
+</style>
+</head>
+<body>
+<h1>Análisis de los datos, licencias y nombrado de recursos: AirMove Madrid</h1>
+<p><strong>Grupo:</strong> Group07. <strong>Hands-on 2.</strong> Analizamos los cuatro conjuntos de datos que elegimos (D1 a D4), todos del portal de datos abiertos del Ayuntamiento de Madrid (<a href="https://datos.madrid.es">datos.madrid.es</a>). Los ficheros están en la carpeta <code>csv/</code>.</p>
+
+<h2>1. Análisis de la licencia de los datos</h2>
+
+<h3>1.1 Publicador, titular de los derechos y licencia</h3>
+<table>
+  <tr><th>#</th><th>Dataset</th><th>Publica</th><th>Licencia declarada</th></tr>
+  <tr><td>D1</td><td>Calidad del aire. Datos horarios desde 2001</td><td>Dirección General de Sostenibilidad y Control Ambiental</td><td>CC BY 4.0</td></tr>
+  <tr><td>D2</td><td>Calidad del aire. Estaciones de control</td><td>Dirección General de Sostenibilidad y Control Ambiental</td><td>CC BY 4.0</td></tr>
+  <tr><td>D3</td><td>Tráfico. Histórico de datos del tráfico desde 2013</td><td>Dirección General de Gestión y Vigilancia de la Circulación</td><td>CC BY 4.0</td></tr>
+  <tr><td>D4</td><td>Tráfico. Ubicación de los puntos de medida del tráfico</td><td>Dirección General de Gestión y Vigilancia de la Circulación</td><td>CC BY 4.0</td></tr>
+</table>
+<p>El titular de los derechos es el Ayuntamiento de Madrid. El portal datos.madrid.es es solo el distribuidor oficial. La licencia es la que indica la ficha de cada conjunto en el portal (fichas enlazadas en <code>requirements/datasetRequirements.html</code>); los cuatro ficheros CSV que usamos son descargas de esos conjuntos.</p>
+
+<h3>1.2 Condiciones de la licencia CC BY 4.0</h3>
+<ul>
+  <li><strong>Permite:</strong> copiar, distribuir, adaptar y usar los datos, también para fines comerciales.</li>
+  <li><strong>Exige:</strong> citar la fuente, enlazar la licencia e indicar si hemos cambiado algo.</li>
+  <li><strong>No exige</strong> que el resultado se publique con la misma licencia <strong>ni permite</strong> añadir restricciones adicionales.</li>
+</ul>
+<p><strong>Compatibilidad:</strong> los cuatro conjuntos tienen la misma licencia, así que podemos integrarlos sin problemas.</p>
+
+<h3>1.3 Licencia potencial de los datos que vamos a generar</h3>
+<p>Los datos RDF que generaremos son una obra derivada (transformación, selección y enlazado) de datos CC BY 4.0. Proponemos publicarlos con la licencia <strong>Creative Commons Attribution 4.0 International (CC BY 4.0)</strong>, identificada con la URI <code>http://purl.org/NET/rdflicense/cc-by4.0</code>, por estas razones:</p>
+<ul>
+  <li>Es la licencia de los datos de origen, así que cumplimos sus condiciones sin añadir restricciones.</li>
+  <li>Una licencia no comercial (NC) no sería posible, porque supondría restringir lo que el origen permite.</li>
+  <li>Una licencia con compartir igual (SA) sería legal, pero no aporta nada y dificulta la reutilización de nuestros datos.</li>
+</ul>
+<p>La <strong>ontología</strong> es obra del grupo y se publicará también con CC BY 4.0 (declarado con <code>dct:license</code> en <code>ontology/airmove.ttl</code>).</p>
+<p><strong>Atribución que mostraremos</strong> en el dataset y en la aplicación: <em>«Datos originales: Ayuntamiento de Madrid, datos.madrid.es (CC BY 4.0). Transformados a RDF y enlazados por Group07 (cambios: selección de columnas y filas, conversión de formato, una observación por cada valor horario y enlaces con otros datasets).»</em></p>
+
+<h2>2. Análisis de los datos</h2>
+
+<h3>2.1 Visión general</h3>
+<table>
+  <tr><th>#</th><th>Fichero</th><th>Codificación</th><th>Filas</th><th>Columnas</th><th>Qué contiene</th></tr>
+  <tr><td>D1</td><td><code>aire_horario.csv</code></td><td>UTF-8</td><td>80.258</td><td>56</td><td>Del 1/1/2025 a 30/9/2026; 23 estaciones, 11 magnitudes, 126 puntos de muestreo</td></tr>
+  <tr><td>D2</td><td><code>estaciones_control.csv</code></td><td>UTF-8</td><td>24</td><td>25</td><td>24 estaciones de la red</td></tr>
+  <tr><td>D3</td><td><code>historico_datos_trafico.csv</code></td><td>ASCII</td><td>199.999</td><td>9</td><td>Septiembre de 2026, cada 15 minutos, 70 puntos de medida</td></tr>
+  <tr><td>D4</td><td><code>ubicacion_puntos.csv</code></td><td>ISO-8859-1</td><td>5.083</td><td>9</td><td>Todos los puntos de medida de tráfico de la ciudad (los 70 de D3 incluidos)</td></tr>
+</table>
+
+<h3>2.2 D1. Calidad del aire, datos horarios</h3>
+<p>Cada fila es un día de una estación y una magnitud, con 24 valores (uno por hora). En total hay 80.258 filas y, por tanto, 1.926.192 valores horarios. No hay filas repetidas.</p>
+<table>
+  <tr><th>Columna</th><th>Qué es</th><th>Problemas</th></tr>
+  <tr><td><code>PROVINCIA</code>, <code>MUNICIPIO</code></td><td>Siempre 28 y 79 (Madrid)</td><td>Constante; no aportan nada</td></tr>
+  <tr><td><code>ESTACION</code></td><td>Número de estación, de 4 a 60 (23 distintas). Coincide con <code>CODIGO_CORTO</code> de D2</td><td>La estación 55 (Urb. Embajada) está en D2 pero no tiene datos</td></tr>
+  <tr><td><code>MAGNITUD</code></td><td>Código del contaminante (ver tabla de abajo)</td><td>El significado del código no está en el CSV, sino en la documentación del portal</td></tr>
+  <tr><td><code>PUNTO_MUESTREO</code></td><td>Texto con la forma <code>28079038_8_8</code> (estación, magnitud y un tercer número)</td><td>Junta tres datos en uno. Hay que confirmar qué es el tercer número</td></tr>
+  <tr><td><code>ANO</code>, <code>MES</code>, <code>DIA</code></td><td>La fecha en tres columnas</td><td>Hay que juntarlas en una fecha</td></tr>
+  <tr><td><code>H01</code> a <code>H24</code></td><td>Valor de cada hora</td><td>Hay que pasar las 24 columnas a una observación por hora. <code>H01</code> es el valor de 00:00 a 01:00; cada observación se fecha con la hora final del periodo </td></tr>
+  <tr><td><code>V01</code> a <code>V24</code></td><td>Indica si el valor de esa hora es válido: <code>V</code> (1.883.289 valores, 97,8 %), <code>N</code> (42.900, 2,2 %) o <code>M</code> (3 valores, todos del 13/1/2025, estación 40, PM10)</td><td>Cuando es <code>N</code>, el valor es siempre 0 y no es una medición real. Hay que confirmar qué significa <code>M</code></td></tr>
+</table>
+
+<p>Contaminantes que aparecen (solo valores válidos). Los nombres y las unidades vienen de la tabla de magnitudes del portal. Todos se miden en µg/m³, salvo el CO, que se mide en mg/m³.</p>
+<table>
+  <tr><th>Código</th><th>Contaminante</th><th>Estaciones</th><th>Valores no válidos</th><th>Mínimo</th><th>Máximo</th><th>Media</th></tr>
+  <tr><td>1</td><td>SO2</td><td>3</td><td>1.264</td><td>0</td><td>14</td><td>3,3</td></tr>
+  <tr><td>6</td><td>CO</td><td>4</td><td>986</td><td>0</td><td>2,1</td><td>0,3</td></tr>
+  <tr><td>7</td><td>NO</td><td>23</td><td>5.117</td><td>0</td><td>487</td><td>5,2</td></tr>
+  <tr><td>8</td><td>NO2</td><td>23</td><td>5.104</td><td>0</td><td>184</td><td>21,0</td></tr>
+  <tr><td>9</td><td>PM2.5</td><td>11</td><td>6.383</td><td>0</td><td>248</td><td>9,3</td></tr>
+  <tr><td>10</td><td>PM10</td><td>14</td><td>7.885</td><td>0</td><td>287</td><td>19,9</td></tr>
+  <tr><td>12</td><td>NOx</td><td>23</td><td>5.116</td><td>0</td><td>898</td><td>29,0</td></tr>
+  <tr><td>14</td><td>O3</td><td>13</td><td>3.167</td><td>0</td><td>196</td><td>63,7</td></tr>
+  <tr><td>20</td><td>Tolueno</td><td>4</td><td>2.659</td><td>0</td><td>58,4</td><td>2,2</td></tr>
+  <tr><td>30</td><td>Benceno</td><td>4</td><td>2.645</td><td>0</td><td>9,7</td><td>0,4</td></tr>
+  <tr><td>35</td><td>Etilbenceno</td><td>4</td><td>2.574</td><td>0</td><td>22,4</td><td>0,4</td></tr>
+</table>
+
+<h3>2.3 D2. Estaciones de control</h3>
+<p>Son 24 estaciones: 12 urbanas de fondo, 9 urbanas de tráfico y 3 suburbanas. Todas están dentro de Madrid.</p>
+<table>
+  <tr><th>Columna</th><th>Qué es</th><th>Problemas</th></tr>
+  <tr><td><code>CODIGO</code>, <code>CODIGO_CORTO</code></td><td>Código de la estación (por ejemplo 28079038 y 38)</td><td>El primero es 28079000 más el segundo, así que está repetido. Usaremos <code>CODIGO_CORTO</code>, que es el que tiene D1</td></tr>
+  <tr><td><code>ESTACION</code>, <code>DIRECCION</code></td><td>Nombre y dirección</td><td>La dirección es texto libre, con espacios de más</td></tr>
+  <tr><td><code>LONGITUD_ETRS89</code>, <code>LATITUD_ETRS89</code></td><td>Coordenadas en grados, minutos y segundos</td><td>No son números. Usaremos <code>LONGITUD</code> y <code>LATITUD</code></td></tr>
+  <tr><td><code>COORDENADA_X_ETRS89</code>, <code>COORDENADA_Y_ETRS89</code></td><td>Coordenadas UTM</td><td>Usan coma decimal (<code>439579,3291</code>). No las usaremos</td></tr>
+  <tr><td><code>LONGITUD</code>, <code>LATITUD</code></td><td>Coordenadas en grados decimales</td><td>Ninguno</td></tr>
+  <tr><td><code>COD_TIPO</code>, <code>NOM_TIPO</code></td><td>Tipo de estación (urbana de fondo, urbana de tráfico o suburbana)</td><td>Código y nombre repetidos</td></tr>
+  <tr><td><code>NO2</code>, <code>SO2</code>, <code>CO</code>, <code>PM10</code>, <code>PM2_5</code>, <code>O3</code>, <code>BTX</code></td><td>Una <code>X</code> si la estación mide ese contaminante. Todas miden NO2; PM10 y O3 las miden 13; PM2.5, 8; BTX, 5; SO2 y CO, 4</td><td>Un vacío significa que no lo mide. PM2.5 y PM10 no coinciden con D1 (PM2.5: 8 estaciones en D2 y 11 en D1; PM10: 13 y 14)</td></tr>
+  <tr><td><code>COD_VIA</code>, <code>VIA_CLASE</code>, <code>VIA_PAR</code>, <code>VIA_NOMBRE</code></td><td>Código, clase y nombre de la calle de la estación</td><td>Hay vacíos en las estaciones 56 y 59</td></tr>
+  <tr><td><code>Fecha alta</code></td><td>Fecha de puesta en marcha (entre 1998 y 2010)</td><td>Hay que convertirla a fecha</td></tr>
+</table>
+
+<p>D2 <strong>no trae el distrito</strong> de las estaciones. Lo asignaremos nosotros a partir de la dirección.</p>
+
+<h3>2.4 D3. Histórico del tráfico (septiembre de 2026)</h3>
+<p>199.999 filas de 70 puntos, una cada 15 minutos, del 1/9/2026 0:00 al 30/9/2026 23:45. Cada punto debería tener 2.880 mediciones, pero tienen entre 2.588 y 2.871, así que faltan algunos intervalos. No hay filas repetidas ni valores vacíos.</p>
+<table>
+  <tr><th>Columna</th><th>Qué es</th><th>Problemas</th></tr>
+  <tr><td><code>id</code></td><td>Identificador del punto de medida (70 distintos). Los 70 están en D4</td><td>Ninguno</td></tr>
+  <tr><td><code>fecha</code></td><td>Fecha y hora (<code>15/09/2026 8:00</code>)</td><td>La hora no lleva cero delante. Hay que convertirla a fecha y hora</td></tr>
+  <tr><td><code>tipo_elem</code></td><td><code>C30</code> (111.592 filas) o <code>URB</code> (88.407)</td><td>En D4 los puntos <code>C30</code> se llaman <code>other</code></td></tr>
+  <tr><td><code>intensidad</code></td><td>Vehículos/hora (calculada sobre el periodo de 15 minutos), de 0 a 6.252 (media 501)</td><td>Ninguno</td></tr>
+  <tr><td><code>ocupacion</code>, <code>carga</code></td><td>Porcentajes, de 0 a 100</td><td>Ninguno</td></tr>
+  <tr><td><code>vmed</code></td><td>Velocidad media, de 0 a 178</td><td>En todos los puntos <code>URB</code> vale 0: ahí no se mide</td></tr>
+  <tr><td><code>error</code></td><td>Siempre <code>N</code></td><td><code>N</code> aquí quiere decir «sin error», justo al revés que en D1</td></tr>
+  <tr><td><code>periodo_integracion</code></td><td>Número de 1 a 15 (el 5 y el 15 suman el 92 % de las filas)</td><td>Hay que confirmar qué significa en la documentación</td></tr>
+</table>
+
+<h3>2.5 D4. Ubicación de los puntos de medida</h3>
+<p>5.083 puntos con identificador único: 4.623 urbanos (<code>URB</code>), 313 de la M-30 (<code>M30</code>) y 147 de otro tipo (<code>other</code>). Los 70 puntos que usamos tienen distrito y nombre, y cubren 13 de los 21 distritos.</p>
+<table>
+  <tr><th>Columna</th><th>Qué es</th><th>Problemas</th></tr>
+  <tr><td><code>tipo_elem</code></td><td><code>URB</code>, <code>M30</code> u <code>other</code></td><td>No coincide con D3 (<code>C30</code>)</td></tr>
+  <tr><td><code>distrito</code></td><td>Número de distrito, del 1 al 21</td><td>Es solo un número: el nombre hay que añadirlo. Hay 5 vacíos en todo el fichero, ninguno en nuestros 70 puntos</td></tr>
+  <tr><td><code>id</code></td><td>Identificador del punto. Es la clave con D3</td><td>Ninguno</td></tr>
+  <tr><td><code>cod_cent</code></td><td>Código del punto (<code>97028</code>, <code>PM10341</code>)</td><td>Mezcla números y letras</td></tr>
+  <tr><td><code>nombre</code></td><td>Calle o cruce en los puntos <code>URB</code>; en los demás repite el código</td><td>Texto libre. Hay 22 vacíos en todo el fichero, ninguno en nuestros 70 puntos</td></tr>
+  <tr><td><code>utm_x</code>, <code>utm_y</code>, <code>longitud</code>, <code>latitud</code></td><td>Coordenadas UTM y en grados decimales</td><td>Ninguno. Usaremos las decimales</td></tr>
+</table>
+
+<h3>2.6 Cómo se relacionan los datasets</h3>
+<table>
+  <tr><th>Relación</th><th>Cómo se une</th></tr>
+  <tr><td>D1 con D2</td><td><code>D1.ESTACION</code> = <code>D2.CODIGO_CORTO</code>. Hay muchas filas de D1 por estación</td></tr>
+  <tr><td>D3 con D4</td><td><code>D3.id</code> = <code>D4.id</code>. Hay muchas mediciones por punto</td></tr>
+  <tr><td>D2 con D4</td><td>No hay clave común, solo la ubicación. A menos de 2 km, 16 de las 24 estaciones tienen algún punto de D3 (ocho no tienen ninguno, entre ellas la 55). A menos de 1 km, solo 6</td></tr>
+</table>
+
+<h3>2.7 Resumen de problemas</h3>
+<ul>
+  <li>D1 tiene una columna por hora: hay que pasarlo a una observación por hora.</li>
+  <li>Los valores no válidos de D1 aparecen como 0 y no deben contarse como mediciones.</li>
+  <li><code>N</code> significa «no válido» en D1 y «sin error» en D3.</li>
+  <li>Hay códigos (magnitud, distrito, tipo de punto) que hay que traducir con la documentación del portal.</li>
+  <li>D2 no tiene distrito y D4 solo trae su número.</li>
+  <li>D4 está en ISO-8859-1 y los demás en UTF-8 o ASCII.</li>
+  <li>Las fechas de D1 están en tres columnas y las de D3 llevan la hora sin cero delante.</li>
+  <li>El tráfico solo cubre un mes y 70 puntos, así que el ranking de distritos solo incluirá 13 de los 21.</li>
+</ul>
+
+<h2>3. Estrategia de nombrado de recursos</h2>
+
+<h3>3.1 Decisiones</h3>
+<table>
+  <tr><th>Aspecto</th><th>Decisión</th><th>Motivo</th></tr>
+  <tr><td>URI de la ontología</td><td>Con almohadilla (hash)</td><td>La ontología es pequeña y se descarga entera con una sola petición</td></tr>
+  <tr><td>URI de los individuos</td><td>Con barra (slash)</td><td>Los datos son muchos (unos 1,9 millones de valores de aire y casi 200.000 mediciones de tráfico) y se actualizan cada mes, así que conviene pedir cada recurso por separado</td></tr>
+  <tr><td>Dominio</td><td><code>https://w3id.org/airmove-madrid/</code></td><td>No es el de Protégé por defecto y es permanente; w3id.org permite redirigir a donde publiquemos sin cambiar las URI</td></tr>
+  <tr><td>Rutas</td><td><code>ontology/</code> para clases y propiedades, <code>resource/</code> para los individuos</td><td>Separar el modelo de los datos</td></tr>
+  <tr><td>Clases y propiedades</td><td><code>ontology/AirMove#Nombre</code></td><td>Las propiedades tienen su propia URI y no dependen de ninguna clase (por ejemplo <code>AirMove#observedAtStation</code>)</td></tr>
+  <tr><td>Individuos</td><td><code>resource/Clase/identificador</code></td><td>Con la clase en la ruta, identificadores iguales de clases distintas no chocan (la estación 8 y el contaminante 8)</td></tr>
+  <tr><td>Identificadores</td><td>Los del origen: código de estación, <code>id</code> del punto, código de magnitud y de distrito. En las observaciones, una clave con estación o punto y fecha y hora</td><td>URI legibles y estables, sin espacios ni caracteres raros</td></tr>
+  <tr><td>Nombres</td><td>Clases con mayúscula inicial (<code>AirQualityStation</code>). Propiedades con minúscula inicial (<code>hasName</code>)</td><td>Convenciones de la asignatura</td></tr>
+  <tr><td>Idioma de las etiquetas</td><td>Solo inglés (<code>@en</code>)</td><td>No mezclar idiomas</td></tr>
+</table>
+<p>Todavía tenemos que registrar el espacio de nombres <code>https://w3id.org/airmove-madrid/</code> en w3id.org (con un pull request a su repositorio) para que las URI se puedan resolver.</p>
+
+<h3>3.2 Ejemplos de URI</h3>
+<table>
+  <tr><th>Recurso</th><th>Ejemplo</th></tr>
+  <tr><td>Ontología</td><td><code>https://w3id.org/airmove-madrid/ontology/AirMove</code></td></tr>
+  <tr><td>Clase</td><td><code>https://w3id.org/airmove-madrid/ontology/AirMove#AirQualityStation</code></td></tr>
+  <tr><td>Propiedad</td><td><code>https://w3id.org/airmove-madrid/ontology/AirMove#observedAtStation</code></td></tr>
+  <tr><td>Estación</td><td><code>https://w3id.org/airmove-madrid/resource/AirQualityStation/38</code></td></tr>
+  <tr><td>Punto de tráfico</td><td><code>https://w3id.org/airmove-madrid/resource/TrafficMeasurementPoint/3411</code></td></tr>
+  <tr><td>Contaminante</td><td><code>https://w3id.org/airmove-madrid/resource/Pollutant/8</code></td></tr>
+  <tr><td>Distrito</td><td><code>https://w3id.org/airmove-madrid/resource/District/7</code></td></tr>
+  <tr><td>Observación de aire</td><td><code>https://w3id.org/airmove-madrid/resource/AirQualityObservation/38-8-20260915T0800</code></td></tr>
+  <tr><td>Observación de tráfico</td><td><code>https://w3id.org/airmove-madrid/resource/TrafficObservation/3411-20260915T0800</code></td></tr>
+</table>
+
+<h3>3.3 Negociación de contenido</h3>
+<ul>
+  <li><strong>Individuos:</strong> la URI identifica a la cosa, no a un documento. Una petición GET responde con un <strong>303 See Other</strong> hacia el documento que corresponda según la cabecera <code>Accept</code>: Turtle (<code>.ttl</code>), RDF/XML (<code>.rdf</code>) o HTML (<code>.html</code>) para las personas.</li>
+  <li><strong>Ontología:</strong> una petición a <code>.../ontology/AirMove</code> devuelve el documento de la ontología en Turtle, RDF/XML o HTML. Los términos con <code>#</code> no se piden por separado.</li>
+</ul>
+
+<h2>4. Ontología desarrollada</h2>
+<p>El fichero <code>ontology/airmove.ttl</code> tiene la ontología (8 clases, 5 propiedades de objeto y 19 de datos). El fichero <code>ontology/airmove-example.ttl</code> tiene un ejemplo con datos reales: estación Cuatro Caminos, el punto de tráfico 3411 que está a unos 70 m, el distrito 7 y una observación de cada tipo del 15/09/2026 a las 8:00.</p>
+<table>
+  <tr><th>Clase</th><th>Subclase de</th><th>De dónde sale</th></tr>
+  <tr><td><code>MeasurementPoint</code></td><td>-</td><td>Superclase de estaciones y puntos de tráfico</td></tr>
+  <tr><td><code>AirQualityStation</code></td><td><code>MeasurementPoint</code></td><td>D2</td></tr>
+  <tr><td><code>TrafficMeasurementPoint</code></td><td><code>MeasurementPoint</code></td><td>D4</td></tr>
+  <tr><td><code>Pollutant</code></td><td>-</td><td>Códigos de <code>MAGNITUD</code> de D1</td></tr>
+  <tr><td><code>District</code></td><td>-</td><td><code>distrito</code> de D4</td></tr>
+  <tr><td><code>Observation</code></td><td>-</td><td>Superclase de D1 y D3</td></tr>
+  <tr><td><code>AirQualityObservation</code></td><td><code>Observation</code></td><td>Un valor horario de D1</td></tr>
+  <tr><td><code>TrafficObservation</code></td><td><code>Observation</code></td><td>Una fila de D3</td></tr>
+</table>
+
+<table>
+  <tr><th>Propiedad</th><th>Tipo</th><th>Dominio</th><th>Rango</th></tr>
+  <tr><td><code>locatedInDistrict</code></td><td>objeto</td><td><code>MeasurementPoint</code></td><td><code>District</code></td></tr>
+  <tr><td><code>nearTrafficPoint</code></td><td>objeto</td><td><code>AirQualityStation</code></td><td><code>TrafficMeasurementPoint</code></td></tr>
+  <tr><td><code>observedAtStation</code></td><td>objeto</td><td><code>AirQualityObservation</code></td><td><code>AirQualityStation</code></td></tr>
+  <tr><td><code>measuredPollutant</code></td><td>objeto</td><td><code>AirQualityObservation</code></td><td><code>Pollutant</code></td></tr>
+  <tr><td><code>observedAtPoint</code></td><td>objeto</td><td><code>TrafficObservation</code></td><td><code>TrafficMeasurementPoint</code></td></tr>
+  <tr><td><code>hasName</code></td><td>datos</td><td><code>MeasurementPoint</code></td><td><code>xsd:string</code></td></tr>
+  <tr><td><code>latitude</code>, <code>longitude</code></td><td>datos</td><td><code>MeasurementPoint</code></td><td><code>xsd:decimal</code></td></tr>
+  <tr><td><code>stationCode</code></td><td>datos</td><td><code>AirQualityStation</code></td><td><code>xsd:integer</code></td></tr>
+  <tr><td><code>address</code>, <code>stationType</code></td><td>datos</td><td><code>AirQualityStation</code></td><td><code>xsd:string</code></td></tr>
+  <tr><td><code>trafficPointId</code></td><td>datos</td><td><code>TrafficMeasurementPoint</code></td><td><code>xsd:integer</code></td></tr>
+  <tr><td><code>pollutantCode</code></td><td>datos</td><td><code>Pollutant</code></td><td><code>xsd:integer</code></td></tr>
+  <tr><td><code>pollutantSymbol</code></td><td>datos</td><td><code>Pollutant</code></td><td><code>xsd:string</code></td></tr>
+  <tr><td><code>districtCode</code></td><td>datos</td><td><code>District</code></td><td><code>xsd:integer</code></td></tr>
+  <tr><td><code>districtName</code></td><td>datos</td><td><code>District</code></td><td><code>xsd:string</code></td></tr>
+  <tr><td><code>observationDateTime</code></td><td>datos</td><td><code>Observation</code></td><td><code>xsd:dateTime</code></td></tr>
+  <tr><td><code>value</code></td><td>datos</td><td><code>AirQualityObservation</code></td><td><code>xsd:decimal</code></td></tr>
+  <tr><td><code>isValid</code></td><td>datos</td><td><code>AirQualityObservation</code></td><td><code>xsd:boolean</code></td></tr>
+  <tr><td><code>intensity</code>, <code>occupancy</code>, <code>load</code>, <code>averageSpeed</code>, <code>integrationPeriod</code></td><td>datos</td><td><code>TrafficObservation</code></td><td><code>xsd:integer</code></td></tr>
+</table>
+<p><strong>Decisiones de diseño:</strong></p>
+<ul>
+  <li>Cada propiedad tiene un solo dominio y un solo rango. Lo que comparten estaciones y puntos de tráfico (nombre, coordenadas, distrito) está en <code>MeasurementPoint</code>.</li>
+  <li>Enlazaremos entidades, no coordenadas: la clase <code>District</code> se enlazará con los distritos de Wikidata y DBpedia, y las estaciones y los puntos de tráfico (<code>MeasurementPoint</code>) con lugares externos.</li>
+  <li>Cada valor horario de D1 se convierte en una <code>AirQualityObservation</code> con <code>isValid</code>, de modo que los valores no válidos se conservan, pero se pueden excluir (requisito FR5).</li>
+</ul>
+
+</body>
+</html>
+

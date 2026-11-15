@@ -1,0 +1,46 @@
+@base   <https://w3id.org/airmove-madrid/resource/> .
+@prefix am:   <https://w3id.org/airmove-madrid/ontology/AirMove#> .
+@prefix xsd:  <http://www.w3.org/2001/XMLSchema#> .
+
+# Sample of the AirMove ontology with real data from datos.madrid.es (Ayuntamiento de Madrid, CC BY 4.0)
+
+<District/7> a am:District ;
+    am:districtCode 7 ;
+    am:districtName "Chamberí" .
+
+<Pollutant/8> a am:Pollutant ;
+    am:pollutantCode 8 ;
+    am:pollutantSymbol "NO2" .
+
+<AirQualityStation/38> a am:AirQualityStation ;
+    am:hasName "Cuatro Caminos" ;
+    am:stationCode 38 ;
+    am:address "Avda. Pablo Iglesias esq. C/ Marqués de Lema" ;
+    am:stationType "Urbana tráfico" ;
+    am:latitude 40.445544 ;
+    am:longitude -3.70713 ;
+    am:nearTrafficPoint <TrafficMeasurementPoint/3411> ;
+    am:locatedInDistrict <District/7> .
+
+<TrafficMeasurementPoint/3411> a am:TrafficMeasurementPoint ;
+    am:trafficPointId 3411 ;
+    am:hasName "Av.Pablo Iglesias S-N  - San Francisco de Sales-Reina Victoria" ;
+    am:latitude 40.446119 ;
+    am:longitude -3.707405 ;
+    am:locatedInDistrict <District/7> .
+
+<AirQualityObservation/38-8-20260915T0800> a am:AirQualityObservation ;
+    am:observedAtStation <AirQualityStation/38> ;
+    am:measuredPollutant <Pollutant/8> ;
+    am:observationDateTime "2026-09-15T08:00:00"^^xsd:dateTime ;
+    am:value 31.0 ;
+    am:isValid true .
+
+<TrafficObservation/3411-20260915T0800> a am:TrafficObservation ;
+    am:observedAtPoint <TrafficMeasurementPoint/3411> ;
+    am:observationDateTime "2026-09-15T08:00:00"^^xsd:dateTime ;
+    am:intensity 756 ;
+    am:occupancy 25 ;
+    am:load 36 ;
+    am:averageSpeed 0 ;
+    am:integrationPeriod 15 .
