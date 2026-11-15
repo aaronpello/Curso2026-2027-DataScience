@@ -1,0 +1,23 @@
+# Hands-on Assignment 3 – Self assessment
+
+## Checklist
+
+**The "openrefine" directory:**
+- [x] Contains the JSON file with the operations performed over the data.
+
+**The "csv" directory:**
+- [x] Contains the updated versions of the datasets (`*-updated.csv`).
+
+**The "selfAssessmentHandsOn3.md" file:**
+- [x] Includes the self-assessment of the assignment.
+
+## Comments on self-assessment
+
+During this assignment, we used OpenRefine to clean and prepare the datasets for the RDF generation phase. Based on our previous data analysis, the team performed the following key cleaning operations:
+
+1. **Date Normalization (Air Quality Dataset):** We identified that a significant portion of the rows had the day and month swapped in the `Fecha` column. We used OpenRefine transformations to standardize all dates to the `YYYY-MM-DD` format.
+2. **Time Standardization (Air Quality Dataset):** The `Hora` column had inconsistent formats (e.g., `4:00` vs `14:00:00`). We normalized the format to ensure consistency across the dataset.
+3. **Area Values Correction (Districts Dataset):** We observed that the `gis.gis.DISTRITOS.area` column had an error where some values were multiplied by 10. We applied a GREL expression in OpenRefine to divide those specific values by 10, correcting the surface area calculations.
+4. **District Duplicates Management (Districts Dataset):** We handled the multiple geometry records for district code 17 to ensure the data structure aligns with our ontology.
+
+All cleaned datasets have been exported as `*-updated.csv` and the OpenRefine operation histories have been saved as JSON files.
