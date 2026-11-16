@@ -1,0 +1,81 @@
+@prefix :        <http://parquesmadrid.example.org/ontology/parques#> .
+@prefix owl:     <http://www.w3.org/2002/07/owl#> .
+@prefix rdfs:    <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix xsd:     <http://www.w3.org/2001/XMLSchema#> .
+@prefix dcterms: <http://purl.org/dc/terms/> .
+
+# Ontology header
+<http://parquesmadrid.example.org/ontology/parques> a owl:Ontology ;
+    dcterms:title "Madrid Parks and Gardens ontology"@en ;
+    dcterms:description "Lightweight ontology for the dataset 'Principales parques y jardines municipales' (Ayuntamiento de Madrid)."@en ;
+    dcterms:license <https://creativecommons.org/licenses/by/4.0/> ;
+    owl:versionInfo "1.0" .
+
+# Classes
+:ParqueJardin a owl:Class ;
+    rdfs:label "Parque o jardín"@es, "Park or garden"@en ;
+    rdfs:comment "Parque, jardín, rosaleda o colección botánica municipal de Madrid."@es .
+
+:Distrito a owl:Class ;
+    rdfs:label "Distrito"@es, "District"@en ;
+    rdfs:comment "Distrito administrativo de Madrid."@es .
+
+:Barrio a owl:Class ;
+    rdfs:label "Barrio"@es, "Neighbourhood"@en ;
+    rdfs:comment "Barrio de Madrid, perteneciente a un distrito."@es .
+
+# Object properties
+:enDistrito a owl:ObjectProperty ;
+    rdfs:label "en distrito"@es ; rdfs:domain :ParqueJardin ; rdfs:range :Distrito .
+
+:enBarrio a owl:ObjectProperty ;
+    rdfs:label "en barrio"@es ; rdfs:domain :ParqueJardin ; rdfs:range :Barrio .
+
+:barrioDeDistrito a owl:ObjectProperty ;
+    rdfs:label "barrio de distrito"@es ; rdfs:domain :Barrio ; rdfs:range :Distrito .
+
+# Datatype properties: ParqueJardin
+:nombre a owl:DatatypeProperty ; rdfs:label "nombre"@es ;
+    rdfs:domain :ParqueJardin ; rdfs:range xsd:string .
+:descripcion a owl:DatatypeProperty ; rdfs:label "descripción"@es ;
+    rdfs:domain :ParqueJardin ; rdfs:range xsd:string .
+:horario a owl:DatatypeProperty ; rdfs:label "horario"@es ;
+    rdfs:domain :ParqueJardin ; rdfs:range xsd:string .
+:equipamiento a owl:DatatypeProperty ; rdfs:label "equipamiento"@es ;
+    rdfs:domain :ParqueJardin ; rdfs:range xsd:string .
+:transporte a owl:DatatypeProperty ; rdfs:label "transporte"@es ;
+    rdfs:domain :ParqueJardin ; rdfs:range xsd:string .
+:accesibilidad a owl:DatatypeProperty ; rdfs:label "accesibilidad"@es ;
+    rdfs:domain :ParqueJardin ; rdfs:range xsd:string .
+:urlContenido a owl:DatatypeProperty ; rdfs:label "URL de contenido"@es ;
+    rdfs:domain :ParqueJardin ; rdfs:range xsd:anyURI .
+:nombreVia a owl:DatatypeProperty ; rdfs:label "nombre de la vía"@es ;
+    rdfs:domain :ParqueJardin ; rdfs:range xsd:string .
+:claseVial a owl:DatatypeProperty ; rdfs:label "clase de vial"@es ;
+    rdfs:domain :ParqueJardin ; rdfs:range xsd:string .
+:numero a owl:DatatypeProperty ; rdfs:label "número"@es ;
+    rdfs:domain :ParqueJardin ; rdfs:range xsd:string .
+:codigoPostal a owl:DatatypeProperty ; rdfs:label "código postal"@es ;
+    rdfs:domain :ParqueJardin ; rdfs:range xsd:string .
+:latitud a owl:DatatypeProperty ; rdfs:label "latitud"@es ;
+    rdfs:domain :ParqueJardin ; rdfs:range xsd:decimal .
+:longitud a owl:DatatypeProperty ; rdfs:label "longitud"@es ;
+    rdfs:domain :ParqueJardin ; rdfs:range xsd:decimal .
+:coordenadaX a owl:DatatypeProperty ; rdfs:label "coordenada X (UTM)"@es ;
+    rdfs:domain :ParqueJardin ; rdfs:range xsd:decimal .
+:coordenadaY a owl:DatatypeProperty ; rdfs:label "coordenada Y (UTM)"@es ;
+    rdfs:domain :ParqueJardin ; rdfs:range xsd:decimal .
+:telefono a owl:DatatypeProperty ; rdfs:label "teléfono"@es ;
+    rdfs:domain :ParqueJardin ; rdfs:range xsd:string .
+:email a owl:DatatypeProperty ; rdfs:label "email"@es ;
+    rdfs:domain :ParqueJardin ; rdfs:range xsd:string .
+
+# Datatype properties: Distrito and Barrio
+:codigoDistrito a owl:DatatypeProperty ; rdfs:label "código de distrito"@es ;
+    rdfs:domain :Distrito ; rdfs:range xsd:string .
+:nombreDistrito a owl:DatatypeProperty ; rdfs:label "nombre de distrito"@es ;
+    rdfs:domain :Distrito ; rdfs:range xsd:string .
+:codigoBarrio a owl:DatatypeProperty ; rdfs:label "código de barrio"@es ;
+    rdfs:domain :Barrio ; rdfs:range xsd:string .
+:nombreBarrio a owl:DatatypeProperty ; rdfs:label "nombre de barrio"@es ;
+    rdfs:domain :Barrio ; rdfs:range xsd:string .

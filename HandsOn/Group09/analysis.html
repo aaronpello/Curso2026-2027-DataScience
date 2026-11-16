@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="en"><head><meta charset="utf-8">
+<title>Hands-on 2 - Analysis - Madrid Parks and Gardens</title>
+<style>body{font-family:Arial,sans-serif;max-width:900px;margin:2em auto;line-height:1.5}
+table{border-collapse:collapse;width:100%}td,th{border:1px solid #999;padding:4px 8px;text-align:left}th{background:#eee}
+code{background:#f4f4f4;padding:1px 4px}</style></head><body>
+<h1>Hands-on 2: Analysis of the "Principales parques y jardines municipales" dataset</h1>
+
+<h2>1. Data set analysis</h2>
+<h3>1.1 General description</h3>
+<table>
+<tr><th>Source</th><td>Madrid open data portal: <a href="https://datos.madrid.es/dataset/200761-0-parques-jardines/resource/200761-0-parques-jardines-csv">datos.madrid.es/dataset/200761-0-parques-jardines</a>, resource CSV.</td></tr>
+<tr><th>Content</th><td>Main parks and gardens maintained by Ayuntamiento de Madrid: gardens, small green areas, historical, singular and forest parks, rose gardens and botanical collections. It does not include every green area.</td></tr>
+<tr><th>Format / size</th><td>CSV, separator <code>;</code>, 492.3 KB</td></tr>
+<tr><th>Published / updated</th><td>Update frequency: daily. CSV downloaded for this analysis on 09/11/2026.</td></tr>
+<tr><th>Language</th><td>Spanish</td></tr>
+</table>
+
+<h3>1.2 Schema (32 columns)</h3>
+<table>
+<tr><th>Group</th><th>Columns</th></tr>
+<tr><td>Identification</td><td><code>PK</code>, <code>NOMBRE</code>, <code>DESCRIPCION-ENTIDAD</code>, <code>TIPO</code></td></tr>
+<tr><td>Description</td><td><code>DESCRIPCION</code>, <code>HORARIO</code>, <code>EQUIPAMIENTO</code>, <code>TRANSPORTE</code>, <code>ACCESIBILIDAD</code>, <code>CONTENT-URL</code></td></tr>
+<tr><td>Address</td><td><code>NOMBRE-VIA</code>, <code>CLASE-VIAL</code>, <code>TIPO-NUM</code>, <code>NUM</code>, <code>PLANTA</code>, <code>PUERTA</code>, <code>ESCALERAS</code>, <code>ORIENTACION</code>, <code>LOCALIDAD</code>, <code>PROVINCIA</code>, <code>CODIGO-POSTAL</code></td></tr>
+<tr><td>Administrative area</td><td><code>COD-BARRIO</code>, <code>BARRIO</code>, <code>COD-DISTRITO</code>, <code>DISTRITO</code></td></tr>
+<tr><td>Location</td><td><code>COORDENADA-X</code>, <code>COORDENADA-Y</code>, <code>LATITUD</code>, <code>LONGITUD</code></td></tr>
+<tr><td>Contact</td><td><code>TELEFONO</code>, <code>FAX</code>, <code>EMAIL</code></td></tr>
+</table>
+
+<h3>1.3 Quantities and value ranges</h3>
+<table>
+<tr><th>Quantities</th><th>Value ranges</th></tr>
+<tr><td>Number of rows</td><td>208</td></tr>
+<tr><td>Number of different districts</td><td>21 valid district names. Three records contain the placeholder "DISTRITO" instead of a district name.</td></tr>
+<tr><td>Number of different neighbourhoods</td><td>93 after converting names to uppercase and trimming spaces; five records have no neighbourhood name. There are 94 distinct non-empty names before normalisation.</td></tr>
+<tr><td>Min/max latitude</td><td>[40.34452019989438, 40.582362517713584]</td></tr>
+<tr><td>Min/max longitude</td><td>[-3.78562204955727, -3.57805132010274]</td></tr>
+<tr><td>Number of empty cells in <code>PK</code></td><td>0</td></tr>
+<tr><td>Number of empty cells in <code>NOMBRE</code></td><td>0</td></tr>
+<tr><td>Number of empty cells in <code>DESCRIPCION-ENTIDAD</code></td><td>1</td></tr>
+<tr><td>Number of empty cells in <code>HORARIO</code></td><td>185</td></tr>
+<tr><td>Number of empty cells in <code>EQUIPAMIENTO</code></td><td>44</td></tr>
+<tr><td>Number of empty cells in <code>TRANSPORTE</code></td><td>4</td></tr>
+<tr><td>Number of empty cells in <code>DESCRIPCION</code></td><td>1</td></tr>
+<tr><td>Number of empty cells in <code>ACCESIBILIDAD</code></td><td>0</td></tr>
+<tr><td>Number of empty cells in <code>CONTENT-URL</code></td><td>0</td></tr>
+<tr><td>Number of empty cells in <code>NOMBRE-VIA</code></td><td>0</td></tr>
+<tr><td>Number of empty cells in <code>CLASE-VIAL</code></td><td>0</td></tr>
+<tr><td>Number of empty cells in <code>TIPO-NUM</code></td><td>3</td></tr>
+<tr><td>Number of empty cells in <code>NUM</code></td><td>7</td></tr>
+<tr><td>Number of empty cells in <code>PLANTA</code></td><td>208</td></tr>
+<tr><td>Number of empty cells in <code>PUERTA</code></td><td>199</td></tr>
+<tr><td>Number of empty cells in <code>ESCALERAS</code></td><td>208</td></tr>
+<tr><td>Number of empty cells in <code>ORIENTACION</code></td><td>204</td></tr>
+<tr><td>Number of empty cells in <code>LOCALIDAD</code></td><td>0</td></tr>
+<tr><td>Number of empty cells in <code>PROVINCIA</code></td><td>0</td></tr>
+<tr><td>Number of empty cells in <code>CODIGO-POSTAL</code></td><td>5</td></tr>
+<tr><td>Number of empty cells in <code>COD-BARRIO</code></td><td>14</td></tr>
+<tr><td>Number of empty cells in <code>BARRIO</code></td><td>5</td></tr>
+<tr><td>Number of empty cells in <code>COD-DISTRITO</code></td><td>14</td></tr>
+<tr><td>Number of empty cells in <code>DISTRITO</code></td><td>0</td></tr>
+<tr><td>Number of empty cells in <code>COORDENADA-X</code></td><td>8</td></tr>
+<tr><td>Number of empty cells in <code>COORDENADA-Y</code></td><td>8</td></tr>
+<tr><td>Number of empty cells in <code>LATITUD</code></td><td>5</td></tr>
+<tr><td>Number of empty cells in <code>LONGITUD</code></td><td>5</td></tr>
+<tr><td>Number of empty cells in <code>TELEFONO</code></td><td>201</td></tr>
+<tr><td>Number of empty cells in <code>FAX</code></td><td>208</td></tr>
+<tr><td>Number of empty cells in <code>EMAIL</code></td><td>201</td></tr>
+<tr><td>Number of empty cells in <code>TIPO</code></td><td>26</td></tr>
+</table>
+
+<h3>1.4 Observations on data quality</h3>
+<ul>
+<li><code>PLANTA</code>, <code>ESCALERAS</code> and <code>FAX</code> are empty in every row, so we leave them out of the ontology. <code>LOCALIDAD</code> and <code>PROVINCIA</code> are always "MADRID".</li>
+<li>We read the CSV using Windows-1252 encoding. Empty cells are counted after trimming whitespace. District names equal to "DISTRITO" are treated as unknown. Neighbourhood names are converted to uppercase for counting, so "Buenavista" and "BUENAVISTA" are counted together.</li>
+<li>The dataset is updated daily, so the generated RDF may become outdated.</li>
+<li><code>PK</code> is the unique identifier of each row, so we use it to build the URIs. Every row is one park or garden.</li>
+<li><code>LATITUD</code> and <code>LONGITUD</code> are floats.</li>
+<li><code>ACCESIBILIDAD</code> contains the codes <code>0</code>, <code>1</code> and <code>2</code>. We keep the source codes as strings rather than converting them to a boolean.</li>
+<li><code>COD-BARRIO</code>, <code>COD-DISTRITO</code> and <code>CODIGO-POSTAL</code> are stored as strings to preserve leading zeros.</li>
+</ul>
+
+<h2>2. Licensing analysis</h2>
+<table>
+<tr><th>Publisher</th><td>Ayuntamiento de Madrid</td></tr>
+<tr><th>Rightsholder</th><td>Ayuntamiento de Madrid</td></tr>
+<tr><th>Responsible department</th><td>Dirección General de Gestión del Agua y Zonas Verdes</td></tr>
+<tr><th>Licence of the dataset</th><td><a href="https://creativecommons.org/licenses/by/4.0/">Creative Commons Attribution 4.0 International (CC BY 4.0)</a></td></tr>
+<tr><th>Licence for our generated dataset</th><td>CC BY 4.0. Our data is derived from the original, and CC BY allows reuse and modification if we give credit. We will cite Ayuntamiento de Madrid, link to the original dataset and licence, and indicate that the data has been converted to RDF.</td></tr>
+<tr><th>Licence for our ontology</th><td>CC BY 4.0</td></tr>
+</table>
+
+<h2>3. Resource naming strategy</h2>
+<ul>
+<li><b>Domain:</b> <code>http://parquesmadrid.example.org</code>. This is an example domain for the assignment; no service has been deployed.</li>
+<li><b>URI form:</b> ontology terms use <i>hash URIs</i> (<code>/ontology/parques#ParqueJardin</code>); data uses <i>slash URIs</i> (<code>/resource/...</code>).</li>
+<li><b>Patterns:</b>
+<ul>
+<li>Park: <code>/resource/parque/{PK}</code>, e.g. <code>/resource/parque/5986859</code></li>
+<li>District: <code>/resource/distrito/{COD-DISTRITO}</code>, e.g. <code>/resource/distrito/21</code></li>
+<li>Neighbourhood: <code>/resource/barrio/{COD-DISTRITO}-{COD-BARRIO}</code>, e.g. <code>/resource/barrio/21-1</code></li>
+</ul></li>
+<li><b>Why these choices:</b> we use the ids from the dataset instead of names, because names have spaces, accents and may change, and we can use their codes consistently. A neighbourhood code is only unique within its district, so we combine both codes. Resource paths are lowercase and have no file extension. Ontology terms keep their declared spelling, such as <code>ParqueJardin</code>.</li>
+</ul>
+
+<p>If a district or neighbourhood code is missing, we omit that link until the code can be checked. We do not create URIs from empty values or guess codes from names.</p>
+<p><b>Content negotiation:</b> if the data were published, the server would use the HTTP <code>Accept</code> header to offer HTML (<code>text/html</code>) or Turtle (<code>text/turtle</code>). Resource URIs would return a <code>303 See Other</code> redirect to the selected description. Requests to the ontology document would return its HTML or Turtle representation; the fragment identifies the individual term. This is the proposed publication strategy, not an implemented server.</p>
+<h2>4. Ontology summary</h2>
+<ul>
+<li><b>Classes:</b> ParqueJardin, Distrito, Barrio.</li>
+<li><b>Object properties:</b> enDistrito, enBarrio, barrioDeDistrito.</li>
+<li><b>Datatype properties:</b> nombre, descripcion, horario, equipamiento, transporte, accesibilidad, urlContenido, nombreVia, claseVial, numero, codigoPostal, latitud, longitud, coordenadaX, coordenadaY, telefono, email; codigoDistrito, nombreDistrito; codigoBarrio, nombreBarrio.</li>
+<li><code>PK</code> is used in park URIs. We leave out the empty fields <code>PLANTA</code>, <code>ESCALERAS</code> and <code>FAX</code>, and the constant fields <code>LOCALIDAD</code> and <code>PROVINCIA</code>. For this lightweight model we also leave out <code>PUERTA</code>, <code>ORIENTACION</code>, <code>TIPO-NUM</code> and <code>TIPO</code>. We use <code>DESCRIPCION</code> for the description and do not model <code>DESCRIPCION-ENTIDAD</code> separately.</li>
+</ul>
+<p>Source: <a href="https://datos.madrid.es/dataset/200761-0-parques-jardines">Ayuntamiento de Madrid, dataset information and licence</a>. Statistics refer to the CSV downloaded on 09/11/2026.</p>
+</body></html>

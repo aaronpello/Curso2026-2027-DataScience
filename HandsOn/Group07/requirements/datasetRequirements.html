@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<title>Requisitos de los datos - AirMove Madrid</title>
+<style>
+  body { font-family: Arial, sans-serif; margin: 2rem; }
+  table, th, td { border: 1px solid black; border-collapse: collapse; padding: 5px; }
+</style>
+</head>
+<body>
+<h1>Requisitos de los datos: AirMove Madrid</h1>
+<p>Group07. Dominios: medio ambiente (calidad del aire) y movilidad (tráfico). Todos los conjuntos son del Ayuntamiento de Madrid y se distribuyen en su portal de datos abiertos (<a href="https://datos.madrid.es">datos.madrid.es</a>).</p>
+
+<h2>1. Conjuntos de datos seleccionados</h2>
+<table>
+  <tr><th>#</th><th>Conjunto de datos</th><th>Contenido</th></tr>
+  <tr><td>D1</td><td>Calidad del aire. Datos horarios desde 2001 </td><td>Mediciones horarias de contaminantes por estación (NO2, PM10, PM2.5, O3, etc.). Nuestro fichero cubre de enero de 2025 a septiembre de 2026.</td></tr>
+  <tr><td>D2</td><td>Calidad del aire. Estaciones de control</td><td>Lista y ubicación de las 24 estaciones de calidad del aire (código, nombre, dirección, coordenadas, tipo de estación y contaminantes que mide). El fichero no incluye el distrito de cada estación; lo asignamos nosotros a partir de la dirección.</td></tr>
+  <tr><td>D3</td><td>Tráfico. Histórico de datos del tráfico desde 2013</td><td>Mediciones de tráfico cada 15 minutos (intensidad, ocupación, carga, velocidad media), publicadas mensualmente. Usamos el fichero de septiembre de 2026, limitado a 70 puntos de medida, porque el fichero oficial es muy grande.</td></tr>
+  <tr><td>D4</td><td>Tráfico. Ubicación de los puntos de medida del tráfico</td><td>Coordenadas de cada punto de medida de tráfico, relacionado con D3 por el identificador del punto.</td></tr>
+</table>
+
+<h2>2. Requisitos obligatorios</h2>
+
+<h3>R1. Dominio de ciudad inteligente</h3>
+<p>Cumplido. La calidad del aire (medio ambiente) y el tráfico (movilidad) son dominios centrales de una ciudad inteligente, y ambos proceden de las redes municipales de sensores de Madrid.</p>
+
+<h3>R2. Disponible como CSV</h3>
+<p>Cumplido. Los cuatro conjuntos se publican en formato CSV en el portal y están en la carpeta <code>csv/</code>.</p>
+
+<h3>R3. Licencia abierta</h3>
+<p>Cumplido. Las fichas de los cuatro conjuntos en el portal de datos abiertos de Madrid indican la licencia Creative Commons Attribution 4.0 (CC BY 4.0), que permite publicar y reutilizar los datos, siempre que citemos la fuente y se indiquen los cambios.</p>
+<table>
+	<tr><th>#</th><th>Conjunto de datos</th><th>Ficha en datos.madrid.es</th><th>Licencia</th><th>Fechas</th></tr>
+	<tr><td>D1</td><td>Calidad del aire. Datos horarios </td><td><a href="https://datos.madrid.es/dataset/201200-0-calidad-aire-horario">datos.madrid.es/dataset/201200-0-calidad-aire-horario</a></td><td>CC BY 4.0</td><td>Publicado 12/03/2014; actualizado 13/10/2026</td></tr>
+	<tr><td>D2</td><td>Calidad del aire. Estaciones de control</td><td><a href="https://datos.madrid.es/dataset/212629-0-estaciones-control-aire">datos.madrid.es/dataset/212629-0-estaciones-control-aire</a></td><td>CC BY 4.0</td><td>Publicado 09/04/2015; actualizado 11/06/2026</td></tr>
+	<tr><td>D3</td><td>Tráfico. Histórico de datos del tráfico </td><td><a href="https://datos.madrid.es/dataset/208627-0-transporte-ptomedida-historico">datos.madrid.es/dataset/208627-0-transporte-ptomedida-historico</a></td><td>CC BY 4.0</td><td>Publicado 26/09/2014; actualizado 01/10/2026</td></tr>
+	<tr><td>D4</td><td>Tráfico. Ubicación de los puntos de medida </td><td><a href="https://datos.madrid.es/dataset/202468-0-intensidad-trafico">datos.madrid.es/dataset/202468-0-intensidad-trafico</a></td><td>CC BY 4.0</td><td>Publicado 12/03/2014; actualizado 01/10/2026</td></tr>
+</table>
+
+<h3>R4. Fácil de enlazar con entidades del mundo real</h3>
+<p>Cumplido.</p>
+<p><strong>Entidades de nuestros datos que se pueden enlazar con otros datasets:</strong></p>
+<ul>
+  <li>Las estaciones (D2) y los puntos de tráfico (D4) tienen coordenadas, así que se pueden enlazar con lugares de GeoNames u OpenStreetMap.</li>
+  <li>Los puntos de tráfico (D4) incluyen el distrito y las estaciones tienen vía y dirección, de modo que cada estación y cada punto se pueden asociar a un distrito de Madrid, que se pueden enlazar con entidades de Wikidata y DBpedia. Los nombres de los distritos y el distrito de las estaciones no vienen en los CSV y los añadimos nosotros.</li>
+  <li>Las estaciones tienen la calle, que se puede enlazar con el callejero de Madrid.</li>
+</ul>
+<p><strong>Entidades de otros datasets que se pueden enlazar con las nuestras:</strong></p>
+<ul>
+  <li>Madrid y sus distritos en Wikidata y DBpedia.</li>
+  <li>Calles y lugares de OpenStreetMap y GeoNames cerca de las estaciones y puntos de medida.</li>
+</ul>
+
+<h2>3. Requisitos opcionales</h2>
+
+<h3>R5. Documentación</h3>
+<p>Cumplido en gran parte. El portal explica cómo está organizado el histórico de tráfico: qué significa cada campo, sus unidades y cómo se calculan la intensidad, la ocupación y la carga. Los datos de calidad del aire también tienen documentación, con la descripción de las estaciones y de los contaminantes y una tabla de códigos. Lo que complica un poco el trabajo es que la documentación está en español y hay que consultarla para saber qué estación o qué contaminante corresponde a cada código.</p>
+
+<h3>R6. Varias fuentes de datos</h3>
+<p>Cumplido parcialmente. Los datos vienen de dos departamentos municipales distintos: Sostenibilidad y Control ambiental, y Gestión y Vigilancia de Circulación. Por eso tenemos que unir datos que se han generado por separado. Sin embargo, todos se publican en el mismo portal y con un formato parecido, así que no es una integración tan variada como si vinieran de portales distintos.</p>
+
+</body>
+</html>

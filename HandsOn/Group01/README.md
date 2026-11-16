@@ -1,13 +1,13 @@
 # INTEGRANTES GRUPO01 - MadridServices
 ---
-- Álvaro Martín Navas 
+- Álvaro Martín Navas. 
 Nombre usuario: @alvaromrtnnn
 
-- Julián Camarena Heredia 
+- Julián Camarena Heredia. 
 Nombre usuario: @Julicama12
 
-- Miguel Yoldi Salido
+- Miguel Yoldi Salido.
 Nombre usuario: @MiguelYoldi5
 
-- Germán Moreno Ramos
+- Germán Moreno Ramos.
 Nombre usuario: @germanmorenoo

@@ -1,0 +1,104 @@
+@prefix mod: <https://w3id.org/mod#> .
+@prefix ns: <http://madrid-recarga.linkeddata.es/group06/ontology#> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+
+ns: a owl:Ontology ;
+    mod:createdWith <https://chowlk.linkeddata.es/> .
+
+ns:caracteristicas a owl:DatatypeProperty ;
+    rdfs:label "caracteristicas" ;
+    rdfs:domain ns:PuntoRecarga ;
+    rdfs:range xsd:string .
+
+ns:codBarrio a owl:DatatypeProperty ;
+    rdfs:label "cod barrio" ;
+    rdfs:domain ns:Barrio ;
+    rdfs:range xsd:integer .
+
+ns:codDistrito a owl:DatatypeProperty ;
+    rdfs:label "cod distrito" ;
+    rdfs:domain ns:Distrito ;
+    rdfs:range xsd:integer .
+
+ns:emplazamiento a owl:DatatypeProperty ;
+    rdfs:label "emplazamiento" ;
+    rdfs:domain ns:Ubicacion ;
+    rdfs:range xsd:string .
+
+ns:gestionadoPor a owl:ObjectProperty ;
+    rdfs:label "gestionado por" ;
+    rdfs:domain ns:PuntoRecarga ;
+    rdfs:range ns:Operador .
+
+ns:infoAdicional a owl:DatatypeProperty ;
+    rdfs:label "info adicional" ;
+    rdfs:domain ns:Ubicacion ;
+    rdfs:range xsd:string .
+
+ns:nombreBarrio a owl:DatatypeProperty ;
+    rdfs:label "nombre barrio" ;
+    rdfs:domain ns:Barrio ;
+    rdfs:range xsd:string .
+
+ns:nombreDistrito a owl:DatatypeProperty ;
+    rdfs:label "nombre distrito" ;
+    rdfs:domain ns:Distrito ;
+    rdfs:range xsd:string .
+
+ns:nombreOperador a owl:DatatypeProperty ;
+    rdfs:label "nombre operador" ;
+    rdfs:domain ns:Operador ;
+    rdfs:range xsd:string .
+
+ns:nombreUbicacion a owl:DatatypeProperty ;
+    rdfs:label "nombre ubicacion" ;
+    rdfs:domain ns:Ubicacion ;
+    rdfs:range xsd:string .
+
+ns:numeroEquipo a owl:DatatypeProperty ;
+    rdfs:label "numero equipo" ;
+    rdfs:domain ns:PuntoRecarga ;
+    rdfs:range xsd:integer .
+
+ns:puntoX a owl:DatatypeProperty ;
+    rdfs:label "punto x" ;
+    rdfs:domain ns:Ubicacion ;
+    rdfs:range xsd:float .
+
+ns:puntoY a owl:DatatypeProperty ;
+    rdfs:label "punto y" ;
+    rdfs:domain ns:Ubicacion ;
+    rdfs:range xsd:float .
+
+ns:tieneUbicacion a owl:ObjectProperty ;
+    rdfs:label "tiene ubicacion" ;
+    rdfs:domain ns:PuntoRecarga ;
+    rdfs:range ns:Ubicacion .
+
+ns:ubicadoEnBarrio a owl:ObjectProperty ;
+    rdfs:label "ubicado en barrio" ;
+    rdfs:domain ns:Ubicacion ;
+    rdfs:range ns:Barrio .
+
+ns:ubicadoEnDistrito a owl:ObjectProperty ;
+    rdfs:label "ubicado en distrito" ;
+    rdfs:domain ns:Barrio ;
+    rdfs:range ns:Distrito .
+
+ns:Operador a owl:Class ;
+    rdfs:label "Operador" .
+
+ns:Distrito a owl:Class ;
+    rdfs:label "Distrito" .
+
+ns:Barrio a owl:Class ;
+    rdfs:label "Barrio" .
+
+ns:PuntoRecarga a owl:Class ;
+    rdfs:label "Punto Recarga" .
+
+ns:Ubicacion a owl:Class ;
+    rdfs:label "Ubicacion" .
+

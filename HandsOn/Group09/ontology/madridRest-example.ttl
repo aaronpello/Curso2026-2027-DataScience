@@ -1,0 +1,29 @@
+@prefix :        <http://parquesmadrid.example.org/ontology/parques#> .
+@prefix parque:  <http://parquesmadrid.example.org/resource/parque/> .
+@prefix distrito: <http://parquesmadrid.example.org/resource/distrito/> .
+@prefix barrio:  <http://parquesmadrid.example.org/resource/barrio/> .
+@prefix rdfs:    <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix xsd:     <http://www.w3.org/2001/XMLSchema#> .
+
+parque:5986859 a :ParqueJardin ;
+    :nombre "El Capricho de la Alameda Osuna" ;
+    :descripcion "El jardín histórico El Capricho es un espacio único, una joya que combina características naturales, históricas y artísticas, ofreciendo un entorno repleto de sensaciones y cargado de historia en cada uno de sus rincones. Este parque es la creación personal de María Josefa Alonso Pimentel, XII condesa-duquesa de Benavente y IX duquesa consorte de Osuna. Cuenta con pabellones, recorridos diseñados a propósito, láminas de agua y estancias que buscan fusionar belleza, grandeza y singularidad. Su propósito era representar, para el espectador, conceptos como la fiesta, el juego, el amor y los trabajos de la naturaleza. El Capricho reúne las declaraciones de Jardín Histórico, Jardín Artístico y Bien de Interés Cultural y está incluido con nivel 1 de protección en el Catálogo de Parques Históricos y Jardines de Interés. 'El Capricho' es el nombre que le dio su creadora, que compró la finca y terrenos colindantes entre 1783 y 1803. A lo largo del jardín se van encontrando las edificaciones denominadas como 'caprichos'. Es el caso del Abejero (un pabellón donde se contemplaba cómo vivían y trabajaban las abejas), el embarcadero, la ermita, el fortín, el Casino de Baile o la Casa de la Vieja, una casa de labranza de representaba la vida de las clases populares. El jardín alberga templetes, fuentes, puentes, plazoletas, esculturas, una ría, así como el palacio de los duques. Desde la entrada al jardín, un camino principal, flanqueado por dos casetas laterales para los guardas, se enlaza con la plaza de los Emperadores y de allí con la fachada posterior del palacio. Este camino principal articula el resto. El jardín, que fue un lugar frecuentado por personalidades intelectuales y artistas del momento, se desarrolló con tres estilos diferentes: el parterre o jardín francés, el jardín paisajista inglés y el giardino italiano. El jardín francés, representado por el parterre, se extiende delante de la fachada oeste del palacio, con sus setos recortados. En la parte baja se sitúa el italiano, el espacio más antiguo de la finca, que mezcla los setos con árboles en los que resguardarse a la sombra. Cerca de éste, el laberinto, concebido para el juego amoroso y los escondites, está hecho con laurel y respeta los planos originales. Por último, el resto del parque, hacia el norte, está concebido como un típico jardín paisajista inglés, evocando la naturaleza, de trazado libre e irregular. Actualmente, el palacio de El Capricho se encuentra en obras de rehabilitación y musealización con motivo del futuro Museo de la Duquesa, que tiene previsto abrir sus puertas al público en 2027. El Capricho esconde un secreto más: su famoso búnker de la Posición Jaca, un enclave de la Guerra Civil que alojó el Cuartel General del Ejército Republicano del Centro. Entre sus elementos vegetales más característicos se encuentran los bosques de lilos y árboles del amor, que aportan un colorido primaveral inconfundible. Además, sus praderas y paseos albergan notables ejemplares de robles, pinos, cipreses, tejos, cedros, plátanos y castaños de indias, muchos de ellos de gran belleza. Esta rica diversidad vegetal sustenta una fauna igualmente variada, destacan entre las aves especies como mirlos, palomas torcaces, pitos reales, herrerillos, petirrojos, ruiseñores, así como cisnes negros y ánades, mientras que entre los mamíferos se encuentran ardillas rojas, musarañas, ratones comunes y ratones de campo. Este jardín, reconocido entre las visitas recomendadas para turistas en la web oficial de turismo de Madrid, es accesible para personas con movilidad reducida en sus áreas principales, lo que permite que todos puedan disfrutar de su belleza y su rica diversidad." ;
+    :horario "Del 1 de octubre al 31 de marzo sábados, domingos y festivos de 9 a 18:30 horas. Del 1 de abril al 30 de septiembre sábados, domingos y festivos de 9 a 21 horas. Los días 25 de diciembre y 1 de enero el parque permanece cerrado al público." ;
+    :accesibilidad "2" ;
+    :nombreVia "ALAMEDA DE OSUNA" ;
+    :claseVial "PASEO" ;
+    :numero "25" ;
+    :codigoPostal "28042" ;
+    :latitud "40.45446361509569"^^xsd:decimal ;
+    :longitud "-3.6000964360303476"^^xsd:decimal ;
+    :enDistrito distrito:21 ;
+    :enBarrio barrio:21-1 .
+
+distrito:21 a :Distrito ;
+    :codigoDistrito "21" ;
+    :nombreDistrito "BARAJAS" .
+
+barrio:21-1 a :Barrio ;
+    :codigoBarrio "1" ;
+    :nombreBarrio "ALAMEDA DE OSUNA" ;
+    :barrioDeDistrito distrito:21 .

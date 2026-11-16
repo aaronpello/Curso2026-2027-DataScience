@@ -1,0 +1,287 @@
+@prefix ab: <http://smartcity.linkeddata.es/valencia-air-quality/ontology/AireBarrio#> .
+@prefix dc: <http://purl.org/dc/elements/1.1/> .
+@prefix mod: <https://w3id.org/mod#> .
+@prefix dcterms: <http://purl.org/dc/terms/> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+
+
+<http://smartcity.linkeddata.es/valencia-air-quality/ontology/AireBarrio> a owl:Ontology ;
+    dc:title "Air Quality and Districts Ontology of Valencia"@en ;
+    dc:creator "Group04" ;
+    rdfs:comment "Ontology of the AireBarrio València project: hourly air quality observations, monitoring stations and districts of València."@en ;
+    dcterms:license <https://creativecommons.org/licenses/by/4.0/> ;
+    owl:versionInfo "0.0.1" ;
+    mod:createdWith <https://chowlk.linkeddata.es/> .
+ 
+ab:District a owl:Class ;
+    rdfs:label "District"@en ;
+    rdfs:comment "Administrative district of the city of València. This class is intended to be linked to external entities, for example the corresponding Wikidata items."@en .    
+
+ab:DistrictGeometry a owl:Class ;
+    rdfs:label "District geometry"@en ;
+    rdfs:comment "Geometry record of a district, expressed as WKT. A district may have several geometry records."@en .
+
+ab:MonitoringStation a owl:Class ;
+    rdfs:label "Monitoring station"@en ;
+    rdfs:comment "Station of the air quality network that records measurements."@en .
+
+ab:AirQualityObservation a owl:Class ;
+    rdfs:label "Air quality observation"@en ;
+    rdfs:comment "Hourly record of a monitoring station with pollutant and meteorological values."@en .
+
+ab:Pollutant a owl:Class ;
+    rdfs:label "Pollutant"@en ;
+    rdfs:comment "Air pollutant measured by the monitoring stations, for example NO2 or PM10."@en .
+
+
+ab:hasStation a owl:ObjectProperty ;
+    rdfs:label "has station"@en ;
+    rdfs:comment "Links an air quality observation to the station that recorded it."@en ;
+    rdfs:domain ab:AirQualityObservation ;
+    rdfs:range ab:MonitoringStation .
+
+ab:belongsToDistrict a owl:ObjectProperty ;
+    rdfs:label "belongs to district"@en ;
+    rdfs:comment "Links a monitoring station to the district where it is located."@en ;
+    rdfs:domain ab:MonitoringStation ;
+    rdfs:range ab:District .
+
+ab:hasGeometry a owl:ObjectProperty ;
+    rdfs:label "has geometry"@en ;
+    rdfs:comment "Links a district to one of its geometry records."@en ;
+    rdfs:domain ab:District ;
+    rdfs:range ab:DistrictGeometry .
+
+ab:measuresPollutant a owl:ObjectProperty ;
+    rdfs:label "measures pollutant"@en ;
+    rdfs:comment "Links a monitoring station to a pollutant that it measures."@en ;
+    rdfs:domain ab:MonitoringStation ;
+    rdfs:range ab:Pollutant .
+
+
+ab:districtCode a owl:DatatypeProperty ;
+    rdfs:label "district code"@en ;
+    rdfs:comment "Numeric code of the district."@en ;
+    rdfs:domain ab:District ;
+    rdfs:range xsd:integer .
+
+ab:districtName a owl:DatatypeProperty ;
+    rdfs:label "district name"@en ;
+    rdfs:comment "Name of the district."@en ;
+    rdfs:domain ab:District ;
+    rdfs:range xsd:string .
+
+ab:area a owl:DatatypeProperty ;
+    rdfs:label "area"@en ;
+    rdfs:comment "Surface area of the district as given by the source (square metres according to the portal; only some records have a value)."@en ;
+    rdfs:domain ab:District ;
+    rdfs:range xsd:double .
+
+
+ab:geometryWKT a owl:DatatypeProperty ;
+    rdfs:label "WKT geometry"@en ;
+    rdfs:comment "Polygon of the district written in WKT."@en ;
+    rdfs:domain ab:DistrictGeometry ;
+    rdfs:range xsd:string .
+
+
+ab:stationName a owl:DatatypeProperty ;
+    rdfs:label "station name"@en ;
+    rdfs:comment "Name of the monitoring station."@en ;
+    rdfs:domain ab:MonitoringStation ;
+    rdfs:range xsd:string .
+
+
+ab:observationTime a owl:DatatypeProperty ;
+    rdfs:label "observation time"@en ;
+    rdfs:comment "Date and hour of the observation, normalised from the source date and hour columns."@en ;
+    rdfs:domain ab:AirQualityObservation ;
+    rdfs:range xsd:dateTime .
+
+ab:pm1Value a owl:DatatypeProperty ;
+    rdfs:label "PM1 value"@en ;
+    rdfs:comment "PM1 measurement. Value taken from the source dataset; the source does not state the unit."@en ;
+    rdfs:domain ab:AirQualityObservation ;
+    rdfs:range xsd:float .
+
+ab:pm25Value a owl:DatatypeProperty ;
+    rdfs:label "PM2.5 value"@en ;
+    rdfs:comment "PM2.5 measurement. Value taken from the source dataset; the source does not state the unit."@en ;
+    rdfs:domain ab:AirQualityObservation ;
+    rdfs:range xsd:float .
+
+ab:pm10Value a owl:DatatypeProperty ;
+    rdfs:label "PM10 value"@en ;
+    rdfs:comment "PM10 measurement. Value taken from the source dataset; the source does not state the unit."@en ;
+    rdfs:domain ab:AirQualityObservation ;
+    rdfs:range xsd:float .
+
+ab:noValue a owl:DatatypeProperty ;
+    rdfs:label "NO value"@en ;
+    rdfs:comment "NO measurement. Value taken from the source dataset; the source does not state the unit."@en ;
+    rdfs:domain ab:AirQualityObservation ;
+    rdfs:range xsd:float .
+
+ab:no2Value a owl:DatatypeProperty ;
+    rdfs:label "NO2 value"@en ;
+    rdfs:comment "NO2 measurement. Value taken from the source dataset; the source does not state the unit."@en ;
+    rdfs:domain ab:AirQualityObservation ;
+    rdfs:range xsd:float .
+
+ab:noxValue a owl:DatatypeProperty ;
+    rdfs:label "NOx value"@en ;
+    rdfs:comment "NOx measurement. Value taken from the source dataset; the source does not state the unit."@en ;
+    rdfs:domain ab:AirQualityObservation ;
+    rdfs:range xsd:float .
+
+ab:o3Value a owl:DatatypeProperty ;
+    rdfs:label "O3 value"@en ;
+    rdfs:comment "O3 measurement. Value taken from the source dataset; the source does not state the unit."@en ;
+    rdfs:domain ab:AirQualityObservation ;
+    rdfs:range xsd:float .
+
+ab:so2Value a owl:DatatypeProperty ;
+    rdfs:label "SO2 value"@en ;
+    rdfs:comment "SO2 measurement. Value taken from the source dataset; the source does not state the unit."@en ;
+    rdfs:domain ab:AirQualityObservation ;
+    rdfs:range xsd:float .
+
+ab:coValue a owl:DatatypeProperty ;
+    rdfs:label "CO value"@en ;
+    rdfs:comment "CO measurement. Value taken from the source dataset; the source does not state the unit."@en ;
+    rdfs:domain ab:AirQualityObservation ;
+    rdfs:range xsd:float .
+
+ab:nh3Value a owl:DatatypeProperty ;
+    rdfs:label "NH3 value"@en ;
+    rdfs:comment "NH3 measurement. Value taken from the source dataset; the source does not state the unit."@en ;
+    rdfs:domain ab:AirQualityObservation ;
+    rdfs:range xsd:float .
+
+ab:c7h8Value a owl:DatatypeProperty ;
+    rdfs:label "C7H8 value"@en ;
+    rdfs:comment "C7H8 measurement. Value taken from the source dataset; the source does not state the unit."@en ;
+    rdfs:domain ab:AirQualityObservation ;
+    rdfs:range xsd:float .
+
+ab:c6h6Value a owl:DatatypeProperty ;
+    rdfs:label "C6H6 value"@en ;
+    rdfs:comment "C6H6 measurement. Value taken from the source dataset; the source does not state the unit."@en ;
+    rdfs:domain ab:AirQualityObservation ;
+    rdfs:range xsd:float .
+
+ab:c8h10Value a owl:DatatypeProperty ;
+    rdfs:label "C8H10 value"@en ;
+    rdfs:comment "C8H10 measurement. Value taken from the source dataset; the source does not state the unit."@en ;
+    rdfs:domain ab:AirQualityObservation ;
+    rdfs:range xsd:float .
+
+ab:noiseLevel a owl:DatatypeProperty ;
+    rdfs:label "noise level"@en ;
+    rdfs:comment "Noise measurement. Value taken from the source dataset; the source does not state the unit."@en ;
+    rdfs:domain ab:AirQualityObservation ;
+    rdfs:range xsd:float .
+
+ab:windSpeed a owl:DatatypeProperty ;
+    rdfs:label "wind speed"@en ;
+    rdfs:comment "Wind speed measurement. Value taken from the source dataset; the source does not state the unit."@en ;
+    rdfs:domain ab:AirQualityObservation ;
+    rdfs:range xsd:float .
+
+ab:maxWindSpeed a owl:DatatypeProperty ;
+    rdfs:label "maximum wind speed"@en ;
+    rdfs:comment "Maximum wind speed measurement. Value taken from the source dataset; the source does not state the unit."@en ;
+    rdfs:domain ab:AirQualityObservation ;
+    rdfs:range xsd:float .
+
+ab:windDirection a owl:DatatypeProperty ;
+    rdfs:label "wind direction"@en ;
+    rdfs:comment "Wind direction measurement. Value taken from the source dataset; the source does not state the unit."@en ;
+    rdfs:domain ab:AirQualityObservation ;
+    rdfs:range xsd:float .
+
+ab:temperature a owl:DatatypeProperty ;
+    rdfs:label "temperature"@en ;
+    rdfs:comment "Temperature measurement. Value taken from the source dataset; the source does not state the unit."@en ;
+    rdfs:domain ab:AirQualityObservation ;
+    rdfs:range xsd:float .
+
+ab:humidity a owl:DatatypeProperty ;
+    rdfs:label "relative humidity"@en ;
+    rdfs:comment "Relative humidity measurement. Value taken from the source dataset; the source does not state the unit."@en ;
+    rdfs:domain ab:AirQualityObservation ;
+    rdfs:range xsd:float .
+
+ab:pressure a owl:DatatypeProperty ;
+    rdfs:label "pressure"@en ;
+    rdfs:comment "Atmospheric pressure measurement. Value taken from the source dataset; the source does not state the unit."@en ;
+    rdfs:domain ab:AirQualityObservation ;
+    rdfs:range xsd:float .
+
+ab:radiation a owl:DatatypeProperty ;
+    rdfs:label "radiation"@en ;
+    rdfs:comment "Radiation measurement. Value taken from the source dataset; the source does not state the unit."@en ;
+    rdfs:domain ab:AirQualityObservation ;
+    rdfs:range xsd:float .
+
+ab:precipitation a owl:DatatypeProperty ;
+    rdfs:label "precipitation"@en ;
+    rdfs:comment "Precipitation measurement. Value taken from the source dataset; the source does not state the unit."@en ;
+    rdfs:domain ab:AirQualityObservation ;
+    rdfs:range xsd:float .
+
+
+ab:pollutantCode a owl:DatatypeProperty ;
+    rdfs:label "pollutant code"@en ;
+    rdfs:comment "Code of the pollutant as written in the source column names, for example NO2."@en ;
+    rdfs:domain ab:Pollutant ;
+    rdfs:range xsd:string .
+
+# Tras pasar la ontología por OOPS! (https://oops.linkeddata.es/), 
+# detectó dos avisos (pitfalls), que hemos solucionado a continuación:
+
+# 1. P10: Missing disjointness.
+#    Hemos declarado que las clases principales son mutuamente 
+#    excluyentes usando owl:AllDisjointClasses, para asegurar que 
+#    un individuo no puede ser a la vez un Distrito y una Estación.
+
+[] a owl:AllDisjointClasses ;
+    owl:members ( ab:District ab:DistrictGeometry ab:MonitoringStation ab:AirQualityObservation ab:Pollutant ) .
+
+
+# 2. P13: Inverse relationships not explicitly declared.
+#    Hemos añadido explícitamente las propiedades inversas usando 
+#    owl:inverseOf para que el razonador sepa que, por ejemplo, si 
+#    una Estación pertenece a un Distrito, ese Distrito contiene 
+#    a esa Estación.
+
+
+ab:hasObservation a owl:ObjectProperty ;
+    rdfs:label "has observation"@en ;
+    rdfs:comment "Links a monitoring station to an observation that it recorded. Inverse of hasStation."@en ;
+    owl:inverseOf ab:hasStation ;
+    rdfs:domain ab:MonitoringStation ;
+    rdfs:range ab:AirQualityObservation .
+
+ab:hasMonitoringStation a owl:ObjectProperty ;
+    rdfs:label "has monitoring station"@en ;
+    rdfs:comment "Links a district to a monitoring station located in it. Inverse of belongsToDistrict."@en ;
+    owl:inverseOf ab:belongsToDistrict ;
+    rdfs:domain ab:District ;
+    rdfs:range ab:MonitoringStation .
+
+ab:isGeometryOf a owl:ObjectProperty ;
+    rdfs:label "is geometry of"@en ;
+    rdfs:comment "Links a geometry record to the district it describes. Inverse of hasGeometry."@en ;
+    owl:inverseOf ab:hasGeometry ;
+    rdfs:domain ab:DistrictGeometry ;
+    rdfs:range ab:District .
+
+ab:isMeasuredBy a owl:ObjectProperty ;
+    rdfs:label "is measured by"@en ;
+    rdfs:comment "Links a pollutant to a monitoring station that measures it. Inverse of measuresPollutant."@en ;
+    owl:inverseOf ab:measuresPollutant ;
+    rdfs:domain ab:Pollutant ;
+    rdfs:range ab:MonitoringStation .

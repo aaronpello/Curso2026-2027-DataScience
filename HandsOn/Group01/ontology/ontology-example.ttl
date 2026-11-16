@@ -1,0 +1,56 @@
+@prefix srv: <http://madridservices.linkeddata.es/ontology/services#> .
+@prefix prop: <http://madridservices.linkeddata.es/ontology/properties#> .
+@prefix resFountain: <http://madridservices.linkeddata.es/resource/DrinkingFountain/> .
+@prefix resToilet: <http://madridservices.linkeddata.es/resource/PublicToilet/> .
+@prefix resLibrary: <http://madridservices.linkeddata.es/resource/Library/> .
+@prefix resSports: <http://madridservices.linkeddata.es/resource/SportsCenter/> .
+@prefix resCity: <http://madridservices.linkeddata.es/resource/City/> .
+@prefix schema1: <http://schema.org/> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+
+# -----------------------------------------------
+# Instancia de Ciudad (City)
+# -----------------------------------------------
+resCity:Madrid a schema1:City ;
+    rdfs:label "Madrid" .
+
+# -----------------------------------------------
+# Instancia de Fuente de agua (Drinking Fountain)
+# -----------------------------------------------
+resFountain:10040803 a srv:DrinkingFountain ;
+    prop:name "Fuente de agua potable Cibeles"^^xsd:string ;
+    prop:address "Plaza de Cibeles"^^xsd:string ;
+    prop:latitude "40.41956"^^xsd:float ;
+    prop:longitude "-3.69345"^^xsd:float ;
+    prop:locatedIn resCity:Madrid .
+
+# -----------------------------------------------
+# Instancia de Aseo Público (Public Toilet)
+# -----------------------------------------------
+resToilet:020035ASW a srv:PublicToilet ;
+    prop:name "Aseo público Puerta del Sol"^^xsd:string ;
+    prop:address "Plaza de la Puerta del Sol, 1"^^xsd:string ;
+    prop:latitude "40.41694"^^xsd:float ;
+    prop:longitude "-3.70361"^^xsd:float ;
+    prop:locatedIn resCity:Madrid .
+
+# -----------------------------------------------
+# Instancia de Biblioteca (Library)
+# -----------------------------------------------
+resLibrary:1774 a srv:Library ;
+    prop:name "Biblioteca Pública Municipal Mario Vargas Llosa"^^xsd:string ;
+    prop:address "Calle Barceló, 4"^^xsd:string ;
+    prop:latitude "40.42678"^^xsd:float ;
+    prop:longitude "-3.69945"^^xsd:float ;
+    prop:locatedIn resCity:Madrid .
+
+# -----------------------------------------------
+# Instancia de Polideportivo (Sports Center)
+# -----------------------------------------------
+resSports:4696 a srv:SportsCenter ;
+    prop:name "Centro Deportivo Municipal Marqués de Samaranch"^^xsd:string ;
+    prop:address "Paseo Imperial, 18"^^xsd:string ;
+    prop:latitude "40.40428"^^xsd:float ;
+    prop:longitude "-3.71765"^^xsd:float ;
+    prop:locatedIn resCity:Madrid .
