@@ -47,7 +47,7 @@
 <h3>2.1 Visión general</h3>
 <table>
   <tr><th>#</th><th>Fichero</th><th>Codificación</th><th>Filas</th><th>Columnas</th><th>Qué contiene</th></tr>
-  <tr><td>D1</td><td><code>aire_horario.csv</code></td><td>UTF-8</td><td>80.258</td><td>56</td><td>Del 1/1/2025 a 30/9/2026; 23 estaciones, 11 magnitudes, 126 puntos de muestreo</td></tr>
+  <tr><td>D1</td><td><code>aire_horario.csv</code></td><td>UTF-8</td><td>80.258</td><td>56</td><td>Del 1/1/2025 a 30/9/2026; 23 estaciones, 11 magnitudes, 126 puntos de muestreo. En el csv actualizado (Hands-on 3) solo usamos septiembre de 2026, el mismo mes que el tráfico.</td></tr>
   <tr><td>D2</td><td><code>estaciones_control.csv</code></td><td>UTF-8</td><td>24</td><td>25</td><td>24 estaciones de la red</td></tr>
   <tr><td>D3</td><td><code>historico_datos_trafico.csv</code></td><td>ASCII</td><td>199.999</td><td>9</td><td>Septiembre de 2026, cada 15 minutos, 70 puntos de medida</td></tr>
   <tr><td>D4</td><td><code>ubicacion_puntos.csv</code></td><td>ISO-8859-1</td><td>5.083</td><td>9</td><td>Todos los puntos de medida de tráfico de la ciudad (los 70 de D3 incluidos)</td></tr>
@@ -81,6 +81,7 @@
   <tr><td>30</td><td>Benceno</td><td>4</td><td>2.645</td><td>0</td><td>9,7</td><td>0,4</td></tr>
   <tr><td>35</td><td>Etilbenceno</td><td>4</td><td>2.574</td><td>0</td><td>22,4</td><td>0,4</td></tr>
 </table>
+<p>Tras la limpieza (Hands-on 3), D1 queda en 89.880 observaciones horarias de septiembre de 2026. Los valores no válidos tienen <code>es_valido</code> = <code>false</code> y el valor vacío, porque el 0 del origen no es una medición real. La estación 55 no tiene datos porque no funciona desde el 1/9/2025 por las obras de la Línea 5 de Metro.</p>
 
 <h3>2.3 D2. Estaciones de control</h3>
 <p>Son 24 estaciones: 12 urbanas de fondo, 9 urbanas de tráfico y 3 suburbanas. Todas están dentro de Madrid.</p>
@@ -108,7 +109,7 @@
   <tr><td><code>tipo_elem</code></td><td><code>C30</code> (111.592 filas) o <code>URB</code> (88.407)</td><td>En D4 los puntos <code>C30</code> se llaman <code>other</code></td></tr>
   <tr><td><code>intensidad</code></td><td>Vehículos/hora (calculada sobre el periodo de 15 minutos), de 0 a 6.252 (media 501)</td><td>Ninguno</td></tr>
   <tr><td><code>ocupacion</code>, <code>carga</code></td><td>Porcentajes, de 0 a 100</td><td>Ninguno</td></tr>
-  <tr><td><code>vmed</code></td><td>Velocidad media, de 0 a 178</td><td>En todos los puntos <code>URB</code> vale 0: ahí no se mide</td></tr>
+  <tr><td><code>vmed</code></td><td>Velocidad media, de 0 a 178</td><td>En todos los puntos <code>URB</code> vale 0: ahí no se mide. En el CSV actualizado (Hands-on 3) lo dejamos vacío</td></tr>
   <tr><td><code>error</code></td><td>Siempre <code>N</code></td><td><code>N</code> aquí quiere decir «sin error», justo al revés que en D1</td></tr>
   <tr><td><code>periodo_integracion</code></td><td>Número de 1 a 15 (el 5 y el 15 suman el 92 % de las filas)</td><td>Hay que confirmar qué significa en la documentación</td></tr>
 </table>

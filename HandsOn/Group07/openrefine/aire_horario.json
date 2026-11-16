@@ -1,0 +1,1631 @@
+[
+  {
+    "op": "core/column-removal",
+    "columnName": "PROVINCIA",
+    "description": "Eliminar columna PROVINCIA"
+  },
+  {
+    "op": "core/column-removal",
+    "columnName": "MUNICIPIO",
+    "description": "Eliminar columna MUNICIPIO"
+  },
+  {
+    "op": "core/column-removal",
+    "columnName": "PUNTO_MUESTREO",
+    "description": "Eliminar columna PUNTO_MUESTREO"
+  },
+  {
+    "op": "core/column-addition",
+    "engineConfig": {
+      "facets": [],
+      "mode": "row-based"
+    },
+    "baseColumnName": "ANO",
+    "expression": "grel:cells[\"ANO\"].value + \"-\" + if(length(cells[\"MES\"].value)==1,\"0\",\"\") + cells[\"MES\"].value + \"-\" + if(length(cells[\"DIA\"].value)==1,\"0\",\"\") + cells[\"DIA\"].value",
+    "onError": "set-to-blank",
+    "newColumnName": "fecha",
+    "columnInsertIndex": 3,
+    "description": "Crear la columna fecha en el índice 3 basada en la columna ANO usando la expresión grel:cells[\"ANO\"].value + \"-\" + if(length(cells[\"MES\"].value)==1,\"0\",\"\") + cells[\"MES\"].value + \"-\" + if(length(cells[\"DIA\"].value)==1,\"0\",\"\") + cells[\"DIA\"].value"
+  },
+  {
+    "op": "core/column-addition",
+    "engineConfig": {
+      "facets": [],
+      "mode": "row-based"
+    },
+    "baseColumnName": "MAGNITUD",
+    "expression": "grel:value",
+    "onError": "set-to-blank",
+    "newColumnName": "contaminante",
+    "columnInsertIndex": 2,
+    "description": "Crear la columna contaminante en el índice 2 basada en la columna MAGNITUD usando la expresión grel:value"
+  },
+  {
+    "op": "core/row-star",
+    "engineConfig": {
+      "facets": [
+        {
+          "type": "list",
+          "name": "ANO",
+          "expression": "value",
+          "columnName": "ANO",
+          "invert": false,
+          "omitBlank": false,
+          "omitError": false,
+          "selection": [
+            {
+              "v": {
+                "v": "2026",
+                "l": "2026"
+              }
+            }
+          ],
+          "selectBlank": false,
+          "selectError": false
+        },
+        {
+          "type": "list",
+          "name": "MES",
+          "expression": "value",
+          "columnName": "MES",
+          "invert": false,
+          "omitBlank": false,
+          "omitError": false,
+          "selection": [
+            {
+              "v": {
+                "v": "9",
+                "l": "9"
+              }
+            }
+          ],
+          "selectBlank": false,
+          "selectError": false
+        }
+      ],
+      "mode": "row-based"
+    },
+    "starred": true,
+    "description": "Star rows"
+  },
+  {
+    "op": "core/row-removal",
+    "engineConfig": {
+      "facets": [
+        {
+          "type": "list",
+          "name": "Starred rows",
+          "expression": "row.starred",
+          "columnName": "",
+          "invert": false,
+          "omitBlank": false,
+          "omitError": false,
+          "selection": [
+            {
+              "v": {
+                "v": false,
+                "l": "false"
+              }
+            }
+          ],
+          "selectBlank": false,
+          "selectError": false
+        }
+      ],
+      "mode": "row-based"
+    },
+    "description": "Remove rows"
+  },
+  {
+    "op": "core/mass-edit",
+    "engineConfig": {
+      "facets": [
+        {
+          "type": "list",
+          "name": "Starred rows",
+          "expression": "row.starred",
+          "columnName": "",
+          "invert": false,
+          "omitBlank": false,
+          "omitError": false,
+          "selection": [
+            {
+              "v": {
+                "v": true,
+                "l": "true"
+              }
+            }
+          ],
+          "selectBlank": false,
+          "selectError": false
+        }
+      ],
+      "mode": "row-based"
+    },
+    "columnName": "contaminante",
+    "expression": "value",
+    "edits": [
+      {
+        "from": [
+          "1"
+        ],
+        "fromBlank": false,
+        "fromError": false,
+        "to": "SO2"
+      }
+    ],
+    "description": "Editar celdas en masa en columna contaminante"
+  },
+  {
+    "op": "core/mass-edit",
+    "engineConfig": {
+      "facets": [
+        {
+          "type": "list",
+          "name": "Starred rows",
+          "expression": "row.starred",
+          "columnName": "",
+          "invert": false,
+          "omitBlank": false,
+          "omitError": false,
+          "selection": [
+            {
+              "v": {
+                "v": true,
+                "l": "true"
+              }
+            }
+          ],
+          "selectBlank": false,
+          "selectError": false
+        }
+      ],
+      "mode": "row-based"
+    },
+    "columnName": "contaminante",
+    "expression": "value",
+    "edits": [
+      {
+        "from": [
+          "12"
+        ],
+        "fromBlank": false,
+        "fromError": false,
+        "to": "NOx"
+      }
+    ],
+    "description": "Editar celdas en masa en columna contaminante"
+  },
+  {
+    "op": "core/mass-edit",
+    "engineConfig": {
+      "facets": [
+        {
+          "type": "list",
+          "name": "Starred rows",
+          "expression": "row.starred",
+          "columnName": "",
+          "invert": false,
+          "omitBlank": false,
+          "omitError": false,
+          "selection": [
+            {
+              "v": {
+                "v": true,
+                "l": "true"
+              }
+            }
+          ],
+          "selectBlank": false,
+          "selectError": false
+        }
+      ],
+      "mode": "row-based"
+    },
+    "columnName": "contaminante",
+    "expression": "value",
+    "edits": [
+      {
+        "from": [
+          "10"
+        ],
+        "fromBlank": false,
+        "fromError": false,
+        "to": "PM10"
+      }
+    ],
+    "description": "Editar celdas en masa en columna contaminante"
+  },
+  {
+    "op": "core/mass-edit",
+    "engineConfig": {
+      "facets": [
+        {
+          "type": "list",
+          "name": "Starred rows",
+          "expression": "row.starred",
+          "columnName": "",
+          "invert": false,
+          "omitBlank": false,
+          "omitError": false,
+          "selection": [
+            {
+              "v": {
+                "v": true,
+                "l": "true"
+              }
+            }
+          ],
+          "selectBlank": false,
+          "selectError": false
+        }
+      ],
+      "mode": "row-based"
+    },
+    "columnName": "contaminante",
+    "expression": "value",
+    "edits": [
+      {
+        "from": [
+          "6"
+        ],
+        "fromBlank": false,
+        "fromError": false,
+        "to": "CO"
+      }
+    ],
+    "description": "Editar celdas en masa en columna contaminante"
+  },
+  {
+    "op": "core/mass-edit",
+    "engineConfig": {
+      "facets": [
+        {
+          "type": "list",
+          "name": "Starred rows",
+          "expression": "row.starred",
+          "columnName": "",
+          "invert": false,
+          "omitBlank": false,
+          "omitError": false,
+          "selection": [
+            {
+              "v": {
+                "v": true,
+                "l": "true"
+              }
+            }
+          ],
+          "selectBlank": false,
+          "selectError": false
+        }
+      ],
+      "mode": "row-based"
+    },
+    "columnName": "contaminante",
+    "expression": "value",
+    "edits": [
+      {
+        "from": [
+          "7"
+        ],
+        "fromBlank": false,
+        "fromError": false,
+        "to": "NO"
+      }
+    ],
+    "description": "Editar celdas en masa en columna contaminante"
+  },
+  {
+    "op": "core/mass-edit",
+    "engineConfig": {
+      "facets": [
+        {
+          "type": "list",
+          "name": "Starred rows",
+          "expression": "row.starred",
+          "columnName": "",
+          "invert": false,
+          "omitBlank": false,
+          "omitError": false,
+          "selection": [
+            {
+              "v": {
+                "v": true,
+                "l": "true"
+              }
+            }
+          ],
+          "selectBlank": false,
+          "selectError": false
+        }
+      ],
+      "mode": "row-based"
+    },
+    "columnName": "contaminante",
+    "expression": "value",
+    "edits": [
+      {
+        "from": [
+          "9"
+        ],
+        "fromBlank": false,
+        "fromError": false,
+        "to": "PM2.5"
+      }
+    ],
+    "description": "Editar celdas en masa en columna contaminante"
+  },
+  {
+    "op": "core/mass-edit",
+    "engineConfig": {
+      "facets": [
+        {
+          "type": "list",
+          "name": "Starred rows",
+          "expression": "row.starred",
+          "columnName": "",
+          "invert": false,
+          "omitBlank": false,
+          "omitError": false,
+          "selection": [
+            {
+              "v": {
+                "v": true,
+                "l": "true"
+              }
+            }
+          ],
+          "selectBlank": false,
+          "selectError": false
+        }
+      ],
+      "mode": "row-based"
+    },
+    "columnName": "contaminante",
+    "expression": "value",
+    "edits": [
+      {
+        "from": [
+          "8"
+        ],
+        "fromBlank": false,
+        "fromError": false,
+        "to": "NO2"
+      }
+    ],
+    "description": "Editar celdas en masa en columna contaminante"
+  },
+  {
+    "op": "core/mass-edit",
+    "engineConfig": {
+      "facets": [
+        {
+          "type": "list",
+          "name": "Starred rows",
+          "expression": "row.starred",
+          "columnName": "",
+          "invert": false,
+          "omitBlank": false,
+          "omitError": false,
+          "selection": [
+            {
+              "v": {
+                "v": true,
+                "l": "true"
+              }
+            }
+          ],
+          "selectBlank": false,
+          "selectError": false
+        }
+      ],
+      "mode": "row-based"
+    },
+    "columnName": "contaminante",
+    "expression": "value",
+    "edits": [
+      {
+        "from": [
+          "14"
+        ],
+        "fromBlank": false,
+        "fromError": false,
+        "to": "O3"
+      }
+    ],
+    "description": "Editar celdas en masa en columna contaminante"
+  },
+  {
+    "op": "core/mass-edit",
+    "engineConfig": {
+      "facets": [
+        {
+          "type": "list",
+          "name": "Starred rows",
+          "expression": "row.starred",
+          "columnName": "",
+          "invert": false,
+          "omitBlank": false,
+          "omitError": false,
+          "selection": [
+            {
+              "v": {
+                "v": true,
+                "l": "true"
+              }
+            }
+          ],
+          "selectBlank": false,
+          "selectError": false
+        }
+      ],
+      "mode": "row-based"
+    },
+    "columnName": "contaminante",
+    "expression": "value",
+    "edits": [
+      {
+        "from": [
+          "20"
+        ],
+        "fromBlank": false,
+        "fromError": false,
+        "to": "TOL"
+      }
+    ],
+    "description": "Editar celdas en masa en columna contaminante"
+  },
+  {
+    "op": "core/mass-edit",
+    "engineConfig": {
+      "facets": [
+        {
+          "type": "list",
+          "name": "Starred rows",
+          "expression": "row.starred",
+          "columnName": "",
+          "invert": false,
+          "omitBlank": false,
+          "omitError": false,
+          "selection": [
+            {
+              "v": {
+                "v": true,
+                "l": "true"
+              }
+            }
+          ],
+          "selectBlank": false,
+          "selectError": false
+        }
+      ],
+      "mode": "row-based"
+    },
+    "columnName": "contaminante",
+    "expression": "value",
+    "edits": [
+      {
+        "from": [
+          "30"
+        ],
+        "fromBlank": false,
+        "fromError": false,
+        "to": "BEN"
+      }
+    ],
+    "description": "Editar celdas en masa en columna contaminante"
+  },
+  {
+    "op": "core/mass-edit",
+    "engineConfig": {
+      "facets": [
+        {
+          "type": "list",
+          "name": "Starred rows",
+          "expression": "row.starred",
+          "columnName": "",
+          "invert": false,
+          "omitBlank": false,
+          "omitError": false,
+          "selection": [
+            {
+              "v": {
+                "v": true,
+                "l": "true"
+              }
+            }
+          ],
+          "selectBlank": false,
+          "selectError": false
+        }
+      ],
+      "mode": "row-based"
+    },
+    "columnName": "contaminante",
+    "expression": "value",
+    "edits": [
+      {
+        "from": [
+          "BEN"
+        ],
+        "fromBlank": false,
+        "fromError": false,
+        "to": "EBE"
+      }
+    ],
+    "description": "Editar celdas en masa en columna contaminante"
+  },
+  {
+    "op": "core/text-transform",
+    "engineConfig": {
+      "facets": [
+        {
+          "type": "list",
+          "name": "Starred rows",
+          "expression": "row.starred",
+          "columnName": "",
+          "invert": false,
+          "omitBlank": false,
+          "omitError": false,
+          "selection": [
+            {
+              "v": {
+                "v": true,
+                "l": "true"
+              }
+            }
+          ],
+          "selectBlank": false,
+          "selectError": false
+        }
+      ],
+      "mode": "row-based"
+    },
+    "columnName": "H01",
+    "expression": "grel:value + \"|\" + cells[\"V01\"].value",
+    "onError": "keep-original",
+    "repeat": false,
+    "repeatCount": 10,
+    "description": "Transforma el texto de las celdas en la columna H01 usando la expresión grel:value + \"|\" + cells[\"V01\"].value"
+  },
+  {
+    "op": "core/text-transform",
+    "engineConfig": {
+      "facets": [
+        {
+          "type": "list",
+          "name": "Starred rows",
+          "expression": "row.starred",
+          "columnName": "",
+          "invert": false,
+          "omitBlank": false,
+          "omitError": false,
+          "selection": [
+            {
+              "v": {
+                "v": true,
+                "l": "true"
+              }
+            }
+          ],
+          "selectBlank": false,
+          "selectError": false
+        }
+      ],
+      "mode": "row-based"
+    },
+    "columnName": "H02",
+    "expression": "grel:value + \"|\" + cells[\"V02\"].value",
+    "onError": "keep-original",
+    "repeat": false,
+    "repeatCount": 10,
+    "description": "Transforma el texto de las celdas en la columna H02 usando la expresión grel:value + \"|\" + cells[\"V02\"].value"
+  },
+  {
+    "op": "core/column-removal",
+    "columnName": "V01",
+    "description": "Eliminar columna V01"
+  },
+  {
+    "op": "core/column-removal",
+    "columnName": "V02",
+    "description": "Eliminar columna V02"
+  },
+  {
+    "op": "core/text-transform",
+    "engineConfig": {
+      "facets": [
+        {
+          "type": "list",
+          "name": "Starred rows",
+          "expression": "row.starred",
+          "columnName": "",
+          "invert": false,
+          "omitBlank": false,
+          "omitError": false,
+          "selection": [
+            {
+              "v": {
+                "v": true,
+                "l": "true"
+              }
+            }
+          ],
+          "selectBlank": false,
+          "selectError": false
+        }
+      ],
+      "mode": "row-based"
+    },
+    "columnName": "H03",
+    "expression": "grel:value + \"|\" + cells[\"V03\"].value",
+    "onError": "keep-original",
+    "repeat": false,
+    "repeatCount": 10,
+    "description": "Transforma el texto de las celdas en la columna H03 usando la expresión grel:value + \"|\" + cells[\"V03\"].value"
+  },
+  {
+    "op": "core/text-transform",
+    "engineConfig": {
+      "facets": [
+        {
+          "type": "list",
+          "name": "Starred rows",
+          "expression": "row.starred",
+          "columnName": "",
+          "invert": false,
+          "omitBlank": false,
+          "omitError": false,
+          "selection": [
+            {
+              "v": {
+                "v": true,
+                "l": "true"
+              }
+            }
+          ],
+          "selectBlank": false,
+          "selectError": false
+        }
+      ],
+      "mode": "row-based"
+    },
+    "columnName": "H04",
+    "expression": "grel:value + \"|\" + cells[\"V04\"].value",
+    "onError": "keep-original",
+    "repeat": false,
+    "repeatCount": 10,
+    "description": "Transforma el texto de las celdas en la columna H04 usando la expresión grel:value + \"|\" + cells[\"V04\"].value"
+  },
+  {
+    "op": "core/text-transform",
+    "engineConfig": {
+      "facets": [
+        {
+          "type": "list",
+          "name": "Starred rows",
+          "expression": "row.starred",
+          "columnName": "",
+          "invert": false,
+          "omitBlank": false,
+          "omitError": false,
+          "selection": [
+            {
+              "v": {
+                "v": true,
+                "l": "true"
+              }
+            }
+          ],
+          "selectBlank": false,
+          "selectError": false
+        }
+      ],
+      "mode": "row-based"
+    },
+    "columnName": "H05",
+    "expression": "grel:value + \"|\" + cells[\"V05\"].value",
+    "onError": "keep-original",
+    "repeat": false,
+    "repeatCount": 10,
+    "description": "Transforma el texto de las celdas en la columna H05 usando la expresión grel:value + \"|\" + cells[\"V05\"].value"
+  },
+  {
+    "op": "core/text-transform",
+    "engineConfig": {
+      "facets": [
+        {
+          "type": "list",
+          "name": "Starred rows",
+          "expression": "row.starred",
+          "columnName": "",
+          "invert": false,
+          "omitBlank": false,
+          "omitError": false,
+          "selection": [
+            {
+              "v": {
+                "v": true,
+                "l": "true"
+              }
+            }
+          ],
+          "selectBlank": false,
+          "selectError": false
+        }
+      ],
+      "mode": "row-based"
+    },
+    "columnName": "H06",
+    "expression": "grel:value + \"|\" + cells[\"V06\"].value",
+    "onError": "keep-original",
+    "repeat": false,
+    "repeatCount": 10,
+    "description": "Transforma el texto de las celdas en la columna H06 usando la expresión grel:value + \"|\" + cells[\"V06\"].value"
+  },
+  {
+    "op": "core/text-transform",
+    "engineConfig": {
+      "facets": [
+        {
+          "type": "list",
+          "name": "Starred rows",
+          "expression": "row.starred",
+          "columnName": "",
+          "invert": false,
+          "omitBlank": false,
+          "omitError": false,
+          "selection": [
+            {
+              "v": {
+                "v": true,
+                "l": "true"
+              }
+            }
+          ],
+          "selectBlank": false,
+          "selectError": false
+        }
+      ],
+      "mode": "row-based"
+    },
+    "columnName": "H07",
+    "expression": "grel:value + \"|\" + cells[\"V07\"].value",
+    "onError": "keep-original",
+    "repeat": false,
+    "repeatCount": 10,
+    "description": "Transforma el texto de las celdas en la columna H07 usando la expresión grel:value + \"|\" + cells[\"V07\"].value"
+  },
+  {
+    "op": "core/text-transform",
+    "engineConfig": {
+      "facets": [
+        {
+          "type": "list",
+          "name": "Starred rows",
+          "expression": "row.starred",
+          "columnName": "",
+          "invert": false,
+          "omitBlank": false,
+          "omitError": false,
+          "selection": [
+            {
+              "v": {
+                "v": true,
+                "l": "true"
+              }
+            }
+          ],
+          "selectBlank": false,
+          "selectError": false
+        }
+      ],
+      "mode": "row-based"
+    },
+    "columnName": "H08",
+    "expression": "grel:value + \"|\" + cells[\"V08\"].value",
+    "onError": "keep-original",
+    "repeat": false,
+    "repeatCount": 10,
+    "description": "Transforma el texto de las celdas en la columna H08 usando la expresión grel:value + \"|\" + cells[\"V08\"].value"
+  },
+  {
+    "op": "core/text-transform",
+    "engineConfig": {
+      "facets": [
+        {
+          "type": "list",
+          "name": "Starred rows",
+          "expression": "row.starred",
+          "columnName": "",
+          "invert": false,
+          "omitBlank": false,
+          "omitError": false,
+          "selection": [
+            {
+              "v": {
+                "v": true,
+                "l": "true"
+              }
+            }
+          ],
+          "selectBlank": false,
+          "selectError": false
+        }
+      ],
+      "mode": "row-based"
+    },
+    "columnName": "H09",
+    "expression": "grel:value + \"|\" + cells[\"V09\"].value",
+    "onError": "keep-original",
+    "repeat": false,
+    "repeatCount": 10,
+    "description": "Transforma el texto de las celdas en la columna H09 usando la expresión grel:value + \"|\" + cells[\"V09\"].value"
+  },
+  {
+    "op": "core/column-removal",
+    "columnName": "V03",
+    "description": "Eliminar columna V03"
+  },
+  {
+    "op": "core/column-removal",
+    "columnName": "V04",
+    "description": "Eliminar columna V04"
+  },
+  {
+    "op": "core/column-removal",
+    "columnName": "V05",
+    "description": "Eliminar columna V05"
+  },
+  {
+    "op": "core/column-removal",
+    "columnName": "V06",
+    "description": "Eliminar columna V06"
+  },
+  {
+    "op": "core/column-removal",
+    "columnName": "V07",
+    "description": "Eliminar columna V07"
+  },
+  {
+    "op": "core/column-removal",
+    "columnName": "V08",
+    "description": "Eliminar columna V08"
+  },
+  {
+    "op": "core/column-removal",
+    "columnName": "V09",
+    "description": "Eliminar columna V09"
+  },
+  {
+    "op": "core/text-transform",
+    "engineConfig": {
+      "facets": [
+        {
+          "type": "list",
+          "name": "Starred rows",
+          "expression": "row.starred",
+          "columnName": "",
+          "invert": false,
+          "omitBlank": false,
+          "omitError": false,
+          "selection": [
+            {
+              "v": {
+                "v": true,
+                "l": "true"
+              }
+            }
+          ],
+          "selectBlank": false,
+          "selectError": false
+        }
+      ],
+      "mode": "row-based"
+    },
+    "columnName": "H10",
+    "expression": "grel:value + \"|\" + cells[\"V10\"].value",
+    "onError": "keep-original",
+    "repeat": false,
+    "repeatCount": 10,
+    "description": "Transforma el texto de las celdas en la columna H10 usando la expresión grel:value + \"|\" + cells[\"V10\"].value"
+  },
+  {
+    "op": "core/text-transform",
+    "engineConfig": {
+      "facets": [
+        {
+          "type": "list",
+          "name": "Starred rows",
+          "expression": "row.starred",
+          "columnName": "",
+          "invert": false,
+          "omitBlank": false,
+          "omitError": false,
+          "selection": [
+            {
+              "v": {
+                "v": true,
+                "l": "true"
+              }
+            }
+          ],
+          "selectBlank": false,
+          "selectError": false
+        }
+      ],
+      "mode": "row-based"
+    },
+    "columnName": "H11",
+    "expression": "grel:value + \"|\" + cells[\"V11\"].value",
+    "onError": "keep-original",
+    "repeat": false,
+    "repeatCount": 10,
+    "description": "Transforma el texto de las celdas en la columna H11 usando la expresión grel:value + \"|\" + cells[\"V11\"].value"
+  },
+  {
+    "op": "core/text-transform",
+    "engineConfig": {
+      "facets": [
+        {
+          "type": "list",
+          "name": "Starred rows",
+          "expression": "row.starred",
+          "columnName": "",
+          "invert": false,
+          "omitBlank": false,
+          "omitError": false,
+          "selection": [
+            {
+              "v": {
+                "v": true,
+                "l": "true"
+              }
+            }
+          ],
+          "selectBlank": false,
+          "selectError": false
+        }
+      ],
+      "mode": "row-based"
+    },
+    "columnName": "H12",
+    "expression": "grel:value + \"|\" + cells[\"V12\"].value",
+    "onError": "keep-original",
+    "repeat": false,
+    "repeatCount": 10,
+    "description": "Transforma el texto de las celdas en la columna H12 usando la expresión grel:value + \"|\" + cells[\"V12\"].value"
+  },
+  {
+    "op": "core/text-transform",
+    "engineConfig": {
+      "facets": [
+        {
+          "type": "list",
+          "name": "Starred rows",
+          "expression": "row.starred",
+          "columnName": "",
+          "invert": false,
+          "omitBlank": false,
+          "omitError": false,
+          "selection": [
+            {
+              "v": {
+                "v": true,
+                "l": "true"
+              }
+            }
+          ],
+          "selectBlank": false,
+          "selectError": false
+        }
+      ],
+      "mode": "row-based"
+    },
+    "columnName": "H13",
+    "expression": "grel:value + \"|\" + cells[\"V13\"].value",
+    "onError": "keep-original",
+    "repeat": false,
+    "repeatCount": 10,
+    "description": "Transforma el texto de las celdas en la columna H13 usando la expresión grel:value + \"|\" + cells[\"V13\"].value"
+  },
+  {
+    "op": "core/text-transform",
+    "engineConfig": {
+      "facets": [
+        {
+          "type": "list",
+          "name": "Starred rows",
+          "expression": "row.starred",
+          "columnName": "",
+          "invert": false,
+          "omitBlank": false,
+          "omitError": false,
+          "selection": [
+            {
+              "v": {
+                "v": true,
+                "l": "true"
+              }
+            }
+          ],
+          "selectBlank": false,
+          "selectError": false
+        }
+      ],
+      "mode": "row-based"
+    },
+    "columnName": "H14",
+    "expression": "grel:value + \"|\" + cells[\"V14\"].value",
+    "onError": "keep-original",
+    "repeat": false,
+    "repeatCount": 10,
+    "description": "Transforma el texto de las celdas en la columna H14 usando la expresión grel:value + \"|\" + cells[\"V14\"].value"
+  },
+  {
+    "op": "core/text-transform",
+    "engineConfig": {
+      "facets": [
+        {
+          "type": "list",
+          "name": "Starred rows",
+          "expression": "row.starred",
+          "columnName": "",
+          "invert": false,
+          "omitBlank": false,
+          "omitError": false,
+          "selection": [
+            {
+              "v": {
+                "v": true,
+                "l": "true"
+              }
+            }
+          ],
+          "selectBlank": false,
+          "selectError": false
+        }
+      ],
+      "mode": "row-based"
+    },
+    "columnName": "H15",
+    "expression": "grel:value + \"|\" + cells[\"V15\"].value",
+    "onError": "keep-original",
+    "repeat": false,
+    "repeatCount": 10,
+    "description": "Transforma el texto de las celdas en la columna H15 usando la expresión grel:value + \"|\" + cells[\"V15\"].value"
+  },
+  {
+    "op": "core/text-transform",
+    "engineConfig": {
+      "facets": [
+        {
+          "type": "list",
+          "name": "Starred rows",
+          "expression": "row.starred",
+          "columnName": "",
+          "invert": false,
+          "omitBlank": false,
+          "omitError": false,
+          "selection": [
+            {
+              "v": {
+                "v": true,
+                "l": "true"
+              }
+            }
+          ],
+          "selectBlank": false,
+          "selectError": false
+        }
+      ],
+      "mode": "row-based"
+    },
+    "columnName": "H16",
+    "expression": "grel:value + \"|\" + cells[\"V16\"].value",
+    "onError": "keep-original",
+    "repeat": false,
+    "repeatCount": 10,
+    "description": "Transforma el texto de las celdas en la columna H16 usando la expresión grel:value + \"|\" + cells[\"V16\"].value"
+  },
+  {
+    "op": "core/text-transform",
+    "engineConfig": {
+      "facets": [
+        {
+          "type": "list",
+          "name": "Starred rows",
+          "expression": "row.starred",
+          "columnName": "",
+          "invert": false,
+          "omitBlank": false,
+          "omitError": false,
+          "selection": [
+            {
+              "v": {
+                "v": true,
+                "l": "true"
+              }
+            }
+          ],
+          "selectBlank": false,
+          "selectError": false
+        }
+      ],
+      "mode": "row-based"
+    },
+    "columnName": "H17",
+    "expression": "grel:value + \"|\" + cells[\"V17\"].value",
+    "onError": "keep-original",
+    "repeat": false,
+    "repeatCount": 10,
+    "description": "Transforma el texto de las celdas en la columna H17 usando la expresión grel:value + \"|\" + cells[\"V17\"].value"
+  },
+  {
+    "op": "core/text-transform",
+    "engineConfig": {
+      "facets": [
+        {
+          "type": "list",
+          "name": "Starred rows",
+          "expression": "row.starred",
+          "columnName": "",
+          "invert": false,
+          "omitBlank": false,
+          "omitError": false,
+          "selection": [
+            {
+              "v": {
+                "v": true,
+                "l": "true"
+              }
+            }
+          ],
+          "selectBlank": false,
+          "selectError": false
+        }
+      ],
+      "mode": "row-based"
+    },
+    "columnName": "H18",
+    "expression": "grel:value + \"|\" + cells[\"V18\"].value",
+    "onError": "keep-original",
+    "repeat": false,
+    "repeatCount": 10,
+    "description": "Transforma el texto de las celdas en la columna H18 usando la expresión grel:value + \"|\" + cells[\"V18\"].value"
+  },
+  {
+    "op": "core/text-transform",
+    "engineConfig": {
+      "facets": [
+        {
+          "type": "list",
+          "name": "Starred rows",
+          "expression": "row.starred",
+          "columnName": "",
+          "invert": false,
+          "omitBlank": false,
+          "omitError": false,
+          "selection": [
+            {
+              "v": {
+                "v": true,
+                "l": "true"
+              }
+            }
+          ],
+          "selectBlank": false,
+          "selectError": false
+        }
+      ],
+      "mode": "row-based"
+    },
+    "columnName": "H19",
+    "expression": "grel:value + \"|\" + cells[\"V19\"].value",
+    "onError": "keep-original",
+    "repeat": false,
+    "repeatCount": 10,
+    "description": "Transforma el texto de las celdas en la columna H19 usando la expresión grel:value + \"|\" + cells[\"V19\"].value"
+  },
+  {
+    "op": "core/column-removal",
+    "columnName": "V10",
+    "description": "Eliminar columna V10"
+  },
+  {
+    "op": "core/column-removal",
+    "columnName": "V11",
+    "description": "Eliminar columna V11"
+  },
+  {
+    "op": "core/column-removal",
+    "columnName": "V12",
+    "description": "Eliminar columna V12"
+  },
+  {
+    "op": "core/column-removal",
+    "columnName": "V13",
+    "description": "Eliminar columna V13"
+  },
+  {
+    "op": "core/column-removal",
+    "columnName": "V14",
+    "description": "Eliminar columna V14"
+  },
+  {
+    "op": "core/column-removal",
+    "columnName": "V15",
+    "description": "Eliminar columna V15"
+  },
+  {
+    "op": "core/column-removal",
+    "columnName": "V16",
+    "description": "Eliminar columna V16"
+  },
+  {
+    "op": "core/column-removal",
+    "columnName": "V17",
+    "description": "Eliminar columna V17"
+  },
+  {
+    "op": "core/column-removal",
+    "columnName": "V18",
+    "description": "Eliminar columna V18"
+  },
+  {
+    "op": "core/column-removal",
+    "columnName": "V19",
+    "description": "Eliminar columna V19"
+  },
+  {
+    "op": "core/text-transform",
+    "engineConfig": {
+      "facets": [
+        {
+          "type": "list",
+          "name": "Starred rows",
+          "expression": "row.starred",
+          "columnName": "",
+          "invert": false,
+          "omitBlank": false,
+          "omitError": false,
+          "selection": [
+            {
+              "v": {
+                "v": true,
+                "l": "true"
+              }
+            }
+          ],
+          "selectBlank": false,
+          "selectError": false
+        }
+      ],
+      "mode": "row-based"
+    },
+    "columnName": "H20",
+    "expression": "grel:value + \"|\" + cells[\"V20\"].value",
+    "onError": "keep-original",
+    "repeat": false,
+    "repeatCount": 10,
+    "description": "Transforma el texto de las celdas en la columna H20 usando la expresión grel:value + \"|\" + cells[\"V20\"].value"
+  },
+  {
+    "op": "core/text-transform",
+    "engineConfig": {
+      "facets": [
+        {
+          "type": "list",
+          "name": "Starred rows",
+          "expression": "row.starred",
+          "columnName": "",
+          "invert": false,
+          "omitBlank": false,
+          "omitError": false,
+          "selection": [
+            {
+              "v": {
+                "v": true,
+                "l": "true"
+              }
+            }
+          ],
+          "selectBlank": false,
+          "selectError": false
+        }
+      ],
+      "mode": "row-based"
+    },
+    "columnName": "H21",
+    "expression": "grel:value + \"|\" + cells[\"V21\"].value",
+    "onError": "keep-original",
+    "repeat": false,
+    "repeatCount": 10,
+    "description": "Transforma el texto de las celdas en la columna H21 usando la expresión grel:value + \"|\" + cells[\"V21\"].value"
+  },
+  {
+    "op": "core/text-transform",
+    "engineConfig": {
+      "facets": [
+        {
+          "type": "list",
+          "name": "Starred rows",
+          "expression": "row.starred",
+          "columnName": "",
+          "invert": false,
+          "omitBlank": false,
+          "omitError": false,
+          "selection": [
+            {
+              "v": {
+                "v": true,
+                "l": "true"
+              }
+            }
+          ],
+          "selectBlank": false,
+          "selectError": false
+        }
+      ],
+      "mode": "row-based"
+    },
+    "columnName": "H22",
+    "expression": "grel:value + \"|\" + cells[\"V22\"].value",
+    "onError": "keep-original",
+    "repeat": false,
+    "repeatCount": 10,
+    "description": "Transforma el texto de las celdas en la columna H22 usando la expresión grel:value + \"|\" + cells[\"V22\"].value"
+  },
+  {
+    "op": "core/text-transform",
+    "engineConfig": {
+      "facets": [
+        {
+          "type": "list",
+          "name": "Starred rows",
+          "expression": "row.starred",
+          "columnName": "",
+          "invert": false,
+          "omitBlank": false,
+          "omitError": false,
+          "selection": [
+            {
+              "v": {
+                "v": true,
+                "l": "true"
+              }
+            }
+          ],
+          "selectBlank": false,
+          "selectError": false
+        }
+      ],
+      "mode": "row-based"
+    },
+    "columnName": "H23",
+    "expression": "grel:value + \"|\" + cells[\"V23\"].value",
+    "onError": "keep-original",
+    "repeat": false,
+    "repeatCount": 10,
+    "description": "Transforma el texto de las celdas en la columna H23 usando la expresión grel:value + \"|\" + cells[\"V23\"].value"
+  },
+  {
+    "op": "core/text-transform",
+    "engineConfig": {
+      "facets": [
+        {
+          "type": "list",
+          "name": "Starred rows",
+          "expression": "row.starred",
+          "columnName": "",
+          "invert": false,
+          "omitBlank": false,
+          "omitError": false,
+          "selection": [
+            {
+              "v": {
+                "v": true,
+                "l": "true"
+              }
+            }
+          ],
+          "selectBlank": false,
+          "selectError": false
+        }
+      ],
+      "mode": "row-based"
+    },
+    "columnName": "H24",
+    "expression": "grel:value + \"|\" + cells[\"V24\"].value",
+    "onError": "keep-original",
+    "repeat": false,
+    "repeatCount": 10,
+    "description": "Transforma el texto de las celdas en la columna H24 usando la expresión grel:value + \"|\" + cells[\"V24\"].value"
+  },
+  {
+    "op": "core/column-removal",
+    "columnName": "V20",
+    "description": "Eliminar columna V20"
+  },
+  {
+    "op": "core/column-removal",
+    "columnName": "V21",
+    "description": "Eliminar columna V21"
+  },
+  {
+    "op": "core/column-removal",
+    "columnName": "V22",
+    "description": "Eliminar columna V22"
+  },
+  {
+    "op": "core/column-removal",
+    "columnName": "V23",
+    "description": "Eliminar columna V23"
+  },
+  {
+    "op": "core/column-removal",
+    "columnName": "V24",
+    "description": "Eliminar columna V24"
+  },
+  {
+    "op": "core/transpose-columns-into-rows",
+    "startColumnName": "H01",
+    "columnCount": 24,
+    "ignoreBlankCells": true,
+    "fillDown": true,
+    "separator": null,
+    "keyColumnName": "hora_col",
+    "valueColumnName": "hv",
+    "description": "Transponer celdas en 24 columna(s) empezando por H01 en filas en dos nuevas columnas llamadas hora_col y hv"
+  },
+  {
+    "op": "core/column-split",
+    "engineConfig": {
+      "facets": [],
+      "mode": "row-based"
+    },
+    "columnName": "hv",
+    "guessCellType": false,
+    "removeOriginalColumn": true,
+    "mode": "separator",
+    "separator": "|",
+    "regex": false,
+    "maxColumns": 0,
+    "description": "Dividir columna hv por separador"
+  },
+  {
+    "op": "core/column-rename",
+    "oldColumnName": "hv 1",
+    "newColumnName": "valor",
+    "description": "Renombra la columna hv 1 a valor"
+  },
+  {
+    "op": "core/column-rename",
+    "oldColumnName": "hv 2",
+    "newColumnName": "es_valido",
+    "description": "Renombra la columna hv 2 a es_valido"
+  },
+  {
+    "op": "core/mass-edit",
+    "engineConfig": {
+      "facets": [],
+      "mode": "row-based"
+    },
+    "columnName": "es_valido",
+    "expression": "value",
+    "edits": [
+      {
+        "from": [
+          "V"
+        ],
+        "fromBlank": false,
+        "fromError": false,
+        "to": "true"
+      }
+    ],
+    "description": "Editar celdas en masa en columna es_valido"
+  },
+  {
+    "op": "core/mass-edit",
+    "engineConfig": {
+      "facets": [],
+      "mode": "row-based"
+    },
+    "columnName": "es_valido",
+    "expression": "value",
+    "edits": [
+      {
+        "from": [
+          "N"
+        ],
+        "fromBlank": false,
+        "fromError": false,
+        "to": "false"
+      }
+    ],
+    "description": "Editar celdas en masa en columna es_valido"
+  },
+  {
+    "op": "core/column-addition",
+    "engineConfig": {
+      "facets": [],
+      "mode": "row-based"
+    },
+    "baseColumnName": "hora_col",
+    "expression": "grel:inc(toDate(cells[\"fecha\"].value,\"yyyy-MM-dd\"), toNumber(value.substring(1)), \"hours\").toString(\"yyyy-MM-dd'T'HH:mm:ss\")",
+    "onError": "set-to-blank",
+    "newColumnName": "fecha_hora",
+    "columnInsertIndex": 8,
+    "description": "Crear la columna fecha_hora en el índice 8 basada en la columna hora_col usando la expresión grel:inc(toDate(cells[\"fecha\"].value,\"yyyy-MM-dd\"), toNumber(value.substring(1)), \"hours\").toString(\"yyyy-MM-dd'T'HH:mm:ss\")"
+  },
+  {
+    "op": "core/column-removal",
+    "columnName": "fecha",
+    "description": "Eliminar columna fecha"
+  },
+  {
+    "op": "core/column-removal",
+    "columnName": "ANO",
+    "description": "Eliminar columna ANO"
+  },
+  {
+    "op": "core/column-removal",
+    "columnName": "MES",
+    "description": "Eliminar columna MES"
+  },
+  {
+    "op": "core/column-removal",
+    "columnName": "DIA",
+    "description": "Eliminar columna DIA"
+  },
+  {
+    "op": "core/column-removal",
+    "columnName": "hora_col",
+    "description": "Eliminar columna hora_col"
+  },
+  {
+    "op": "core/column-rename",
+    "oldColumnName": "MAGNITUD",
+    "newColumnName": "magnitud",
+    "description": "Renombra la columna MAGNITUD a magnitud"
+  },
+  {
+    "op": "core/column-rename",
+    "oldColumnName": "ESTACION",
+    "newColumnName": "estación",
+    "description": "Renombra la columna ESTACION a estación"
+  },
+  {
+    "op": "core/column-rename",
+    "oldColumnName": "estación",
+    "newColumnName": "estacion",
+    "description": "Renombra la columna estación a estacion"
+  },
+  {
+    "op": "core/text-transform",
+    "engineConfig": {
+      "facets": [],
+      "mode": "row-based"
+    },
+    "columnName": "contaminante",
+    "expression": "grel:if(cells[\"magnitud\"].value==\"30\",\"BEN\",if(cells[\"magnitud\"].value==\"35\",\"EBE\",value))",
+    "onError": "keep-original",
+    "repeat": false,
+    "repeatCount": 10,
+    "description": "Transforma el texto de las celdas en la columna contaminante usando la expresión grel:if(cells[\"magnitud\"].value==\"30\",\"BEN\",if(cells[\"magnitud\"].value==\"35\",\"EBE\",value))"
+  },
+  {
+    "op": "core/text-transform",
+    "engineConfig": {
+      "facets": [],
+      "mode": "row-based"
+    },
+    "columnName": "valor",
+    "expression": "grel:if(cells[\"es_valido\"].value==\"true\", value, \"\")",
+    "onError": "keep-original",
+    "repeat": false,
+    "repeatCount": 10,
+    "description": "Transforma el texto de las celdas en la columna valor usando la expresión grel:if(cells[\"es_valido\"].value==\"true\", value, \"\")"
+  }
+]
