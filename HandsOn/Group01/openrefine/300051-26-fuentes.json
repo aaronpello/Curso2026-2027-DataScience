@@ -1,0 +1,683 @@
+[
+  {
+    "op": "core/column-removal",
+    "columnName": "DESC_CLASIFICACION",
+    "description": "Remove column DESC_CLASIFICACION"
+  },
+  {
+    "op": "core/column-removal",
+    "columnName": "COD_BARRIO",
+    "description": "Remove column COD_BARRIO"
+  },
+  {
+    "op": "core/column-removal",
+    "columnName": "BARRIO",
+    "description": "Remove column BARRIO"
+  },
+  {
+    "op": "core/column-removal",
+    "columnName": "COD_DISTRITO",
+    "description": "Remove column COD_DISTRITO"
+  },
+  {
+    "op": "core/column-removal",
+    "columnName": "DISTRITO",
+    "description": "Remove column DISTRITO"
+  },
+  {
+    "op": "core/column-removal",
+    "columnName": "ESTADO",
+    "description": "Remove column ESTADO"
+  },
+  {
+    "op": "core/column-removal",
+    "columnName": "COORD_GIS_X",
+    "description": "Remove column COORD_GIS_X"
+  },
+  {
+    "op": "core/column-removal",
+    "columnName": "COORD_GIS_Y",
+    "description": "Remove column COORD_GIS_Y"
+  },
+  {
+    "op": "core/column-removal",
+    "columnName": "SISTEMA_COORD",
+    "description": "Remove column SISTEMA_COORD"
+  },
+  {
+    "op": "core/column-removal",
+    "columnName": "DIRECCION_AUX",
+    "description": "Remove column DIRECCION_AUX"
+  },
+  {
+    "op": "core/text-transform",
+    "engineConfig": {
+      "facets": [],
+      "mode": "row-based"
+    },
+    "columnName": "TIPO_VIA",
+    "expression": "join ([coalesce(cells['TIPO_VIA'].value,''),coalesce(cells['NOM_VIA'].value,''),coalesce(cells['NUM_VIA'].value,''),coalesce(cells['COD_POSTAL'].value,'')],' ')",
+    "onError": "keep-original",
+    "repeat": false,
+    "repeatCount": 10,
+    "description": "Text transform on cells in column TIPO_VIA using expression join ([coalesce(cells['TIPO_VIA'].value,''),coalesce(cells['NOM_VIA'].value,''),coalesce(cells['NUM_VIA'].value,''),coalesce(cells['COD_POSTAL'].value,'')],' ')"
+  },
+  {
+    "op": "core/column-removal",
+    "columnName": "NOM_VIA",
+    "description": "Remove column NOM_VIA"
+  },
+  {
+    "op": "core/column-removal",
+    "columnName": "NUM_VIA",
+    "description": "Remove column NUM_VIA"
+  },
+  {
+    "op": "core/column-removal",
+    "columnName": "COD_POSTAL",
+    "description": "Remove column COD_POSTAL"
+  },
+  {
+    "op": "core/column-removal",
+    "columnName": "NDP",
+    "description": "Remove column NDP"
+  },
+  {
+    "op": "core/column-removal",
+    "columnName": "FECHA_INSTALACION",
+    "description": "Remove column FECHA_INSTALACION"
+  },
+  {
+    "op": "core/column-removal",
+    "columnName": "CODIGO_INTERNO",
+    "description": "Remove column CODIGO_INTERNO"
+  },
+  {
+    "op": "core/column-removal",
+    "columnName": "CONTRATO_COD",
+    "description": "Remove column CONTRATO_COD"
+  },
+  {
+    "op": "core/column-removal",
+    "columnName": "UBICACION",
+    "description": "Remove column UBICACION"
+  },
+  {
+    "op": "core/column-removal",
+    "columnName": "USO",
+    "description": "Remove column USO"
+  },
+  {
+    "op": "core/column-removal",
+    "columnName": "MODELO",
+    "description": "Remove column MODELO"
+  },
+  {
+    "op": "core/column-rename",
+    "oldColumnName": "TIPO_VIA",
+    "newColumnName": "address",
+    "description": "Rename column TIPO_VIA to address"
+  },
+  {
+    "op": "core/column-rename",
+    "oldColumnName": "LATITUD",
+    "newColumnName": "latitude",
+    "description": "Rename column LATITUD to latitude"
+  },
+  {
+    "op": "core/column-rename",
+    "oldColumnName": "LONGITUD",
+    "newColumnName": "longitude",
+    "description": "Rename column LONGITUD to longitude"
+  },
+  {
+    "op": "core/column-rename",
+    "oldColumnName": "ID",
+    "newColumnName": "id",
+    "description": "Rename column ID to id"
+  },
+  {
+    "op": "core/row-removal",
+    "engineConfig": {
+      "facets": [
+        {
+          "type": "list",
+          "name": "latitude",
+          "expression": "isBlank(value)",
+          "columnName": "latitude",
+          "invert": false,
+          "omitBlank": false,
+          "omitError": false,
+          "selection": [
+            {
+              "v": {
+                "v": true,
+                "l": "true"
+              }
+            }
+          ],
+          "selectBlank": false,
+          "selectError": false
+        }
+      ],
+      "mode": "row-based"
+    },
+    "description": "Remove rows"
+  },
+  {
+    "op": "core/row-removal",
+    "engineConfig": {
+      "facets": [
+        {
+          "type": "list",
+          "name": "latitude",
+          "expression": "isBlank(value)",
+          "columnName": "latitude",
+          "invert": false,
+          "omitBlank": false,
+          "omitError": false,
+          "selection": [
+            {
+              "v": {
+                "v": false,
+                "l": "false"
+              }
+            }
+          ],
+          "selectBlank": false,
+          "selectError": false
+        },
+        {
+          "type": "list",
+          "name": "address",
+          "expression": "value",
+          "columnName": "address",
+          "invert": false,
+          "omitBlank": false,
+          "omitError": false,
+          "selection": [
+            {
+              "v": {
+                "v": "   28031",
+                "l": "   28031"
+              }
+            }
+          ],
+          "selectBlank": false,
+          "selectError": false
+        }
+      ],
+      "mode": "row-based"
+    },
+    "description": "Remove rows"
+  },
+  {
+    "op": "core/column-addition",
+    "engineConfig": {
+      "facets": [
+        {
+          "type": "list",
+          "name": "latitude",
+          "expression": "isBlank(value)",
+          "columnName": "latitude",
+          "invert": false,
+          "omitBlank": false,
+          "omitError": false,
+          "selection": [
+            {
+              "v": {
+                "v": false,
+                "l": "false"
+              }
+            }
+          ],
+          "selectBlank": false,
+          "selectError": false
+        }
+      ],
+      "mode": "row-based"
+    },
+    "baseColumnName": "address",
+    "expression": "grel:\"Madrid\"",
+    "onError": "set-to-blank",
+    "newColumnName": "locatedIn",
+    "columnInsertIndex": 4,
+    "description": "Create column locatedIn at index 4 based on column address using expression grel:\"Madrid\""
+  },
+  {
+    "op": "core/column-addition",
+    "engineConfig": {
+      "facets": [
+        {
+          "type": "list",
+          "name": "latitude",
+          "expression": "isBlank(value)",
+          "columnName": "latitude",
+          "invert": false,
+          "omitBlank": false,
+          "omitError": false,
+          "selection": [
+            {
+              "v": {
+                "v": false,
+                "l": "false"
+              }
+            }
+          ],
+          "selectBlank": false,
+          "selectError": false
+        }
+      ],
+      "mode": "row-based"
+    },
+    "baseColumnName": "address",
+    "expression": "grel:\"Fuente en \"+value",
+    "onError": "set-to-blank",
+    "newColumnName": "name",
+    "columnInsertIndex": 4,
+    "description": "Create column name at index 4 based on column address using expression grel:\"Fuente en \"+value"
+  },
+  {
+    "op": "core/text-transform",
+    "engineConfig": {
+      "facets": [
+        {
+          "type": "list",
+          "name": "latitude",
+          "expression": "isBlank(value)",
+          "columnName": "latitude",
+          "invert": false,
+          "omitBlank": false,
+          "omitError": false,
+          "selection": [
+            {
+              "v": {
+                "v": false,
+                "l": "false"
+              }
+            }
+          ],
+          "selectBlank": false,
+          "selectError": false
+        }
+      ],
+      "mode": "row-based"
+    },
+    "columnName": "address",
+    "expression": "value.trim()",
+    "onError": "keep-original",
+    "repeat": false,
+    "repeatCount": 10,
+    "description": "Text transform on cells in column address using expression value.trim()"
+  },
+  {
+    "op": "core/text-transform",
+    "engineConfig": {
+      "facets": [
+        {
+          "type": "list",
+          "name": "latitude",
+          "expression": "isBlank(value)",
+          "columnName": "latitude",
+          "invert": false,
+          "omitBlank": false,
+          "omitError": false,
+          "selection": [
+            {
+              "v": {
+                "v": false,
+                "l": "false"
+              }
+            }
+          ],
+          "selectBlank": false,
+          "selectError": false
+        }
+      ],
+      "mode": "row-based"
+    },
+    "columnName": "name",
+    "expression": "value.trim()",
+    "onError": "keep-original",
+    "repeat": false,
+    "repeatCount": 10,
+    "description": "Text transform on cells in column name using expression value.trim()"
+  },
+  {
+    "op": "core/text-transform",
+    "engineConfig": {
+      "facets": [
+        {
+          "type": "list",
+          "name": "latitude",
+          "expression": "isBlank(value)",
+          "columnName": "latitude",
+          "invert": false,
+          "omitBlank": false,
+          "omitError": false,
+          "selection": [
+            {
+              "v": {
+                "v": false,
+                "l": "false"
+              }
+            }
+          ],
+          "selectBlank": false,
+          "selectError": false
+        }
+      ],
+      "mode": "row-based"
+    },
+    "columnName": "id",
+    "expression": "value.trim()",
+    "onError": "keep-original",
+    "repeat": false,
+    "repeatCount": 0,
+    "description": "Text transform on cells in column id using expression value.trim()"
+  },
+  {
+    "op": "core/text-transform",
+    "engineConfig": {
+      "facets": [
+        {
+          "type": "list",
+          "name": "latitude",
+          "expression": "isBlank(value)",
+          "columnName": "latitude",
+          "invert": false,
+          "omitBlank": false,
+          "omitError": false,
+          "selection": [
+            {
+              "v": {
+                "v": false,
+                "l": "false"
+              }
+            }
+          ],
+          "selectBlank": false,
+          "selectError": false
+        }
+      ],
+      "mode": "row-based"
+    },
+    "columnName": "latitude",
+    "expression": "value.trim()",
+    "onError": "keep-original",
+    "repeat": false,
+    "repeatCount": 0,
+    "description": "Text transform on cells in column latitude using expression value.trim()"
+  },
+  {
+    "op": "core/text-transform",
+    "engineConfig": {
+      "facets": [
+        {
+          "type": "list",
+          "name": "latitude",
+          "expression": "isBlank(value)",
+          "columnName": "latitude",
+          "invert": false,
+          "omitBlank": false,
+          "omitError": false,
+          "selection": [
+            {
+              "v": {
+                "v": false,
+                "l": "false"
+              }
+            }
+          ],
+          "selectBlank": false,
+          "selectError": false
+        }
+      ],
+      "mode": "row-based"
+    },
+    "columnName": "longitude",
+    "expression": "value.trim()",
+    "onError": "keep-original",
+    "repeat": false,
+    "repeatCount": 0,
+    "description": "Text transform on cells in column longitude using expression value.trim()"
+  },
+  {
+    "op": "core/text-transform",
+    "engineConfig": {
+      "facets": [
+        {
+          "type": "list",
+          "name": "latitude",
+          "expression": "isBlank(value)",
+          "columnName": "latitude",
+          "invert": false,
+          "omitBlank": false,
+          "omitError": false,
+          "selection": [
+            {
+              "v": {
+                "v": false,
+                "l": "false"
+              }
+            }
+          ],
+          "selectBlank": false,
+          "selectError": false
+        }
+      ],
+      "mode": "row-based"
+    },
+    "columnName": "address",
+    "expression": "value.trim()",
+    "onError": "keep-original",
+    "repeat": false,
+    "repeatCount": 0,
+    "description": "Text transform on cells in column address using expression value.trim()"
+  },
+  {
+    "op": "core/text-transform",
+    "engineConfig": {
+      "facets": [
+        {
+          "type": "list",
+          "name": "latitude",
+          "expression": "isBlank(value)",
+          "columnName": "latitude",
+          "invert": false,
+          "omitBlank": false,
+          "omitError": false,
+          "selection": [
+            {
+              "v": {
+                "v": false,
+                "l": "false"
+              }
+            }
+          ],
+          "selectBlank": false,
+          "selectError": false
+        }
+      ],
+      "mode": "row-based"
+    },
+    "columnName": "name",
+    "expression": "value.trim()",
+    "onError": "keep-original",
+    "repeat": false,
+    "repeatCount": 0,
+    "description": "Text transform on cells in column name using expression value.trim()"
+  },
+  {
+    "op": "core/text-transform",
+    "engineConfig": {
+      "facets": [
+        {
+          "type": "list",
+          "name": "latitude",
+          "expression": "isBlank(value)",
+          "columnName": "latitude",
+          "invert": false,
+          "omitBlank": false,
+          "omitError": false,
+          "selection": [
+            {
+              "v": {
+                "v": false,
+                "l": "false"
+              }
+            }
+          ],
+          "selectBlank": false,
+          "selectError": false
+        }
+      ],
+      "mode": "row-based"
+    },
+    "columnName": "locatedIn",
+    "expression": "value.trim()",
+    "onError": "keep-original",
+    "repeat": false,
+    "repeatCount": 0,
+    "description": "Text transform on cells in column locatedIn using expression value.trim()"
+  },
+  {
+    "op": "core/column-move-left",
+    "columnName": "name",
+    "description": "Move column name to the left"
+  },
+  {
+    "op": "core/column-move-left",
+    "columnName": "name",
+    "description": "Move column name to the left"
+  },
+  {
+    "op": "core/column-move-left",
+    "columnName": "name",
+    "description": "Move column name to the left"
+  },
+  {
+    "op": "core/column-move-left",
+    "columnName": "address",
+    "description": "Move column address to the left"
+  },
+  {
+    "op": "core/column-move-left",
+    "columnName": "address",
+    "description": "Move column address to the left"
+  },
+  {
+    "op": "core/column-move-last",
+    "columnName": "locatedIn",
+    "description": "Move column locatedIn to the end"
+  },
+  {
+    "op": "core/column-move-left",
+    "columnName": "locatedIn",
+    "description": "Move column locatedIn to the left"
+  },
+  {
+    "op": "core/column-move-left",
+    "columnName": "locatedIn",
+    "description": "Move column locatedIn to the left"
+  },
+  {
+    "op": "core/text-transform",
+    "engineConfig": {
+      "facets": [
+        {
+          "type": "list",
+          "name": "latitude",
+          "expression": "isBlank(value)",
+          "columnName": "latitude",
+          "invert": false,
+          "omitBlank": false,
+          "omitError": false,
+          "selection": [
+            {
+              "v": {
+                "v": false,
+                "l": "false"
+              }
+            }
+          ],
+          "selectBlank": false,
+          "selectError": false
+        }
+      ],
+      "mode": "row-based"
+    },
+    "columnName": "address",
+    "expression": "value.replace(/[\\p{Zs}\\s]+/,' ')",
+    "onError": "keep-original",
+    "repeat": false,
+    "repeatCount": 10,
+    "description": "Text transform on cells in column address using expression value.replace(/[\\p{Zs}\\s]+/,' ')"
+  },
+  {
+    "op": "core/text-transform",
+    "engineConfig": {
+      "facets": [
+        {
+          "type": "list",
+          "name": "latitude",
+          "expression": "isBlank(value)",
+          "columnName": "latitude",
+          "invert": false,
+          "omitBlank": false,
+          "omitError": false,
+          "selection": [
+            {
+              "v": {
+                "v": false,
+                "l": "false"
+              }
+            }
+          ],
+          "selectBlank": false,
+          "selectError": false
+        }
+      ],
+      "mode": "row-based"
+    },
+    "columnName": "name",
+    "expression": "value.replace(/[\\p{Zs}\\s]+/,' ')",
+    "onError": "keep-original",
+    "repeat": false,
+    "repeatCount": 10,
+    "description": "Text transform on cells in column name using expression value.replace(/[\\p{Zs}\\s]+/,' ')"
+  },
+  {
+    "op": "core/text-transform",
+    "engineConfig": {
+      "facets": [
+        {
+          "type": "list",
+          "name": "latitude",
+          "expression": "isBlank(value)",
+          "columnName": "latitude",
+          "invert": false,
+          "omitBlank": false,
+          "omitError": false,
+          "selection": [
+            {
+              "v": {
+                "v": false,
+                "l": "false"
+              }
+            }
+          ],
+          "selectBlank": false,
+          "selectError": false
+        }
+      ],
+      "mode": "row-based"
+    },
+    "columnName": "address",
+    "expression": "grel:value.replace(/^(AVENIDA|CALLE|PASEO|PLAZA)\\s+\\1\\s+/i, '$1 ')",
+    "onError": "keep-original",
+    "repeat": false,
+    "repeatCount": 10,
+    "description": "Text transform on cells in column address using expression grel:value.replace(/^(AVENIDA|CALLE|PASEO|PLAZA)\\s+\\1\\s+/i, '$1 ')"
+  }
+]

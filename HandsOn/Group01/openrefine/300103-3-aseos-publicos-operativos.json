@@ -1,0 +1,340 @@
+[
+  {
+    "op": "core/column-removal",
+    "columnName": "FECHA PUESTA EN SERVICIO",
+    "description": "Eliminar columna FECHA PUESTA EN SERVICIO"
+  },
+  {
+    "op": "core/column-removal",
+    "columnName": "COORD UTM ETRS89 Y",
+    "description": "Eliminar columna COORD UTM ETRS89 Y"
+  },
+  {
+    "op": "core/column-removal",
+    "columnName": "COORD UTM ETRS89 X",
+    "description": "Eliminar columna COORD UTM ETRS89 X"
+  },
+  {
+    "op": "core/column-removal",
+    "columnName": "ANT/DES/ESQ.",
+    "description": "Eliminar columna ANT/DES/ESQ."
+  },
+  {
+    "op": "core/column-removal",
+    "columnName": "DISTRITO",
+    "description": "Eliminar columna DISTRITO"
+  },
+  {
+    "op": "core/text-transform",
+    "engineConfig": {
+      "facets": [],
+      "mode": "row-based"
+    },
+    "columnName": "VIAL",
+    "expression": "join ([coalesce(cells['VIAL'].value,''),coalesce(cells['DIRECCION'].value,''),coalesce(cells['NUMERO'].value,'')],' ')",
+    "onError": "keep-original",
+    "repeat": false,
+    "repeatCount": 10,
+    "description": "Transforma el texto de las celdas en la columna VIAL usando la expresión join ([coalesce(cells['VIAL'].value,''),coalesce(cells['DIRECCION'].value,''),coalesce(cells['NUMERO'].value,'')],' ')"
+  },
+  {
+    "op": "core/column-removal",
+    "columnName": "DIRECCION",
+    "description": "Eliminar columna DIRECCION"
+  },
+  {
+    "op": "core/column-removal",
+    "columnName": "NUMERO",
+    "description": "Eliminar columna NUMERO"
+  },
+  {
+    "op": "core/column-rename",
+    "oldColumnName": "VIAL",
+    "newColumnName": "ADDRESS",
+    "description": "Renombra la columna VIAL a ADDRESS"
+  },
+  {
+    "op": "core/column-removal",
+    "columnName": "CODIGO J.M.",
+    "description": "Eliminar columna CODIGO J.M."
+  },
+  {
+    "op": "core/text-transform",
+    "engineConfig": {
+      "facets": [],
+      "mode": "row-based"
+    },
+    "columnName": "NOMBRE",
+    "expression": "grel:\"Aseo de \" + value",
+    "onError": "keep-original",
+    "repeat": false,
+    "repeatCount": 10,
+    "description": "Transforma el texto de las celdas en la columna NOMBRE usando la expresión grel:\"Aseo de \" + value"
+  },
+  {
+    "op": "core/column-rename",
+    "oldColumnName": "CODIGO ASEO",
+    "newColumnName": "id",
+    "description": "Renombra la columna CODIGO ASEO a id"
+  },
+  {
+    "op": "core/column-rename",
+    "oldColumnName": "ADDRESS",
+    "newColumnName": "address",
+    "description": "Renombra la columna ADDRESS a address"
+  },
+  {
+    "op": "core/column-rename",
+    "oldColumnName": "LATITUD",
+    "newColumnName": "latitud",
+    "description": "Renombra la columna LATITUD a latitud"
+  },
+  {
+    "op": "core/column-rename",
+    "oldColumnName": "LONGITUD",
+    "newColumnName": "longitud",
+    "description": "Renombra la columna LONGITUD a longitud"
+  },
+  {
+    "op": "core/column-rename",
+    "oldColumnName": "latitud",
+    "newColumnName": "latitude",
+    "description": "Renombra la columna latitud a latitude"
+  },
+  {
+    "op": "core/column-rename",
+    "oldColumnName": "longitud",
+    "newColumnName": "longitude",
+    "description": "Renombra la columna longitud a longitude"
+  },
+  {
+    "op": "core/column-rename",
+    "oldColumnName": "NOMBRE",
+    "newColumnName": "name",
+    "description": "Renombra la columna NOMBRE a name"
+  },
+  {
+    "op": "core/column-addition",
+    "engineConfig": {
+      "facets": [],
+      "mode": "row-based"
+    },
+    "baseColumnName": "name",
+    "expression": "grel:\"Madrid\"",
+    "onError": "set-to-blank",
+    "newColumnName": "locatedIn",
+    "columnInsertIndex": 5,
+    "description": "Crear la columna locatedIn en el índice 5 basada en la columna name usando la expresión grel:\"Madrid\""
+  },
+  {
+    "op": "core/text-transform",
+    "engineConfig": {
+      "facets": [],
+      "mode": "row-based"
+    },
+    "columnName": "name",
+    "expression": "value.trim()",
+    "onError": "keep-original",
+    "repeat": false,
+    "repeatCount": 10,
+    "description": "Transforma el texto de las celdas en la columna name usando la expresión value.trim()"
+  },
+  {
+    "op": "core/text-transform",
+    "engineConfig": {
+      "facets": [],
+      "mode": "row-based"
+    },
+    "columnName": "name",
+    "expression": "value.trim()",
+    "onError": "keep-original",
+    "repeat": false,
+    "repeatCount": 10,
+    "description": "Transforma el texto de las celdas en la columna name usando la expresión value.trim()"
+  },
+  {
+    "op": "core/text-transform",
+    "engineConfig": {
+      "facets": [],
+      "mode": "row-based"
+    },
+    "columnName": "id",
+    "expression": "value.trim()",
+    "onError": "keep-original",
+    "repeat": false,
+    "repeatCount": 0,
+    "description": "Transforma el texto de las celdas en la columna id usando la expresión value.trim()"
+  },
+  {
+    "op": "core/text-transform",
+    "engineConfig": {
+      "facets": [],
+      "mode": "row-based"
+    },
+    "columnName": "address",
+    "expression": "value.trim()",
+    "onError": "keep-original",
+    "repeat": false,
+    "repeatCount": 0,
+    "description": "Transforma el texto de las celdas en la columna address usando la expresión value.trim()"
+  },
+  {
+    "op": "core/text-transform",
+    "engineConfig": {
+      "facets": [],
+      "mode": "row-based"
+    },
+    "columnName": "latitude",
+    "expression": "value.trim()",
+    "onError": "keep-original",
+    "repeat": false,
+    "repeatCount": 0,
+    "description": "Transforma el texto de las celdas en la columna latitude usando la expresión value.trim()"
+  },
+  {
+    "op": "core/text-transform",
+    "engineConfig": {
+      "facets": [],
+      "mode": "row-based"
+    },
+    "columnName": "longitude",
+    "expression": "value.trim()",
+    "onError": "keep-original",
+    "repeat": false,
+    "repeatCount": 0,
+    "description": "Transforma el texto de las celdas en la columna longitude usando la expresión value.trim()"
+  },
+  {
+    "op": "core/text-transform",
+    "engineConfig": {
+      "facets": [],
+      "mode": "row-based"
+    },
+    "columnName": "name",
+    "expression": "value.trim()",
+    "onError": "keep-original",
+    "repeat": false,
+    "repeatCount": 0,
+    "description": "Transforma el texto de las celdas en la columna name usando la expresión value.trim()"
+  },
+  {
+    "op": "core/text-transform",
+    "engineConfig": {
+      "facets": [],
+      "mode": "row-based"
+    },
+    "columnName": "locatedIn",
+    "expression": "value.trim()",
+    "onError": "keep-original",
+    "repeat": false,
+    "repeatCount": 0,
+    "description": "Transforma el texto de las celdas en la columna locatedIn usando la expresión value.trim()"
+  },
+  {
+    "op": "core/column-move-left",
+    "columnName": "locatedIn",
+    "description": "Move column locatedIn to the left"
+  },
+  {
+    "op": "core/column-move-left",
+    "columnName": "locatedIn",
+    "description": "Move column locatedIn to the left"
+  },
+  {
+    "op": "core/column-move-left",
+    "columnName": "name",
+    "description": "Move column name to the left"
+  },
+  {
+    "op": "core/column-move-left",
+    "columnName": "name",
+    "description": "Move column name to the left"
+  },
+  {
+    "op": "core/column-move-left",
+    "columnName": "name",
+    "description": "Move column name to the left"
+  },
+  {
+    "op": "core/column-move-left",
+    "columnName": "name",
+    "description": "Move column name to the left"
+  },
+  {
+    "op": "core/column-reorder",
+    "columnNames": [
+      "id",
+      "name",
+      "address",
+      "locatedIn",
+      "latitude",
+      "longitude"
+    ],
+    "description": "Reorganizar columnas"
+  },
+  {
+    "op": "core/text-transform",
+    "engineConfig": {
+      "facets": [],
+      "mode": "row-based"
+    },
+    "columnName": "latitude",
+    "expression": "grel:value.toString().replace('.','').replace(/^(40)/,'$1.').toNumber()",
+    "onError": "keep-original",
+    "repeat": false,
+    "repeatCount": 10,
+    "description": "Transforma el texto de las celdas en la columna latitude usando la expresión grel:value.toString().replace('.','').replace(/^(40)/,'$1.').toNumber()"
+  },
+  {
+    "op": "core/text-transform",
+    "engineConfig": {
+      "facets": [],
+      "mode": "row-based"
+    },
+    "columnName": "longitude",
+    "expression": "grel:value.toString().replace('.','').replace(/^(-3)/,'$1.').toNumber()",
+    "onError": "keep-original",
+    "repeat": false,
+    "repeatCount": 10,
+    "description": "Transforma el texto de las celdas en la columna longitude usando la expresión grel:value.toString().replace('.','').replace(/^(-3)/,'$1.').toNumber()"
+  },
+  {
+    "op": "core/text-transform",
+    "engineConfig": {
+      "facets": [],
+      "mode": "row-based"
+    },
+    "columnName": "address",
+    "expression": "value.replace(/[\\p{Zs}\\s]+/,' ')",
+    "onError": "keep-original",
+    "repeat": false,
+    "repeatCount": 10,
+    "description": "Transforma el texto de las celdas en la columna address usando la expresión value.replace(/[\\p{Zs}\\s]+/,' ')"
+  },
+  {
+    "op": "core/text-transform",
+    "engineConfig": {
+      "facets": [],
+      "mode": "row-based"
+    },
+    "columnName": "name",
+    "expression": "grel:value.replace(/,$/,'').replace(/\\s+/,' ').trim()",
+    "onError": "keep-original",
+    "repeat": false,
+    "repeatCount": 10,
+    "description": "Transforma el texto de las celdas en la columna name usando la expresión grel:value.replace(/,$/,'').replace(/\\s+/,' ').trim()"
+  },
+  {
+    "op": "core/text-transform",
+    "engineConfig": {
+      "facets": [],
+      "mode": "row-based"
+    },
+    "columnName": "address",
+    "expression": "grel:value.replace(/\\s+/,' ').trim()",
+    "onError": "keep-original",
+    "repeat": false,
+    "repeatCount": 10,
+    "description": "Transforma el texto de las celdas en la columna address usando la expresión grel:value.replace(/\\s+/,' ').trim()"
+  }
+]
