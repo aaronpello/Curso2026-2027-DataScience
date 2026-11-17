@@ -1,0 +1,632 @@
+OBJECTID,Activate,Address,Ligth,Name,NoAvailable,number,TotalBases,State,POINT_X,POINT_Y
+1,true,Calle Miguel Moya nº 1,0,2 - Metro Callao,false,2,27,IN_SERVICE,-3.70569,40.4204
+2,true,"Plaza Conde Surchill, 4",1,3 - Plaza Conde Suchil,false,3,19,IN_SERVICE,-3.7072537,40.4303223
+3,true,Calle Manuela Malasaña nº 3,0,4 - Malasaña,false,4,27,IN_SERVICE,-3.7025,40.4286259
+4,true,Calle Fuencarral nº 106,0,5 - Fuencarral,false,5,27,IN_SERVICE,-3.7021354,40.4285212
+5,true,"Calle de Hortaleza, 53",0,6 - Colegio de Arquitectos,false,6,19,IN_SERVICE,-3.699023,40.423178
+6,true,Calle Hortaleza nº 75,0,"7 - Hortaleza, 75",false,7,19,IN_SERVICE,-3.6977715,40.4251906
+7,true,Plaza de Alonso Martínez nº 6,1,8 - Metro Alonso Martínez,false,8,24,IN_SERVICE,-3.6954403,40.4278682
+8,true,Plaza de San Miguel nº 10,1,9 - Plaza de San Miguel,false,9,24,IN_SERVICE,-3.7095084,40.4156057
+9,true,"Calle Marqués de la Ensenada (junto a edif, Centro Colón)",2,10 - Marqués de la Ensenada,false,10,23,IN_SERVICE,-3.692104,40.425403
+10,true,Calle San Andrés nº 18 - 20,0,11 - Plaza del Dos de Mayo,false,11,23,IN_SERVICE,-3.7036,40.427
+11,true,Calle San Bernardo nº 85 - 87,2,12 - San Hermenegildo,false,12,27,IN_SERVICE,-3.7061406,40.4284667
+12,true,Calle Conde Duque nº 22,2,13 - Conde Duque,false,13,23,IN_SERVICE,-3.7105,40.4273
+13,true,"Ventura Rodríguez, 3",0,14 - Ventura Rodríguez,false,14,27,IN_SERVICE,-3.7133069,40.4260425
+14,true,Calle norte nº 10,0,15 - Norte,false,15,19,IN_SERVICE,-3.7074453,40.4262383
+15,true,Calle San Bernardo nº 22,0,16 - San Bernardo,false,16,19,IN_SERVICE,-3.707480849,40.4229374
+16,true,"Calle de la Madera, 10",0,17 - Plaza de Carlos Cambronero,false,17,19,IN_SERVICE,-3.705051129,40.42280287
+17,true,Plaza de Pedro Zerolo nº 20,0,18 - Plaza de Pedro Zerolo,false,18,24,IN_SERVICE,-3.6996776,40.4209251
+18,true,Calle Prim nº 4,2,19 - Prim,false,19,28,IN_SERVICE,-3.6954983,40.4218616
+19,true,Calle Alcalá nº 48,2,20 - Banco de España,false,20,27,IN_SERVICE,-3.6952465,40.4188076
+20,true,Plaza de Santo Domingo nº 1,2,23 - Santo Domingo,false,23,24,IN_SERVICE,-3.708249,40.4202595
+21,true,Calle Carlos III nº 1,0,24 - Palacio de Oriente,false,24,18,IN_SERVICE,-3.7106495,40.417767
+22,true,Plaza de Celenque nº 1,0,25A - Plaza de Celenque A,false,25A,24,IN_SERVICE,-3.7057791,40.4173703
+23,true,Plaza de Celenque nº 1,0,25B - Plaza de Celenque B,false,25B,24,IN_SERVICE,-3.7058976,40.4173687
+24,true,Plaza de las Salesas nº 2,0,26 - Plaza de las Salesas,false,26,27,IN_SERVICE,-3.6945,40.4239
+25,true,Calle Jesús nº 6,0,27 - Huertas,false,27,27,IN_SERVICE,-3.6957,40.4133
+26,true,Calle del Marqués de Cubas nº 25,0,29 - Marqués de Cubas,false,29,23,IN_SERVICE,-3.6957434,40.4163838
+27,true,Calle Pavía nº 4,0,30 - San Quintín,false,30,27,IN_SERVICE,-3.711504,40.4192095
+28,true,Calle Mayor nº 16,2,31 - Mayor,false,31,27,IN_SERVICE,-3.7068969,40.4163638
+29,true,"Calle Imperial, 3",2,32 - Plaza de la Provincia,false,32,23,IN_SERVICE,-3.706636289,40.41466784
+30,true,Calle Carretas nº 3,0,33 - Puerta del Sol,false,33,23,IN_SERVICE,-3.7032264,40.4165363
+31,true,Plaza de Jacinto Benavente,0,34 - Jacinto Benavente,false,34,24,IN_SERVICE,-3.7036883,40.4145422
+32,true,"Calle del Dr. Letamendi, 3",0,"35 - Doctor Letamendi, 3",false,35,23,IN_SERVICE,-3.710062961,40.41369072
+33,true,calle de Noblejas nº1,1,36 - Plaza Ramales,false,36,19,IN_SERVICE,-3.712151,40.416876
+34,true,"Calle de Calatrava, 38",1,"37 - Calatrava, 38",false,37,23,IN_SERVICE,-3.713482,40.41022
+35,true,Carrera de San Francisco enfrente del nº 2,2,38 - Plaza de los Carros,false,38,27,IN_SERVICE,-3.7115898,40.4113586
+36,true,Plaza de la Cebada nº 3,0,39 - Plaza de la Cebada,false,39,31,IN_SERVICE,-3.7088337,40.4112744
+37,true,"Calle Conde de Romanones, 10",0,40 - Conde de Romanones,false,40,23,IN_SERVICE,-3.704953888,40.4131489
+38,true,Calle Atocha nº 56,2,41 - Metro Antón Martín,false,41,19,IN_SERVICE,-3.6991147,40.4122047
+39,true,Calle Santa Isabel 32,2,42 - Santa Isabel,false,42,27,IN_SERVICE,-3.6982922,40.4108488
+40,true,"Calle Jesús y María, 38",2,43 - Jesús y María,false,43,18,IN_SERVICE,-3.702471,40.4100387
+41,true,"Plaza Nelson Mandela, 44",0,44 - Plaza de Nelson Mandela,false,44,19,IN_SERVICE,-3.703864053,40.40979071
+42,true,Puerta de Toledo 1,0,45 - Metro Puerta de Toledo,false,45,19,IN_SERVICE,-3.7111034,40.4068659
+43,true,Calle Ribera de Curtidores nº 28,1,46 - Ribera de Curtidores,false,46,27,IN_SERVICE,-3.7071259,40.4053153
+44,true,"Glorieta de Embajadores, 7",0,47 - Renfe/Cercanías Embajadores,false,47,24,IN_SERVICE,-3.7027998,40.4045772
+45,true,Calle Juan Sebastián Elcano 2,0,48 - Juan Sebastián Elcano,false,48,23,IN_SERVICE,-3.701321,40.4040433
+46,true,Ronda de Atocha nº 34,1,49 - Casa Encendida,false,49,27,IN_SERVICE,-3.6992774,40.4060533
+47,true,"Calle Argumosa, 30",0,50 - Museo Reina Sofía,false,50,23,IN_SERVICE,-3.6960398,40.4073541
+48,true,Ronda de Atocha (esquina con Plaza del Emperador Carlos V),2,51 - Ronda de Atocha,false,51,27,IN_SERVICE,-3.693485631,40.40775565
+49,true,Plaza de Santa Ana nº 10,2,52 - Plaza de Santa Ana,false,52,15,IN_SERVICE,-3.7008558,40.4144689
+50,true,Plazuela de Ana Diosdado,2,53 - Plaza de Lavapiés,false,53,24,IN_SERVICE,-3.700754126,40.40830871
+51,true,Calle Barceló nº 9,0,54 - Metro Tribunal,false,54,19,IN_SERVICE,-3.700392998,40.4265991
+52,true,Plaza de San Ildefonso nº4,0,55 - Plaza de San Ildefonso,false,55,24,IN_SERVICE,-3.7020842,40.4239757
+53,true,"Calle Abada, 2",0,56 - Plaza del Carmen,false,56,24,IN_SERVICE,-3.7039033,40.4190322
+54,true,Calle Santa Cruz del Marcenado nº 26,0,57 - Santa Cruz de Marcenado,false,57,23,IN_SERVICE,-3.7126299,40.4295658
+55,true,Calle Augusto Figueroa nº 33,0,58 - Metro Chueca,false,58,27,IN_SERVICE,-3.6978583,40.4222783
+56,true,Calle Espíritu Santo nº 30,3,59 - Plaza de Juan Pujol,true,59,19,NOT_IN_SERVICE,-3.7043418,40.4255495
+57,true,"Calle Valenzuela, 3",0,60 - Puerta de Alcalá,false,60,24,IN_SERVICE,-3.689098057,40.41885249
+58,true,Calle O Donnell nº 30,0,61 - O Donnell - Narváez,false,61,27,IN_SERVICE,-3.6753139,40.4214551
+59,true,Calle O Donnell nº 48,0,62 - Hospital M. Infantil Gregorio Marañón,false,62,27,IN_SERVICE,-3.6724968,40.4213148
+60,true,Calle Ibiza nº 64,0,63 - Hospital Gral. Uni. Gregorio Marañón,false,63,23,IN_SERVICE,-3.6708959,40.4179237
+61,true,Calle Antonio Maura nº 13,0,65 - Parque del Retiro - Calle Antonio Maura,false,65,24,IN_SERVICE,-3.689424798,40.41670145
+62,true,"Calle de Almadén, 38",0,67 - CaixaForum Madrid,false,67,23,IN_SERVICE,-3.693225,40.4108472
+63,true,Calle Espalter nº 3,2,68 - Espalter - Ruiz de Alarcón,false,68,19,IN_SERVICE,-3.6913232,40.4127692
+64,true,Avenida de Alfonso XII nº 54,0,69 - Parque del Retiro - Puerta Ángel Caído,false,69,27,IN_SERVICE,-3.688822,40.409808
+65,true,Avenida de Menéndez Pelayo nº 63,0,70 - Hospital Uni. Infantil Niño Jesús,false,70,27,IN_SERVICE,-3.677872542,40.41538239
+66,true,Calle Doce de Octubre nº 28,0,71 - Plaza del Doctor Laguna,false,71,23,IN_SERVICE,-3.6739,40.4161
+67,true,Calle Doctor Esquerdo nº 99,0,72 - Metro Sáinz de Baranda,false,72,23,IN_SERVICE,-3.66921108,40.41591276
+68,true,"Calle de los Astros, nº5",2,73 - Plaza de los Astros,false,73,23,IN_SERVICE,-3.6687,40.4115
+69,true,Avenida de Menéndez Pelayo nº 69,0,74 - Parque Retiro - Jardines Cecilio Rguez,false,74,27,IN_SERVICE,-3.676588764,40.41206291
+70,true,Avenida Menéndez pelayo (esquina con calle Poeta Esteban Villegas),1,75 - Parque del Retiro - Plaza Mariano Cavia,false,75,27,IN_SERVICE,-3.6784749,40.4082717
+71,true,Avenida del Mediterráneo nº 19,1,"76 - Avenida del Mediterráneo, 19",false,76,24,IN_SERVICE,-3.675102,40.407271
+72,true,Plaza del Conde de Casal nº 8,2,77 - Plaza del Conde de Casal,false,77,18,IN_SERVICE,-3.6707132,40.4064784
+73,true,Calle Cerro de la Plata nº 4,0,78 - Metro Pacífico,false,78,27,IN_SERVICE,-3.67452406,40.40063747
+74,true,Avenida de Menéndez Pelayo nº 38,1,79 - Metro Menéndez Pelayo,false,79,27,IN_SERVICE,-3.680439824,40.40511019
+75,true,"Calle Claudio Moyano, nº5",0,81 - Cuesta de Moyano,false,81,24,IN_SERVICE,-3.69183322,40.40934261
+76,true,"Calle Lira, nº1",2,82 - Doctor Esquerdo - Metro Conde de Casal,false,82,23,IN_SERVICE,-3.6697526,40.4084556
+77,true,Calle Pío Baroja nº8,0,83 - Pío Baroja,false,83,23,IN_SERVICE,-3.6744795,40.4132995
+78,true,Calle Doctor Esquerdo nº 191,2,84 - Biblioteca Pública Elena Fortún,false,84,23,IN_SERVICE,-3.672481575,40.40357157
+79,true,"Avenida de Menéndez Pelayo, 9",0,85 - Parque del Retiro - Puerta de O´Donnell,false,85,27,IN_SERVICE,-3.679891,40.4213143
+80,true,"Paseo del Prado, 1B",0,86 - Cibeles,false,86,24,IN_SERVICE,-3.6933498,40.4186516
+81,true,Calle Ayala nº 46,0,87 - Ayala - Velázquez,false,87,23,IN_SERVICE,-3.6832566,40.427736
+82,true,"Calle Velázquez, 73",2,88 - Velázquez-Padilla,false,88,23,IN_SERVICE,-3.6838303,40.4313576
+83,true,Calle Ayala nº 104,0,89 - Ayala - Conde de Peñalver,false,89,23,IN_SERVICE,-3.6752024,40.4272582
+84,true,"Calle Goya, 20",0,90 - Metro Velázquez,false,90,27,IN_SERVICE,-3.6838416,40.4251493
+85,true,Calle Hermosilla nº 71,0,91 - Hermosilla - General Pardiñas,false,91,23,IN_SERVICE,-3.6786285,40.426049
+86,true,"Calle Claudio Coello, 43",0,92 - Claudio Coello - Hermosilla,false,92,23,IN_SERVICE,-3.6865463,40.4262945
+87,true,Calle Goya (esquina calle Marqués de Zurgeña),0,93 - Plaza de Margaret Thatcher,false,93,23,IN_SERVICE,-3.689336169,40.42575853
+88,true,Paseo de Recoletos nº 20,0,94 - Estación de tren de Recoletos,false,94,23,IN_SERVICE,-3.690756,40.4232153
+89,true,Calle Claudio Coello nº 19,0,95 - Claudio Coello - Villanueva,false,95,23,IN_SERVICE,-3.6869293,40.4225428
+90,true,Calle Alcalá nº 111,0,96 - Alcalá - Castelló,false,96,27,IN_SERVICE,-3.682204799,40.42201516
+91,true,Avenida Menéndez Pelayo (esquina calle Alcalá),2,97 - Metro Príncipe de Vergara,false,97,27,IN_SERVICE,-3.6802556,40.4225364
+92,true,"Calle Narváez, 3",0,98 - Plaza de Felipe II,false,98,24,IN_SERVICE,-3.6757676,40.4241325
+93,true,"Calle Alcántara, 4",0,99 - Alcántara - Hermosilla,false,99,23,IN_SERVICE,-3.6740178,40.4260391
+94,true,Calle Goya nº 99,2,100 - Wizink Center,false,100,27,IN_SERVICE,-3.67384,40.42478
+95,true,"Calle Jorge Juán, 129",0,101 - Metro O Donnell,false,101,24,IN_SERVICE,-3.6696804,40.4230771
+96,true,Calle Alcalá nº 95,0,102 - Metro Retiro,false,102,23,IN_SERVICE,-3.6842317,40.4211845
+97,true,"Calle José Ortega y Gasset, 6",0,103 - Ortega y Gasset - Serrano,false,103,23,IN_SERVICE,-3.686744,40.43053
+98,true,Paseo de la Castellana nº 4,0,104 - Castellana - Hermosilla,false,104,23,IN_SERVICE,-3.68958,40.42677
+99,true,Calle Serrano nº 46,0,"105 - Serrano, 46",false,105,23,IN_SERVICE,-3.6875418,40.4270832
+100,true,Calle Serrano nº 32,2,106B - Plaza de Colón B,false,106B,19,IN_SERVICE,-3.68789,40.424776
+101,true,Calle Serrano nº 8,0,107 - Serrano - Conde de Aranda,false,107,23,IN_SERVICE,-3.68838411,40.42156087
+102,true,Calle Mártires Concepcionistas nº 2,2,108 - Mártires Concepcionistas - Alcalá,false,108,27,IN_SERVICE,-3.670652,40.427402
+103,true,Calle José Ortega y Gasset nº 30,2,109 - Marqués de Salamanca,false,109,23,IN_SERVICE,-3.6814521,40.4301245
+104,true,Paseo de Moret nº 1,0,110 - Intercambiador de Moncloa,false,110,23,IN_SERVICE,-3.7201021,40.434745
+105,true,Calle Arcipreste de Hita nº 8,2,111A - Metro Moncloa A,false,111A,23,IN_SERVICE,-3.7175248,40.4336027
+106,true,Calle Arcipreste de Hita nº 12,2,111B - Metro Moncloa B,false,111B,23,IN_SERVICE,-3.7177434,40.433913
+107,true,"Paseo Moret, 9",0,112 - Paseo de Moret - Parque del Oeste,false,112,23,IN_SERVICE,-3.724736,40.4326901
+108,true,Paseo del Pintor Rosales frente al nº 38,2,113 - Teleférico Madrid - Estación Rosales,false,113,24,IN_SERVICE,-3.7207263,40.427538
+109,true,Calle Quintana nº 13,1,114 - Quintana - Juan Álvarez de Mendizábal,false,114,23,IN_SERVICE,-3.7174631,40.4278379
+110,true,Paseo de Pintor Rosales (esquina Marqués de Cerralbo),0,115 - Ferraz - Templo de Debod,false,115,23,IN_SERVICE,-3.717051506,40.42531477
+111,true,Plaza de España nº16,2,116A - Plaza de España - Martín de los Heros,false,116A,18,IN_SERVICE,-3.7130447,40.4236775
+112,true,"Calle de los Reyes, nº10",0,116B - Metro Plaza de España,false,116B,18,IN_SERVICE,-3.71046,40.423684
+113,true,Calle Altamirano nº 24,1,117 - Altamirano - Martín de los Heros,false,117,23,IN_SERVICE,-3.7188898,40.4309797
+114,true,Calle Juan Martínez el empeciado (esquina calle Bustamante),1,"118 - OFICINA DEL SER, APR Y BICIREGISTRO",false,118,23,IN_SERVICE,-3.6882407,40.400781
+115,true,Calle Méndez Álvaro nº 11,2,119 - Méndez Álvaro,false,119,23,IN_SERVICE,-3.6862653,40.4012905
+116,true,Calle Palos de la Frontera nº 27,0,120 - Metro Palos de la Frontera,false,120,27,IN_SERVICE,-3.694825102,40.40309045
+117,true,Paseo de Santa María de la Cabeza nº 58,1,121 - Glorieta de Santa María de la Cabeza,false,121,27,IN_SERVICE,-3.6986027,40.4017487
+118,true,Calle Santa Engracia nº 14,0,122 - Santa Engracia - Zurbarán,false,122,23,IN_SERVICE,-3.6963659,40.4295362
+119,true,Calle Guzmán el Bueno nº 2,2,123 - Metro Argüelles,false,123,27,IN_SERVICE,-3.7133412,40.4306458
+120,true,Calle Manuel Silvela nº 20,0,124 - Metro Bilbao,false,124,27,IN_SERVICE,-3.6993695,40.430969
+121,true,Calle Fernández de la Hoz nº 29,0,125 - Fdez. de la Hoz - Gral. Martínez Campos,false,125,27,IN_SERVICE,-3.6948,40.4353
+122,true,"Calle del General Álvarez de Castro, 6",0,126 - General Álvarez de Castro,false,126,27,IN_SERVICE,-3.7018044,40.4345976
+123,true,Calle Fernando el Católico nº 19,2,127 - Mercado Municipal de Vallehermoso,false,127,27,IN_SERVICE,-3.708439,40.4338516
+124,true,Calle Cea Bermúdez nº 59,0,128 - Metro Islas Filipinas,false,128,27,IN_SERVICE,-3.715550146,40.43898707
+125,true,"Calle de José Abascal, 33-35",2,129 - Metro Alonso Cano,false,129,27,IN_SERVICE,-3.6982353,40.4383865
+126,true,"Calle de Santa Engracia, 129",0,130 - Metro Ríos Rosas,false,130,23,IN_SERVICE,-3.70164,40.44156
+127,true,Calle Bravo Murillo nº 44,2,131 - Plaza de Juan Zorrilla,false,131,23,IN_SERVICE,-3.70403123,40.4417884
+128,true,"Calle Santa Engracia, 164",0,132 - Glorieta de Cuatro Caminos,false,132,27,IN_SERVICE,-3.70360525,40.4463775
+129,true,"Calle Dulcinea, 3",0,133 - Raimundo Fdez. Villaverde - Dulcinea,false,133,24,IN_SERVICE,-3.7001669,40.447125
+130,true,Calle María de Guzmán nº 58,0,134 - María de Guzmán - Agustín de Betancourt,false,134,23,IN_SERVICE,-3.6955687,40.4441818
+131,true,"Plaza de San Juan de la Cruz, 10",0,135 - Plaza de San Juan de la Cruz,false,135,23,IN_SERVICE,-3.692734,40.441481
+132,true,Paseo de la Castellana nº 106,2,136 - Metro Nuevos Ministerios,false,136,23,IN_SERVICE,-3.690769,40.4451244
+133,true,"Plaza de la republica argentina, 7",1,137 - Plaza de la República Argentina,false,137,24,IN_SERVICE,-3.6853377,40.4454477
+134,true,"Paseo de la Castellana, 63",2,138 - Estación de tren Nuevos Ministerios,false,138,23,IN_SERVICE,-3.6914063,40.4457414
+135,true,"Calle Pedro de Valdivia, 2",2,139 - José Gutiérrez Abascal - Castellana,false,139,24,IN_SERVICE,-3.690419307,40.43939562
+136,true,"Calle Velázquez, 134",0,140 - Velázquez - López de Hoyos,false,140,27,IN_SERVICE,-3.6830583,40.4387566
+137,true,Paseo de la Castellana nº 43,0,141 - Plaza de Emilio Castelar,false,141,12,IN_SERVICE,-3.6893917,40.4354047
+138,true,Paseo de la Castellana nº 42,2,142 - Bajo elevado de Eduardo Dato,false,142,23,IN_SERVICE,-3.6879154,40.4334087
+139,true,"Calle General Pardiñas, 58",0,186 - General Pardiñas - Don Ramón de la Cruz,false,186,23,IN_SERVICE,-3.6783016,40.4289804
+140,true,"Calle de Juan Bravo, 51",0,144 - Metro Diego de León,false,144,27,IN_SERVICE,-3.675556,40.4324081
+141,true,Calle Ortega y Gasset nº 87,0,145 - Ortega y Gasset 87,false,145,23,IN_SERVICE,-3.6712823,40.429887
+142,true,"Calle de María Francisca, 3",0,"146 - María Francisca, 3",false,146,19,IN_SERVICE,-3.6788499,40.4442541
+143,true,Avenida del Doctor Arce nº 45,0,147 - Doctor Arce 45,false,147,23,IN_SERVICE,-3.6794,40.4484
+144,true,Calle Serrano nº 210,0,148 - Serrano 210,false,148,23,IN_SERVICE,-3.6813971,40.451117
+145,true,Paseo de la Habana nº 42,1,149 - Plaza de Quito,false,149,22,IN_SERVICE,-3.6879303,40.4498515
+146,true,Calle Orense nº 12,2,151 - Orense 12,false,151,27,IN_SERVICE,-3.695359265,40.44881225
+147,true,"Avenida del General Perón, 4",0,"152 - General Perón, 4",false,152,23,IN_SERVICE,-3.6989,40.4525
+148,true,"Avenida del General Perón, 36",0,153 - General Perón - Poeta Joan Maragall,false,153,23,IN_SERVICE,-3.6936,40.4523
+149,true,Calle Orense nº 36,2,154 - Orense 36,false,154,24,IN_SERVICE,-3.6946218,40.4548456
+150,true,Calle San Germán nº 57,2,155 - San Germán 57,false,155,23,IN_SERVICE,-3.70093019,40.45733423
+151,true,Calle Sor Ángela de la Cruz nº 2,2,156 - Sor Ángela de la Cruz-Paseo Castellana,false,156,24,IN_SERVICE,-3.691533,40.4592351
+152,true,Avenida de Alberto Alcocer nº 22,0,158 - Alberto Alcocer - Padre Damián,false,158,23,IN_SERVICE,-3.684715,40.4585318
+153,true,Paseo de la Habana nº 63,0,159 - Paseo de la Habana 63,false,159,23,IN_SERVICE,-3.6835926,40.4543852
+154,true,"Calle Colombia, 11",0,160 - Metro Colombia,false,160,24,IN_SERVICE,-3.6763439,40.4572466
+155,true,Paseo de la Florida nº 8,0,161 - Intercambiador de Príncipe Pío A,false,161,27,IN_SERVICE,-3.722099321,40.42219247
+156,true,"Paseo de los Olmos, 26",1,162 - Metro Pirámides,false,162,23,IN_SERVICE,-3.7105765,40.4034968
+157,true,"Paseo de la Esperanza, 2A",1,163 - Metro Acacias,false,163,19,IN_SERVICE,-3.706445,40.4037586
+158,true,Paseo de las Delicias nº 94,1,164 - Paseo de las Delicias - Tomás Bretón,false,164,27,IN_SERVICE,-3.69461,40.39723
+159,true,Paseo de la Chopera frente 51,1,165 - Entrada Matadero - Paseo de la Chopera,false,165,43,IN_SERVICE,-3.697596,40.392888
+160,true,Calle Segovia nº 26,2,166 - Viaducto de Segovia,false,166,26,IN_SERVICE,-3.713377023,40.41390473
+161,true,Calle Segovia nº 45,1,167 - Segovia 45,false,167,27,IN_SERVICE,-3.71748917,40.41374771
+162,true,Paseo Santa María de la Cabeza frente al 30,2,168 - Santa María Cabeza - Batalla del Salado,false,168,23,IN_SERVICE,-3.6959,40.4046
+163,true,Calle Toledo nº 181,1,169 - Glorieta de Pirámides,false,169,24,IN_SERVICE,-3.713823,40.401589
+164,true,Paseo de la Esperanza nº 21,1,"170 - Paseo de la Esperanza, 21",false,170,24,IN_SERVICE,-3.7043956,40.4010554
+165,true,Calle Embajadores nº 97,1,171 - Embajadores-Cáceres,false,171,27,IN_SERVICE,-3.6984023,40.3997013
+166,true,Calle Bustamante nº 3,0,172 - Estación de tren de Delicias,false,172,23,IN_SERVICE,-3.6934926,40.4008279
+167,true,Paseo de la Esperanza nº 59,1,173 - Paseo Esperanza - Santa María Cabeza,false,173,24,IN_SERVICE,-3.7024839,40.3983467
+168,true,Paseo de Yeserías nº 45,0,"174 - Paseo de las Yeserías, 45",false,174,27,IN_SERVICE,-3.706525885,40.39742958
+169,true,Calle Jaime el Conquistador nº 30,1,175 - Jaime el Conquistador - Divino Vallés,false,175,19,IN_SERVICE,-3.69834452,40.3962264
+170,true,Calle Bolívar nº 3,2,177 - Metro Legazpi,false,177,23,IN_SERVICE,-3.694187637,40.39144709
+171,true,Calle León Gil de Palacio nº 1,1,178 - Junta Municipal Distrito de Retiro,false,178,24,IN_SERVICE,-3.6788343,40.4029202
+172,true,Calle Retama (esquina con calle Acanto),0,180 - Estación Sur Méndez Álvaro B,false,180,23,IN_SERVICE,-3.67589,40.3940423
+173,true,Calle Ibiza nº 16,0,181 - Ibiza - Narváez,false,181,27,IN_SERVICE,-3.67644354,40.41816933
+174,true,Alcalde Sainz de Baranda (esquina con calle de Juan Espladiu),0,182 - Parque Roma,false,182,23,IN_SERVICE,-3.6657777,40.4186666
+175,true,"Calle Hermosilla, 135",2,183 - Hermosilla - Doctor Esquerdo,false,183,23,IN_SERVICE,-3.669339,40.425635
+176,true,"Paseo del Marqués Zafra, 24",2,"184 - Marqués de Zafra, 24",false,184,24,IN_SERVICE,-3.6653055,40.426
+177,true,"Calle Sancho Dávila, 35",1,185 - Parque Quinta de la Fuente del Berro,false,185,24,IN_SERVICE,-3.6615277,40.4250833
+178,true,"Calle de Diego de León, 54",0,143 - Diego de León - General Pardiñas,false,143,23,IN_SERVICE,-3.6780802,40.434676
+179,true,"Calle de Alejandro González,1",0,187 - Alejandro González - Alcalá,false,187,23,IN_SERVICE,-3.6638249,40.4301326
+180,true,"Avenida de Daroca, 2",2,188 - Puente de Ventas,false,188,27,IN_SERVICE,-3.6590286,40.4312562
+181,true,"Calle Virgen de la Alegría, 18",1,189 - Virgen de la Alegría,false,189,23,IN_SERVICE,-3.6554918,40.4351256
+182,true,"Calle Velázquez, 91",0,190 - Velázquez - Diego de León,false,190,23,IN_SERVICE,-3.6833753,40.4343053
+183,true,"Calle de Alfonso Heredia, 2",0,191 - Metro Diego de León,false,191,19,IN_SERVICE,-3.674077784,40.43456939
+184,true,"Avenida de los Toreros, 3",0,192 - Avda. de los Toreros - Fco. Silvela,false,192,27,IN_SERVICE,-3.671467718,40.43182646
+185,true,"Avenida De los Toreros, 49",0,193 - Plaza de las Ventas,false,193,27,IN_SERVICE,-3.6655555,40.4324722
+186,true,"Calle Francisco Silvela, 87",0,194 - Intercambiador de Avenida de América,false,194,24,IN_SERVICE,-3.6771535,40.4372638
+187,true,"Calle Mataelpino, 1",0,195 - Indalecio Hernández - Mataelpino,false,195,24,IN_SERVICE,-3.6754444,40.4392222
+188,true,"Calle Suero de Quiñones, 4",1,196 - Metro Prosperidad,false,196,27,IN_SERVICE,-3.6752218,40.4442237
+189,true,"Avenida de Concha Espina, 36",0,197 - Parque de Berlín,false,197,23,IN_SERVICE,-3.677916,40.4516059
+190,true,"Paseo de las Castellana, 33",2,198 - Metro Rubén Darío,false,198,23,IN_SERVICE,-3.6891,40.432
+191,true,"Calle Fernando el Católico, 61",2,"199 - Fernando el Católico, 61",false,199,27,IN_SERVICE,-3.7149166,40.4343611
+192,true,"Glorieta de Quevedo, 4",2,200 - Metro Quevedo,false,200,24,IN_SERVICE,-3.704578981,40.43375361
+193,true,"Calle José Abascal, 2",0,201 - Metro Canal,false,201,23,IN_SERVICE,-3.7038333,40.4386944
+194,true,"Calle de Santander, 1",0,202 - Parque de Santander,false,202,27,IN_SERVICE,-3.7083,40.4413
+195,true,Calle General Ampudia 2,2,203 - General Ampudia - San Francisco Sales,false,203,24,IN_SERVICE,-3.7144722,40.44175
+196,true,"Calle Doctor Santero, 1",0,204 - Doctor Santero - Bravo Murillo,false,204,23,IN_SERVICE,-3.7040397,40.4476488
+197,true,"Calle Navarra, 1",2,205 - Metro Estrecho,false,205,23,IN_SERVICE,-3.7032777,40.4535
+198,true,"Calle Marqués de Viana, 3",2,206 - Metro Tetuán,false,206,23,IN_SERVICE,-3.69895,40.46088
+199,true,"Calle Azucenas, 2",0,207 - Plaza de la Remonta,false,207,19,IN_SERVICE,-3.6973352,40.4630443
+200,true,"Paseo de la Castellana, 216",2,208 - Intercambiador de Plaza de Castilla,false,208,18,IN_SERVICE,-3.6890611,40.4662811
+201,true,"Plaza de Castilla, 9",1,209 - Plaza de Castilla - Fundación Canal,false,209,23,IN_SERVICE,-3.6887,40.4657
+202,true,Calle de las Tres Cruces,2,210 - Calle de las Tres Cruces - Gran Vía,false,210,27,IN_SERVICE,-3.7027164,40.4196518
+203,true,"Calle de el Desengaño, 4",0,211 - Desengaño - Valverde,false,211,23,IN_SERVICE,-3.70239,40.42059
+204,true,"Glorieta Marqués de Vadillo, 9",2,212 - Metro Marqués de Vadillo,false,212,27,IN_SERVICE,-3.716591,40.398247
+205,true,"Calle de Antonio López, 129",0,213 - Glorieta de Cádiz,false,213,23,IN_SERVICE,-3.7002247,40.3889918
+206,true,"Calle Condesa de Venadito, 2",0,214 - Condesa de Venadito - Albacete,false,214,24,IN_SERVICE,-3.6569031,40.4434316
+207,true,"Calle Gutierre de Cetina, 77",1,215 - Gutierre de Cetina - Ascao,false,215,23,IN_SERVICE,-3.6408093,40.429588
+208,true,"Plaza Puerta del Ángel, 3",1,216 - Plaza de Puerta del Ángel,false,216,27,IN_SERVICE,-3.72897,40.4141
+209,true,"Calle Pedro Rico, 4",0,217 - Hospital Universitario La Paz,false,217,23,IN_SERVICE,-3.6890758,40.480884
+210,true,"Camino de Vinateros, 28",2,218 - Camino de los Vinateros A,false,218,23,IN_SERVICE,-3.6572967,40.4105478
+211,true,"Camino de los Vinateros, 108",1,219 - Camino de los Vinateros B,false,219,18,IN_SERVICE,-3.6467338,40.4083593
+212,true,"Calle Arroyo de las Pilillas, 2",1,220 - Plaza del Encuentro,false,220,24,IN_SERVICE,-3.651384,40.406156
+213,true,"Calle Hacienda de Pavones, 148",0,221 - Metro Pavones,false,221,23,IN_SERVICE,-3.634744479,40.40049203
+214,true,"Calle Eugenio Caxes, 14",2,222 - Eugenio Caxes - Antonio López,false,222,23,IN_SERVICE,-3.7026789,40.3917871
+215,true,"Paseo de la Ermita del Santo, 48",2,223 - Ermita del Santo,false,223,27,IN_SERVICE,-3.724576,40.406448
+216,true,"Calle Caramuel, 51",2,224 - Parque de Caramuel,false,224,27,IN_SERVICE,-3.7287,40.409
+217,true,"Calle Sierra Toledana, 33",1,225 - Sierra Toledana - Doctor Lozano,false,225,24,IN_SERVICE,-3.660345,40.402506
+218,true,"Camino Valderribas, 94",1,226 - Sierra Toledana - Camino de Valderribas,false,226,23,IN_SERVICE,-3.660776868,40.39901532
+219,true,"Calle Arroyo del Olivar, 3",1,227 - Arroyo del Olivar,false,227,24,IN_SERVICE,-3.665936243,40.39382978
+220,true,"Calle San Delfín, 10",2,228 - San Delfín - Antonio López,false,228,18,IN_SERVICE,-3.708042973,40.39440608
+221,true,"Calle José del Hierro, 6",0,229 - Centro Deportivo Municipal Concepción,false,229,23,IN_SERVICE,-3.6486508,40.4369378
+222,true,"Calle Carlota O Neill, 30-32",2,230 - Carlota O´Neill - Agastia,false,230,24,IN_SERVICE,-3.6488254,40.4436792
+223,true,"Calle Derechos Humanos, 14",2,231 - Derechos Humanos - Verdaguer y García,false,231,24,IN_SERVICE,-3.6557193,40.4398283
+224,true,"Calle De José Maria Pereda, 1",0,232 - José María de Pereda - Alcalá,false,232,27,IN_SERVICE,-3.6486169,40.4327663
+225,true,"Calle Marqués de Corbera, 12",2,233 - El dragón de La Elipa,false,233,24,IN_SERVICE,-3.6555789,40.4229522
+226,true,"Avenida Marques de Corbera, 52",2,234 - Metro La Elipa,false,234,24,IN_SERVICE,-3.6510917,40.4261278
+227,true,"Calle del Sodio, 1B",0,235 - Sodio - Embajadores,false,235,23,IN_SERVICE,-3.691076,40.389041
+228,true,"Paseo Imperial, 31",1,236 - Paseo Imperial,false,236,27,IN_SERVICE,-3.7170785,40.4075794
+229,true,"CalleSan Germán, 5",0,"238 - San Germán, 5",false,238,24,IN_SERVICE,-3.6932611,40.4561825
+230,true,"Calle de Francos Rodríguez, 62",1,239 - Francos Rodríguez - José Calvo,false,239,23,IN_SERVICE,-3.7078331,40.4567132
+231,true,"Avenida De Brasilia, 9",0,240 - Brasilia - Parque Breogán,false,240,23,IN_SERVICE,-3.66096,40.43666
+232,true,"Calle Camilo José Cela, 27",2,241 - Camilo José Cela,false,241,23,IN_SERVICE,-3.66779,40.4378
+233,true,"Avenida De Bruselas, 56",0,242 - Metro Parque de las Avenidas,false,242,23,IN_SERVICE,-3.662928,40.439513
+234,true,"Calle Cartagena, 37",2,243 - Cartagena,false,243,23,IN_SERVICE,-3.67012,40.43503
+235,true,"Calle Isaac Peral, 42",0,244 - Hospital Clínico San Carlos,false,244,23,IN_SERVICE,-3.71757,40.44003
+236,true,"Calle Galileo, 63",1,245 - Galileo - Donoso Cortés,false,245,24,IN_SERVICE,-3.7101381,40.4363637
+237,true,"Calle de Santa Engracia, 85-87",0,246 - Metro Iglesia,false,246,27,IN_SERVICE,-3.699248472,40.43595788
+238,true,"Calle de Zurbano, 90",0,247 - Zurbano - José Abascal,false,247,23,IN_SERVICE,-3.69281,40.43837
+239,true,"Calle de Sinesio Delgado, 2",0,248 - Sinesio Delgado - Cuatro Torres,false,248,27,IN_SERVICE,-3.6879973,40.4743209
+240,true,"Calle Manuel Caldeiro, 1",2,249 - Castellana - Cuatro Torres,false,249,24,IN_SERVICE,-3.685419183,40.47645879
+241,true,"Calle Serrano, 111",0,250 - Serrano - CSIC,false,250,27,IN_SERVICE,-3.6858096,40.4406491
+242,true,"Calle Santa Hortensia, 31",1,251 - Santa Hortensia - Corazón de María,false,251,23,IN_SERVICE,-3.66683,40.44421
+243,true,"Calle Agustín de Foxá, 40",2,252 - Est. tren Chamartín - Clara Campoamor,false,252,23,IN_SERVICE,-3.6839695,40.4717403
+244,true,"Calle del Doctor Fleming, 7",0,253 - Doctor Fleming - Estadio S. Bernabéu,false,253,19,IN_SERVICE,-3.68844,40.45546
+245,true,"Avenida De Pio XII, 3",2,254 - Plaza del Perú,false,254,23,IN_SERVICE,-3.67656,40.461
+246,true,"Calle General López pozas, 2",0,255 - General López Pozas - Apolonio Morales,false,255,23,IN_SERVICE,-3.685292,40.46361
+247,true,"Calle Beatriz de Bobadilla, 4",2,256 - Reina Victoria - Beatriz de Bobadilla,false,256,23,IN_SERVICE,-3.71383,40.44635
+248,true,"Avenida Juan Herrera, 1",2,257 - Ciudad Universitaria - INEF,false,257,23,IN_SERVICE,-3.730527,40.438873
+249,true,"Ciudad Universitaria, 1",0,258 - Metro Ciudad Universitaria A,false,258,24,IN_SERVICE,-3.726939,40.444311
+250,true,"Ciudad Universitaria, 2",0,259 - Metro Ciudad Universitaria B,false,259,19,IN_SERVICE,-3.726752004,40.44270528
+251,true,Facultad de Biología,0,260 - Ciudad Universitaria - Fac. de Biología,false,260,24,IN_SERVICE,-3.7272945,40.4483322
+252,true,"Avenida Complutense, 21",0,261 - Ciudad Universitaria - Facultad Derecho,false,261,23,IN_SERVICE,-3.7296756,40.4505516
+253,true,"Calle Amparo Usera, 46",1,384 - Metro Usera,false,384,23,IN_SERVICE,-3.7061449,40.38707469
+254,true,"Calle Doctor Tolosa Latour, 7",0,388 - Estación tren - Hospital 12 de Octubre,false,388,23,IN_SERVICE,-3.70041478,40.37837955
+255,true,"Calle Campotejar , 25",0,385 - Estación de tren Orcasitas,false,385,23,IN_SERVICE,-3.70388671,40.36721104
+256,true,"Calle Isabelita Usera, 44",1,"387 - Isabelita Usera, 44",false,387,23,IN_SERVICE,-3.70773972,40.38272256
+257,true,"Avenida de la Perla, 35",2,383 - Metro San Fermín-Orcasur,false,383,23,IN_SERVICE,-3.6939702,40.3700017
+258,true,"Avenida de los Poblados, 130",2,"386 - Avenida de los Poblados, 130",false,386,23,IN_SERVICE,-3.71331521,40.37347443
+259,true,"Avenida Ramon y Cajal, 101",2,476 - Metro Avenida de la Paz,false,476,23,IN_SERVICE,-3.662016,40.453493
+260,true,"Calle de los Misterios, 2",0,477 - Metro Ciudad Lineal,false,477,23,IN_SERVICE,-3.638904,40.438278
+261,true,Calle José del Hierro esquina con Arturo Soria,0,478 - José del Hierro - Misterios,false,478,23,IN_SERVICE,-3.6410572,40.44152084
+262,true,"Calle de Ángel Muñoz, 1",0,479 - Metro Arturo Soria,false,479,27,IN_SERVICE,-3.655837131,40.45478362
+263,true,"Calle Vicente Muzas, 13",2,480 - Vicente Muzas - Arturo Soria,false,480,23,IN_SERVICE,-3.66044255,40.45903315
+264,true,"Diego Ayllon, 2",0,481 - Diego Ayllón - Arturo Soria,false,481,23,IN_SERVICE,-3.65219063,40.45117857
+265,true,"Calle de Velero, 16",0,554 - Metro El Capricho,false,554,27,IN_SERVICE,-3.5941,40.453
+266,true,"Avda. de Burgos, 17",2,"284 - Avenida de Burgos, 17",false,284,23,IN_SERVICE,-3.675790029,40.47359388
+267,true,"Campuzano, 1",2,482 - Metro Pueblo Nuevo,false,482,23,IN_SERVICE,-3.6423386,40.4356873
+268,true,"Calle Marcelino Álvarez, 31",2,483 - Marcelino Álvarez - Daroca,false,483,23,IN_SERVICE,-3.6534324,40.4297428
+269,true,"Calle Luis Campos, 3",2,484 - Metro García Noblejas,false,484,23,IN_SERVICE,-3.632389,40.42893071
+270,true,"Calle Carretera de Canillas, 40",2,523 - Carretera de Canillas,false,523,23,IN_SERVICE,-3.65089253,40.4628701
+271,true,"Calle Santa María Magdalena, 15",0,285 - Santa María Magdalena - La Drácena,false,285,23,IN_SERVICE,-3.6706,40.4631
+272,true,"Plaza Duque de Pastrana, 2",0,286 - Plaza Duque de Pastrana,false,286,23,IN_SERVICE,-3.6779,40.4679
+273,true,"Calle de la Yuca, 1",1,287 - Metro Bambú,false,287,23,IN_SERVICE,-3.6762,40.4765
+274,true,"Calle Caídos de la División Azul, 28",1,288 - Caídos de la División Azul,false,288,23,IN_SERVICE,-3.6723,40.4664
+275,true,Glorieta de Luís Rosales (esquina con López De Hoyos),2,524 - Glorieta Luis Rosales,false,524,23,IN_SERVICE,-3.6543,40.4673
+276,true,"Fuente Carrantona , 33",0,460 - Fuente Carrantona - Doctor García Tapia,false,460,27,IN_SERVICE,-3.63192261,40.4070216
+277,true,"Luis de Hoyos Sainz, 198",2,"455 - Luis de Hoyos Sainz, 198",false,455,23,IN_SERVICE,-3.62927465,40.400094
+278,true,"Encomienda de Palacios, 8",2,"456 - Encomienda de Palacios, 8",false,456,23,IN_SERVICE,-3.6464,40.4005
+279,true,"Calle Ramirez Tomé, 33",0,416 - Ramírez Tomé,false,416,27,IN_SERVICE,-3.645973936,40.38875618
+280,true,"Calle Romeo y Julieta, 13",1,"417 - Romeo y Julieta, 13",false,417,27,IN_SERVICE,-3.66217563,40.37873799
+281,true,"Calle Puerto de Arlabán, 83",1,418 - Puerto de Arlabán - San Diego,false,418,27,IN_SERVICE,-3.6675,40.3864
+282,true,"Calle Cronos, 57",0,496 - Cronos,false,496,27,IN_SERVICE,-3.6194333,40.4384695
+283,true,"Calle Hermanos García Noblejas, 137",0,501 - Metro Alsacia,false,501,23,IN_SERVICE,-3.6242,40.4191
+284,true,"Calle Alcalá, 546",2,498 - Metro Torre Arias,false,498,27,IN_SERVICE,-3.6178317,40.4431335
+285,true,"Calle Alcala, 590",0,499 - Biblioteca Pública Municipal Canillejas,false,499,23,IN_SERVICE,-3.6121996,40.4466561
+286,true,"Calle Aracne, 17",2,"500 - Aracne, 17",false,500,27,IN_SERVICE,-3.5895,40.445
+287,true,"Calle Alcalá, 506",0,497 - Metro Suances,false,497,23,IN_SERVICE,-3.6274,40.4407
+288,true,"Calle Puerto Serrano, 1 enfrente del nº 6",1,265 - Puerto Serrano - Embajadores,false,265,23,IN_SERVICE,-3.688461,40.385412
+289,true,"Calle Comandante Fontanés, 1",1,351 - Comandante Fontanes - General Ricardos,false,351,23,IN_SERVICE,-3.7211209,40.3951415
+290,true,"Calle Ervigio, 22",1,350 - Ervigio - Amalarico,false,350,23,IN_SERVICE,-3.7315,40.3947
+291,true,"Calle Julio Merino, 5",1,389 - Julio Merino - Pilarica,false,389,23,IN_SERVICE,-3.7032,40.3831
+292,true,"Calle avena, 10",1,390 - Avena - Mijo,false,390,23,IN_SERVICE,-3.7159,40.3773
+293,true,"Avenida de Cantabria, 6",1,"556 - Cantabria, 6",false,556,24,IN_SERVICE,-3.58772201,40.45462514
+294,true,"Paseo de la Alameda de Osuna, 48",2,555 - Parque del Capricho,false,555,27,IN_SERVICE,-3.59812171,40.45476837
+295,true,"Calle Francisco Villaespesa, 37",0,485 - Francisco Villaespesa - Ledesma,false,485,23,IN_SERVICE,-3.6464629,40.4293263
+296,true,"Calle Arzobispo Morcillo, 6",0,570 - Uni. Autónoma Madrid - Facul. Medicina,false,570,27,IN_SERVICE,-3.6938,40.4815
+297,true,"Calle Hernani, 59",0,295 - Hernani - Edgar Neville,false,295,23,IN_SERVICE,-3.6972,40.4481
+298,true,"Calle de la Costa Verde, 25-23",2,296 - Costa Verde,false,296,23,IN_SERVICE,-3.696862,40.469477
+299,true,"Calle Simancas, 2",0,297 - Simancas - Pinos Alta,false,297,23,IN_SERVICE,-3.69511298,40.4655
+300,true,"Calle Gallur, 5",1,323 - Centro Deportivo Municipal Gallur,false,323,23,IN_SERVICE,-3.7359,40.3984
+301,true,"Calle de las Higueras, 49",1,324 - Metro Lucero,false,324,23,IN_SERVICE,-3.745096152,40.40457133
+302,true,"Hacienda de Pavones, 148",0,"457 - Hacienda de Pavones, 148",false,457,23,IN_SERVICE,-3.6419,40.4026
+303,true,"Calle de la Maquinilla, 8-10",1,432 - Maquinilla - Tranvía Blanco,false,432,24,IN_SERVICE,-3.636603598,40.38071154
+304,true,"Calle Marqués de Viana, 85",1,298 - Marques de Viana - Bellver,false,298,19,IN_SERVICE,-3.704478,40.463643
+305,true,"Calle Sierra de Guadalupe, 11",2,437 - Metro Sierra de Guadalupe,false,437,27,IN_SERVICE,-3.62376457,40.38135158
+306,true,"Calle de la Verdad, 29",1,358 - Verdad,false,358,23,IN_SERVICE,-3.71716,40.391787
+307,true,"Calle Algorta, 2",2,352 - Algorta - General Ricardos,false,352,23,IN_SERVICE,-3.72745169,40.39162262
+308,true,"Fernando Gabriel, 2",0,492 - Metro La Almudena,false,492,24,IN_SERVICE,-3.63949891,40.42466356
+309,true,"Paseo de los Jesuitas, 69",1,322 - Ps. Jesuitas - Mercado Alto Extremadura,false,322,27,IN_SERVICE,-3.7351,40.408
+310,true,"Avenida Córdoba, enfrente nº 21",2,392 - Metro Almendrales,false,392,23,IN_SERVICE,-3.697856,40.38268
+311,true,"Calle Candilejas, 5",1,"420 - Candilejas, 5",false,420,22,IN_SERVICE,-3.66300383,40.38263599
+312,true,"Calle Puerto de Balbarán, 10",1,419 - Estación de tren de El Pozo,false,419,27,IN_SERVICE,-3.655868,40.3762374
+313,true,"Calle Cabeza de Mesada, 5",2,439 - Cabeza Mesada - Parque de Valdeperdices,false,439,27,IN_SERVICE,-3.629413,40.37647902
+314,true,"Avenida de Orovilla, 53",1,398 - Orovilla - Felicidad,false,398,27,IN_SERVICE,-3.6895,40.3587
+315,true,"Avenida Monforte de Lemos, 13",0,569 - C. Deportivo Mpal. Vicente del Bosque,false,569,23,IN_SERVICE,-3.6965,40.4795
+316,true,"Calle Melchor Fernandez Almagro, 80",2,571 - Melchor Fernández Almagro - Plaza Tuy,false,571,23,IN_SERVICE,-3.7103262,40.4756475
+317,true,"Calle Valle de Mena, 5",2,"304 - Valle de Mena, 5",false,304,23,IN_SERVICE,-3.71527245,40.46962735
+318,true,"Calle del Cobre, 6",1,268 - Metro Arganzuela-Planetario,false,268,23,IN_SERVICE,-3.689031464,40.39338328
+319,true,"Paseo de la Florida, 37",0,305 - Intercambiador de Príncipe Pío B,false,305,23,IN_SERVICE,-3.72317757,40.42276114
+320,true,"Avenida Del Santo Ángel de la Guarda, 6",0,306 - Centro Deportivo Mpal Fernando Martín,false,306,23,IN_SERVICE,-3.7121965,40.4617959
+321,true,Calle Serrano Galvache 1,0,486 - Serrano Galvache - Arturo Soria,false,486,23,IN_SERVICE,-3.6679379,40.471382
+322,true,"Calle de Puertollano, 4-2",0,502 - Puertollano - Veinticinco de Septiembre,false,502,23,IN_SERVICE,-3.6237372,40.4425157
+323,true,Calle Gallegos 27,0,462 - Gallegos - Lavadero Viejo,false,462,27,IN_SERVICE,-3.6102747,40.40240379
+324,true,"Calle Arroyo del Olivar, 63",2,421 - Arroyo del Olivar - Buenos Aires,false,421,24,IN_SERVICE,-3.653269,40.388435
+325,true,"Calle Manuel Uribe, 1",0,487 - Manuel Uribe - Arturo Soria,false,487,23,IN_SERVICE,-3.66503419,40.46434131
+326,true,"422 - Travesia de Palomeras, 7",1,"422 - Travesia de Palomeras, 7",false,422,24,IN_SERVICE,-3.6705179,40.39017003
+327,true,"Avenida de Entrevias, 56",0,423 - Estación de tren Asamblea de Madrid,false,423,24,IN_SERVICE,-3.66855013,40.38138801
+328,true,"Camino de Valderribas, 47",1,"424 - Camino de Valderribas, 47",false,424,24,IN_SERVICE,-3.663958,40.4002231
+329,true,"Calle Ramón Pérez de Ayala, 40",2,425 - Ramón Perez Ayala - Pque. Cerro Tío Pío,false,425,24,IN_SERVICE,-3.65381017,40.40003472
+330,true,"Calle Humanes, 3",0,426 - Humanes - Benjamín Palencia,false,426,24,IN_SERVICE,-3.64932678,40.3952121
+331,true,"Calle de los Andaluces, 2",2,"427 - Andaluces, 2",false,427,24,IN_SERVICE,-3.64148304,40.3914244
+332,true,"Avenida La Albufera, 136",0,428 - Estadio de Vallecas,false,428,24,IN_SERVICE,-3.6571,40.3919
+333,true,"Calle Manuel Noya, 29",1,"393 - Manuel Noya , 29",false,393,24,IN_SERVICE,-3.7117979,40.3853787
+334,true,"Serrano Galvache, 56",2,489 - Serrano Galvache - Yerma,false,489,24,IN_SERVICE,-3.67144504,40.47675257
+335,true,Calle Hermanos García Nobleza (esquina Plaza del Reloj Solar),2,490 - Hnos.García Noblejas-FcoLargo Caballero,false,490,24,IN_SERVICE,-3.62888094,40.42427523
+336,true,"Calle Ricardo Ortiz, 33",1,"488 - Ricardo Ortiz, 33",false,488,24,IN_SERVICE,-3.65796439,40.42657032
+337,true,"Calle Bacares, 20",2,525 - Metro Manoteras,false,525,24,IN_SERVICE,-3.66269029,40.47675499
+338,true,"Calle de San Roman del Valle, 20",1,504 - Biblioteca Pública Municipal San Blas,false,504,24,IN_SERVICE,-3.623466936,40.42309929
+339,true,"Calle Zaldivar, 19",2,503 - Zaldívar - Valdecanillas,false,503,24,IN_SERVICE,-3.62650373,40.43209033
+340,true,"Calle Arroyo Bueno, 53",1,404 - Junta Municipal Distrito de Villaverde,false,404,27,IN_SERVICE,-3.710985,40.349111
+341,true,"Calle Mercedes Arteaga, 21",1,"353 - Mercedes Arteaga, 21",false,353,24,IN_SERVICE,-3.72221757,40.39251608
+342,true,"Calle de la Vía, 56",2,355 - Intercambiador de Plaza Elíptica,false,355,24,IN_SERVICE,-3.7182338,40.3854641
+343,true,"Calle Francisco Tejada, 1",0,326 - Metro Alto de Extremadura,false,326,24,IN_SERVICE,-3.739615781,40.4093795
+344,true,"Calle El Greco, 27",1,"327 - El Greco, 27 - C. Cultural El Greco",false,327,24,IN_SERVICE,-3.74726153,40.40741199
+345,true,"Calle del Arroyo Belincoso, 26",2,458 - Metro Vinateros,false,458,24,IN_SERVICE,-3.65256604,40.40991083
+346,true,"Avenida Moratalaz, 33",2,459 - Moratalaz,false,459,24,IN_SERVICE,-3.66000272,40.40750626
+347,true,"Corregidor licenciado Antonio de Mena, sn",1,461 - Plaza Corregidor Ldo. Antonio de Mena,false,461,24,IN_SERVICE,-3.6408,40.4099
+348,true,"Calle Portalegre, 9",1,356 - Portalegre - Tinamús,false,356,24,IN_SERVICE,-3.72364769,40.38937686
+349,true,"Avenida Monforte de Lemos, 123",2,572 - Junta Mpal. Dtto. Fuencarral - El Pardo,false,572,24,IN_SERVICE,-3.70997335,40.47810429
+350,true,"Calle Melchor Fernandez Almagro, 16",1,573 - Melchor Fernández Almagro - Villa Marín,false,573,24,IN_SERVICE,-3.69962571,40.47772776
+351,true,"Ginzo de Limia, 36",2,575 - Metro Barrio del Pilar,false,575,24,IN_SERVICE,-3.703526,40.47817
+352,true,"Calle Chantada, 14",1,574 - Chantada,false,574,24,IN_SERVICE,-3.710678,40.472695
+353,true,"Paseo de Federico García Lorca, 2",3,440 - Metro Villa de Vallecas,true,440,18,NOT_IN_SERVICE,-3.62144691,40.3795035
+354,true,Calle Seis (esquina con Avenida Quinta),2,507 - Seis - Sexta,false,507,24,IN_SERVICE,-3.59650295,40.44845033
+355,true,"Calle Rosario Pino, 17",0,299 - Rosario Pino - Joan Maragall,false,299,24,IN_SERVICE,-3.69193246,40.46204955
+356,true,"Calle Capitan Blanco Argibay, 112",2,300 - Capitan Blanco Argibay - Alfalfa,false,300,24,IN_SERVICE,-3.7031882,40.4667435
+357,true,"Calle Muller, 34",2,301 - Muller - Capitan Blanco Argibay,false,301,24,IN_SERVICE,-3.69837565,40.46518187
+358,true,"Gran Avenida, 27",0,"396 - Gran Avenida, 27",false,396,24,IN_SERVICE,-3.70760649,40.36997711
+359,true,"Calle Periana, 24",1,"394 - Periana, 24",false,394,24,IN_SERVICE,-3.68765805,40.36672327
+360,true,"Calle Moreja, 30",0,397 - Centro Deportivo Municipal Orcasur,false,397,24,IN_SERVICE,-3.69838038,40.36809336
+361,true,"Calle Bohemios, 1",2,399 - Bohemios - Gigantes y Cabezudos,false,399,24,IN_SERVICE,-3.693901,40.356536
+362,true,"Calle Torremolinos, 1",2,430 - Torremolinos - Rafael Alberti,false,430,24,IN_SERVICE,-3.64178999,40.38500948
+363,true,"Calle Ariel, 11",1,269 - Ariel - Parque Enrique Tierno Galván,false,269,24,IN_SERVICE,-3.679701766,40.3930238
+364,true,Calle Esteban Collantes 63,2,491 - Esteban Collantes - José Arcones Gil,false,491,24,IN_SERVICE,-3.637663,40.432883
+365,true,"Calle Velacho Alto, 4-16",2,527 - Velacho Alto - Trinquete,false,527,24,IN_SERVICE,-3.65926884,40.47250314
+366,true,Plaza del Liceo (esquina con Calle Silvano),0,526 - Plaza del Liceo,false,526,24,IN_SERVICE,-3.64441924,40.45754368
+367,true,"Calle Estación de Canfrac, 18",0,"431 - Puerto Canfranc, 18",false,431,24,IN_SERVICE,-3.6634,40.3969
+368,true,"Calle Carlos Martín Álvarez, 38",1,429 - Carlos M. Alvarez - Javier de Miguel,false,429,23,IN_SERVICE,-3.6635,40.3895
+369,true,"Calle del Sorbe , 20",1,357 - Sorbe - Baleares,false,357,24,IN_SERVICE,-3.71320917,40.3898701
+370,true,Calle Teresa López Valcarcel (esquina calle Teniente Coronel Noreña),1,270 - Teresa L. Valcárcel - Tte. Cnel. Noreña,false,270,24,IN_SERVICE,-3.69328771,40.38862908
+371,true,Calle Arturo Soria (esquina con calle Jazmín),0,493 - Arturo Soria - San Luis,false,493,23,IN_SERVICE,-3.6684167,40.47636724
+372,true,"Calle Villalobos, 28",1,"433 - Villalobos, 28",false,433,24,IN_SERVICE,-3.65076037,40.38161669
+373,true,"Calle Alan Turing, 2",2,436 - Campus Sur UPM,false,436,24,IN_SERVICE,-3.62713659,40.3901675
+374,true,"Calle Charleroi, 1",1,434 - Charleroi - Cocherón de la Villa,false,434,24,IN_SERVICE,-3.63219372,40.38191654
+375,true,"Calle Albarracin, sn",0,506 - Albarracín - Julián Camarillo,false,506,24,IN_SERVICE,-3.63251641,40.43397327
+376,true,"Calle Castillo de Ucles, 37",2,"505 - Castillo de Uclés, 37",false,505,24,IN_SERVICE,-3.62306578,40.4315255
+377,true,"Calle San Claudio, 150",0,435 - San Claudio,false,435,24,IN_SERVICE,-3.63953994,40.38902883
+378,false,Calle Alcala (acera de tránsito peatonal),3,508-old - Alcala (acera de tránsito peatonal),true,508-old,0,END_OF_LIFE,-3.60960104,40.44910362
+379,true,"Paseo de la Dirección, 330, (enfrente)",1,302 - Ps. Dirección B - Pque A. Rguez Sahagún,false,302,24,IN_SERVICE,-3.703955,40.47024458
+380,true,"Calle Casalarreina, 18",2,"463 - Casalarreina, 18",false,463,24,IN_SERVICE,-3.612318798,40.4093909
+381,true,Avenida de Daroca 321,0,464 - Univ. Rey Juan Carlos - Campus Madrid,false,464,24,IN_SERVICE,-3.61283416,40.40634029
+382,true,"Paseo de los Gigantes y Cabezudos, 4",0,400 - Metro Ciudad de los Ángeles,false,400,24,IN_SERVICE,-3.69399661,40.36064659
+383,true,"Calle San Restituto, 74",1,307 - Metro Valdezarza,false,307,24,IN_SERVICE,-3.71693008,40.46588016
+384,true,"Paseo de la Dirección, 161",3,303 - Ps. Dirección A - Pque A. Rguez Sahagún,true,303,0,NOT_IN_SERVICE,-3.708085085,40.4677893
+385,true,"Avenida El Ferrol, 18",0,"576 - El Ferrol, 18",false,576,24,IN_SERVICE,-3.70510525,40.47431313
+386,true,"Avenida de Monforte de Lemos, 103",1,577 - Monforte de Lemos - Plaza de Mondariz,false,577,24,IN_SERVICE,-3.70566914,40.47899993
+387,true,"Calle Ofelia Nieto, 75",1,309 - Ofelia Nieto - Villaamil,false,309,24,IN_SERVICE,-3.708734,40.462051
+388,true,"Calle María Auxiliadora, 1",2,308 - María Auxiliadora - Francos Rodríguez,false,308,24,IN_SERVICE,-3.71346147,40.45772941
+389,true,"Avenida de Guadalajara, 101",0,510 - Metro Avenida de Guadalajara,false,510,24,IN_SERVICE,-3.61346199,40.42218968
+390,true,"Calle Aquitania, 31",0,511 - Aquitania 31,false,511,27,IN_SERVICE,-3.61726728,40.41912347
+391,true,"Calle de los Aparejadores, 24",0,512 - Semilla - Aparejadores,false,512,24,IN_SERVICE,-3.61537023,40.42667885
+392,true,"Avenida de Niza, 9",2,513 - Centro Deportivo Mpal. Pepu Hernández,false,513,27,IN_SERVICE,-3.60645414,40.4271211
+393,true,"Calle Maria Sevilla Diago, 5",1,514 - María Sevilla Diago,false,514,24,IN_SERVICE,-3.61095077,40.43283006
+394,true,"Avenida de Hellin, 13",1,"515 - Avenida de Hellin, 13",false,515,24,IN_SERVICE,-3.61579967,40.43091667
+395,true,"Calle de El Toboso, 115",0,359 - El Toboso - Zaida,false,359,23,IN_SERVICE,-3.7363397,40.3929901
+396,true,"Avenida Nuestra Señora de Fatima, 34",0,360 - Ntra. Sra. Fátima - Ntra. Sra. de Luz,false,360,23,IN_SERVICE,-3.7470882,40.3840155
+397,true,"Avenida de Abrantes, 106",2,361 - Metro Pan Bendito,false,361,23,IN_SERVICE,-3.73266666,40.37734672
+398,true,"Avenida Santa Eugenia,1",0,441 - Estación de tren de Santa Eugenia,false,441,24,IN_SERVICE,-3.60948153,40.38600753
+399,true,Avenida de Santa Eugenia con Calle Zauzar,2,442 - Santa Eugenia - Zazuar,false,442,27,IN_SERVICE,-3.60463,40.38305936
+400,true,"Calle Fuentespina, 33",2,"443 - Fuentespina, 33",false,443,24,IN_SERVICE,-3.60724755,40.37941487
+401,true,"Calle Hilario Herránz Establos , 36",1,"362 - Hilario Herranz Establos, 36",false,362,27,IN_SERVICE,-3.726638,40.372839
+402,true,"Calle Rioja, 13",0,557 - Metro Alameda de Osuna,false,557,24,IN_SERVICE,-3.58815143,40.45746674
+403,true,"Calle Francisco Suárez, 28",0,290 - Francisco Suárez - Paseo de La Habana,false,290,23,IN_SERVICE,-3.67994416,40.46437817
+404,true,"Calle López de Hoyos, 478",0,"529 - Lopez de Hoyos , 478",false,529,23,IN_SERVICE,-3.649843,40.47175
+405,true,"Calle de los Emigrantes, 15",0,530 - Metro Mar de Cristal,false,530,27,IN_SERVICE,-3.63788349,40.4685745
+406,true,"Calle de Santa Virgilia, 6",0,531 - Metro Parque de Santa María,false,531,18,IN_SERVICE,-3.6450741,40.4768782
+407,true,"Avenida Barranquilla, 17",0,532 - Metro San Lorenzo,false,532,24,IN_SERVICE,-3.6395164,40.47490194
+408,true,"Avenida de San Luis, 23",0,"533 - San Luis, 23",false,533,23,IN_SERVICE,-3.65511455,40.47148748
+409,true,Calle Serrano nº 32,2,106A - Plaza de Colón A,false,106A,19,IN_SERVICE,-3.687807,40.424924
+410,true,"Calle de la Isla Graciosa, 2",2,582 - Isla Graciosa - Isla de Java,false,582,24,IN_SERVICE,-3.6862657,40.49262243
+411,true,"Calle de Angel Mugica, 3",2,583 - Ángel Múgica - Marcos de Orueta,false,583,24,IN_SERVICE,-3.68529048,40.48468297
+412,true,"Avenida Monasterio de Silos, 63A",0,584 - Metro Montecarmelo,false,584,24,IN_SERVICE,-3.69603345,40.50501029
+413,true,"Calle Molins de Rey, 8",1,585 - Metro Fuencarral,false,585,24,IN_SERVICE,-3.69374813,40.4954662
+414,true,"Calle Caldas de Estrach, 14",0,586 - Caldas Estrach - San Cugat del Vallés,false,586,23,IN_SERVICE,-3.6974725,40.4963916
+415,true,"Calle Mesena, 102",0,"534 - Mesena, 102",false,534,24,IN_SERVICE,-3.66340634,40.46772408
+416,true,"Calle de las Delicias, 41",0,273 - Delicias - General Lacy,false,273,19,IN_SERVICE,-3.69091831,40.40381914
+417,true,"Calle Costa Brava, 14",2,587 - Metro Paco de Lucía,false,587,27,IN_SERVICE,-3.70865744,40.49892399
+418,true,"Av. del Campo de Calatrava, 17",0,588 - Campo Calatrava - Rda Ingenioso Hidalgo,false,588,27,IN_SERVICE,-3.69112254,40.50052161
+419,true,"Avenida Monasterio de Silos, 37",0,589 - Monast. Silos - Monast. Montesclaros,false,589,24,IN_SERVICE,-3.70290315,40.50340494
+420,true,"Calle Ramón Power, 2",2,535 - Metro Canillas,false,535,27,IN_SERVICE,-3.634999,40.463575
+421,true,"Calle de Cebreros, 97",2,"328 - Cebreros, 97",false,328,23,IN_SERVICE,-3.7521917,40.4032379
+422,true,"Calle Alhambra, 56",0,329 - Metro Laguna,false,329,23,IN_SERVICE,-3.74445208,40.3988162
+423,true,"Calle Duquesa de Parcent, 14",2,330 - Duquesa de Parcent - Marcelino Castillo,false,330,23,IN_SERVICE,-3.7447281,40.39500224
+424,true,"Calle Valmojado, 53",2,331 - Valmojado,false,331,24,IN_SERVICE,-3.75757186,40.39649629
+425,true,"Calle de los Yébenes, 159",0,"332 - Los Yébenes, 159",false,332,23,IN_SERVICE,-3.75181704,40.39302789
+426,true,"Avenida de Oporto, 102",0,363 - Metro Oporto,false,363,23,IN_SERVICE,-3.72987333,40.38745087
+427,true,"Avenida de Oporto, 34",1,364 - Metro Opañel,false,364,23,IN_SERVICE,-3.72378064,40.38550735
+428,true,"Calle de Boj, 5",2,536 - Boj,false,536,23,IN_SERVICE,-3.6180818,40.4560204
+429,true,"Avenida de Machupichu, 23",1,537 - Plaza López de la Plata,false,537,27,IN_SERVICE,-3.62579439,40.45841466
+430,true,"Calle de Haendel, 8",0,"538 - Haendel, 8",false,538,27,IN_SERVICE,-3.62532131,40.46275082
+431,true,"Calle Illescas, 80",2,333 - Illescas - Camarena,false,333,23,IN_SERVICE,-3.7562323,40.392175
+432,true,"Avenida Plaza de Toros, 3",2,365 - Palacio Vistalegre Arena,false,365,23,IN_SERVICE,-3.73725908,40.38537202
+433,true,"Paseo de Marcelino Camacho, 53",0,366 - Metro Carabanchel,false,366,23,IN_SERVICE,-3.744521,40.387737
+434,true,"Avenida Alfonso XIII, 113",0,291 - Plaza José María Soler,false,291,23,IN_SERVICE,-3.66790332,40.45866532
+435,true,"Calle Pradillo, 33",2,292 - Centro Deportivo Municipal Pradillo,false,292,23,IN_SERVICE,-3.6717937,40.44904126
+436,true,"Arturo Soria, 332",0,494 - Metro Pinar de Chamartín,false,494,23,IN_SERVICE,-3.666529,40.480694
+437,true,"Calle Juan Ignacio Luca de Tena, 13",0,516 - Juan Ignacio Luca Tena - Quinta Molinos,false,516,27,IN_SERVICE,-3.63110255,40.44796778
+438,true,"Calle Eugenia de Montijo, 57",1,368 - Eugenia de Montijo,false,368,15,IN_SERVICE,-3.74706068,40.3791024
+439,true,"Calle de Avefria, 26",1,370 - Avefría - Plaza de Tarifa,false,370,23,IN_SERVICE,-3.7308025,40.38386939
+440,true,"Calle Maria de Maeztu, 50",1,590 - Metro Arroyofresno,false,590,27,IN_SERVICE,-3.72757227,40.49093014
+441,true,"Calle de San Mariano, 52-60",1,517 - San Mariano - Circe,false,517,27,IN_SERVICE,-3.61190481,40.44175279
+442,true,"Calle Tampico, 71",2,518 - Tampico - Plaza Barbados,false,518,23,IN_SERVICE,-3.635345,40.444569
+443,true,"Calle Joaquin Turina, 49",1,"371 - Joaquin Turina, 49",false,371,27,IN_SERVICE,-3.76182,40.372458
+444,true,"Calle Lonja de la Seda, 33",2,"372 - Lonja de la Seda, 33",false,372,23,IN_SERVICE,-3.76158263,40.36612215
+445,true,"Calle Salvador Allende, 28",0,373 - Metro La Peseta,false,373,23,IN_SERVICE,-3.75787005,40.36277848
+446,true,"Calle del Dinero, 38",0,374 - Dinero - La Peseta,false,374,27,IN_SERVICE,-3.7501466,40.3625707
+447,true,"Calle Calderilla, 4",0,"375 - Calderilla, 4",false,375,27,IN_SERVICE,-3.73851114,40.36521132
+448,true,"Av.Ventisquero de la Condesa, 37",0,591 - Metro Mirasierra,false,591,19,IN_SERVICE,-3.71622921,40.49108225
+449,true,"Calle de Gloria Fuertes, 180",2,592 - Estación de tren de Pitis,false,592,27,IN_SERVICE,-3.7249527,40.4956969
+450,true,"Calle del Pinzón, 111",2,376 - Metro Carpetana,false,376,24,IN_SERVICE,-3.7405438,40.39229225
+451,true,"Avenida De Abrantes, 55",1,377 - Metro Abrantes,false,377,23,IN_SERVICE,-3.72783615,40.38091762
+452,true,"Calle Mota del Cuervo, 72",1,539 - Mota del Cuervo,false,539,24,IN_SERVICE,-3.63135715,40.4648762
+453,true,"Calle Seseña, 93",0,334 - Metro Campamento,false,334,24,IN_SERVICE,-3.76815631,40.39497294
+454,true,"Plaza Patricio, 5",0,"335 - Cardaño, 10",false,335,24,IN_SERVICE,-3.77057541,40.39659757
+455,true,"Calle Troya, 11",1,"519 - Troya, 11",false,519,24,IN_SERVICE,-3.61191521,40.43699597
+456,true,"Calle Eugenia de Montijo, 83",2,"378 - Eugenia de Montijo, 83",false,378,24,IN_SERVICE,-3.7509733,40.37562288
+457,true,"Calle Antonia Rodriguez Sacristan, 4",0,379 - Antonia Rodríguez Sacristán - Valeriana,false,379,24,IN_SERVICE,-3.74765739,40.37313777
+458,true,"Calle Caleruega, 14",2,495 - Caleruega,false,495,24,IN_SERVICE,-3.670476,40.478611
+459,true,"Calle Islas Cies, 27",2,593 - Metro Avenida de la Ilustración,false,593,24,IN_SERVICE,-3.71869067,40.48027409
+460,true,"Calle Pedro Rico, 49",0,"594 - Pedro Rico, 49",false,594,24,IN_SERVICE,-3.703918,40.48194
+461,true,"Avenida de Betanzos, 68",1,595 - Betanzos - Fermín Caballero,false,595,24,IN_SERVICE,-3.7132206,40.48178815
+462,true,"Calle del valle de pinares llanos, 36",1,596 - Metro Lacoma,false,596,24,IN_SERVICE,-3.7230043,40.4854829
+463,true,"Calle Dulce Chacón, S/N",2,540 - Estación de tren Fuente de la Mora,false,540,24,IN_SERVICE,-3.6636484,40.4845596
+464,true,"Calle Oliva de Plasencia, 1",0,"336 - Calle Oliva de Plasencia, 1",false,336,24,IN_SERVICE,-3.77915183,40.37850071
+465,true,"Calle Valmojado, 295",1,337 - Metro Aluche,false,337,18,IN_SERVICE,-3.76048923,40.38614104
+466,true,"Calle Guareña, 22",0,338 - Guareña - Luis Chamizo,false,338,18,IN_SERVICE,-3.765339104,40.38636234
+467,true,"Avenida de las Aguilas , 110",0,339 - Estación de tren Las Águilas,false,339,24,IN_SERVICE,-3.78061952,40.38132642
+468,true,Calle de la Foresta nº8,0,"597 - Foresta, 8",false,597,23,IN_SERVICE,-3.66777681,40.49853277
+469,true,"Calle José Gutiérrez Maroto, 36",2,445 - C. Deportivo Mpal. Juan de Dios Román,false,445,27,IN_SERVICE,-3.60503564,40.36334587
+470,true,"Calle La Cabrera, sn",1,599 - Instalación Deportiva La Cabrera,false,599,27,IN_SERVICE,-3.71920443,40.47223267
+471,true,"Calle Fuente de Lima, 10",2,343 - Metro Aviación Española,false,343,23,IN_SERVICE,-3.78339301,40.38358975
+472,true,"Calle Ocaña, 103",0,"344 - Ocaña, 103",false,344,23,IN_SERVICE,-3.75292035,40.38586273
+473,true,"Paseo de Juan XXIII, 24",0,"313 - Juan XXIII, 24",false,313,27,IN_SERVICE,-3.7169359,40.448084
+474,true,"Avenida Valladolid, 47D",2,314 - Av. Valladolid - Parque de la Bombilla,false,314,27,IN_SERVICE,-3.73068,40.42966
+475,true,"Calle de Caroli, 10",2,315 - Caroli,false,315,23,IN_SERVICE,-3.784627,40.45862
+476,true,"Calle Antonio Machado, s/n",1,316 - C. Deportivo Mpal. Ciudad De Los Poetas,false,316,19,IN_SERVICE,-3.71995383,40.46439687
+477,true,"Calle Antonio Machado, 30",2,"317 - Antonio Machado, 30",false,317,27,IN_SERVICE,-3.71921712,40.46826955
+478,true,"Calle Fuente del Tiro, 72",0,345 - Fuente del Tiro - Avd. de las Águilas,false,345,24,IN_SERVICE,-3.7798001,40.38308791
+479,true,"Calle del Pico Chilegua, 3",1,449 - Metro Congosto,false,449,24,IN_SERVICE,-3.61869106,40.37286701
+480,true,"Calle Camino de las Hormigueras, 161",2,"450 - Camino de las Hormigueras, 161",false,450,24,IN_SERVICE,-3.6370762,40.3762555
+481,true,"Calle Clara del Rey, 17",2,294 - Edificio Torres Blancas,false,294,24,IN_SERVICE,-3.672339,40.440944
+482,true,"Avenida del Camino de Santiago, 4",2,604 - Metro Las Tablas,false,604,23,IN_SERVICE,-3.66955215,40.50910428
+483,true,"Calle José de cadalso, 62",2,348 - José de Cadalso - Rafael Finat,false,348,27,IN_SERVICE,-3.77024778,40.37959145
+484,true,"Calle Enrique Garcia Alvarez, 5",2,438 - Biblioteca Pública Luis Martín Santos,false,438,27,IN_SERVICE,-3.6140607,40.3804482
+485,true,"Calle Granja de San Idelfonso, 14",1,"451 - La Granja de San Ildefonso, 14",false,451,27,IN_SERVICE,-3.62283116,40.36813427
+486,true,"Avenida de Las Suertes, 15",1,"452 - Las Suertes, 15",false,452,23,IN_SERVICE,-3.6078539,40.3713613
+487,true,"Avenida del Ensanche de Vallecas, 9",0,453 - Metro La Gavia,false,453,27,IN_SERVICE,-3.61253028,40.37043968
+488,true,"Calle Gran Via del Sureste, 22",1,454 - Gran Vía del Sureste - Las Suertes,false,454,27,IN_SERVICE,-3.5897045,40.3631604
+489,true,Paseo de la Chopera 31,1,267 - Paseo de la Chopera - Fernando Poo,false,267,23,IN_SERVICE,-3.700399665,40.395
+490,true,"c/ Ginzo de Limia, 47",0,580 - Metro Herrera Oria,false,580,23,IN_SERVICE,-3.706089,40.483289
+491,true,"Paseo de la castellana, 124",2,150 - Castellana - Hermanos Pinzón,false,150,23,IN_SERVICE,-3.6908,40.4491
+492,true,Paseo de la Castellana 164,2,157 - Plaza de Cuzco,false,157,23,IN_SERVICE,-3.6894151,40.4591366
+493,true,"Calle Guetaria, 84B",0,"395 - Guetaria, 84B",false,395,24,IN_SERVICE,-3.71569102,40.36916772
+494,true,"Calle Eduardo Mazón, 1",0,548 - Eduardo Mazón - Guadalajara,false,548,23,IN_SERVICE,-3.6154157,40.4521484
+495,true,"Calle Santa Rita, 1",1,293 - Santa Rita - Clara del Rey,false,293,23,IN_SERVICE,-3.6682882,40.4457928
+496,true,"Av/ de Niza, 67",2,520 - Niza - Plaza de Grecia,false,520,23,IN_SERVICE,-3.60811578,40.4342806
+497,true,CalleBahía de Cádiz (cruce con Avenida Logroño),1,558 - Biblioteca Pública Mpal. Gloria Fuertes,false,558,23,IN_SERVICE,-3.593712,40.461137
+498,true,Calle Cristo del Gran Poder (cruce con calle Alas),1,561 - Plaza Nuestra Señora de Loreto,false,561,23,IN_SERVICE,-3.585751,40.472048
+499,true,"Calle Tomillar, 18",2,562 - Tomillar - Tintín y Milú,false,562,27,IN_SERVICE,-3.58405573,40.46267435
+500,true,Calle playa de Zarauz (esquina con Playa de Caleta),2,560 - Playa de Zarauz - Playa de la Caleta,false,560,23,IN_SERVICE,-3.5906847,40.4731404
+501,true,"Avenida del Partenón, 6",0,568 - IFEMA A,false,568,27,IN_SERVICE,-3.6178336,40.4632802
+502,true,"Paseo Alberto Palacios, 42",0,"405 - Paseo Alberto Palacios, 42",false,405,23,IN_SERVICE,-3.712903964,40.34492599
+503,true,"Calle Eduardo Maristany, 7",0,401 - Estación de tren de Villaverde Bajo,false,401,27,IN_SERVICE,-3.683127,40.353285
+504,true,"Calle Cifuentes, 5",0,406 - La Nave de Madrid,false,406,23,IN_SERVICE,-3.6960817,40.3486
+505,true,"Calle Auñón, 16",1,"403 - Auñón, 16",false,403,23,IN_SERVICE,-3.6775242,40.3504944
+506,true,"Paseo de los Melancólicos, 73",1,280 - Ps de los Melancólicos - San Epifanio,false,280,23,IN_SERVICE,-3.718569,40.401782
+507,true,"Calle Albox, 35",2,367 - Metro San Francisco,false,367,23,IN_SERVICE,-3.73984,40.373972
+508,true,"Paseo de los Jesuitas, 4",2,325 - Ps. Jesuitas - Pza. Cerro Bermejo,false,325,23,IN_SERVICE,-3.7305543,40.4106918
+509,true,"Calle Sierra de Atapuerca, 19",1,578 - Sierra de Atapuerca - Viloria de Rioja,false,578,23,IN_SERVICE,-3.67042488,40.50292982
+510,true,"Calle Puerto de Porzuna, 34",1,446 - C. Deportivo Mpal. Miguel Guillén Prim,false,446,23,IN_SERVICE,-3.6236297,40.373826
+511,true,"Parque Eugenia de Montijo, 2",2,"382 -Parque Eugenia de Montijo, 2",false,382,24,IN_SERVICE,-3.7545822,40.3783501
+512,true,Calle transversal sexta (enfrente del colegio Villamadrid),2,410 - Est. de tren de S. Cristóbal Industrial,false,410,24,IN_SERVICE,-3.6992665,40.3325463
+513,true,"Calle Valdesangil, 34",0,319 - Valdesangil,false,319,24,IN_SERVICE,-3.7166729,40.4684218
+514,true,"Calle María Tubau, 3",0,579 - Maria Tubau - Isabel Colbrand,false,579,24,IN_SERVICE,-3.671703587,40.51399231
+515,true,"Calle del Monasterio de Sobrado, nº6",2,602 - Monasterio Sobrado - Monasterio Silos,false,602,24,IN_SERVICE,-3.692837,40.5093225
+516,true,Calle Ubeda esquina Plaza Virgen de la capilla,2,600 - Centro Deportivo Municipal La Masó,false,600,24,IN_SERVICE,-3.7149566,40.4825507
+517,true,"Avenida de Logroño, 112",1,566 - Avenida de Logroño,false,566,24,IN_SERVICE,-3.5815033,40.4703472
+518,true,"Calle Playa de Riazor, 65",2,565 - Metro Barajas,false,565,24,IN_SERVICE,-3.5838869,40.47563573
+519,true,467 - Calle Villardondiego nº32,0,467 - Univ. Rey Juan Carlos - Facultad CJS,false,467,24,IN_SERVICE,-3.6084888,40.4062361
+520,true,"469 - Ladera de los Almendros, 6",2,469 - C. Deportivo Mpal Faustina Valladolid,false,469,24,IN_SERVICE,-3.62299,40.40343
+521,true,"Avenida Real, 3",0,470 - Avenida Real - Galeote,false,470,18,IN_SERVICE,-3.6063672,40.4021519
+522,true,"Calle Molino Viejo frente , 14",1,471 - Molino Viejo - Minerva,false,471,18,IN_SERVICE,-3.60666,40.396301
+523,true,"Calle Amaltea, 1",1,271 - Amaltea-Meneses,false,271,24,IN_SERVICE,-3.68317,40.394706
+524,true,Calle Villablanca 7,2,466 - Villablanca - Vereda del Pinar,false,466,23,IN_SERVICE,-3.60783265,40.40894698
+525,true,"Paseo Juan Antonio Vallejo-Nájera Botas, 25",2,"275 - Juan Antonio Vallejo-Nájera Botas, 25",false,275,23,IN_SERVICE,-3.7082123,40.4020545
+526,true,"Avenida de la Aurora Boreal, 19",1,475 - Aurora Boreal - Minerva,false,475,23,IN_SERVICE,-3.603668,40.399236
+527,true,"Calle Méndez Álvaro, 73",1,274 - Estación Sur Méndez Álvaro A,false,274,23,IN_SERVICE,-3.68134346,40.39675755
+528,true,Calle Nuria nº24,1,605 - Nuria - Peña Sirio,false,605,24,IN_SERVICE,-3.704883,40.491644
+529,true,Avenida Arcentales (frente Estadio Metropolitano),0,522 - Metro Estadio Metropolitano,false,522,24,IN_SERVICE,-3.60097542,40.43333298
+530,true,Calle Ginebra (esquina con Suecia),0,521 - Metro Las Rosas,false,521,24,IN_SERVICE,-3.6048181,40.423893
+531,true,Intercambiador de Canillejas,2,508 - Metro Canillejas,false,508,24,IN_SERVICE,-3.609553,40.449095
+532,true,Avenida Ciudad de Barcelona (esquina con Plaza de Carlos V),2,80A - Estación de Atocha A,false,80A,23,IN_SERVICE,-3.690538,40.407573
+533,true,Avenida Ciudad de Barcelona (esquina con Plaza de Carlos V),2,80B - Estación de Atocha B,false,80B,27,IN_SERVICE,-3.6904748,40.4075211
+534,true,"Calle Adolfo Bioy Casares, 3",0,447 - Adolfo Bioy Casares - Las Suertes,false,447,27,IN_SERVICE,-3.5981935,40.3668504
+535,true,"Calle San Jenaro, 1",0,412 - Estación de tren de Puente de Alcocer,false,412,24,IN_SERVICE,-3.7043083,40.3500291
+536,true,"Calle Diamante, 10",2,415 - Diamante - Delmira Agustini,false,415,24,IN_SERVICE,-3.6877534,40.3532609
+537,true,Calle Doctor Martín Arévalo enfrente del N°16,1,413 - Doctor Martín Arévalo,false,413,24,IN_SERVICE,-3.707413,40.345928
+538,true,"Calle Zapatoca, 8",0,"545 - Zapatoca, 8",false,545,23,IN_SERVICE,-3.63335803,40.47285235
+539,true,"Plaza Mayor de Barajas, 24",1,567 - Plaza Mayor de Barajas,false,567,24,IN_SERVICE,-3.5776537,40.4733252
+540,true,"Calle soto Hidalgo, 3",2,563 - Soto Hidalgo,false,563,27,IN_SERVICE,-3.5820745,40.4606465
+541,true,"Paseo de Reina Cristina, 6",1,281 - Reina Cristina - Julián Gayarre,false,281,23,IN_SERVICE,-3.6831862,40.4067247
+542,true,"Ronda de la Comunicación, s/n",2,609 - Metro Ronda de la Comunicación,false,609,23,IN_SERVICE,-3.6626887,40.5157202
+543,true,"Calle de Moncada, 102",2,408 - Metro San Cristóbal,false,408,23,IN_SERVICE,-3.692444,40.341725
+544,true,"Calle Eduardo Barreiros, 114",1,"409 - Eduardo Barreiros, 114",false,409,23,IN_SERVICE,-3.7046436,40.3553495
+545,true,Calle Fermín Caballero 2,0,606 - Fermín Caballero - Sangenjo,false,606,23,IN_SERVICE,-3.698485,40.487363
+546,true,"Calle Huerta de Castañeda, 26",1,349 - Huerta de Castañeda 26,false,349,24,IN_SERVICE,-3.742018821,40.40622096
+547,true,calle Gregorio Sánchez Herráez 14,0,544 - Gregorio Sánchez Herráez 14,false,544,23,IN_SERVICE,-3.63657,40.477248
+548,true,Calle Oña s/n,0,551 - Oña,false,551,23,IN_SERVICE,-3.6658565,40.4891872
+549,true,"Calle Ana de Austria, 52",2,552 - Ana de Austria - Ignacio Aldecoa,false,552,27,IN_SERVICE,-3.6531502,40.4994394
+550,true,Calle de Juan Antonio Samaranch s/n,2,542 - Intercambiador de Valdebebas,false,542,23,IN_SERVICE,-3.615709,40.483962
+551,true,"Paseo de la Puerta del Ángel, 10",0,320 - Metro Lago,false,320,19,IN_SERVICE,-3.7345247,40.4167792
+552,true,"Calle Estella, 21",1,608 - Estella - Camino de Santiago,false,608,23,IN_SERVICE,-3.6743568,40.4968198
+553,true,"Paseo de los Pontones, 26",2,278 - Paseo los Pontones - Ps. Melancólicos,false,278,23,IN_SERVICE,-3.7196,40.4040433
+554,true,"Calle luis de Salazar, 16",1,289 - Luis de Salazar - Padre Claret,false,289,23,IN_SERVICE,-3.6649258,40.4474166
+555,true,"Calle Rafaela Aparicio, 1",1,547 - Rafaela Aparicio - Maruja Mallo,false,547,27,IN_SERVICE,-3.6312179,40.4792396
+556,true,"Calle de Berrocal, 9",1,"402 - Berrocal, 9",false,402,27,IN_SERVICE,-3.67615,40.344115
+557,true,"Calle Tomás Redondo, 9",2,543 - Tomas Redondo,false,543,23,IN_SERVICE,-3.62913802,40.47178414
+558,true,"Paseo Virgen del Puerto, 27",2,277 - Virgen del Puerto,false,277,15,IN_SERVICE,-3.721178,40.411622
+559,true,"Calle del Tejo, 22",2,272 - Tejo - Parque La Ronda,false,272,23,IN_SERVICE,-3.679186,40.39663
+560,true,Avenida Menéndez Pelayo enfrente del nº33,0,282 - Parque Retiro - Puerta Reina Mercedes,false,282,23,IN_SERVICE,-3.6787796,40.4181327
+561,true,"Calle Mayor , 6",2,1 - Metro Sol,false,1,23,IN_SERVICE,-3.7054098,40.416465
+562,true,"Avenida Gran Vía de San Francisco, 6",1,263 - Gran Vía de San Francisco,false,263,23,IN_SERVICE,-3.712793282,40.40833881
+563,true,"Calle Babilonia, 19",2,"559 - Calle Babilonia, 19",false,559,23,IN_SERVICE,-3.5882347,40.4675299
+564,true,"Camino de Ganapanes, 32-40",0,581 - Metro Peñagrande,false,581,24,IN_SERVICE,-3.7163093,40.4764797
+565,true,"Calle San Modesto, 44",0,598 - Hospital Ramón y Cajal,false,598,24,IN_SERVICE,-3.6923396,40.4858012
+566,true,"Calle Escalona, 2",0,341 - Escalona - Seseña,false,341,27,IN_SERVICE,-3.76182259,40.39834576
+567,true,"Calle de Tembleque, 31",0,346 - Metro Empalme,false,346,24,IN_SERVICE,-3.7664844,40.3907438
+568,true,"Avenida de las Aguilas, 27",2,347 - Est. tren Mtra Justa Freire-Poli Aluche,false,347,24,IN_SERVICE,-3.768603,40.383554
+569,true,"Calle Albelda, 6",0,528 - Albelda - Torrelaguna,false,528,24,IN_SERVICE,-3.6573666,40.4494225
+570,true,"Paseo de la Venta, 1",0,312 - Metro Batán,false,312,27,IN_SERVICE,-3.7528559,40.4077495
+571,true,Carretera del zoo s/n (metro Casa de Campo),0,321 - Metro Casa de Campo,false,321,27,IN_SERVICE,-3.761051,40.40316
+572,true,"Calle Rosas de Aravaca, s/n",2,310 - Estación de tren de Aravaca,false,310,23,IN_SERVICE,-3.7845536,40.4490509
+573,true,"Calle Profesor Aranguren, 1",0,311 - C. Universitaria - F. Geografía e Histo,false,311,27,IN_SERVICE,-3.733574,40.448553
+574,true,"Calle Felipe IV, 5",0,283 - Museo Nacional del Prado,false,283,23,IN_SERVICE,-3.6919057,40.4152082
+575,true,"Avenida Del Partenón, 18",2,564 - IFEMA B,false,564,23,IN_SERVICE,-3.613867,40.463861
+576,true,"Calle Caños de San Pedro, 12",2,468 - Caños de San Pedro - San Cipriano,false,468,23,IN_SERVICE,-3.601922,40.403472
+577,true,"465 - Cordel de Pavones, 48",2,465 - Cordel de Pavones - Bulevar José Prat,false,465,24,IN_SERVICE,-3.619645,40.397375
+578,true,"Calle Santa Petronila, 7",0,414 - Metro Villaverde Bajo-Cruce,false,414,24,IN_SERVICE,-3.692163,40.350985
+579,true,"Calle de la Oca, 22",0,380 - Oca,false,380,24,IN_SERVICE,-3.7335492,40.3894333
+580,true,"Calle Domingo Párraga, 38",0,411 - Estación de tren de Villaverde Alto,false,411,18,IN_SERVICE,-3.7118183,40.3417533
+581,true,"Calle Jacinto Verdaguer, 12",2,354 - Jacinto Verdaguer - Lola de Membrives,false,354,24,IN_SERVICE,-3.716052612,40.39593855
+582,true,"Calle Santa Pola, 22",1,318 - C. Deportivo Mpal. José María Cagigal,false,318,24,IN_SERVICE,-3.737027647,40.43205131
+583,true,"Avenida Francisco Pi y Margall, 29",2,549 - Francisco Pi y Maragall,false,549,19,IN_SERVICE,-3.6503544,40.4866354
+584,true,"Paseo de los Melancólicos, 1",1,"279 - Paseo de los Melancólicos, 1",false,279,23,IN_SERVICE,-3.7184816,40.4104448
+585,true,"Calle Carmen de Burgos, 4",0,"407 - Carmen de Burgos, 4",false,407,23,IN_SERVICE,-3.6847883,40.3575459
+586,true,"Paseo de las Yeserías, 15",1,"276 - Paseo de las Yeserías, 15",false,276,23,IN_SERVICE,-3.7099166,40.39900539
+587,true,"Calle Illescas, 1",0,340 - Illescas - Seseña,false,340,27,IN_SERVICE,-3.7656976,40.3970983
+588,true,"Calle Osa de la Vega, 1",0,342 - Osa de la Vega - Rafael Finat,false,342,23,IN_SERVICE,-3.773381,40.374979
+589,true,"Calle Alfredo Aleix, 9",2,381 - Alfredo Aleix - Mercedes Rodríguez,false,381,24,IN_SERVICE,-3.7553916,40.3684767
+590,true,"Calle Valderrebollo, 18",1,"444 - Valderrebollo, 18",false,444,23,IN_SERVICE,-3.6276352,40.3743481
+591,true,"Avenida Del Ensanche de Vallecas, 80",2,448 - Metro Las Suertes,false,448,27,IN_SERVICE,-3.599352,40.363376
+592,true,"Calle de los Pinillas, 19",0,472 - Metro Valdebernardo,false,472,27,IN_SERVICE,-3.6211485,40.3987974
+593,true,"Calle Villa Blanca, 85",1,473 - Villablanca - Parque Forestal Vicálvaro,false,473,27,IN_SERVICE,-3.59888007,40.40500033
+594,true,"Calle San Cipriano, 71",2,474 - Estación de tren de Vicálvaro,false,474,27,IN_SERVICE,-3.596875,40.402255
+595,true,"Avenida Gran Vía de Hortaleza, 68",2,541 - Metro Pinar del Rey,false,541,23,IN_SERVICE,-3.6468591,40.4682706
+596,true,"Calle Andorra, 2",0,546 - Andorra - Canillas,false,546,23,IN_SERVICE,-3.6467519,40.4628976
+597,true,"Calle del Príncipe Carlos, 54",2,"550 - Príncipe Carlos, 54",false,550,23,IN_SERVICE,-3.656674,40.4941108
+598,true,"Calle María de Portugal, 44",2,553 - María Portugal - Niceto Alcalá Zamora,false,553,23,IN_SERVICE,-3.658921,40.499909
+599,true,"Calle Antonio de Cabezón, s/n (Estacion Cercanías Fuencarral)",0,601 - Estación de tren de Fuencarral,false,601,24,IN_SERVICE,-3.6824687,40.5015588
+600,true,"Calle Castiello de Jaca, nº14",0,"603 - Castiello de Jaca, 14",false,603,23,IN_SERVICE,-3.6782027,40.5091982
+601,true,"Calle Valcarlos, nº20",2,607 - Metro Ligero - Palas de Rey,false,607,27,IN_SERVICE,-3.6641571,40.5051915
+602,true,"Calle Bardegueral, 16",2,610 - Bardegueral,false,610,24,IN_SERVICE,-3.7719097,40.4501721
+603,true,Calle Francisco Balseiro 2,1,237 - Acueducto de Amaniel,false,237,24,IN_SERVICE,-3.7102736,40.4516819
+604,true,"Calle María de las Mercedes de Borbón, 214",1,262 - María de las Mercedes de Borbón B,false,262,23,IN_SERVICE,-3.620114,40.4928683
+605,true,"Calle María de las Mercedes de Borbón, 98",1,611 - María de las Mercedes de Borbón A,false,611,23,IN_SERVICE,-3.612106853,40.4909083
+606,true,"Calle Alicante, nº3",1,176 - Plaza de la Beata María Ana de Jesús,false,176,23,IN_SERVICE,-3.6939412,40.3941856
+607,true,Calle de Febrero nº 4,2,630 - Calle de Febrero 4,false,630,23,IN_SERVICE,-3.573031,40.446868
+608,true,Calle de Avda de Fermina Sevillano 23,2,629 - Avda de Fermina Sevillano 23,false,629,23,IN_SERVICE,-3.568829,40.44477
+609,true,Calle Cazorla 79,1,620 - Calle Cazorla 79,false,620,23,IN_SERVICE,-3.665886,40.376297
+610,true,Calle Montiel 27,1,621 - Calle Montiel 27,false,621,23,IN_SERVICE,-3.672609,40.381382
+611,true,Calle Sierra de Albarracin 2,2,622 - Calle Sierra de Albarracin 2,false,622,23,IN_SERVICE,-3.671961,40.386022
+612,true,Calle Eduardo Barreiros s/n,0,617 - Calle Eduardo Barreiros,false,617,23,IN_SERVICE,-3.70238,40.358866
+613,true,"Avenida Victoria kent, FRENTE nº 9 esquina C/Mario Moreno Cantiflas",1,626 - Avenida Victoria Kent 9,false,626,23,IN_SERVICE,-3.564012,40.401326
+614,true,C/ Alcalde Andrés Madrid Dávila 92,1,627 - Alcalde Andrés Madrid Dávila 92,false,627,23,IN_SERVICE,-3.548534,40.398303
+615,true,Avenida Blas de Lezo 33,2,624 - Avenida Blas de Lezo 33,false,624,23,IN_SERVICE,-3.553002,40.407067
+616,true,Avenida de Miguel Delibes 49,0,625 - Avenida de Miguel Delibes 49,false,625,23,IN_SERVICE,-3.560344,40.405505
+617,true,Calle Rosalia de Castro 1,1,612 - Calle Rosalia de Castro 1,false,612,23,IN_SERVICE,-3.734639,40.480258
+618,true,"Calle José García Santesmases, 9",0,613 - Facultad de informática,false,613,23,IN_SERVICE,-3.734813,40.453109
+619,true,Avenida Juan de Andrés 21,1,615 - Avenida Juan de Andrés 21,false,615,23,IN_SERVICE,-3.722789,40.468732
+620,true,calle Alcalde Martín de Alzaga 11,2,616 - Alcalde Martín de Alzaga,false,616,23,IN_SERVICE,-3.717195,40.462899
+621,true,"Calle Arcaute 13, 28022 Madrid",1,628 - Calle Arcaute 13,false,628,23,IN_SERVICE,-3.576652,40.44358
+622,true,Calle Cooperativa Electrica 13,1,619 - Cooperativa Electrica 13,false,619,23,IN_SERVICE,-3.659633,40.374387
+623,true,"623 - Ronda.del Sur, 4",1,"623 - Ronda del Sur, esq Santa Rafaela",false,623,23,IN_SERVICE,-3.673105,40.37773
+624,true,Calle Senda del Rey 3,1,614 - Biblioteca central de la UNED,false,614,23,IN_SERVICE,-3.7344823,40.4356759
+625,true,Calle Paterna 55,0,618 - Calle Paterna 55,false,618,19,IN_SERVICE,-3.68482,40.340613
+626,true,"Av. Campus Sur, 11",2,"632 - Avda. Campus Sur, 11",false,632,23,IN_SERVICE,-3.63128545,40.38616403
+627,true,"Av. de la democracia, 2",2,631 - CAMPUS SUR 2,false,631,19,IN_SERVICE,-3.624811621,40.38340792
+628,true,"Calle Jacometrezo, 3",0,22 - Jacometrezo 3,false,22,12,IN_SERVICE,-3.706494,40.420172
+629,true,"Calle Antonia Calas, 2",1,8000 - EV Puente de Vallecas,false,8000,23,IN_SERVICE,-3.669224,40.397661
+630,true,"Calle de la Sombra, 6",2,8001 - EV JMD Carabanchel,false,8001,23,IN_SERVICE,-3.7413485,40.3798462
+631,false,"Plaza de España, s/n, 28008 Madrid",3,633 - HUB Plaza de España,true,633,12,PLANNED,-3.713604904,40.42342991
