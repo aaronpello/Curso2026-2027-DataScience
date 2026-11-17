@@ -1,0 +1,316 @@
+[
+  {
+    "op": "core/column-removal",
+    "columnName": "CODIGO",
+    "description": "Eliminar columna CODIGO"
+  },
+  {
+    "op": "core/column-removal",
+    "columnName": "LONGITUD_ETRS89",
+    "description": "Eliminar columna LONGITUD_ETRS89"
+  },
+  {
+    "op": "core/column-removal",
+    "columnName": "LATITUD_ETRS89",
+    "description": "Eliminar columna LATITUD_ETRS89"
+  },
+  {
+    "op": "core/column-removal",
+    "columnName": "COORDENADA_X_ETRS89",
+    "description": "Eliminar columna COORDENADA_X_ETRS89"
+  },
+  {
+    "op": "core/column-removal",
+    "columnName": "COORDENADA_Y_ETRS89",
+    "description": "Eliminar columna COORDENADA_Y_ETRS89"
+  },
+  {
+    "op": "core/text-transform",
+    "engineConfig": {
+      "facets": [],
+      "mode": "row-based"
+    },
+    "columnName": "DIRECCION",
+    "expression": "grel:value.trim().replace(/\\s+/, \" \")",
+    "onError": "keep-original",
+    "repeat": false,
+    "repeatCount": 10,
+    "description": "Transforma el texto de las celdas en la columna DIRECCION usando la expresión grel:value.trim().replace(/\\s+/, \" \")"
+  },
+  {
+    "op": "core/text-transform",
+    "engineConfig": {
+      "facets": [],
+      "mode": "row-based"
+    },
+    "columnName": "NO2",
+    "expression": "grel:if(value==\"X\",\"true\",\"false\")",
+    "onError": "keep-original",
+    "repeat": false,
+    "repeatCount": 10,
+    "description": "Transforma el texto de las celdas en la columna NO2 usando la expresión grel:if(value==\"X\",\"true\",\"false\")"
+  },
+  {
+    "op": "core/text-transform",
+    "engineConfig": {
+      "facets": [],
+      "mode": "row-based"
+    },
+    "columnName": "SO2",
+    "expression": "grel:if(value==\"X\",\"true\",\"false\")",
+    "onError": "keep-original",
+    "repeat": false,
+    "repeatCount": 10,
+    "description": "Transforma el texto de las celdas en la columna SO2 usando la expresión grel:if(value==\"X\",\"true\",\"false\")"
+  },
+  {
+    "op": "core/text-transform",
+    "engineConfig": {
+      "facets": [],
+      "mode": "row-based"
+    },
+    "columnName": "CO",
+    "expression": "grel:if(value==\"X\",\"true\",\"false\")",
+    "onError": "keep-original",
+    "repeat": false,
+    "repeatCount": 10,
+    "description": "Transforma el texto de las celdas en la columna CO usando la expresión grel:if(value==\"X\",\"true\",\"false\")"
+  },
+  {
+    "op": "core/text-transform",
+    "engineConfig": {
+      "facets": [],
+      "mode": "row-based"
+    },
+    "columnName": "PM10",
+    "expression": "grel:if(value==\"X\",\"true\",\"false\")",
+    "onError": "keep-original",
+    "repeat": false,
+    "repeatCount": 10,
+    "description": "Transforma el texto de las celdas en la columna PM10 usando la expresión grel:if(value==\"X\",\"true\",\"false\")"
+  },
+  {
+    "op": "core/text-transform",
+    "engineConfig": {
+      "facets": [],
+      "mode": "row-based"
+    },
+    "columnName": "PM2_5",
+    "expression": "grel:if(value==\"X\",\"true\",\"false\")",
+    "onError": "keep-original",
+    "repeat": false,
+    "repeatCount": 10,
+    "description": "Transforma el texto de las celdas en la columna PM2_5 usando la expresión grel:if(value==\"X\",\"true\",\"false\")"
+  },
+  {
+    "op": "core/text-transform",
+    "engineConfig": {
+      "facets": [],
+      "mode": "row-based"
+    },
+    "columnName": "O3",
+    "expression": "grel:if(value==\"X\",\"true\",\"false\")",
+    "onError": "keep-original",
+    "repeat": false,
+    "repeatCount": 10,
+    "description": "Transforma el texto de las celdas en la columna O3 usando la expresión grel:if(value==\"X\",\"true\",\"false\")"
+  },
+  {
+    "op": "core/text-transform",
+    "engineConfig": {
+      "facets": [],
+      "mode": "row-based"
+    },
+    "columnName": "BTX",
+    "expression": "grel:if(value==\"X\",\"true\",\"false\")",
+    "onError": "keep-original",
+    "repeat": false,
+    "repeatCount": 10,
+    "description": "Transforma el texto de las celdas en la columna BTX usando la expresión grel:if(value==\"X\",\"true\",\"false\")"
+  },
+  {
+    "op": "core/text-transform",
+    "engineConfig": {
+      "facets": [],
+      "mode": "row-based"
+    },
+    "columnName": "Fecha alta",
+    "expression": "grel:value.toDate(\"dd/MM/yyyy\").toString(\"yyyy-MM-dd\")",
+    "onError": "keep-original",
+    "repeat": false,
+    "repeatCount": 10,
+    "description": "Transforma el texto de las celdas en la columna Fecha alta usando la expresión grel:value.toDate(\"dd/MM/yyyy\").toString(\"yyyy-MM-dd\")"
+  },
+  {
+    "op": "core/column-addition",
+    "engineConfig": {
+      "facets": [],
+      "mode": "row-based"
+    },
+    "baseColumnName": "CODIGO_CORTO",
+    "expression": "grel:value",
+    "onError": "set-to-blank",
+    "newColumnName": "distrito",
+    "columnInsertIndex": 1,
+    "description": "Crear la columna distrito en el índice 1 basada en la columna CODIGO_CORTO usando la expresión grel:value"
+  },
+  {
+    "op": "core/mass-edit",
+    "engineConfig": {
+      "facets": [],
+      "mode": "row-based"
+    },
+    "columnName": "distrito",
+    "expression": "value",
+    "edits": [
+      {
+        "from": [
+          "11"
+        ],
+        "fromBlank": false,
+        "fromError": false,
+        "to": "5"
+      }
+    ],
+    "description": "Editar celdas en masa en columna distrito"
+  },
+  {
+    "op": "core/mass-edit",
+    "engineConfig": {
+      "facets": [],
+      "mode": "row-based"
+    },
+    "columnName": "distrito",
+    "expression": "value",
+    "edits": [
+      {
+        "from": [
+          "16"
+        ],
+        "fromBlank": false,
+        "fromError": false,
+        "to": "15"
+      }
+    ],
+    "description": "Editar celdas en masa en columna distrito"
+  },
+  {
+    "op": "core/mass-edit",
+    "engineConfig": {
+      "facets": [],
+      "mode": "row-based"
+    },
+    "columnName": "distrito",
+    "expression": "value",
+    "edits": [
+      {
+        "from": [
+          "18"
+        ],
+        "fromBlank": false,
+        "fromError": false,
+        "to": "11"
+      }
+    ],
+    "description": "Editar celdas en masa en columna distrito"
+  },
+  {
+    "op": "core/mass-edit",
+    "engineConfig": {
+      "facets": [],
+      "mode": "row-based"
+    },
+    "columnName": "distrito",
+    "expression": "value",
+    "edits": [
+      {
+        "from": [
+          "8"
+        ],
+        "fromBlank": false,
+        "fromError": false,
+        "to": "4"
+      }
+    ],
+    "description": "Editar celdas en masa en columna distrito"
+  },
+  {
+    "op": "core/mass-edit",
+    "engineConfig": {
+      "facets": [],
+      "mode": "row-based"
+    },
+    "columnName": "distrito",
+    "expression": "value",
+    "edits": [
+      {
+        "from": [
+          "4"
+        ],
+        "fromBlank": false,
+        "fromError": false,
+        "to": "9"
+      }
+    ],
+    "description": "Editar celdas en masa en columna distrito"
+  },
+  {
+    "op": "core/column-removal",
+    "columnName": "distrito",
+    "description": "Eliminar columna distrito"
+  },
+  {
+    "op": "core/column-addition",
+    "engineConfig": {
+      "facets": [],
+      "mode": "row-based"
+    },
+    "baseColumnName": "CODIGO_CORTO",
+    "expression": "grel:\"|0=0|4=9|8=4|11=5|16=15|17=17|18=11|24=9|27=21|35=1|36=14|38=7|39=8|40=13|47=2|48=5|49=3|50=5|54=18|55=21|56=11|57=16|58=8|59=21|60=8|\".split(\"|\"+value+\"=\")[1].split(\"|\")[0]",
+    "onError": "set-to-blank",
+    "newColumnName": "distrito",
+    "columnInsertIndex": 1,
+    "description": "Crear la columna distrito en el índice 1 basada en la columna CODIGO_CORTO usando la expresión grel:\"|0=0|4=9|8=4|11=5|16=15|17=17|18=11|24=9|27=21|35=1|36=14|38=7|39=8|40=13|47=2|48=5|49=3|50=5|54=18|55=21|56=11|57=16|58=8|59=21|60=8|\".split(\"|\"+value+\"=\")[1].split(\"|\")[0]"
+  },
+  {
+    "op": "core/column-addition",
+    "engineConfig": {
+      "facets": [],
+      "mode": "row-based"
+    },
+    "baseColumnName": "distrito",
+    "expression": "grel:if(isBlank(value), \"\", [\"Centro\",\"Arganzuela\",\"Retiro\",\"Salamanca\",\"Chamartín\",\"Tetuán\",\"Chamberí\",\"Fuencarral-El Pardo\",\"Moncloa-Aravaca\",\"Latina\",\"Carabanchel\",\"Usera\",\"Puente de Vallecas\",\"Moratalaz\",\"Ciudad Lineal\",\"Hortaleza\",\"Villaverde\",\"Villa de Vallecas\",\"Vicálvaro\",\"San Blas-Canillejas\",\"Barajas\"][toNumber(value)-1])",
+    "onError": "set-to-blank",
+    "newColumnName": "nombre_distrito",
+    "columnInsertIndex": 2,
+    "description": "Crear la columna nombre_distrito en el índice 2 basada en la columna distrito usando la expresión grel:if(isBlank(value), \"\", [\"Centro\",\"Arganzuela\",\"Retiro\",\"Salamanca\",\"Chamartín\",\"Tetuán\",\"Chamberí\",\"Fuencarral-El Pardo\",\"Moncloa-Aravaca\",\"Latina\",\"Carabanchel\",\"Usera\",\"Puente de Vallecas\",\"Moratalaz\",\"Ciudad Lineal\",\"Hortaleza\",\"Villaverde\",\"Villa de Vallecas\",\"Vicálvaro\",\"San Blas-Canillejas\",\"Barajas\"][toNumber(value)-1])"
+  },
+  {
+    "op": "core/column-reorder",
+    "columnNames": [
+      "CODIGO_CORTO",
+      "ESTACION",
+      "DIRECCION",
+      "LONGITUD",
+      "LATITUD",
+      "ALTITUD",
+      "COD_TIPO",
+      "NOM_TIPO",
+      "distrito",
+      "nombre_distrito",
+      "NO2",
+      "SO2",
+      "CO",
+      "PM10",
+      "PM2_5",
+      "O3",
+      "BTX",
+      "COD_VIA",
+      "VIA_CLASE",
+      "VIA_PAR",
+      "VIA_NOMBRE",
+      "Fecha alta"
+    ],
+    "description": "Reorganizar columnas"
+  }
+]
