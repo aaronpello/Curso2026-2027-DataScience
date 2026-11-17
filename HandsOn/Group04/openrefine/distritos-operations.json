@@ -1,0 +1,15 @@
+[
+  {
+    "op": "core/text-transform",
+    "engineConfig": {
+      "facets": [],
+      "mode": "row-based"
+    },
+    "columnName": "gis.gis.DISTRITOS.area",
+    "expression": "grel:if(\n  value.toNumber() == 2984760,\n  value.toNumber(),\n  value.toNumber() / 10\n)",
+    "onError": "keep-original",
+    "repeat": false,
+    "repeatCount": 10,
+    "description": "Transforma el texto de las celdas en la columna gis.gis.DISTRITOS.area usando la expresión grel:if(\n  value.toNumber() == 2984760,\n  value.toNumber(),\n  value.toNumber() / 10\n)"
+  }
+]
