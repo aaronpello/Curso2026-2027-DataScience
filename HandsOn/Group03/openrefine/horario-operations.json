@@ -1,0 +1,63 @@
+[
+  {
+    "op": "core/column-addition",
+    "engineConfig": {
+      "facets": [],
+      "mode": "row-based"
+    },
+    "baseColumnName": "ESTACION",
+    "expression": "grel:with((\"00\"+cells[\"PROVINCIA\"].value.toString()), p, p.substring(p.length()-2)) + with((\"000\"+cells[\"MUNICIPIO\"].value.toString()), p, p.substring(p.length()-3)) + with((\"000\"+value.toString()), p, p.substring(p.length()-3))",
+    "onError": "set-to-blank",
+    "newColumnName": "CODIGO",
+    "columnInsertIndex": 0,
+    "description": "Create column CODIGO at index 0 based on column ESTACION using expression grel:with((\"00\"+cells[\"PROVINCIA\"].value.toString()), p, p.substring(p.length()-2)) + with((\"000\"+cells[\"MUNICIPIO\"].value.toString()), p, p.substring(p.length()-3)) + with((\"000\"+value.toString()), p, p.substring(p.length()-3))"
+  },
+  {
+    "op": "core/column-addition",
+    "engineConfig": {
+      "facets": [],
+      "mode": "row-based"
+    },
+    "baseColumnName": "ANO",
+    "expression": "grel:value.toString() + \"-\" + with((\"00\"+cells[\"MES\"].value.toString()), p, p.substring(p.length()-2)) + \"-\" + with((\"00\"+cells[\"DIA\"].value.toString()), p, p.substring(p.length()-2))",
+    "onError": "set-to-blank",
+    "newColumnName": "FECHA",
+    "columnInsertIndex": 1,
+    "description": "Create column FECHA at index 1 based on column ANO using expression grel:value.toString() + \"-\" + with((\"00\"+cells[\"MES\"].value.toString()), p, p.substring(p.length()-2)) + \"-\" + with((\"00\"+cells[\"DIA\"].value.toString()), p, p.substring(p.length()-2))"
+  },
+  {
+    "op": "core/column-removal",
+    "columnName": "PROVINCIA",
+    "description": "Remove column PROVINCIA"
+  },
+  {
+    "op": "core/column-removal",
+    "columnName": "MUNICIPIO",
+    "description": "Remove column MUNICIPIO"
+  },
+  {
+    "op": "core/column-removal",
+    "columnName": "ESTACION",
+    "description": "Remove column ESTACION"
+  },
+  {
+    "op": "core/column-removal",
+    "columnName": "PUNTO_MUESTREO",
+    "description": "Remove column PUNTO_MUESTREO"
+  },
+  {
+    "op": "core/column-removal",
+    "columnName": "ANO",
+    "description": "Remove column ANO"
+  },
+  {
+    "op": "core/column-removal",
+    "columnName": "MES",
+    "description": "Remove column MES"
+  },
+  {
+    "op": "core/column-removal",
+    "columnName": "DIA",
+    "description": "Remove column DIA"
+  }
+]
