@@ -1,0 +1,50 @@
+@prefix barrio: <https://gastronomad.es/group08/resource/barrio/> .
+@prefix ex: <https://gastronomad.es/group08/ontology#> .
+@prefix mercado: <https://gastronomad.es/group08/resource/mercado/> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+
+mercado:12418 a ex:Mercado ;
+    ex:hasAccessibilityCode 1 ;
+    ex:hasContentURL "http://www.madrid.es/sites/v/index.jsp?vgnextchannel=bfa48ab43d6bb410VgnVCM100000171f5a0aRCRD&vgnextoid=cb05e1635561c010VgnVCM1000000b205a0aRCRD"^^xsd:anyURI ;
+    ex:hasDescription "Del techo desciende el taconeo de la escuela de arte flamenco y del suelo ascienden los golpes de las carretillas que traen y llevan género. Entre una cosa y otra, se abre paso una amplia oferta de ocio y restauración que se complementa -dialoga- con los puestos del mercado tradicional: carnicerías y pollerías, verdulerías y fruterías y pescaderías que sirven fuera y dentro del mercado. El mercado de Antón Martín es un trasiego de gente que compra, de gente que se sienta a comer y de gente que se lo lleva a casa. Aunque el mercado, tal y como lo conocemos hoy, se abrió al público en 1941, hace más de trescientos años que se vende comida en la plaza de Antón Martín. Asomado a la calle Atocha, con un ojo puesto en el Barrio de las Letras y otro en Lavapiés, presenta una imagen en constante renovación -fachada intervenida por enormes grafitis- que se corresponde con lo que hay dentro: actividad permanente alrededor de la comida, ya sea un plato de ostras, media docena de croquetas de autor o kilo y medio de calabacines. Inaugurado en el año 1941, el mercado de Antón Martín, situado en el barrio de Embajadores, junto al Cine Doré, sede de la Filmoteca Española, cuenta con más de 80 locales, entre puestos interiores y tiendas exteriores."^^xsd:string ;
+    ex:hasLatitude 40.411422452721546 ;
+    ex:hasLongitude -3.6988110198857145 ;
+    ex:hasMarketId 12418 ;
+    ex:hasName "Mercado municipal de Antón Martín"^^xsd:string ;
+    ex:hasOpeningHours "Establecimientos del mercado tradicional:  de lunes a viernes de 9 a 21 horas y sábados de 9 a 15 horas.  Horario de restaruación: de lunes a viernes de 9 a 23:30 horas. Sábado de 15 a 18 horas (acceso por Duque de Fernán Núñez)"^^xsd:string ;
+    ex:hasPhone "913 690 620"^^xsd:string ;
+    ex:hasPostalCode "28012"^^xsd:string ;
+    ex:hasStreetName "SANTA ISABEL"^^xsd:string ;
+    ex:hasTransportInfo "Metro: Anton Martin (línea 1)  Bus: 6, 26, 32"^^xsd:string ;
+    ex:locatedInBarrio barrio:012 .
+
+mercado:12419 a ex:Mercado ;
+    ex:hasAccessibilityCode 1 ;
+    ex:hasContentURL "http://www.madrid.es/sites/v/index.jsp?vgnextchannel=bfa48ab43d6bb410VgnVCM100000171f5a0aRCRD&vgnextoid=7a47e1635561c010VgnVCM1000000b205a0aRCRD"^^xsd:anyURI ;
+    ex:hasDescription "Mucha gente abre la boca cuando entra al Mercado de la Cebada, y lo hace sobre todo por dos razones: los estímulos sensoriales que suponen la multitud de puestos desplegados arriba y abajo, a izquierda y derecha, y el asombro que producen sus cúpulas de colores. Una vez dentro, los sentidos comienzan a trabajar en todas las direcciones: el mercado se huele, se oye, se palpa, se ve y se saborea. Levantado en 1868, derribado en 1956 y reconstruido dos años después, el Mercado de la Cebada no está donde está por casualidad. Ubicado sobre el solar donde se vendían cereales, y especialmente cebada, hace ya quinientos años, ahora es un mercado de abastos con una vida propia que tampoco es casualidad. Situado en la encrucijada de barrios palpitantes como El Rastro o La Latina, y a pocos minutos del kilómetro 0, es un ejemplo de cómo las nuevas fórmulas de negocio -catas de vino, degustaciones de marisco y pescado durante los fines de semana- pueden revitalizar un espacio sin renunciar a su esencia."^^xsd:string ;
+    ex:hasLatitude 40.41129262886917 ;
+    ex:hasLongitude -3.7097706603113547 ;
+    ex:hasMarketId 12419 ;
+    ex:hasName "Mercado municipal de la Cebada"^^xsd:string ;
+    ex:hasOpeningHours "Lunes a viernes: 9 a 14 y de 17:00 a 20:30 horas.  Sábados: 9 a 18 horas.  Primer domingo de cada mes: de 11 a 17 horas."^^xsd:string ;
+    ex:hasPhone "913 666 966"^^xsd:string ;
+    ex:hasPostalCode "28005"^^xsd:string ;
+    ex:hasStreetName "CEBADA"^^xsd:string ;
+    ex:hasTransportInfo "Metro: La Latina (línea 5)  Bus: 17, 18, 23, 31, 35, 50, 60, 65."^^xsd:string ;
+    ex:locatedInBarrio barrio:011 .
+
+mercado:12426 a ex:Mercado ;
+    ex:hasAccessibilityCode 1 ;
+    ex:hasContentURL "http://www.madrid.es/sites/v/index.jsp?vgnextchannel=bfa48ab43d6bb410VgnVCM100000171f5a0aRCRD&vgnextoid=1235e1635561c010VgnVCM1000000b205a0aRCRD"^^xsd:anyURI ;
+    ex:hasDescription "A medio camino entre la agitación de calle Princesa y la paz casi forestal del Parque del Oeste, en el cruce de Tutor con Altamirano, está el Mercado de Arg&amp;uuml;elles. Abrió sus puertas en 1949 y, en 2011, después de una exhaustiva remodelación, se convirtió en el mercado ordenado, racional, práctico y accesible que hoy conocemos. Perfectamente insertado en el trazado urbanístico del barrio, una cuadrícula de calles alargadas, combina una completa oferta en perecederos con un supermercado de medianas dimensiones y servicios como una costurera, tiendas de ropa y una academia musical. El mercado cuenta incluso con su propia controversia histórica, originada en torno a unos versos de Pablo Neruda: Todo eran grandes voces, sal de mercaderías, aglomeraciones de pan palpitante, mercados de mi barrio de Arg&amp;uuml;elles con su estatua como un tintero pálido entre las merluzas. Tanto si el poeta se refería a un mercado callejero desplegado en el solar sobre el que se edificó el actual como si no fue así, la cuestión es que ahora este es el mercado de Arg&amp;uuml;elles, con sus merluzas y su pan palpitante."^^xsd:string ;
+    ex:hasLatitude 40.431197427341125 ;
+    ex:hasLongitude -3.7179024231789466 ;
+    ex:hasMarketId 12426 ;
+    ex:hasName "Mercado municipal de Argüelles"^^xsd:string ;
+    ex:hasOpeningHours "Mercado:  De lunes a viernes: de 9 a 14 y de 17:30 a 20 horas. Sábado: de 9 a 14 horas.    Supermercado Ahorramás: de lunes a sábado de 9 a 21 horas."^^xsd:string ;
+    ex:hasPhone "915 443 015"^^xsd:string ;
+    ex:hasPostalCode "28008"^^xsd:string ;
+    ex:hasStreetName "ALTAMIRANO"^^xsd:string ;
+    ex:hasTransportInfo "Metro: Arg&amp;uuml;elles (línea 3, 4 y 6). Salida calle Altamirano.  Bus: 1, 21, 44, 74, 82, 83, 132, 133, C, 21"^^xsd:string ;
+    ex:locatedInBarrio barrio:092 .
+

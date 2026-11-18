@@ -1,0 +1,1043 @@
+[
+  {
+    "op": "core/column-removal",
+    "columnName": "FAX",
+    "description": "Eliminar columna FAX"
+  },
+  {
+    "op": "core/text-transform",
+    "engineConfig": {
+      "facets": [],
+      "mode": "row-based"
+    },
+    "columnName": "NOMBRE",
+    "expression": "value.trim()",
+    "onError": "keep-original",
+    "repeat": false,
+    "repeatCount": 0,
+    "description": "Transforma el texto de las celdas en la columna NOMBRE usando la expresión value.trim()"
+  },
+  {
+    "op": "core/text-transform",
+    "engineConfig": {
+      "facets": [],
+      "mode": "row-based"
+    },
+    "columnName": "BARRIO",
+    "expression": "value.trim()",
+    "onError": "keep-original",
+    "repeat": false,
+    "repeatCount": 0,
+    "description": "Transforma el texto de las celdas en la columna BARRIO usando la expresión value.trim()"
+  },
+  {
+    "op": "core/text-transform",
+    "engineConfig": {
+      "facets": [],
+      "mode": "row-based"
+    },
+    "columnName": "DISTRITO",
+    "expression": "value.trim()",
+    "onError": "keep-original",
+    "repeat": false,
+    "repeatCount": 0,
+    "description": "Transforma el texto de las celdas en la columna DISTRITO usando la expresión value.trim()"
+  },
+  {
+    "op": "core/text-transform",
+    "engineConfig": {
+      "facets": [],
+      "mode": "row-based"
+    },
+    "columnName": "TELEFONO",
+    "expression": "value.trim()",
+    "onError": "keep-original",
+    "repeat": false,
+    "repeatCount": 0,
+    "description": "Transforma el texto de las celdas en la columna TELEFONO usando la expresión value.trim()"
+  },
+  {
+    "op": "core/text-transform",
+    "engineConfig": {
+      "facets": [],
+      "mode": "row-based"
+    },
+    "columnName": "EMAIL",
+    "expression": "value.trim()",
+    "onError": "keep-original",
+    "repeat": false,
+    "repeatCount": 0,
+    "description": "Transforma el texto de las celdas en la columna EMAIL usando la expresión value.trim()"
+  },
+  {
+    "op": "core/column-removal",
+    "columnName": "PLANTA",
+    "description": "Eliminar columna PLANTA"
+  },
+  {
+    "op": "core/column-removal",
+    "columnName": "PUERTA",
+    "description": "Eliminar columna PUERTA"
+  },
+  {
+    "op": "core/column-removal",
+    "columnName": "ESCALERAS",
+    "description": "Eliminar columna ESCALERAS"
+  },
+  {
+    "op": "core/column-removal",
+    "columnName": "ORIENTACION",
+    "description": "Eliminar columna ORIENTACION"
+  },
+  {
+    "op": "core/text-transform",
+    "engineConfig": {
+      "facets": [],
+      "mode": "row-based"
+    },
+    "columnName": "TRANSPORTE",
+    "expression": "grel:value.unescape('html')",
+    "onError": "keep-original",
+    "repeat": false,
+    "repeatCount": 10,
+    "description": "Transforma el texto de las celdas en la columna TRANSPORTE usando la expresión grel:value.unescape('html')"
+  },
+  {
+    "op": "core/text-transform",
+    "engineConfig": {
+      "facets": [],
+      "mode": "row-based"
+    },
+    "columnName": "DESCRIPCION-ENTIDAD",
+    "expression": "grel:value.unescape('html')",
+    "onError": "keep-original",
+    "repeat": false,
+    "repeatCount": 10,
+    "description": "Transforma el texto de las celdas en la columna DESCRIPCION-ENTIDAD usando la expresión grel:value.unescape('html')"
+  },
+  {
+    "op": "core/text-transform",
+    "engineConfig": {
+      "facets": [],
+      "mode": "row-based"
+    },
+    "columnName": "DESCRIPCION-ENTIDAD",
+    "expression": "grel:value.unescape('html')",
+    "onError": "keep-original",
+    "repeat": false,
+    "repeatCount": 10,
+    "description": "Transforma el texto de las celdas en la columna DESCRIPCION-ENTIDAD usando la expresión grel:value.unescape('html')"
+  },
+  {
+    "op": "core/text-transform",
+    "engineConfig": {
+      "facets": [],
+      "mode": "row-based"
+    },
+    "columnName": "TRANSPORTE",
+    "expression": "grel:value.unescape('html')",
+    "onError": "keep-original",
+    "repeat": false,
+    "repeatCount": 10,
+    "description": "Transforma el texto de las celdas en la columna TRANSPORTE usando la expresión grel:value.unescape('html')"
+  },
+  {
+    "op": "core/text-transform",
+    "engineConfig": {
+      "facets": [],
+      "mode": "row-based"
+    },
+    "columnName": "EMAIL",
+    "expression": "grel:value.trim().toLowercase()",
+    "onError": "keep-original",
+    "repeat": false,
+    "repeatCount": 10,
+    "description": "Transforma el texto de las celdas en la columna EMAIL usando la expresión grel:value.trim().toLowercase()"
+  },
+  {
+    "op": "core/text-transform",
+    "engineConfig": {
+      "facets": [],
+      "mode": "row-based"
+    },
+    "columnName": "EMAIL",
+    "expression": "grel:value.replace(/\\.+$/, \"\")",
+    "onError": "keep-original",
+    "repeat": false,
+    "repeatCount": 10,
+    "description": "Transforma el texto de las celdas en la columna EMAIL usando la expresión grel:value.replace(/\\.+$/, \"\")"
+  },
+  {
+    "op": "core/text-transform",
+    "engineConfig": {
+      "facets": [],
+      "mode": "row-based"
+    },
+    "columnName": "DISTRITO",
+    "expression": "grel:value.trim().toLowercase()",
+    "onError": "keep-original",
+    "repeat": false,
+    "repeatCount": 10,
+    "description": "Transforma el texto de las celdas en la columna DISTRITO usando la expresión grel:value.trim().toLowercase()"
+  },
+  {
+    "op": "core/text-transform",
+    "engineConfig": {
+      "facets": [],
+      "mode": "row-based"
+    },
+    "columnName": "BARRIO",
+    "expression": "grel:value.trim().toLowercase()",
+    "onError": "keep-original",
+    "repeat": false,
+    "repeatCount": 10,
+    "description": "Transforma el texto de las celdas en la columna BARRIO usando la expresión grel:value.trim().toLowercase()"
+  },
+  {
+    "op": "core/text-transform",
+    "engineConfig": {
+      "facets": [],
+      "mode": "row-based"
+    },
+    "columnName": "DISTRITO",
+    "expression": "value.toTitlecase()",
+    "onError": "keep-original",
+    "repeat": false,
+    "repeatCount": 10,
+    "description": "Transforma el texto de las celdas en la columna DISTRITO usando la expresión value.toTitlecase()"
+  },
+  {
+    "op": "core/text-transform",
+    "engineConfig": {
+      "facets": [],
+      "mode": "row-based"
+    },
+    "columnName": "BARRIO",
+    "expression": "value.toTitlecase()",
+    "onError": "keep-original",
+    "repeat": false,
+    "repeatCount": 10,
+    "description": "Transforma el texto de las celdas en la columna BARRIO usando la expresión value.toTitlecase()"
+  },
+  {
+    "op": "core/column-addition",
+    "engineConfig": {
+      "facets": [],
+      "mode": "row-based"
+    },
+    "baseColumnName": "CODIGO-POSTAL",
+    "expression": "grel:value",
+    "onError": "set-to-blank",
+    "newColumnName": "copia",
+    "columnInsertIndex": 16,
+    "description": "Crear la columna copia en el índice 16 basada en la columna CODIGO-POSTAL usando la expresión grel:value"
+  },
+  {
+    "op": "core/text-transform",
+    "engineConfig": {
+      "facets": [],
+      "mode": "row-based"
+    },
+    "columnName": "copia",
+    "expression": "grel:value.toString()",
+    "onError": "keep-original",
+    "repeat": false,
+    "repeatCount": 10,
+    "description": "Transforma el texto de las celdas en la columna copia usando la expresión grel:value.toString()"
+  },
+  {
+    "op": "core/text-transform",
+    "engineConfig": {
+      "facets": [
+        {
+          "type": "list",
+          "name": "COORDENADA-Y",
+          "expression": "isBlank(value)",
+          "columnName": "COORDENADA-Y",
+          "invert": false,
+          "omitBlank": false,
+          "omitError": false,
+          "selection": [
+            {
+              "v": {
+                "v": true,
+                "l": "true"
+              }
+            }
+          ],
+          "selectBlank": false,
+          "selectError": false
+        }
+      ],
+      "mode": "row-based"
+    },
+    "columnName": "LATITUD",
+    "expression": "grel:value.toNumber()",
+    "onError": "keep-original",
+    "repeat": false,
+    "repeatCount": 10,
+    "description": "Transforma el texto de las celdas en la columna LATITUD usando la expresión grel:value.toNumber()"
+  },
+  {
+    "op": "core/text-transform",
+    "engineConfig": {
+      "facets": [
+        {
+          "type": "list",
+          "name": "COORDENADA-Y",
+          "expression": "isBlank(value)",
+          "columnName": "COORDENADA-Y",
+          "invert": false,
+          "omitBlank": false,
+          "omitError": false,
+          "selection": [
+            {
+              "v": {
+                "v": true,
+                "l": "true"
+              }
+            }
+          ],
+          "selectBlank": false,
+          "selectError": false
+        }
+      ],
+      "mode": "row-based"
+    },
+    "columnName": "LONGITUD",
+    "expression": "grel:value.toNumber()",
+    "onError": "keep-original",
+    "repeat": false,
+    "repeatCount": 10,
+    "description": "Transforma el texto de las celdas en la columna LONGITUD usando la expresión grel:value.toNumber()"
+  },
+  {
+    "op": "core/text-transform",
+    "engineConfig": {
+      "facets": [],
+      "mode": "row-based"
+    },
+    "columnName": "LATITUD",
+    "expression": "grel:value.toNumber()",
+    "onError": "keep-original",
+    "repeat": false,
+    "repeatCount": 10,
+    "description": "Transforma el texto de las celdas en la columna LATITUD usando la expresión grel:value.toNumber()"
+  },
+  {
+    "op": "core/text-transform",
+    "engineConfig": {
+      "facets": [],
+      "mode": "row-based"
+    },
+    "columnName": "LONGITUD",
+    "expression": "grel:value.toNumber()",
+    "onError": "keep-original",
+    "repeat": false,
+    "repeatCount": 10,
+    "description": "Transforma el texto de las celdas en la columna LONGITUD usando la expresión grel:value.toNumber()"
+  },
+  {
+    "op": "core/text-transform",
+    "engineConfig": {
+      "facets": [],
+      "mode": "row-based"
+    },
+    "columnName": "ACCESIBILIDAD",
+    "expression": "grel:if(value == \"1\", \"Sí\", if(value == \"0\", \"No\", value))",
+    "onError": "keep-original",
+    "repeat": false,
+    "repeatCount": 10,
+    "description": "Transforma el texto de las celdas en la columna ACCESIBILIDAD usando la expresión grel:if(value == \"1\", \"Sí\", if(value == \"0\", \"No\", value))"
+  },
+  {
+    "op": "core/text-transform",
+    "engineConfig": {
+      "facets": [],
+      "mode": "row-based"
+    },
+    "columnName": "TRANSPORTE",
+    "expression": "grel:value.trim().replace(/\\s+/, \" \")",
+    "onError": "keep-original",
+    "repeat": false,
+    "repeatCount": 10,
+    "description": "Transforma el texto de las celdas en la columna TRANSPORTE usando la expresión grel:value.trim().replace(/\\s+/, \" \")"
+  },
+  {
+    "op": "core/text-transform",
+    "engineConfig": {
+      "facets": [],
+      "mode": "row-based"
+    },
+    "columnName": "HORARIO",
+    "expression": "grel:value.trim().replace(/\\s+/, \" \")",
+    "onError": "keep-original",
+    "repeat": false,
+    "repeatCount": 10,
+    "description": "Transforma el texto de las celdas en la columna HORARIO usando la expresión grel:value.trim().replace(/\\s+/, \" \")"
+  },
+  {
+    "op": "core/column-rename",
+    "oldColumnName": "copia",
+    "newColumnName": "CODIGO POSTAL",
+    "description": "Renombra la columna copia a CODIGO POSTAL"
+  },
+  {
+    "op": "core/column-removal",
+    "columnName": "CODIGO-POSTAL",
+    "description": "Eliminar columna CODIGO-POSTAL"
+  },
+  {
+    "op": "core/text-transform",
+    "engineConfig": {
+      "facets": [],
+      "mode": "row-based"
+    },
+    "columnName": "TELEFONO",
+    "expression": "grel:value.replace(/\\s+/, \"\")",
+    "onError": "keep-original",
+    "repeat": false,
+    "repeatCount": 10,
+    "description": "Transforma el texto de las celdas en la columna TELEFONO usando la expresión grel:value.replace(/\\s+/, \"\")"
+  },
+  {
+    "op": "core/column-removal",
+    "columnName": "TIPO-NUM",
+    "description": "Eliminar columna TIPO-NUM"
+  },
+  {
+    "op": "core/text-transform",
+    "engineConfig": {
+      "facets": [
+        {
+          "type": "list",
+          "name": "TIPO-NUM",
+          "expression": "facetCount(value, 'value', 'TIPO-NUM') > 1",
+          "columnName": "TIPO-NUM",
+          "invert": false,
+          "omitBlank": false,
+          "omitError": false,
+          "selection": [
+            {
+              "v": {
+                "v": true,
+                "l": "true"
+              }
+            }
+          ],
+          "selectBlank": false,
+          "selectError": false
+        }
+      ],
+      "mode": "row-based"
+    },
+    "columnName": "NOMBRE-VIA",
+    "expression": "grel:value.unescape('html')",
+    "onError": "keep-original",
+    "repeat": false,
+    "repeatCount": 10,
+    "description": "Transforma el texto de las celdas en la columna NOMBRE-VIA usando la expresión grel:value.unescape('html')"
+  },
+  {
+    "op": "core/text-transform",
+    "engineConfig": {
+      "facets": [
+        {
+          "type": "list",
+          "name": "TIPO-NUM",
+          "expression": "facetCount(value, 'value', 'TIPO-NUM') > 1",
+          "columnName": "TIPO-NUM",
+          "invert": false,
+          "omitBlank": false,
+          "omitError": false,
+          "selection": [
+            {
+              "v": {
+                "v": true,
+                "l": "true"
+              }
+            }
+          ],
+          "selectBlank": false,
+          "selectError": false
+        }
+      ],
+      "mode": "row-based"
+    },
+    "columnName": "TELEFONO",
+    "expression": "grel:value.replace(\"-\", \" / \")",
+    "onError": "keep-original",
+    "repeat": false,
+    "repeatCount": 10,
+    "description": "Transforma el texto de las celdas en la columna TELEFONO usando la expresión grel:value.replace(\"-\", \" / \")"
+  },
+  {
+    "op": "core/mass-edit",
+    "engineConfig": {
+      "facets": [
+        {
+          "type": "list",
+          "name": "TIPO-NUM",
+          "expression": "facetCount(value, 'value', 'TIPO-NUM') > 1",
+          "columnName": "TIPO-NUM",
+          "invert": false,
+          "omitBlank": false,
+          "omitError": false,
+          "selection": [
+            {
+              "v": {
+                "v": true,
+                "l": "true"
+              }
+            }
+          ],
+          "selectBlank": false,
+          "selectError": false
+        }
+      ],
+      "mode": "row-based"
+    },
+    "columnName": "BARRIO",
+    "expression": "value",
+    "edits": [
+      {
+        "from": [
+          "Arguelles"
+        ],
+        "fromBlank": false,
+        "fromError": false,
+        "to": "Argüelles"
+      }
+    ],
+    "description": "Editar celdas en masa en columna BARRIO"
+  },
+  {
+    "op": "core/mass-edit",
+    "engineConfig": {
+      "facets": [
+        {
+          "type": "list",
+          "name": "TIPO-NUM",
+          "expression": "facetCount(value, 'value', 'TIPO-NUM') > 1",
+          "columnName": "TIPO-NUM",
+          "invert": false,
+          "omitBlank": false,
+          "omitError": false,
+          "selection": [
+            {
+              "v": {
+                "v": true,
+                "l": "true"
+              }
+            }
+          ],
+          "selectBlank": false,
+          "selectError": false
+        }
+      ],
+      "mode": "row-based"
+    },
+    "columnName": "BARRIO",
+    "expression": "value",
+    "edits": [
+      {
+        "from": [
+          "Ciudad Jardin"
+        ],
+        "fromBlank": false,
+        "fromError": false,
+        "to": "Ciudad Jardín"
+      }
+    ],
+    "description": "Editar celdas en masa en columna BARRIO"
+  },
+  {
+    "op": "core/mass-edit",
+    "engineConfig": {
+      "facets": [
+        {
+          "type": "list",
+          "name": "TIPO-NUM",
+          "expression": "facetCount(value, 'value', 'TIPO-NUM') > 1",
+          "columnName": "TIPO-NUM",
+          "invert": false,
+          "omitBlank": false,
+          "omitError": false,
+          "selection": [
+            {
+              "v": {
+                "v": true,
+                "l": "true"
+              }
+            }
+          ],
+          "selectBlank": false,
+          "selectError": false
+        }
+      ],
+      "mode": "row-based"
+    },
+    "columnName": "BARRIO",
+    "expression": "value",
+    "edits": [
+      {
+        "from": [
+          "Concepcion"
+        ],
+        "fromBlank": false,
+        "fromError": false,
+        "to": "Concepción"
+      }
+    ],
+    "description": "Editar celdas en masa en columna BARRIO"
+  },
+  {
+    "op": "core/mass-edit",
+    "engineConfig": {
+      "facets": [
+        {
+          "type": "list",
+          "name": "TIPO-NUM",
+          "expression": "facetCount(value, 'value', 'TIPO-NUM') > 1",
+          "columnName": "TIPO-NUM",
+          "invert": false,
+          "omitBlank": false,
+          "omitError": false,
+          "selection": [
+            {
+              "v": {
+                "v": true,
+                "l": "true"
+              }
+            }
+          ],
+          "selectBlank": false,
+          "selectError": false
+        }
+      ],
+      "mode": "row-based"
+    },
+    "columnName": "BARRIO",
+    "expression": "value",
+    "edits": [
+      {
+        "from": [
+          "Entrevias"
+        ],
+        "fromBlank": false,
+        "fromError": false,
+        "to": "Entrevías"
+      }
+    ],
+    "description": "Editar celdas en masa en columna BARRIO"
+  },
+  {
+    "op": "core/mass-edit",
+    "engineConfig": {
+      "facets": [
+        {
+          "type": "list",
+          "name": "TIPO-NUM",
+          "expression": "facetCount(value, 'value', 'TIPO-NUM') > 1",
+          "columnName": "TIPO-NUM",
+          "invert": false,
+          "omitBlank": false,
+          "omitError": false,
+          "selection": [
+            {
+              "v": {
+                "v": true,
+                "l": "true"
+              }
+            }
+          ],
+          "selectBlank": false,
+          "selectError": false
+        }
+      ],
+      "mode": "row-based"
+    },
+    "columnName": "BARRIO",
+    "expression": "value",
+    "edits": [
+      {
+        "from": [
+          "Hispanoamerica"
+        ],
+        "fromBlank": false,
+        "fromError": false,
+        "to": "Hispanoamérica"
+      }
+    ],
+    "description": "Editar celdas en masa en columna BARRIO"
+  },
+  {
+    "op": "core/mass-edit",
+    "engineConfig": {
+      "facets": [
+        {
+          "type": "list",
+          "name": "TIPO-NUM",
+          "expression": "facetCount(value, 'value', 'TIPO-NUM') > 1",
+          "columnName": "TIPO-NUM",
+          "invert": false,
+          "omitBlank": false,
+          "omitError": false,
+          "selection": [
+            {
+              "v": {
+                "v": true,
+                "l": "true"
+              }
+            }
+          ],
+          "selectBlank": false,
+          "selectError": false
+        }
+      ],
+      "mode": "row-based"
+    },
+    "columnName": "BARRIO",
+    "expression": "value",
+    "edits": [
+      {
+        "from": [
+          "Moscardo"
+        ],
+        "fromBlank": false,
+        "fromError": false,
+        "to": "Moscardó"
+      }
+    ],
+    "description": "Editar celdas en masa en columna BARRIO"
+  },
+  {
+    "op": "core/mass-edit",
+    "engineConfig": {
+      "facets": [
+        {
+          "type": "list",
+          "name": "TIPO-NUM",
+          "expression": "facetCount(value, 'value', 'TIPO-NUM') > 1",
+          "columnName": "TIPO-NUM",
+          "invert": false,
+          "omitBlank": false,
+          "omitError": false,
+          "selection": [
+            {
+              "v": {
+                "v": true,
+                "l": "true"
+              }
+            }
+          ],
+          "selectBlank": false,
+          "selectError": false
+        }
+      ],
+      "mode": "row-based"
+    },
+    "columnName": "BARRIO",
+    "expression": "value",
+    "edits": [
+      {
+        "from": [
+          "Pacifico"
+        ],
+        "fromBlank": false,
+        "fromError": false,
+        "to": "Pacífico"
+      }
+    ],
+    "description": "Editar celdas en masa en columna BARRIO"
+  },
+  {
+    "op": "core/mass-edit",
+    "engineConfig": {
+      "facets": [
+        {
+          "type": "list",
+          "name": "TIPO-NUM",
+          "expression": "facetCount(value, 'value', 'TIPO-NUM') > 1",
+          "columnName": "TIPO-NUM",
+          "invert": false,
+          "omitBlank": false,
+          "omitError": false,
+          "selection": [
+            {
+              "v": {
+                "v": true,
+                "l": "true"
+              }
+            }
+          ],
+          "selectBlank": false,
+          "selectError": false
+        }
+      ],
+      "mode": "row-based"
+    },
+    "columnName": "BARRIO",
+    "expression": "value",
+    "edits": [
+      {
+        "from": [
+          "Puerta Del Angel"
+        ],
+        "fromBlank": false,
+        "fromError": false,
+        "to": "Puerta Del Ángel"
+      }
+    ],
+    "description": "Editar celdas en masa en columna BARRIO"
+  },
+  {
+    "op": "core/mass-edit",
+    "engineConfig": {
+      "facets": [
+        {
+          "type": "list",
+          "name": "TIPO-NUM",
+          "expression": "facetCount(value, 'value', 'TIPO-NUM') > 1",
+          "columnName": "TIPO-NUM",
+          "invert": false,
+          "omitBlank": false,
+          "omitError": false,
+          "selection": [
+            {
+              "v": {
+                "v": true,
+                "l": "true"
+              }
+            }
+          ],
+          "selectBlank": false,
+          "selectError": false
+        }
+      ],
+      "mode": "row-based"
+    },
+    "columnName": "DISTRITO",
+    "expression": "value",
+    "edits": [
+      {
+        "from": [
+          "Chamartin"
+        ],
+        "fromBlank": false,
+        "fromError": false,
+        "to": "Chamartín"
+      }
+    ],
+    "description": "Editar celdas en masa en columna DISTRITO"
+  },
+  {
+    "op": "core/mass-edit",
+    "engineConfig": {
+      "facets": [
+        {
+          "type": "list",
+          "name": "TIPO-NUM",
+          "expression": "facetCount(value, 'value', 'TIPO-NUM') > 1",
+          "columnName": "TIPO-NUM",
+          "invert": false,
+          "omitBlank": false,
+          "omitError": false,
+          "selection": [
+            {
+              "v": {
+                "v": true,
+                "l": "true"
+              }
+            }
+          ],
+          "selectBlank": false,
+          "selectError": false
+        }
+      ],
+      "mode": "row-based"
+    },
+    "columnName": "DISTRITO",
+    "expression": "value",
+    "edits": [
+      {
+        "from": [
+          "Chamberi"
+        ],
+        "fromBlank": false,
+        "fromError": false,
+        "to": "Chamberí"
+      }
+    ],
+    "description": "Editar celdas en masa en columna DISTRITO"
+  },
+  {
+    "op": "core/mass-edit",
+    "engineConfig": {
+      "facets": [
+        {
+          "type": "list",
+          "name": "TIPO-NUM",
+          "expression": "facetCount(value, 'value', 'TIPO-NUM') > 1",
+          "columnName": "TIPO-NUM",
+          "invert": false,
+          "omitBlank": false,
+          "omitError": false,
+          "selection": [
+            {
+              "v": {
+                "v": true,
+                "l": "true"
+              }
+            }
+          ],
+          "selectBlank": false,
+          "selectError": false
+        }
+      ],
+      "mode": "row-based"
+    },
+    "columnName": "DISTRITO",
+    "expression": "value",
+    "edits": [
+      {
+        "from": [
+          "Tetuan"
+        ],
+        "fromBlank": false,
+        "fromError": false,
+        "to": "Tetuán"
+      }
+    ],
+    "description": "Editar celdas en masa en columna DISTRITO"
+  },
+  {
+    "op": "core/mass-edit",
+    "engineConfig": {
+      "facets": [
+        {
+          "type": "list",
+          "name": "TIPO-NUM",
+          "expression": "facetCount(value, 'value', 'TIPO-NUM') > 1",
+          "columnName": "TIPO-NUM",
+          "invert": false,
+          "omitBlank": false,
+          "omitError": false,
+          "selection": [
+            {
+              "v": {
+                "v": true,
+                "l": "true"
+              }
+            }
+          ],
+          "selectBlank": false,
+          "selectError": false
+        }
+      ],
+      "mode": "row-based"
+    },
+    "columnName": "DISTRITO",
+    "expression": "value",
+    "edits": [
+      {
+        "from": [
+          "Vicalvaro"
+        ],
+        "fromBlank": false,
+        "fromError": false,
+        "to": "Vicálvaro"
+      }
+    ],
+    "description": "Editar celdas en masa en columna DISTRITO"
+  },
+  {
+    "op": "core/text-transform",
+    "engineConfig": {
+      "facets": [],
+      "mode": "row-based"
+    },
+    "columnName": "NOMBRE-VIA",
+    "expression": "grel:value.unescape('html')",
+    "onError": "keep-original",
+    "repeat": false,
+    "repeatCount": 10,
+    "description": "Transforma el texto de las celdas en la columna NOMBRE-VIA usando la expresión grel:value.unescape('html')"
+  },
+  {
+    "op": "core/text-transform",
+    "engineConfig": {
+      "facets": [],
+      "mode": "row-based"
+    },
+    "columnName": "HORARIO",
+    "expression": "grel:value.unescape('html')",
+    "onError": "keep-original",
+    "repeat": false,
+    "repeatCount": 10,
+    "description": "Transforma el texto de las celdas en la columna HORARIO usando la expresión grel:value.unescape('html')"
+  },
+  {
+    "op": "core/text-transform",
+    "engineConfig": {
+      "facets": [],
+      "mode": "row-based"
+    },
+    "columnName": "EQUIPAMIENTO",
+    "expression": "grel:value.replace(/\\s+/, \" \").trim()",
+    "onError": "keep-original",
+    "repeat": false,
+    "repeatCount": 10,
+    "description": "Transforma el texto de las celdas en la columna EQUIPAMIENTO usando la expresión grel:value.replace(/\\s+/, \" \").trim()"
+  },
+  {
+    "op": "core/column-removal",
+    "columnName": "DESCRIPCION",
+    "description": "Eliminar columna DESCRIPCION"
+  },
+  {
+    "op": "core/text-transform",
+    "engineConfig": {
+      "facets": [],
+      "mode": "row-based"
+    },
+    "columnName": "DESCRIPCION-ENTIDAD",
+    "expression": "grel:value.replace(/\\s+/, \" \").trim()",
+    "onError": "keep-original",
+    "repeat": false,
+    "repeatCount": 10,
+    "description": "Transforma el texto de las celdas en la columna DESCRIPCION-ENTIDAD usando la expresión grel:value.replace(/\\s+/, \" \").trim()"
+  },
+  {
+    "op": "core/column-rename",
+    "oldColumnName": "DESCRIPCION-ENTIDAD",
+    "newColumnName": "DESCRIPCION",
+    "description": "Renombra la columna DESCRIPCION-ENTIDAD a DESCRIPCION"
+  },
+  {
+    "op": "core/text-transform",
+    "engineConfig": {
+      "facets": [],
+      "mode": "row-based"
+    },
+    "columnName": "BARRIO",
+    "expression": "value.toUppercase()",
+    "onError": "keep-original",
+    "repeat": false,
+    "repeatCount": 10,
+    "description": "Transforma el texto de las celdas en la columna BARRIO usando la expresión value.toUppercase()"
+  },
+  {
+    "op": "core/text-transform",
+    "engineConfig": {
+      "facets": [],
+      "mode": "row-based"
+    },
+    "columnName": "DISTRITO",
+    "expression": "value.toUppercase()",
+    "onError": "keep-original",
+    "repeat": false,
+    "repeatCount": 10,
+    "description": "Transforma el texto de las celdas en la columna DISTRITO usando la expresión value.toUppercase()"
+  }
+]

@@ -1,0 +1,397 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <title>Requisitos de los datasets - Gastronomía en Madrid</title>
+</head>
+
+<body>
+  <h1>Evaluación de requisitos de los datasets: Gastronomía en Madrid</h1>
+
+<h2>1. Introducción</h2>
+
+<p>
+El objetivo de este documento es analizar dos conjuntos de datos
+abiertos relacionados con la gastronomía y la alimentación en Madrid.
+Los datasets se obtienen del Portal de Datos Abiertos del Ayuntamiento
+de Madrid y permiten estudiar tanto los mercados municipales como
+los productos alimentarios comercializados en Mercamadrid.
+</p>
+
+<p>
+La selección se realiza teniendo en cuenta los requisitos R1-R6
+establecidos en la asignatura. Los requisitos R1-R4 son obligatorios,
+mientras que R5 y R6 son opcionales.
+</p>
+
+<p>
+Se utilizarán recursos CSV publicados por las fuentes oficiales.
+Se tendrá en cuenta la fecha real de los datos de cada recurso,
+que puede ser diferente de la fecha de actualización de su ficha.
+</p>
+
+<h2>2. Dataset 1: Mercados municipales</h2>
+
+<p>
+<strong>Fuente:</strong>
+<a href="https://datos.madrid.es/dataset/200967-0-mercados">
+Mercados municipales - Portal de Datos Abiertos de Madrid
+</a>
+</p>
+
+<p>
+Este conjunto de datos recoge información de los 46 mercados
+municipales de Madrid. Incluye información sobre direcciones,
+contacto, horarios, transportes, servicios y coordenadas geográficas.
+</p>
+
+<p>
+La ficha oficial indica que el conjunto se actualiza diariamente
+y que su cobertura se mantiene hasta octubre de 2026. Para el proyecto
+se descargará el recurso CSV correspondiente a la versión disponible
+en el portal.
+</p>
+
+<h3>R1. Los datos pertenecen a un dominio smart city</h3>
+
+<p><strong>Evaluación: Cumple.</strong></p>
+
+<p>
+Los mercados municipales forman parte de la infraestructura comercial
+y alimentaria de Madrid. Desempeñan un papel importante en el
+abastecimiento de alimentos frescos y en la actividad económica y
+social de los barrios.
+</p>
+
+<p>
+El dataset pertenece al ámbito del comercio y los servicios urbanos.
+Su utilización en una aplicación digital puede facilitar el acceso
+a información sobre los recursos comerciales de la ciudad y contribuir
+a mejorar su descubrimiento por parte de ciudadanos y visitantes.
+</p>
+
+<h3>R2. Los datos están disponibles en formato CSV</h3>
+
+<p><strong>Evaluación: Cumple.</strong></p>
+
+<p>
+El Portal de Datos Abiertos de Madrid ofrece recursos descargables
+para este conjunto de datos. Se seleccionará el recurso CSV disponible
+en la ficha oficial y se almacenará en el directorio
+<code>csv</code> del repositorio del grupo.
+</p>
+
+<p>
+El formato CSV organiza los registros en filas y columnas, lo que
+facilita su análisis, transformación y posterior conversión a RDF.
+</p>
+
+<h3>R3. Los datos tienen una licencia abierta</h3>
+
+<p><strong>Evaluación: Cumple.</strong></p>
+
+<p>
+La ficha oficial indica que el conjunto se publica bajo la licencia
+Creative Commons Attribution 4.0 International (CC BY 4.0).
+Esta licencia permite reutilizar, adaptar y redistribuir los datos,
+siempre que se reconozca adecuadamente la fuente original y se
+respeten las condiciones de la licencia.
+</p>
+
+<p>
+Por tanto, el conjunto puede utilizarse en el proyecto y sus datos
+pueden publicarse de nuevo respetando las condiciones de atribución.
+</p>
+
+<p>
+Licencia:
+<a href="https://creativecommons.org/licenses/by/4.0/deed.es">
+Creative Commons CC BY 4.0
+</a>.
+</p>
+
+<h3>R4. Los datos se pueden enlazar con entidades del mundo real</h3>
+
+<p><strong>Evaluación: Cumple.</strong></p>
+
+<p>
+El dataset incluye direcciones y coordenadas geográficas, que permiten
+identificar la ubicación real de los mercados. Esta información
+facilita su representación en mapas y su vinculación con otras
+entidades geográficas, como barrios, distritos y estaciones de
+transporte público.
+</p>
+
+<p>
+Además, los mercados pueden relacionarse con otros conjuntos de
+datos que describen los locales comerciales y las actividades
+que se desarrollan en ellos. Para crear los enlaces será necesario
+comprobar los identificadores y las correspondencias entre los
+registros de ambas fuentes.
+</p>
+
+<h3>R5. Existe documentación sobre los datos</h3>
+
+<p><strong>Evaluación: Cumple.</strong></p>
+
+<p>
+El portal ofrece documentación asociada sobre el contenido y la
+estructura del fichero. Esta documentación permite comprender
+los campos disponibles y facilita la interpretación de los datos
+antes de utilizarlos en la aplicación.
+</p>
+
+<h3>R6. Los datos pueden combinarse con otras fuentes</h3>
+
+<p><strong>Evaluación: Cumple.</strong></p>
+
+<p>
+El propio portal identifica el conjunto «Mercados municipales:
+locales comerciales, nombres comerciales y actividades» como una
+fuente complementaria.
+</p>
+
+<p>
+La combinación permitiría relacionar cada mercado con los puestos
+comerciales y sus actividades. No obstante, los ficheros publicados
+de este conjunto complementario solo llegan hasta 2018, por lo que
+deberán tratarse como información histórica y no como un registro
+actualizado a 2026.
+</p>
+
+<h2>3. Dataset 2: Mercamadrid - Volumen y precio de productos comercializados</h2>
+
+<p>
+<strong>Fuente:</strong>
+<a href="https://datos.madrid.es/dataset/300357-0-mercamadrid-volumen-precio">
+Mercamadrid: volumen y precio de productos comercializados
+</a>
+</p>
+
+<p>
+Este conjunto de datos recoge información sobre los productos
+comercializados en Mercamadrid, desglosados por variedades y orígenes.
+Incluye referencias temporales, volúmenes acumulados y precios
+máximos, mínimos y más frecuentes.
+</p>
+
+<p>
+Los precios son referencias del mercado mayorista y no deben
+interpretarse como precios de venta al consumidor en restaurantes
+o tiendas.
+</p>
+
+<p>
+La ficha oficial indica que el conjunto se actualiza trimestralmente
+y que los datos publicados llegan hasta el 30 de septiembre de 2026.
+Se utilizará el CSV más reciente disponible en el portal.
+</p>
+
+<h3>R1. Los datos pertenecen a un dominio smart city</h3>
+
+<p><strong>Evaluación: Cumple.</strong></p>
+
+<p>
+El conjunto pertenece al ámbito del comercio y el abastecimiento
+alimentario. Mercamadrid es un centro de distribución mayorista
+de productos alimentarios, por lo que la información permite estudiar
+los productos que se comercializan, sus orígenes y sus precios
+de referencia.
+</p>
+
+<p>
+Estos datos pueden utilizarse para desarrollar aplicaciones que
+faciliten la consulta de información alimentaria y el análisis
+de la actividad comercial relacionada con la alimentación.
+</p>
+
+<h3>R2. Los datos están disponibles en formato CSV</h3>
+
+<p><strong>Evaluación: Cumple.</strong></p>
+
+<p>
+El portal publica archivos CSV correspondientes a diferentes
+periodos. Para el proyecto se seleccionará el recurso CSV más reciente
+disponible en 2026, verificando las fechas que aparecen en el propio
+archivo.
+</p>
+
+<p>
+El formato permite procesar los registros mediante herramientas
+de análisis de datos y facilita su transformación a RDF.
+</p>
+
+<h3>R3. Los datos tienen una licencia abierta</h3>
+
+<p><strong>Evaluación: Cumple.</strong></p>
+
+<p>
+La ficha oficial indica que el conjunto se distribuye bajo la licencia
+Creative Commons Attribution 4.0 International (CC BY 4.0).
+Esta licencia permite reutilizar, adaptar y redistribuir los datos,
+siempre que se reconozca la fuente original.
+</p>
+
+<p>
+En el proyecto se mantendrá la atribución correspondiente a
+Mercamadrid S.A. y al Portal de Datos Abiertos del Ayuntamiento
+de Madrid.
+</p>
+
+<h3>R4. Los datos se pueden enlazar con entidades del mundo real</h3>
+
+<p><strong>Evaluación: Cumple.</strong></p>
+
+<p>
+El dataset contiene códigos y descripciones de variedades de productos,
+así como información sobre sus orígenes. Estos campos permiten
+identificar productos y relacionarlos potencialmente con otras
+fuentes de información sobre alimentos, variedades agrícolas
+y territorios geográficos.
+</p>
+
+<p>
+Los códigos de origen pueden servir para establecer relaciones
+geográficas cuando se interpretan correctamente según la
+documentación oficial. Antes de crear enlaces RDF, se comprobará
+la correspondencia entre los identificadores y las entidades
+de las fuentes externas.
+</p>
+
+<h3>R5. Existe documentación sobre los datos</h3>
+
+<p><strong>Evaluación: Cumple.</strong></p>
+
+<p>
+El portal proporciona un documento PDF que describe el contenido
+y la estructura del fichero. La documentación explica campos
+como las fechas de referencia, los códigos de variedad, las
+descripciones de los productos, los orígenes, los volúmenes
+y los precios.
+</p>
+
+<p>
+Esta documentación facilita la interpretación de los datos y
+su preparación para la transformación a RDF.
+</p>
+
+<h3>R6. Los datos pueden combinarse con otras fuentes</h3>
+
+<p><strong>Evaluación: Cumple.</strong></p>
+
+<p>
+La ficha oficial identifica el conjunto «Mercamadrid: empresas
+y ubicación» como una fuente de datos relacionada. Este conjunto
+describe empresas situadas en los módulos y espacios de Mercamadrid.
+</p>
+
+<p>
+Ambos conjuntos pueden complementar el conocimiento sobre la
+actividad comercial alimentaria. La posibilidad de enlazar registros
+concretos dependerá de los identificadores y las relaciones
+disponibles en sus ficheros.
+</p>
+
+<h2>4. Resumen del cumplimiento</h2>
+
+<table>
+    <thead>
+        <tr>
+            <th>Requisito</th>
+            <th>Mercados municipales</th>
+            <th>Mercamadrid</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr>
+            <td>R1. Dominio smart city</td>
+            <td>Cumple</td>
+            <td>Cumple</td>
+        </tr>
+        <tr>
+            <td>R2. Formato CSV</td>
+            <td>Cumple: seleccionar el CSV disponible</td>
+            <td>Cumple: seleccionar el CSV de 2026</td>
+        </tr>
+        <tr>
+            <td>R3. Licencia abierta</td>
+            <td>CC BY 4.0</td>
+            <td>CC BY 4.0</td>
+        </tr>
+        <tr>
+            <td>R4. Enlace con entidades reales</td>
+            <td>Cumple mediante direcciones y coordenadas</td>
+            <td>Cumple potencialmente mediante códigos y orígenes</td>
+        </tr>
+        <tr>
+            <td>R5. Documentación</td>
+            <td>Cumple</td>
+            <td>Cumple</td>
+        </tr>
+        <tr>
+            <td>R6. Múltiples fuentes</td>
+            <td>Cumple mediante un conjunto complementario histórico</td>
+            <td>Cumple mediante un conjunto relacionado de empresas</td>
+        </tr>
+    </tbody>
+</table>
+
+<h2>5. Conclusión</h2>
+
+<p>
+Los dos conjuntos de datos seleccionados permiten estudiar la
+gastronomía y la alimentación en Madrid desde perspectivas
+complementarias.
+</p>
+
+<p>
+El conjunto de mercados municipales aporta información geográfica
+sobre los mercados y sus servicios, mientras que Mercamadrid
+proporciona datos sobre productos alimentarios, orígenes,
+volúmenes y precios de referencia mayoristas.
+</p>
+
+<p>
+Ambos conjuntos disponen de recursos CSV, licencia abierta y
+documentación oficial. También ofrecen oportunidades para enlazar
+sus datos con otras entidades y fuentes de información.
+</p>
+
+<p>
+La información seleccionada servirá de base para una aplicación
+que permita explorar recursos relacionados con la alimentación
+en Madrid. En las siguientes fases del proyecto se estudiará
+su transformación a RDF y su vinculación con otras fuentes
+disponibles en la web.
+</p>
+
+<h2>6. Referencias</h2>
+
+<ul>
+    <li>
+        <a href="https://datos.madrid.es/dataset/200967-0-mercados">
+            Mercados municipales.
+        </a>
+    </li>
+    <li>
+        <a href="https://datos.madrid.es/dataset/210006-0-mercados-municipales-puestos/downloads">
+            Mercados municipales: locales comerciales, nombres comerciales y actividades.
+        </a>
+    </li>
+    <li>
+        <a href="https://datos.madrid.es/dataset/300357-0-mercamadrid-volumen-precio">
+            Mercamadrid: volumen y precio de productos comercializados.
+        </a>
+    </li>
+    <li>
+        <a href="https://datos.madrid.es/dataset/300358-0-mercamadrid-empresas-ubicacion">
+            Mercamadrid: empresas y ubicación.
+        </a>
+    </li>
+    <li>
+        <a href="https://creativecommons.org/licenses/by/4.0/deed.es">
+            Creative Commons Attribution 4.0 International.
+        </a>
+    </li>
+</ul>
+</body>

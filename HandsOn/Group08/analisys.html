@@ -1,0 +1,309 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Análisis de los datasets</title>
+    <style>
+        body { font-family: Arial, sans-serif; max-width: 900px; margin: 2em auto; line-height: 1.6; }
+        h1 { color: #2c3e50; border-bottom: 2px solid #3498db; }
+        h2 { color: #2980b9; margin-top: 2em; }
+        h3 { color: #483D8B; margin-top: 2em; }
+        h4 { color: #555; margin-top: 1.5em; }
+        table { border-collapse: collapse; width: 100%; margin: 1em 0; }
+        th, td { border: 1px solid #bdc3c7; padding: 8px; text-align: left; }
+        th { background-color: #ecf0f1; }
+        code { background: #f4f4f4; padding: 2px 5px; border-radius: 3px; }
+        .toc { background: #f8f9fa; border-left: 4px solid #2980b9; padding: 1em 1.5em; margin: 1.5em 0; }
+        .toc ul { margin: .3em 0; }
+        .note { background: #fff8e1; border-left: 4px solid #f39c12; padding: .8em 1em; margin: 1em 0; }
+    </style>
+</head>
+<body>
+
+    <h1>Análisis de los datasets</h1>
+
+    <!-- ÍNDICE -->
+    <nav class="toc">
+        <strong>Índice:</strong>
+        <ul>
+            <li><a href="#ds1">Dataset 1 — Barrios de Madrid</a></li>
+            <li><a href="#ds2">Dataset 2 — Mercados de Madrid</a></li>
+        </ul>
+    </nav>
+
+    <!-- DATASET 1: BARRIOS -->
+    <section id="ds1">
+        <h2>Dataset 1 — Barrios de Madrid (<code>Barrios.csv</code>)</h2>
+
+        <!-- ANÁLISIS DEL CONJUNTO DE DATOS -->
+        <h3>1. Análisis del conjunto de datos</h3>
+
+        <h4>1.1. Descripción general</h4>
+        <p>
+            El dataset <code>Barrios.csv</code> contiene información sobre los barrios
+            de la ciudad de Madrid, organizados por distritos. Cada fila representa un
+            barrio e incluye su código, nombre, distrito al que pertenece, número dentro
+            del distrito y superficie en metros cuadrados. Será usado posteriormente en
+            la funcionalidad del mapa.
+        </p>
+
+        <h4>1.2. Características técnicas</h4>
+        <table>
+            <thead><tr><th>Aspecto</th><th>Valor</th></tr></thead>
+            <tbody>
+                <tr><td>Número de registros</td><td>~130 barrios</td></tr>
+                <tr><td>Número de columnas</td><td>10</td></tr>
+                <tr><td>Formato</td><td>CSV (separado por <code>;</code>)</td></tr>
+                <tr><td>Codificación</td><td>UTF-8 con BOM</td></tr>
+                <tr><td>Separador decimal</td><td>Coma (<code>,</code>) — formato español</td></tr>
+                <tr><td>Valores nulos</td><td>No se han detectado</td></tr>
+                <tr><td>Duplicados</td><td>No se han detectado duplicados exactos</td></tr>
+            </tbody>
+        </table>
+
+        <h4>1.3. Esquema de columnas</h4>
+        <table>
+            <thead>
+                <tr><th>Columna</th><th>Tipo</th><th>Descripción</th><th>Rango / Ejemplo</th></tr>
+            </thead>
+            <tbody>
+                <tr><td><code>CODDIS</code></td><td>Entero</td><td>Código del distrito</td><td>1 – 21</td></tr>
+                <tr><td><code>NOMDIS</code></td><td>Texto</td><td>Nombre del distrito</td><td>"Centro", "Villaverde"…</td></tr>
+                <tr><td><code>COD_BAR</code></td><td>Entero</td><td>Código del barrio (3 dígitos)</td><td>011, 171, 211…</td></tr>
+                <tr><td><code>NOMBRE</code></td><td>Texto</td><td>Nombre oficial del barrio</td><td>"Sol", "Palacio"…</td></tr>
+                <tr><td><code>COD_DIS_TX</code></td><td>Texto</td><td>Código de distrito con 2 dígitos</td><td>"01", "17"…</td></tr>
+                <tr><td><code>BARRIO_MAY</code></td><td>Texto</td><td>Nombre del barrio en mayúsculas (sin tildes)</td><td>"SOL", "ANGELES"…</td></tr>
+                <tr><td><code>COD_DISBAR</code></td><td>Entero</td><td>Código distrito + barrio</td><td>11, 171…</td></tr>
+                <tr><td><code>NUM_BAR</code></td><td>Entero</td><td>Número del barrio dentro del distrito</td><td>1 – 9</td></tr>
+                <tr><td><code>BARRIO_MT</code></td><td>Texto</td><td>Nombre del barrio con tildes en mayúsculas</td><td>"SOL", "ÁNGELES"…</td></tr>
+                <tr><td><code>AREA</code></td><td>Decimal</td><td>Superficie en metros cuadrados</td><td>248.882 – 187.583.248</td></tr>
+            </tbody>
+        </table>
+
+        <h4>1.4. Observaciones sobre la calidad de los datos</h4>
+        <ul>
+            <li><strong>Inconsistencia de tildes:</strong> <code>BARRIO_MAY</code> no lleva tildes ("ANGELES") mientras que <code>BARRIO_MT</code> sí ("ÁNGELES").</li>
+            <li><strong>Espacios dobles:</strong> aparecen valores como "PALOMERAS  BAJAS".</li>
+            <li><strong>AREA</strong> usa coma decimal y valores muy grandes (m²).</li>
+            <li><strong>COD_BAR</strong> a veces con ceros a la izquierda (024, 011) y a veces no (171).</li>
+        </ul>
+
+        <!-- ANÁLISIS DE LICENCIA -->
+        <h3>2. Análisis de licencia de la fuente de datos</h3>
+
+        <table>
+            <thead><tr><th>Aspecto</th><th>Valor</th></tr></thead>
+            <tbody>
+                <tr><td>Publicador</td><td>Dirección General de Planificación Estratégica del Ayuntamiento de Madrid</td></tr>
+                <tr><td>Portal</td><td><a href="https://datos.madrid.es/dataset/300496-0-barrios-madrid">datos.madrid.es</a></td></tr>
+                <tr><td>Rightsholder</td><td>Ayuntamiento de Madrid</td></tr>
+                <tr><td>Licencia original</td><td>Creative Commons Attribution 4.0 International (CC BY 4.0)</td></tr>
+                <tr><td>Fecha de publicación</td><td>02/03/2021</td></tr>
+                <tr><td>Condiciones de reutilización</td><td>Permite uso comercial y no comercial; obligatorio citar la fuente ("Origen de los datos: Ayuntamiento de Madrid") y no desnaturalizar el significado de la información</td></tr>
+                <tr><td>Licencia propuesta para el dataset generado</td><td>CC BY 4.0 (compatible con la original, permite derivados con atribución)</td></tr>
+            </tbody>
+        </table>
+
+        <!-- ESTRATEGIA DE NOMBRADO -->
+        <h3>3. Estrategia de nombrado de recursos</h3>
+
+        <h4>3.1. Dominio base</h4>
+        <p><code>https://gastronomad.es/group08/</code></p>
+
+        <h4>3.2. Patrones de URI</h4>
+        <table>
+            <thead>
+                <tr><th>Recurso</th><th>Patrón de URI</th><th>Ejemplo</th></tr>
+            </thead>
+            <tbody>
+                <tr><td>Namespace de la ontología</td><td><code>https://gastronomad.es/group08/ontology#</code></td><td><code>.../ontology#District</code></td></tr>
+                <tr><td>Instancias de distrito</td><td><code>https://gastronomad.es/group08/resource/distrito/{COD_DIS_TX}</code></td><td><code>.../resource/distrito/01</code></td></tr>
+                <tr><td>Instancias de barrio</td><td><code>https://gastronomad.es/group08/resource/barrio/{COD_BAR}</code></td><td><code>.../resource/barrio/016</code></td></tr>
+            </tbody>
+        </table>
+
+        <h4>3.3. Content negotiation</h4>
+        <ul>
+            <li><code>text/turtle</code> por defecto.</li>
+            <li><code>application/rdf+xml</code> y <code>application/ld+json</code> como alternativas.</li>
+            <li>Redirección 303 hacia la representación correspondiente.</li>
+        </ul>
+
+    </section>
+
+
+    <!-- DATASET 2: MERCADOS -->
+
+    <section id="ds2">
+        <h2>Dataset 2 — Mercados de Madrid (<code>mercados.csv</code>)</h2>
+        
+        <!-- ANÁLISIS DEL CONJUNTO DE DATOS -->
+        <h3>1. Análisis del conjunto de datos</h3>
+
+        <h4>1.1. Descripción general</h4>
+        <p>
+            El dataset <code>mercados.csv</code> contiene información de los mercados municipales
+            de Madrid. Cada fila representa un mercado e incluye su identificador, nombre,
+            descripción, horario, servicios, transporte público, dirección, barrio, distrito,
+            código postal, coordenadas geográficas y datos de contacto. Estos datos nos permiten
+            localizar los mercados en un mapa y relacionarlos con los barrios y distritos del
+            dataset <code>Barrios.csv</code>.
+        </p>
+        <p>
+            En el Portal de Datos Abiertos del Ayuntamiento de Madrid pone que está formada por 
+            46 mercados (aunque solo aparecen 45) y que se proporcionan datos de dirección, contacto, 
+            horarios, transportes, servicios y coordenadas para su localización sobre plano. 
+        </p>
+
+        <h4>1.2. Características técnicas</h4>
+        <table>
+            <thead><tr><th>Aspecto</th><th>Valor</th></tr></thead>
+            <tbody>
+                <tr><td>Número de registros</td><td>45 mercados</td></tr>
+                <tr><td>Número de columnas</td><td>32</td></tr>
+                <tr><td>Formato</td><td>CSV (separado por <code>;</code>)</td></tr>
+                <tr><td>Codificación detectada</td><td>Windows-1252 / compatible con ISO-8859-1; sin BOM UTF-8</td></tr>
+                <tr><td>Separador decimal</td><td>Punto (<code>.</code>) en las coordenadas</td></tr>
+                <tr><td>Valores nulos</td><td>308 celdas vacías de 1.440 (campos opcionales o sin información)</td></tr>
+                <tr><td>Duplicados exactos</td><td>0 filas duplicadas</td></tr>
+                <tr><td>Identificadores</td><td><code>PK</code>, <code>NOMBRE</code> y <code>CONTENT-URL</code> tienen 45 valores distintos cada uno</td></tr>
+            </tbody>
+        </table>
+
+        <h4>1.3. Esquema de columnas</h4>
+        <table>
+            <thead>
+                <tr><th>Columna</th><th>Tipo</th><th>Descripción</th><th>Rango / ejemplo</th></tr>
+            </thead>
+            <tbody>
+                <tr><td><code>PK</code></td><td>Entero (identificador)</td><td>Clave interna del registro en la web municipal</td><td>12424</td></tr>
+                <tr><td><code>NOMBRE</code></td><td>Texto</td><td>Nombre del mercado</td><td>“Mercado municipal de Alto de Extremadura”</td></tr>
+                <tr><td><code>DESCRIPCION-ENTIDAD</code></td><td>Texto largo</td><td>Descripción narrativa del mercado y de su actividad</td><td>Texto descriptivo; máximo observado: 1.577 caracteres</td></tr>
+                <tr><td><code>HORARIO</code></td><td>Texto largo</td><td>Horario de apertura y, en algunos casos, horarios de distintos servicios o temporadas</td><td>Texto libre; máximo observado: 399 caracteres</td></tr>
+                <tr><td><code>EQUIPAMIENTO</code></td><td>Texto</td><td>Servicios o equipamientos disponibles</td><td>“Dispone de wifi gratuita”; 27 valores vacíos</td></tr>
+                <tr><td><code>TRANSPORTE</code></td><td>Texto</td><td>Información sobre estaciones de Metro y líneas de autobús cercanas</td><td>“Metro: ... Bus: ...”</td></tr>
+                <tr><td><code>DESCRIPCION</code></td><td>Texto</td><td>Información adicional sobre el mercado</td><td>Solo 2 de 45 registros tienen valor</td></tr>
+                <tr><td><code>ACCESIBILIDAD</code></td><td>Entero / código</td><td>Indicador de accesibilidad. Según la documentación: 0 = no accesible; 1 = accesible; existen otros códigos posibles en la estructura general</td><td>En este CSV: 0 o 1 (37 registros con 1 y 8 con 0)</td></tr>
+                <tr><td><code>CONTENT-URL</code></td><td>URI / texto</td><td>Dirección web de la ficha del mercado en el portal municipal</td><td>URL de madrid.es; 45 valores distintos</td></tr>
+                <tr><td><code>NOMBRE-VIA</code></td><td>Texto</td><td>Nombre de la vía donde se encuentra el mercado</td><td>“JESUITAS”, “SANTA ISABEL”</td></tr>
+                <tr><td><code>CLASE-VIAL</code></td><td>Categoría textual</td><td>Tipo de vía</td><td>CALLE (38), PASEO (4), PLAZA (3)</td></tr>
+                <tr><td><code>TIPO-NUM</code></td><td>Categoría textual</td><td>Tipo de numeración de la dirección</td><td>V (44); NUM (1)</td></tr>
+                <tr><td><code>NUM</code></td><td>Entero</td><td>Número del inmueble en la vía</td><td>1–327</td></tr>
+                <tr><td><code>PLANTA</code></td><td>Sin datos</td><td>Planta que ocupa el mercado en el inmueble</td><td>45 valores vacíos</td></tr>
+                <tr><td><code>PUERTA</code></td><td>Sin datos</td><td>Puerta que ocupa en el inmueble</td><td>45 valores vacíos</td></tr>
+                <tr><td><code>ESCALERAS</code></td><td>Sin datos</td><td>Escalera de acceso</td><td>45 valores vacíos</td></tr>
+                <tr><td><code>ORIENTACION</code></td><td>Sin datos</td><td>Información descriptiva adicional de la dirección</td><td>45 valores vacíos</td></tr>
+                <tr><td><code>LOCALIDAD</code></td><td>Texto</td><td>Localidad del mercado</td><td>MADRID (45 registros)</td></tr>
+                <tr><td><code>PROVINCIA</code></td><td>Texto</td><td>Provincia del mercado</td><td>MADRID (45 registros)</td></tr>
+                <tr><td><code>CODIGO-POSTAL</code></td><td>Código (texto en el modelo)</td><td>Código postal de la dirección</td><td>28001–28053</td></tr>
+                <tr><td><code>COD-BARRIO</code></td><td>Código entero</td><td>Número/código del barrio dentro del distrito</td><td>1–7; 1 valor vacío</td></tr>
+                <tr><td><code>BARRIO</code></td><td>Texto</td><td>Nombre del barrio donde está situado el mercado</td><td>“PUERTA DEL ANGEL”, “EMBAJADORES”</td></tr>
+                <tr><td><code>COD-DISTRITO</code></td><td>Código entero</td><td>Código del distrito</td><td>1–19; 1 valor vacío</td></tr>
+                <tr><td><code>DISTRITO</code></td><td>Texto</td><td>Nombre del distrito</td><td>“LATINA”, “CENTRO”</td></tr>
+                <tr><td><code>COORDENADA-X</code></td><td>Decimal / coordenada</td><td>Coordenada X proyectada UTM-30, sistema ETRS89</td><td>434.775–448.484; 1 valor vacío</td></tr>
+                <tr><td><code>COORDENADA-Y</code></td><td>Decimal / coordenada</td><td>Coordenada Y proyectada UTM-30, sistema ETRS89</td><td>4.466.438–4.481.294; 1 valor vacío</td></tr>
+                <tr><td><code>LATITUD</code></td><td>Decimal / coordenada</td><td>Latitud geográfica en WGS84</td><td>40,346302–40,478433</td></tr>
+                <tr><td><code>LONGITUD</code></td><td>Decimal / coordenada</td><td>Longitud geográfica en WGS84</td><td>-3,768378–-3,606914</td></tr>
+                <tr><td><code>TELEFONO</code></td><td>Texto</td><td>Teléfono de contacto</td><td>Ej. “914 794 751”; 1 valor vacío</td></tr>
+                <tr><td><code>FAX</code></td><td>Sin datos</td><td>Número de fax</td><td>45 valores vacíos</td></tr>
+                <tr><td><code>EMAIL</code></td><td>Texto</td><td>Correo electrónico de contacto</td><td>8 valores vacíos</td></tr>
+                <tr><td><code>TIPO</code></td><td>Texto / categoría</td><td>Ruta de tipología de la entidad en la web municipal</td><td>El mismo valor aparece en los 45 registros</td></tr>
+            </tbody>
+        </table>
+
+        <h4>1.4. Observaciones sobre la calidad de los datos</h4>
+        <ul>
+            <li><strong>Campos opcionales sin información:</strong> <code>PLANTA</code>, <code>PUERTA</code>, <code>ESCALERAS</code>, <code>ORIENTACION</code> y <code>FAX</code> están vacíos. <code>EQUIPAMIENTO</code> está vacío en 27 celdas y <code>DESCRIPCION</code> en 43.</li>
+            <li><strong>Identificación:</strong> no hay filas duplicadas y los campos <code>PK</code>, <code>NOMBRE</code> y <code>CONTENT-URL</code> son únicos en el fichero.</li>
+            <li><strong>Accesibilidad:</strong> en los datos analizados hay 37 mercados con código 1 (accesible) y 8 con código 0 (no accesible).</li>
+            <li><strong>Texto no estructurado:</strong> <code>DESCRIPCION-ENTIDAD</code>, <code>HORARIO</code>, <code>EQUIPAMIENTO</code>, <code>TRANSPORTE</code> y <code>DESCRIPCION</code> contienen texto libre. La documentación del portal advierte que algunos campos de este tipo proceden de contenido HTML y no están estructurados.</li>
+            <li><strong>Entidades HTML:</strong> algunos textos conservan secuencias como <code>&amp;amp;uuml;</code> o <code>&amp;amp;ldquo;</code>, por lo que pueden necesitar limpieza o decodificación antes de mostrarse.</li>
+            <li><strong>Tipos de datos:</strong> códigos postales e identificadores deben tratarse como códigos (no como cantidades numéricas). Además, <code>COD-BARRIO</code> y <code>COD-DISTRITO</code> se interpretan como códigos aunque el programa de análisis los lea como números.</li>
+            <li><strong>Dato anómalo en dirección:</strong> <code>TIPO-NUM</code> toma el valor <code>NUM</code> en un registro (Mercado municipal de Santa Eugenia), mientras que los otros 44 usan <code>V</code>. La documentación genérica del portal describe valores como V, S/N y KM; conviene dejar constancia de la diferencia.</li>
+            <li><strong>Tipología constante:</strong> <code>TIPO</code> contiene la misma ruta en todas las filas, por lo que no permite distinguir categorías entre mercados.</li>
+            <li><strong>Nombres de barrios:</strong> hay diferencias de tildes o denominaciones entre las etiquetas de ambos CSV (por ejemplo, “LAS AGUILAS” frente a “AGUILAS” o “PALOS DE MOGUER” frente a “PALOS DE LA FRONTERA”). Para enlazar los registros es preferible utilizar los códigos, no comparar solo los nombres.</li>
+        </ul>
+
+        <h4>1.5. Potencial de enlazado con el dataset de barrios</h4>
+        <p>
+            El dataset de mercados puede enlazarse directamente con <code>Barrios.csv</code> mediante
+            los códigos de distrito y barrio. La correspondencia se realiza usando
+            <code>mercados.COD-DISTRITO = Barrios.CODDIS</code> y
+            <code>mercados.COD-BARRIO = Barrios.NUM_BAR</code>. Una vez encontrada la fila del barrio,
+            se utiliza su <code>COD_BAR</code> para construir la URI del barrio. Por ejemplo, el
+            Mercado municipal de Alto de Extremadura (PK 12424) tiene distrito 10 y código de barrio
+            2; se corresponde con el barrio cuyo <code>COD_BAR</code> es 102.
+        </p>
+        <p>
+            Esta relación permite representar cada mercado como una entidad que está situada en un
+            barrio y, a través de este, en un distrito. El enlace se basa en identificadores de
+            entidades y no únicamente en la coincidencia de coordenadas o nombres.
+        </p>
+
+        <h3>2. Análisis de licencia de la fuente de datos</h3>
+        <table>
+            <thead><tr><th>Aspecto</th><th>Valor</th></tr></thead>
+            <tbody>
+                <tr><td>Publicador / portal</td><td>Ayuntamiento de Madrid — Portal de Datos Abiertos</td></tr>
+                <tr><td>Responsable del conjunto de datos</td><td>Dirección General de Comercio y Hostelería</td></tr>
+                <tr><td>Titular de la información (rightsholder)</td><td>Ayuntamiento de Madrid, de acuerdo con las condiciones generales de reutilización del portal</td></tr>
+                <tr><td>Conjunto de datos</td><td><a href="https://datos.madrid.es/dataset/200967-0-mercados">Mercados municipales (200967-0-mercados)</a></td></tr>
+                <tr><td>Recurso utilizado</td><td><a href="https://datos.madrid.es/dataset/200967-0-mercados/resource/200967-4-mercados-csv">CSV: 200967-4-mercados-csv</a></td></tr>
+                <tr><td>Fecha de publicación del conjunto</td><td>12/03/2014</td></tr>
+                <tr><td>Última actualización indicada para el conjunto</td><td>28/10/2026</td></tr>
+                <tr><td>Actualización indicada para el recurso CSV</td><td>17/06/2026</td></tr>
+                <tr><td>Licencia original</td><td>Creative Commons Attribution 4.0 International (CC BY 4.0)</td></tr>
+                <tr><td>Condiciones de reutilización</td><td>Permite reutilización comercial y no comercial, incluyendo copia, difusión, modificación, adaptación, extracción, reordenación y combinación. Se debe citar la fuente, indicar la fecha de actualización cuando esté disponible, no desnaturalizar la información y no insinuar que el Ayuntamiento patrocina o respalda el uso.</td></tr>
+                <tr><td>Licencia propuesta para el dataset generado</td><td>CC BY 4.0, manteniendo la atribución al Ayuntamiento de Madrid e indicando las modificaciones realizadas.</td></tr>
+            </tbody>
+        </table>
+        <p>
+            Atribución recomendada: <em>“Origen de los datos: Ayuntamiento de Madrid. Datos procedentes
+            del conjunto ‘Mercados municipales’ del Portal de Datos Abiertos. Se han realizado
+            transformaciones para su representación como Linked Data.”</em>
+        </p>
+
+        <h3>3. Estrategia de nombrado de recursos</h3>
+        <p> Se define la estrategia de nombrado para la ontología y los datos del proyecto Gastronomad, 
+            incluyendo la forma de las URIs, la negociación de contenido, el dominio y los patrones de 
+            identificación de los recursos correspondientes a los mercados municipales y los barrios de Madrid.
+            Se mantiene el dominio de grupo ya definido para el dataset de barrios: <code>http://gastronomad.es/group08/</code>.</p> 
+
+        <h4>3.1. Patrones de URI</h4>
+        <table>
+            <thead><tr><th>Recurso</th><th>Patrón de URI propuesto</th><th>Ejemplo</th></tr></thead>
+            <tbody>
+                <tr><td>Ontología</td><td><code>https://gastronomad.es/group08/ontology</code></td><td><code>.../ontology</code></td></tr>
+                <tr><td>Clases de la ontología</td><td><code>https://gastronomad.es/group08/ontology/class/{ClassName}</code></td><td><code>.../ontology/class/Market</code></td></tr>
+                <tr><td>Propiedades de la ontología</td><td><code>https://gastronomad.es/group08/ontology/property/{propertyName}</code></td><td><code>.../ontology/property/locatedInNeighborhood</code></td></tr>
+                <tr><td>Instancias de mercado</td><td><code>https://gastronomad.es/group08/resource/mercado/{PK}</code></td><td><code>.../resource/mercado/12424</code></td></tr>
+                <tr><td>Instancias de barrio</td><td><code>https://gastronomad.es/group08/resource/barrio/{COD_BAR}</code></td><td><code>.../resource/barrio/102</code></td></tr>
+                <tr><td>Instancias de distrito</td><td><code>https://gastronomad.es/group08/resource/distrito/{COD_DIS_TX}</code></td><td><code>.../resource/distrito/10</code></td></tr>
+            </tbody>
+        </table>
+        <p>
+            Se utilizará <code>PK</code> como identificador local del mercado, ya que es único en el
+            CSV analizado. Para enlazar con barrios, se recuperará el <code>COD_BAR</code> del CSV de
+            barrios usando la pareja de códigos de distrito y barrio. Se separan las rutas de clases,
+            propiedades e individuos; las URI de propiedades no dependen de las URI de las clases.
+        </p>
+
+        <h4>3.2. Content negotiation</h4>
+        <ul>
+            <li>Se prevé ofrecer las representaciones RDF en formato <code>text/turtle</code>.</li>
+            <li>Se podrán ofrecer también <code>application/rdf+xml</code> y <code>application/ld+json</code>.</li>
+            <li>Se propone utilizar negociación de contenido HTTP y redirección 303 para dirigir al usuario a la representación solicitada.</li>
+        </ul>
+
+        <h4>Fuentes consultadas</h4>
+        <ul>
+            <li><a href="https://datos.madrid.es/dataset/200967-0-mercados">Ficha del conjunto de datos: Mercados municipales</a>.</li>
+            <li><a href="https://datos.madrid.es/dataset/200967-0-mercados/resource/200967-5-mercados/download/200967-5-mercados.pdf">Documentación: Equipamientos. Contenido y estructura del fichero</a> (actualizada a mayo de 2019).</li>
+            <li><a href="https://datos.madrid.es/pages/condiciones-generales-ayuntamiento-de-madrid">Condiciones generales de reutilización del Ayuntamiento de Madrid</a>.</li>
+            <li><a href="https://creativecommons.org/licenses/by/4.0/deed.es">Licencia CC BY 4.0</a>.</li>
+        </ul>
+    </section>
+
+</body>
+</html>
