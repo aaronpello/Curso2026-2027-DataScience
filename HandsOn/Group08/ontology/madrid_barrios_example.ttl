@@ -1,0 +1,53 @@
+@prefix ex:  <https://gastronomad.es/group08/ontology#> .
+@prefix barrio: <https://gastronomad.es/group08/resource/barrio/> .
+@prefix distrito: <https://gastronomad.es/group08/resource/distrito/> .
+
+distrito:01 a ex:Distrito ;
+    ex:codigoDistrito 1 ;
+    ex:nombreDistrito "Centro" .
+
+distrito:17 a ex:Distrito ;
+    ex:codigoDistrito 17 ;
+    ex:nombreDistrito "Villaverde" .
+
+barrio:011 a ex:Barrio ;
+    ex:codigoBarrio "011" ;
+    ex:nombreBarrio "Palacio" ;
+    ex:area 1469905.932620000094175 ;
+    ex:numeroEnDistrito 1 ;
+    ex:perteneceADistrito distrito:01 .
+
+barrio:013 a ex:Barrio ;
+    ex:codigoBarrio "013" ;
+    ex:nombreBarrio "Cortes" ;
+    ex:area 591874.244330000015907 ;
+    ex:numeroEnDistrito 3 ;
+    ex:perteneceADistrito distrito:01 .
+
+barrio:016 a ex:Barrio ;
+    ex:codigoBarrio "016" ;
+    ex:nombreBarrio "Sol" ;
+    ex:area 445300.966285999980755 ;
+    ex:numeroEnDistrito 8 ;
+    ex:perteneceADistrito distrito:01 .
+
+barrio:171 a ex:Barrio ;
+    ex:codigoBarrio "171" ;
+    ex:nombreBarrio "Villaverde Alto - Casco Histórico de Villaverde" ;
+    ex:area 9254048.128249999135733 ;
+    ex:numeroEnDistrito 1 ;
+    ex:perteneceADistrito distrito:17 .
+
+barrio:172 a ex:Barrio ;
+    ex:codigoBarrio "172" ;
+    ex:nombreBarrio "San Cristóbal" ;
+    ex:area 1082492.295219999970868 ;
+    ex:numeroEnDistrito 2 ;
+    ex:perteneceADistrito distrito:17 .
+
+barrio:173 a ex:Barrio ;
+    ex:codigoBarrio "173" ;
+    ex:nombreBarrio "Butarque" ;
+    ex:area 6381763.835490000434220 ;
+    ex:numeroEnDistrito 3 ;
+    ex:perteneceADistrito distrito:17 .

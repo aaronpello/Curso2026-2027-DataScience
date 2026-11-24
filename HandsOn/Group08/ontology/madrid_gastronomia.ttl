@@ -1,0 +1,161 @@
+@prefix : <urn:absolute:ogy-4/> .
+@prefix ex: <https://gastronomad.es/group08/ontology#> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix xml: <http://www.w3.org/XML/1998/namespace> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@base <urn:absolute:ogy-4/> .
+
+<https://gastronomad.es/group08/ontology> rdf:type owl:Ontology .
+
+#################################################################
+#    Object Properties
+#################################################################
+
+###  https://gastronomad.es/group08/ontology#locatedInBarrio
+ex:locatedInBarrio rdf:type owl:ObjectProperty ;
+                   rdfs:subPropertyOf owl:topObjectProperty ;
+                   rdfs:domain ex:Mercado ;
+                   rdfs:range ex:Barrio .
+
+
+###  https://gastronomad.es/group08/ontology#perteneceADistrito
+ex:perteneceADistrito rdf:type owl:ObjectProperty ;
+                      rdfs:domain ex:Barrio ;
+                      rdfs:range ex:Distrito .
+
+
+#################################################################
+#    Data properties
+#################################################################
+
+###  https://gastronomad.es/group08/ontology#area
+ex:area rdf:type owl:DatatypeProperty ;
+        rdfs:domain ex:Barrio ;
+        rdfs:range xsd:decimal .
+
+
+###  https://gastronomad.es/group08/ontology#codigoBarrio
+ex:codigoBarrio rdf:type owl:DatatypeProperty ;
+                rdfs:domain ex:Barrio ;
+                rdfs:range xsd:string .
+
+
+###  https://gastronomad.es/group08/ontology#codigoDistrito
+ex:codigoDistrito rdf:type owl:DatatypeProperty ;
+                  rdfs:domain ex:Distrito ;
+                  rdfs:range xsd:integer .
+
+
+###  https://gastronomad.es/group08/ontology#hasAccessibilityCode
+ex:hasAccessibilityCode rdf:type owl:DatatypeProperty ;
+                        rdfs:domain ex:Mercado ;
+                        rdfs:range xsd:integer .
+
+
+###  https://gastronomad.es/group08/ontology#hasContentURL
+ex:hasContentURL rdf:type owl:DatatypeProperty ;
+                 rdfs:domain ex:Mercado ;
+                 rdfs:range xsd:anyURI .
+
+
+###  https://gastronomad.es/group08/ontology#hasDescription
+ex:hasDescription rdf:type owl:DatatypeProperty ;
+                  rdfs:domain ex:Mercado ;
+                  rdfs:range xsd:string .
+
+
+###  https://gastronomad.es/group08/ontology#hasLatitude
+ex:hasLatitude rdf:type owl:DatatypeProperty ;
+               rdfs:domain ex:Mercado ;
+               rdfs:range xsd:decimal .
+
+
+###  https://gastronomad.es/group08/ontology#hasLongitude
+ex:hasLongitude rdf:type owl:DatatypeProperty ;
+                rdfs:domain ex:Mercado ;
+                rdfs:range xsd:decimal .
+
+
+###  https://gastronomad.es/group08/ontology#hasMarketId
+ex:hasMarketId rdf:type owl:DatatypeProperty ;
+               rdfs:domain ex:Mercado ;
+               rdfs:range xsd:integer .
+
+
+###  https://gastronomad.es/group08/ontology#hasName
+ex:hasName rdf:type owl:DatatypeProperty ;
+           rdfs:subPropertyOf owl:topDataProperty ;
+           rdfs:domain ex:Mercado ;
+           rdfs:range xsd:string .
+
+
+###  https://gastronomad.es/group08/ontology#hasOpeningHours
+ex:hasOpeningHours rdf:type owl:DatatypeProperty ;
+                   rdfs:domain ex:Mercado ;
+                   rdfs:range xsd:string .
+
+
+###  https://gastronomad.es/group08/ontology#hasPhone
+ex:hasPhone rdf:type owl:DatatypeProperty ;
+            rdfs:domain ex:Mercado ;
+            rdfs:range xsd:string .
+
+
+###  https://gastronomad.es/group08/ontology#hasPostalCode
+ex:hasPostalCode rdf:type owl:DatatypeProperty ;
+                 rdfs:domain ex:Mercado ;
+                 rdfs:range xsd:string .
+
+
+###  https://gastronomad.es/group08/ontology#hasStreetName
+ex:hasStreetName rdf:type owl:DatatypeProperty ;
+                 rdfs:domain ex:Mercado ;
+                 rdfs:range xsd:string .
+
+
+###  https://gastronomad.es/group08/ontology#hasTransportInfo
+ex:hasTransportInfo rdf:type owl:DatatypeProperty ;
+                    rdfs:domain ex:Mercado ;
+                    rdfs:range xsd:string .
+
+
+###  https://gastronomad.es/group08/ontology#nombreBarrio
+ex:nombreBarrio rdf:type owl:DatatypeProperty ;
+                rdfs:domain ex:Barrio ;
+                rdfs:range xsd:string .
+
+
+###  https://gastronomad.es/group08/ontology#nombreDistrito
+ex:nombreDistrito rdf:type owl:DatatypeProperty ;
+                  rdfs:domain ex:Distrito ;
+                  rdfs:range xsd:string .
+
+
+###  https://gastronomad.es/group08/ontology#numeroEnDistrito
+ex:numeroEnDistrito rdf:type owl:DatatypeProperty ;
+                    rdfs:domain ex:Barrio ;
+                    rdfs:range xsd:integer .
+
+
+#################################################################
+#    Classes
+#################################################################
+
+###  https://gastronomad.es/group08/ontology#Barrio
+ex:Barrio rdf:type owl:Class ;
+          rdfs:label "Barrio"@es .
+
+
+###  https://gastronomad.es/group08/ontology#Distrito
+ex:Distrito rdf:type owl:Class ;
+            rdfs:label "Distrito"@es .
+
+
+###  https://gastronomad.es/group08/ontology#Mercado
+ex:Mercado rdf:type owl:Class ;
+           rdfs:label "Mercado"@es .
+
+
+###  Generated by the OWL API (version 4.5.29.2024-05-13T12:11:03Z) https://github.com/owlcs/owlapi

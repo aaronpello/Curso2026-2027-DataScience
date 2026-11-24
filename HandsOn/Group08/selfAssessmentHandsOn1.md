@@ -1,6 +1,9 @@
 **Nombre del Proyecto:** Aplicación de Gastronomía en Madrid
-**Grupo:** GROUP08
+
+**Grupo:** Group08
+
 **Miembros del grupo:** Yaoyao Ji, Jiamin Wang, Erika He, Siyue Chen, Xinru Wu
+
 **Fecha:** 2026/10/26
 
 ## 1. ¿Qué hemos hecho en esta primera práctica?
